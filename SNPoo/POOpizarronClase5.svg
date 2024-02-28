@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="28cm" height="7cm" viewBox="392 35 550 126" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="415" y="36.1" width="526.55" height="40.9"/>
+    <text font-size="33.9113" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="415" y="70">
+      <tspan x="415" y="70">Clase 5 del 21 de febrero del 2022 </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="392.9" y="132.1" width="251.85" height="27.25"/>
+    <text font-size="22.6226" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="392.9" y="154.7">
+      <tspan x="392.9" y="154.7">Los prefijos get, set e is. </tspan>
+    </text>
+  </g>
+</svg>

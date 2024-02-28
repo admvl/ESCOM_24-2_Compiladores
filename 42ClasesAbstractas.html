@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Clases Abstractas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Programación orientada a objetos<br>Capítulo 4</header>
+ <nav>
+    <!--<div class="contenedor">-->
+      <p>Enseñanza<img src="curie.svg" align=center width=35% border=5></image>Clásica</p>
+      <p class="derecha"><a href="TemarioPOO.html">Temario</a></p>
+      
+      <p><a href="41EnlacesPrac.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="41EnlacesHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">CLASES ABSTRACTAS</h1>
+    <section class="interna">
+      
+      <article>
+       <h1>Clase abstracta</h1>
+       <hr>
+       <p><strong>Definición de clase.</strong> Es la construcción lógica sobre la que se construye la programación orientada a objetos, ya que define la forma y la naturaleza de un objeto. Cualquier concepto que desee implementar en un programa debe ser encapsulado en una clase.</p>
+       <br>
+       <p class="cita"><cite>Java: manual de referencia, Patrick Naughton y Herbert Schildt, Pág. 115</cite></p>
+       <br>
+       <p><strong>Definición de clase abstracta.</strong> Es cuando diferentes tipos de objetos responden de manera diferente a la llamada del mismo método.</p>
+       <br>
+       <p>Un método ficticio que será anulado en todos los instantes por los métodos definidos en las
+clases descendentes. Hay una forma mejor de como usar una clase abstracta para
+decirle al compilador lo que está tratando de hacer con anticipación. En la clase abstracta, se declaran aquellos métodos que son inapropiados para la clase de la variable de referencia pero que serán definidos por clases descendentes que instancian objetos. Para declarar un método, simplemente escriba el encabezado del método con el resumen adicional del modificador y termine este encabezado de método modificado con un punto y coma.
+Por ejemplo, observe el modificador <strong>abstract</strong> en el encabezado de la clase Empleado.
+Una declaración abstracta no contiene suficiente información para definir el método. Solo especifica
+su interfaz del mundo exterior y dice que las definiciones existirán en algún otro lugar. ¿Dónde? En todo instanciable
+clases descendientes! El uso de un método abstracto evita la definición poco elegante del método ficticio y es una mejor manera de implementar el polimorfismo. 
+<br>
+<br>
+Una declaración <strong>abstract</strong> no contiene suficiente información para definir el método. Solo especifica
+su interfaz del mundo exterior y dice que las definiciones existirán en algún otro lugar. ¿Dónde? En toda clase instanciable
+descendente! El uso de un método abstracto evita la definición poco elegante del método ficticio, y es una
+mejor forma de implementar el polimorfismo.
+<br>
+<br>
+El modificador <strong>abstract</strong> está bien nombrado. Algo es abstracto si es de naturaleza general, no detallado
+en la naturaleza. Una declaración de método abstracto es de naturaleza general. No proporciona detalles del método. Eso
+solo sirve para advertir que el método existe y que debe ser desarrollado por definiciones de métodos "reales" en todas
+las clases instanciables descendentes. ¿Hemos seguido esta regla para nuestro programa? En otras palabras, ¿tenemos definiciones del método getPay en todas las clases descendentes de Empleado? Sí, el Asalariado y
+las clases por hora ya contienen las definiciones requeridas del método getPay. Cómo siempre, necesitamos revisar las clases Salaried, Hourly, y Payroll haciendo estos reemplazos:
+<strong>obj.toString</strong> en la siguiente declaración:</p>
+     <br>
+     <pre>System.out.println(obj.toString());</pre>
+      <br>
+   <p class="cita"><cite>Introduction to programing in Java, John Dean and Raymond Dean, Pág. 531</cite></p>
+      <br>
+       <hr>
+       <h1>Clase</h1>
+       <hr>
+       <p><strong>Definición de clase.</strong> El mecanismo de clase en un lenguaje orientado a objetos provee una forma de crear los objetos. Una clase es un diseño que puede ser reeusado cualquier número de veces para crear los objetos. Una clase define un nuevo tipo de datos.</p>
+       <br>
+        <p class="cita"><cite>Object-Oriented Analysis and Design, Brahma Dathan and Sarnath Ramnath, Pág. 13</cite></p>
+        <br>
+        <h3>Ejemplos de clases</h3>
+        <hr>
+         <p><strong>Código en java.</strong> El siguiente código es un ejemplo de clase. Faltaría agregarle métodos:</p>
+     <br>
+        <pre>
+ class caja {
+   double ancho;
+   double alto;
+   double profundo;
+ }
+        </pre>
+       <br>
+   <p><strong>Código en java.</strong> El siguiente código es un ejemplo de clase:</p>
+         <pre>
+        <br>
+ public class Empleado {
+   public String nombre;
+   public Empleado(String nombre) {
+      this.nombre = nombre;
+   }
+   public void imprimirPago(int fecha) {
+      System.out.printf("%2d %10s: %8.2f\n", fecha, nombre, salario());
+   }
+   public double salario() {
+     System.out.println("Error trivial");
+     return 0.0;
+   }
+ }
+
+   
+         </pre>
+    <p class="cita"><cite>Introduction to programing in Java, John Dean and Raymond Dean, Pág. 528</cite></p>
+
+       <br>
+<p><strong>Código en java.</strong> El siguiente código es un ejemplo de clase, dónde se usa la palabra clave <strong>extends</strong> que expresa heredar una clase:</p>
+   <br>
+     <pre>
+ public class Asalariado extends Empleado {
+   private double salario;
+   public Asalariado(String nombre, double salario) {
+     super(nombre);
+     this.salario = salario;
+   }
+   public double renumeracion() {
+     return this.salario / 24;
+   }
+ }
+     </pre>
+    <p class="cita"><cite>Introduction to programing in Java, John Dean and Raymond Dean, Pág. 529</cite></p>
+
+     <br>
+       <hr>
+       
+       <h1>Clase abstracta</h1>
+       <hr>
+        <p><strong>Definición de clase abstracta.</strong> El compilador identificará el método que se va a ejecutar en tiempo de compilación. Generalmente el enlace estático se aplica cuando se usa sobrecarga.</p>
+       <br>
+      <h3>Ejemplo de clases abstractas</h3>
+        <hr>
+        <p><strong>Código en java.</strong> Se presenta el código que presenta una clase abstracta. Donde <strong>extends</strong> quiere decir que hereda de la clase A:</p>
+     <br>
+    <pre>
+ abstract class A {
+   abstract void llamame();
+   void llamametambien() {
+     System.out.println("Este es un metodo concreto");
+   }
+ }
+ class B extends A {
+   void llamame() {
+     System.out.println("Implementacion de llamme en B.");
+   }
+ }
+ class DemoAbstracto {
+   public static void main(String args[]) {
+     B b = new B();
+
+     b.llamame();
+
+     b.llamametambien();
+   }
+ }
+    </pre>
+    <br>
+    <p class="cita"><cite>Java: manual de referencia, Patrick Naughton y Herbert Schildt, Pág. 185-186.</cite></p>
+     <br>
+     <p><strong>Código en java.</strong> Se presenta el código que incluye sobrecarga:</p>
+     <br>
+     <pre>
+   public class abstract Empleado {
+     public abstract double remuneracion();
+     private String nombre;
+     public Empleado(String nombre) {
+       this.nombre = nombre;
+     }
+     public void imprimiPago(int fecha) {
+       System.out.printf("%2d %10s : %8.2f\n", fecha, nombre, remuneracion());
+     }
+     public class Asalariado estends Empleado {
+       public class Horario extends Empleado {
+         public class formaPago {
+           public static void main(String[] args) {
+             Empleado empleado = new Empleado[100];
+       
+     }
+   }
+     </pre>
+
+    <p class="cita"><cite>Introduction to programing in Java, John Dean and Raymond Dean, Pág. 532</cite></p>
+
+ </article>
+<br>
+     
+      </section>
+      <aside>
+            
+      <h1>Ejercicios de clases abstractas</h1>
+        <hr>
+        <br>
+        <p><strong>Clases.</strong> Construir un programa basado en el ejemplo de clases. El programa debe contener una clase y dos o tres métodos diferentes, que después sean invocados.</p>
+     <br>
+      <hr>
+       <p><strong>Clases abstractas.</strong> Construir un programa basado en los ejemplos presentados en la sección de clases abstractas. El programa debe contener clases que heredan de otras clases ya creadas.</p>
+       <br>
+  <!--     <hr>
+      <p><strong>Enlaces dinámicos.</strong> Construir un programa basado en el ejemplo de enlaces dinámicos. El programa debe hacer ladrar a un perro, mauyar a un gato y cantar a un canario.</p>
+      <br>
+     <hr>
+     <h1>Práctica 4 (la correspondiente)</h1>
+        <hr>
+        <br>
+        <p>Realizar la siguiente prácticas presentarlas en un formato de power point y enviarla por correo.</p>
+       <p>Ejercicios. Práctica. Proyecto.</p>
+      
+      <br>
+     <hr>
+     <h1>Realizar el proyecto (parcial 1)</h1>
+        <hr>
+        <br>
+        <p>Presentar el proyecto por medio de un formato de power point y enviarla por correo.</p>
+       <p>Ejercicios. Práctica. Proyecto.</p> -->
+        </aside>
+      <footer><p>Polimorfismo: Tema 4.2</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

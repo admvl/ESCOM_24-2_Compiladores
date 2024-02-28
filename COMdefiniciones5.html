@@ -1,0 +1,308 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+    width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+Compiladores
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPoo.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+TEMARIO 2009
+</a></p>
+
+<p align=right><a href=EstudianteAgoDic2022.html style="float:center">
+LISTA DE CLASES
+</a></p>
+
+<p align="right" class="p5"><a href=SNCompiladores/COMapuntes5.svg target="_blank" style="float:center">
+(APUNTES 5) SNCompiladores/COMapuntes5.dia
+</a></p>
+
+<p align=right><a href=Pizarron5COM.svg style="float:center">
+(PIZARRÓN DE CLASE 5) MiMIC/Pizarron5COM.dia
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+DEFINICIONES 5
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Otro método</font></p>
+
+
+<p>Es un método que tiene como entrada una ER y que utiliza un árbol de análisis sintáctico, que tiene como salida un autómata AFD mínimo:</p>
+<br>
+<font color=red size=5><h3 align="center">ER &rarr; Árbol<SUB>sintáctico</SUB> &rarr; Funciones &rarr; Función siguientepos() &rarr; AFD<SUB>mínimo</SUB> </h3></font>
+
+<p align=right><a href=SNCompiladores/24CreacionAfdEr.html style="float:center">
+TEMA 2.4
+</a></p>
+
+<br>
+<p align=center><font color=yellow size=6>Uso de árboles</font></p>
+<br>
+<p>La ER se posiciona en el árbol de análisis sintáctico:</p>
+
+<font color=red size=5><h3 align="center"> Símbolos terminales &rarr; en las hojas ; <br> Los operadores &rarr; en los nodos padre</h3></font>
+<br>
+
+<p align=right><a href=PizarronAlexicoMAD5.svg style="float:center">
+(PIZARRÓN DE DEFINICIONES 5) MiMIC/PizarronAlexicoMAD5.dia
+</a></p>
+
+<br>
+<p align=center><font color=yellow size=6>Los estados</font></p>
+<br>
+
+<p>Los estados se presentan en forma de tabla de transiciones</p>
+
+<table CELLSPACING="16" align=center>
+<tr><th>&delta;</th><th>a</th><th>b</th></tr>
+
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+
+</table>
+
+<p align=right><a href=LenguajeJava.html style="float:center">
+Características del lenguaje Java
+</a></p>
+
+<p>Esta tabla es la que se usa para programarla.</p>
+</p>
+
+</header>
+
+<br>
+
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Metodología para aplicar el método del árbol</font></p>
+
+<p>Este algoritmo se aplica para convertir una ER en un AFD mínimo:</p>
+
+<font color=red size=7><h3 align="center">ER <br> &darr; </h3></font>
+
+<font color=red size=7><h3 align="center">Árbol de análisis sintáctico <br> &darr; </h3></font>
+<font color=red size=7><h3 align="center">Funciones anulable(), primerapos() y ultimapos() <br> &darr; </h3></font>
+<font color=red size=7><h3 align="center">Función siguientepos() <br> &darr; </h3></font>
+<font color=red size=7><h3 align="center">Obtención de estados</h3></font>
+
+</header>
+
+<br>
+
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Analizador descendente LL(1)</font></p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AnalisisiSintacticoEjem2.svg target="_blank" style="float:center"><strong>SNCompiladores/AnalisisiSintacticoEjem2.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AnalisisiSintacticoEjem2.svg" align=center width=54% border=0></p>
+
+<p>La manera de construir un analizador sintáctico es, la siguiente:</p>
+
+<font color=red size=7><h3 align="center">Obtener la gramática libre de contexto <br> &darr; </h3></font>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AnalisisiSintacticoEjem2GLC.svg target="_blank" style="float:center"><strong>SNCompiladores/AnalisisiSintacticoEjem2GLC.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AnalisisiSintacticoEjem2GLC.svg" align=center width=54% border=0></p>
+
+<font color=red size=7><h3 align="center">Determinar si la GLC es LL(1) <br> &darr; </h3></font>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AnalisisiSintacticoEjem2GLCdeterminar.svg target="_blank" style="float:center"><strong>SNCompiladores/AnalisisiSintacticoEjem2GLCdeterminar.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AnalisisiSintacticoEjem2GLCdeterminar.svg" align=center width=54% border=0></p>
+
+<font color=red size=7><h3 align="center">Acondicionar la GLC <br> &darr; </h3></font>
+<font color=red size=7><h3 align="center">Obtener la tabla LL(1) <br> &darr; </h3></font>
+<font color=red size=7><h3 align="center">Determinar la exactitud de la tabla</h3></font>
+
+</header>
+
+<!--
+<section class=izquierda><strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Sintaxis de la clase interna:</font></p>
+</header>
+
+<pre>
+ClaseExterna.ClaseInterna objetoInterno = objetoExterno.new ClaseInterna();
+</pre>
+
+<p>Si la clase interna es del tipo static, entonces se aplica la siguiente
+sintaxis:</p>
+
+<pre>
+ClaseExterna.ClaseInterna objetoInterno = new ClaseExterna.ClaseInterna();
+</pre>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Programa Logistica.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa Logistica.java</font> Se quiere saber cuánto se envia y a donde se envia un paquete.</p>
+
+<p><a href=Logistica.java style="float:center" target="_blank">Logistica.java</a>.</p>
+
+<p align=right><a href=SNPoo/ProgramaLogisticaVariante.svg style="float:center">
+Diagrama de programa logistica
+</a></p>
+
+<p align="center">
+<img src="SNPoo/ProgramaLogisticaVariante.svg" align=left width=54% border=0></p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Programa TemperaturaCuerpoHumano.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa TemperaturaCuerpoHumano.java</font> Se quiere saber si la temperatura del cuerpo humano requiere atención médica.</p>
+
+<p><a href=TemperaturaCuerpoHumano.java style="float:center" target="_blank">TemperaturaCuerpoHumano.java</a>.</p>
+
+</strong>
+</section>-->
+
+<!--------------------------------------------------------->
+
+<!--
+<aside class=derecha>
+<strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Programa CompraBotellas.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa Comprabotellas.java</font> Se quiere saber cuánto se debe pagar por una cantidad de botellas compradas.</p>
+
+<br>
+
+<p><a href=CompraBotellas.java style="float:center" target="_blank">CompraBotellas.java</a>.</p>-->
+
+</strong>
+</aside>
+
+
+</body>
+</html>

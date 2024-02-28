@@ -1,0 +1,261 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+    width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+APUNTES
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPoo.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=Estudiante.html style="float:center">
+LISTA DE CLASES
+</a></p>
+
+<p align=right><a href=Apuntes6.html style="float:center">
+Apuntes 6
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+APUNTES 6: clases internas
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+
+<header class=encabezado>
+
+<p align=center><font color=yellow>Definición de clases internas</font></p>
+<p align=right><font color=blue>Apuntes: página 6</font></p>
+
+<p>La clase interna agrupa clases, las hace visibles y es diferente a la composición. Al definir una clase interna, sólamente la clase externa es quien la puede usar.
+<br>
+<br>
+Características de la clase interna: 
+<br>
+<br>
+Una clase interna es compilada en 
+una clase que se llama NombreClaseExterna$NombreClaseInterna.class. 
+<br>
+<br>
+Una clase interna puede referenciar los datos y los métodos definidos en la
+clase externa, de tal manera que no se necesita pasar la referencia de un objeto
+de la clase externa al constructor de la clase interna. 
+<br>
+<br>
+A una clase interna se le puede aplicar un modificador como si fuera un miembro de la clase externa. 
+<br>
+<br>
+Una clase interna puede ser definida como static. Una clase interna del tipo static puede ser accesada usando el nombre de la clase externa. Una
+clase interna del tipo static no puede ser accesada por un miembro del tipo
+no static de la clase externa. 
+<br>
+<br> 
+Los objetos de la clase interna se crean frecuentemente en la clase externa. Pero se puede crear un objeto de una clase interna en otra clase. Si la clase es del tipo no static, se puede crear una instancia de la clase externa aplicando
+la siguiente sintaxis:</p>
+
+<p align=center><font color=yellow size=5>Los programas estan en la carpeta MiMIC.</font></p>
+</header>
+
+<br>
+
+<section class=izquierda><strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Sintaxis de la clase interna:</font></p>
+</header>
+
+<pre>
+ClaseExterna.ClaseInterna objetoInterno = objetoExterno.new ClaseInterna();
+</pre>
+
+<p>Si la clase interna es del tipo static, entonces se aplica la siguiente
+sintaxis:</p>
+
+<pre>
+ClaseExterna.ClaseInterna objetoInterno = new ClaseExterna.ClaseInterna();
+</pre>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Programa Logistica.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa Logistica.java</font> Se quiere saber cuánto se envía y a donde se envía un paquete.</p>
+
+<p><a href=Logistica.java style="float:center" target="_blank">Logistica.java</a>.</p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Programa Logistica1.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa Logistica1.java</font> Se quiere saber cuánto se envía y a donde se envía un paquete.</p>
+
+<br>
+
+<p><a href=Logistica1.java style="float:center" target="_blank">Logistica1.java</a>.</p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Programa Logistica2.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa Logistica2.java</font> Se quiere saber cuánto se envía y a donde se envía un paquete.</p>
+
+<br>
+<p>Las dos razones para usar una clase dentro de un método: la interfaz debe facilitar la creación y devolución de una referencia. Es una clase que no está publicamente disponible.</p>
+<br>
+
+<p><a href=Logistica2.java style="float:center" target="_blank">Logistica2.java</a>.</p>
+
+<br>
+
+</strong>
+</section>
+
+<!--------------------------------------------------------->
+
+<aside class=derecha>
+<strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Programa CompraBotellas.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa Comprabotellas.java</font> Se quiere saber cuánto se debe pagar por una cantidad de botellas compradas.</p>
+
+<br>
+
+<p><a href=CompraBotellas.java style="float:center" target="_blank">CompraBotellas.java</a>.</p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Programa TemperaturaCuerpoHumano.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa TemperaturaCuerpoHumano.java</font> Se quiere saber si la temperatura del cuerpo humano requiere atención médica.</p>
+
+<p><a href=TemperaturaCuerpoHumano.java style="float:center" target="_blank">TemperaturaCuerpoHumano.java</a>.</p>
+
+<br>
+
+<p>Del libro: Piensa en Java, [páginas, 274- 298]. Faltan los temas: clases internas anónimas, enlace con la clase externa, clases internas estáticas, referirse al objeto de la clase externa, acceso desde una clase múltiple anidada, herencia de clases internas, superponerse las clases internas, identificadores de clases internas, por que clases internas, clases internas y sistema de control.</p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Recomendaciones para crear clases</font> La clase es una colección de objetos. Las acciones se representan como operaciones, las cuales se pueden expresar por medio de funciones o métodos.</p>
+</header>
+<br>
+
+<p align="center">
+<img src="SNPoo/ContenidoClase.svg" align=center width=100% border=0></p>
+
+</strong>
+</aside>
+
+
+</body>
+</html>

@@ -1,0 +1,321 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	font-size: 18px;
+}
+
+.a1 {
+	margin-left: 58%;
+	float: right;
+	position: absolute;
+	transform: translate(-18%, -90%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 18px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPOO.html style="float:center">
+TEMARIO POO
+</a></p>
+
+<p align=right><a href=SNPoo/11Antecedentes.html style="float:center">
+ANTECEDENTES
+</a></p>
+
+<p align=right><a href=SNPoo/12ModeloOO.html style="float:center">
+MODELO ORIENTADO A OBJETOS
+</a></p>
+
+<p align=right><a href=Pizarron1POO.html style="float:center">
+Pizarrón 1
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 1: El programa de computadora
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<p align=center><font color=yellow>¿Qué es un programa de computadora?</font></p>
+<p align=left><font color=yellow>Libro: Introducción a la
+ programación de Java</font></p>
+
+<p align=left><font color=yellow>DEFINICIÓN DE PROGRAMA</font></p>
+
+Son instrucciones a una computadora,
+para decirle que hacer.
+
+La computadora no entiende un lenguaje
+humano, se requiere usar un lenguaje
+de computadora para comunicarle un
+programa.
+
+<p align=left><font color=yellow>Ejemplo de programa</font></p>
+
+public class Bienvenido {
+	public static void main(String[] args) {
+		// Despliega el mensaje Bienvenido
+		 a Java! en la consola
+	System.out.println("Bienvenido a Java!");
+	}
+}
+
+
+<p align=left><font color=yellow>Ejercicio</font></p>
+
+public class CalcularExpresion {
+	public static void main(String[] args) {
+		System.out.println((10.5 + 2 * 3)
+		 / (45 – 3.5));
+	}
+}
+
+<p align=left><font color=yellow>Definición de objeto</font></p>
+
+Un objeto representa una entidad en el mundo real
+que se identifica con facilidad. Ejemplos de
+ objeto: un estudiante, un escritorio, un círculo,
+ un botón, etc.
+
+Un objeto tiene una única identidad, estado, y
+ comportamiento.
+
+<p align=left><font color=yellow>Definición de estado
+de objeto</font></p>
+
+El estado de un objeto es conocido como su propiedad
+o atributo y que es representado por un campo de
+datos con su valor actual.
+
+Ejemplo: el objeto circulo, tiene un campo de datos
+radio, el cuál es una propiedad que caracteriza
+al círculo.
+
+En el caso del rectángulo, el estado del objeto es
+el ancho y la altura, lo que caracteriza al
+rectángulo.
+
+<p align=left><font color=yellow>Comportamiento del
+objeto</font></p>
+
+También llamado su acción y es definido por un
+método. Para invocar un método sobre un objeto
+se le pregunta al objeto para que desempeñe su
+acción.
+
+Ejemplo: para un círculo getArea() se invoca
+para regresar el área.
+
+<p align=left><font color=yellow>Denotación de objeto</font></p>
+
+claseNombre objetoRefVar;
+
+claseNombre objetoRefVar = new claseNombre();
+
+<p align=left><font color=yellow>Clases</font></p>
+
+Los objetos del mismo tipo son definidos usando
+una clase común. Una clase es una plantilla, plano o 
+contrato que define que el campo de datos de un
+ objeto y métodos se realicen. Un objeto es una
+ instancia de un clase.
+
+Crear una instancia se refiere como
+instanciación. El termino objeto e instancia
+puede ser intercambiable.
+
+<p align=left><font color=yellow>Ejemplo de Clase</font></p>
+
+class Circle {
+  /** El radio del circulo */
+  double radius = 1.0;
+
+  /** Constructor del objeto circulo */
+  Circle() {
+  }
+
+  /** Constructor del objeto circulo */
+  Circle(double newRadius) {
+   radius = newRadius;
+  }
+
+  /** Regresa el area del circulo */
+  double getArea() {
+    return radius * radius * Math.PI;
+  }
+}
+</strong>
+</pre>
+
+<pre class="a1"><strong>
+
+<p align=right><font color=yellow>Diccionario: 
+Real Académia de la lengua</font></p>
+
+<p align=center><font color=yellow>Definición de paradigma</font></p>
+
+1. Ejemplo o ejemplar.
+
+2. Teoría o conjunto de teorías cuyo núcleo central
+ se acepta sin cuestionar y que suministra la base y
+ modelo para resolver problemas y avanzar en el
+ conocimiento.
+ El paradigma newtoniano.
+
+3. Relación de elementos que comparten un mismo
+ contexto fonológico, morfológico o sintáctico
+ en función de sus propiedades lingüísticas.
+
+4. Esquema formal en el que se organizan las
+ palabras que admiten modificaciones flexivas
+ o derivativas.
+
+paradigma derivativo
+
+1. Gram. Conjunto de palabras que comparten la
+ misma raíz.
+
+paradigma flexivo
+
+1. Gram. Conjunto de formas que se obtiene con las
+ variantes flexivas de una palabra; p. ej., alto,
+ alta, altos, altas.
+
+<p align=center><font color=yellow>Ejemplos de paradigmas</font></p>
+
+Todo programa consiste de dos elementos: código y
+ datos. Un  programa se puede organizar con
+ respecto al código o con  respecto a los datos.
+ Paradigma orientado a objetos y  paradigma de
+ proceso lineal.
+
+<p align=right><font color=yellow>Libro: 
+Introducción a la programación 
+con Java: una solución aproximada</font></p>
+
+<p align=center><font color=yellow>Paradigma orientado a objetos</font></p>
+
+En la escritura de un programa orientado a objetos, 
+se deben definir los objetos, crearlos y hacer
+ la interacción entre ellos.
+
+<p align=center><font color=yellow>Los objetos</font></p>
+
+Un objeto es: un conjunto de datos relacionados los
+ cuales identifican el estado actual del objeto más
+ un conjunto de comportamientos.
+
+
+<p align=center><font color=yellow>Ejemplo de programa</font></p>
+
+public class TestCircle1 {
+  /** Metodo principal */
+  public static void main(String[] args) {
+    // Crea un circulo con radio 1.0
+    Circle1 circle1 = new Circle1();
+    System.out.println("El area del circulo de raio "
+	+ circle1.radius + " es " + circle1.getArea() );
+    // Crea un circulo con radio 25
+    Circle1 circle2 = new Circle1(25);
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea());
+    // Crea un circulo de radio 125
+    Circle1 circle3 = new Circle1(125);
+    System.out.println("El area del circulo de raio "
+	+ circle3.radius + " es " + circle3.getArea());
+    // Modifica el radio del circulo
+    circle2.radius = 100;
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea() );
+    }
+  }
+// Define la clase circulo con dos constructores
+class Circle1 {
+  double radius ;
+  /** Construir del circulo con radio 1 */
+  Circle1() {
+    radius = 1.0;
+  }
+  /** Construir un circulo con radio especificado */
+  Circle1(double newRadius) {
+    radius = newRadius;
+  }
+  /** Regresa el area del circulo */
+  double getArea() {
+    return radius * radius * Math.PI;
+  }
+}
+
+<p align=center><font color=yellow>Partes de una clase</font></p>
+
+Nombre de la clase: Circulo
+
+Campo de datos: radio: double
+
+Constructores y métodos: Circulo()
+			 Circulo(newRadio : double)
+			 getArea() : double
+
+<p align=center><font color=yellow>Partes de un objeto</font></p>
+
+Nombre del objeto: circulo1 : Circulo
+
+Estado del objeto o Atributo: radio = 10
+
+<p align=center><font color=yellow>Denotación del método</font></p>
+
+metodoNombre(parametroNombre:parametroTipo):retornarTipo
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

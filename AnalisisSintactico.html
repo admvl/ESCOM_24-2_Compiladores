@@ -1,0 +1,2221 @@
+<html>
+<style>
+header {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: auto;
+width: auto;
+margin-left:21%;
+border: solid;
+border-color:#FFFF00;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+article {
+background-color: #8ba987;
+display: block;
+margin-left: 21%;
+margin-top: 0.5%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: auto;	
+height: auto;	
+}
+
+article header {
+background-color: #009F80;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#800000;
+padding: 2px;
+height: auto;
+width: 40%;
+text-align: center;
+font-size: 20px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 5%;
+margin-top: 5%;
+}
+
+article h1 {
+font-size: 20px;
+
+}
+
+article div{
+background-color: #8ba987;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#0000FF;
+padding: 5px;
+width:40%;
+text-align: center;
+margin-left:0%;
+}
+
+p.par1  {
+ background-color: #808080;
+ font-size: 28px;
+ width: 200px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #00f;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+p.p2  {
+ background-color: #808080;
+ font-size: 28px;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #00f;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+p.p3  {
+ background-color: #808080;
+ font-size: 28px;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #f60;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+p.p4  {
+ background-color: #808080;
+ font-size: 20px;
+ width: 230px;
+ margin: 10px 20px;
+ padding: 10px;
+ border: solid 6px #f60;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.p2  {
+ background-color: #808080;
+ font-size: 28px;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #80A93E;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+	.modalDialog {
+		position: fixed;
+		font-family: Arial, Helvetica, sans-serif;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.2);
+		z-index: 99999;
+		opacity:0;
+		-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+		pointer-events: none;
+	}
+	.modalDialog:target {
+		opacity:1;
+		pointer-events: auto;
+	}
+	.modalDialog > div {
+		width: 30%;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+	  	-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+	}
+	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+	.close:hover { background: #00d9ff; }
+
+table {
+  margin-left: 25%;
+  padding: 10px;
+}
+
+.t {
+  margin-left: -5%;
+  margin-top: -10%;
+  padding: 10px;
+}
+
+.lateral {
+	position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+	left: 0; /* Establecemos la barra en la izquierda */
+	top: 500px; /* Bajamos la barra 200px de arriba a abajo */
+	z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+}
+
+</style>
+
+<head>
+<title>Análisis Sintáctico</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<!--
+<a>
+<img src="LibCompiladores.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=20% border=0>
+</a>-->
+
+
+<a>
+<img src=CapAnalisisSintactico.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=20% height=45% border=0>
+</a>
+
+<header>
+<img src=Estudiante.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=9% height=15% border=0>
+
+<!--
+<img src=CapAnalisisSintactico.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=16% height=97% border=0>-->
+
+<h1 align=left>
+<font color=maroon size=8>
+CAPÍTULO 3
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=6>
+Análisis Sintáctico
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<nav>
+<h3 align=center><font size=6>Índice</font></h3>
+
+<p align=center><font size=5>
+El material de estudio para el estudiante que se presenta en esta página, esta dividido de acuerdo al temario de la asignatura.</font></p>
+
+<h3 align=center><font size=6>Temas:</font></h3>
+
+<a href=#arq>
+Analizadores Sintácticos.
+</a>
+&nbsp; &nbsp;
+<a href=#def>
+Tipos de analizadores sintácticos.
+</a>
+&nbsp; &nbsp;
+<a href=http://www.civila.com/instraw/ejemplo/recursos.html>
+Analizadores sintácticos descendentes.
+</a>
+&nbsp; &nbsp;
+<a href=Material1.html>
+Analizadores sintácticos ascendentes.
+</a>
+&nbsp; &nbsp;
+<a href=#def>Ejercicios.</a>
+&nbsp; &nbsp;
+<a href=#def>Generadores de analizadores sintácticos</a>
+
+</nav>
+
+
+<hr>
+
+
+<article>
+<div class="section-content" style="width: auto;">
+<p style="text-align: center; ">El análisis sintáctico es menos local que el análisis léxico, donde se requieren
+métodos más avanzados. Se usa la misma estrategia: una notación más fácil
+para el entendimiento humano es transformada en una máquina, semejante a
+una más sencilla de bajo nivel para una ejecución más eficiente. Este proceso es
+llamado generación del analizador.</p>
+
+<header>
+<h3 align="center" id=#arq>Analizadores Sintácticos</h3>
+</header>
+
+<p>En la etapa de análisis sintáctico de un compilador se verifican los tokens
+reconocidos por el analizador léxico, los cuales son agrupados de acuerdo a reglas
+sintácticas del lenguaje. Si los tokens en una cadena son agrupados de acuerdo a
+reglas de sintaxis del lenguaje, entonces las cadenas de tokens entregados por el
+analizador léxico, son aceptadas como construcción válida del lenguaje; de otra
+manera un manejo de errores se aplica. Se deben tomar en cuenta dos casos al
+diseñar la fase de análisis sintáctico en un proceso de compilación;
+Primero todas las construcciones válidas de un lenguaje de programación
+deben ser especificadas: y para usar estas especificaciones un programa válido se
+forma. Aquellas, que nosotros formamos en una especificación de aquellos tokens
+que el analizador léxico regresará, y que nosotros especificamos de que manera
+estos tokens son agrupados, de modo que lo que resulte del agrupamiento sea
+una construcción válida del lenguaje.
+Segundo debe ser usada una notación apropiada para especificar la cons-
+trucción de un lenguaje. La notación para especificar la construcción debe
+ser compacta, precisa y fácil de entender. La especificación de la estructura
+sintáctica para el lenguaje de programación (es decir, la construcción válida
+del lenguaje) usa gramáticas libres de contexto (GLC), porque para ciertas clases de gramáticas, nosotros podemos automáticamente construir un analizador
+sintáctico que determine si un programa fuente es sintácticamente correcto.
+Para encontrar la estructura del texto de entrada, el análisis sintáctico debe
+rechazar el texto invalido para reportar los errores de sintaxis. A partir de un
+reconocedor (analizador léxico) adecuado que será diseñado para reconocer si
+una cadena de tokens es una construcción válida o no.</p>
+
+<font color=yellow><h4 align="center">Formalización de gramáticas</h4></font>
+
+<p>Formalizar quiere decir ser preciso o determinado en la forma de representar
+las gramáticas, por lo que para cumplir con esto una gramática se expresa por
+medio de un cuarteto, como se muestra en la definición siguiente:</p>
+
+Definición 1.
+
+<p>De esta manera la gramática queda expresada de manera formal, ya que
+la precisión radica en la forma de las producciones, basadas en la jerarquı́a de
+Chomsky.
+Para ejemplificar el uso de la representación formal. Se presenta el siguiente
+ejemplo:</p>
+
+EJEMPLO 1.
+
+<font color=red><h4 align="center">[N<SUB>i</SUB> → h<SUB>X</SUB> 1 i x 1 · · · hX n i x n</h4></font>
+
+<p>donde hN i representa el conjunto de los no terminales y que se llama la par-
+te izquierda de la producción, y hX 1 i x 1 · · · hX n i x n es la parte derecha de
+la producción y representan cero o más sı́mbolos, cada uno de los sı́mbolos x 1
+· · · x n son terminales y cada uno de los sı́mbolos hX 1 i · · · hX n i son no terminales.
+Pero la representación de las producciones para mayor facilidad, se hace sin
+usar los paréntesis triangulares y se usa el sı́mbolo → en lugar del sı́mbolo ::=.
+Las gramáticas libres de contexto sirven para representar reglas sintácticas
+pero también pueden expresar algunos sonidos de máquinas, como se muestra
+en el ejemplo siguiente:</p>
+
+EJEMPLO 2.
+
+<font color=yellow><h4 align="center">Jerarquı́a de Chomsky</h4></font>
+
+<p>Las gramáticas se clasifican según la forma de la producción en la jerarquı́a
+de Chomsky, donde se establecen cuatro clases de gramáticas, las cuales se
+enumeran del 0 al 3 [6]:</p>
+
+DEFINICION 2.
+
+<font color=yellow><h4 align="center">Ejemplo de gramáticas formales</h4></font>
+
+<p>Un ejemplo de gramática es la siguiente G 1 = ({S}, {a, b}, P 1 , S) :</p>
+
+EJEMPLO 3.
+
+<p>Ya que cada producción de la gramática G 1 tiene la forma de la gramática 2 de Chomsky, como 
+se muestra en el cuadro 2 , esta es una gramática libre de contexto:</p>
+
+Cuadro 1.
+
+<font color=yellow><h4 align="center">Derivaciones</h4></font>
+
+<p>Sean δ 1 y δ 2 dos cadenas de caracteres, si la cadena δ 1 se transforma en la
+cadena δ 2 utilizando el conjunto de producciones de la gramática, es a lo que se
+llaman derivación y se representan de la siguiente forma:</p>
+
+<font color=red><h4 align="center">δ 1 ⇒ δ 2</h4></font>
+
+<p>Obtención de derivaciones Para hacer las derivaciones se utilizan las defi-
+niciones de forma sentencial y desde luego la definición de derivación.</p>
+
+Definición 3.
+
+<p>En cada paso de las derivaciones se obtienen las formas sentenciales:</p>
+
+Definición 4.
+
+<p>En cada paso se aplican las producciones de la gramática para producir la
+forma sentencial.</p>
+
+<p>Tipos de derivaciones Existen dos formas de derivar las cadenas de carac-
+teres, la derivación por la derecha y la derivación por la izquierda.</p>
+
+Definición 5.
+
+Definición 6.
+
+<font color=yellow><h4 align="center">Ejemplo de derivaciones</h4></font>
+
+<p>Para poder acoplar las producciones de la gramática G 1 con las cadenas de
+caracteres que se presentan en el código fuente, se aplican las derivaciones de la
+siguiente forma: si se tiene la cadena abba, la que se deriva en:</p>
+
+<font color=red><h4 align="center">S ⇒ aSa ⇒ abSba ⇒ ab&epsilon;ba ⇒ abba</h4></font>
+
+<p>Lo que se puede expresar como:</p>
+
+<font color=red><h4 align="center">S ⇒ ∗ abba</h4></font>
+
+<p>Otro ejemplo de derivaciones Se tiene la gramática G 2 = (N 2 , T 2 , P 2 , S 2 )
+con el conjunto de producciones P 2 :</p>
+
+P 2 = {E → E + E,
+E → E ∗ E,
+E → (E),
+E → id}
+
+<p>Desarrollar por medio de derivaciones izquierdas y derivaciones derechas la
+siguiente cadena, id + id * id.</p>
+
+método 1.
+
+<font color=yellow><h4 align="center">Derivación derecha:</h4></font>
+
+<font color=red><h4 align="center">E ⇒ D E ∗ E ⇒ D E ∗ id ⇒ D E + E ∗ id ⇒ D E + id ∗ id ⇒ D id + id ∗ id</h4></font>
+
+<font color=yellow><h4 align="center">Derivación izquierda:</h4></font>
+
+<font color=red><h4 align="center">E ⇒ I E ∗ E ⇒ I E + E ∗ E ⇒ I id + E ∗ E ⇒ I id + id ∗ E ⇒ I id + id ∗ id</h4></font>
+
+<font color=yellow><h4 align="center">Árboles de análisis sintáctico</h4></font>
+
+<p>Los tipos de árboles que hay, son: los árboles de análisis sintácticos y los
+árboles de derivación.</p>
+
+Definición 7.
+
+<p>Si tenemos la siguiente gramática, el árbol de análisis sintáctico es el que se
+muestra en la figura :</p>
+
+EJEMPLO 4.
+
+<p>El árbol de derivaciones se define:</p>
+
+Definición 8.
+
+<p>Si tenemos a la gramática G 3 = (N, T, P 3 , S) con el siguiente conjunto de
+producciones P 3 :</p>
+
+<font color=red><h4 align="center">P 3 = {E → E + E, E → E ∗ E,
+E → id}</h4></font>
+
+EJEMPLO 5.
+
+<p>Otro ejemplo de árbol de derivaciones para la cadena de caracteres abba ob-
+tenida por derivaciones, que se desarrolla aplicando el conjunto de producciones
+P 1 de la gramática G 1 , como se muestra a continuación:</p>
+
+<font color=red><h4 align="center">S ⇒ aSa ⇒ abSba ⇒ ab&epsilon;ba ⇒ abba</h4></font>
+
+EJEMPLO 6.
+
+<p>El libro [5] cita que el árbol sintáctico es el mismo que el árbol de derivación.
+Ası́ que consideraremos en estos apuntes que el árbol de derivación y el árbol
+sintáctico son lo mismo.</p>
+
+<font color=yellow><h4 align="center">Diferencia entre gramáticas regulares y gramáticas libres de contexto</h4></font>
+
+<p>El listado de palabras con una cantidad de a’s emparejadas, es el siguiente
+{aba, aabaa, aaabaaa, · · · }, que se representa por el conjunto de producciones:</p>
+
+1.S → aCa
+2.C → aCa
+3.C → b
+
+<p>que son parte del cuarteto de la gramática formal del tipo libre de contexto.
+Aplicando la gramática anterior y las derivaciones se obtiene la cadena
+aaabaaa:</p>
+
+<font color=red><h4 align="center">S ⇒ D aCa ⇒ D aaCaa ⇒ D aaaCaaa ⇒ D aaabaaa</h4></font>
+
+<p>Sin embargo esta cadena también se puede obtener por medio de la gramática
+formal que se enlista a continuación:</p>
+
+1.S → aS
+2.S → aB
+3.B → bC
+4.C → aC
+5.C → a
+
+<p>De la derivación se obtiene aplicando la gramática anterior, la cadena aaa-
+baaa:</p>
+
+<font color=red><h4 align="center">S ⇒ D aS ⇒ D aaS ⇒ D aaaB ⇒ D aaabC ⇒ D aaabaC
+⇒ D aaabaaC ⇒ D aaabaaa</h4></font>
+
+<p>La diferencia esta en que con la gramática libre de contexto no se puede
+obtener la cadena aabaaaa y con la gramática regular si se puede obtener:</p>
+
+<font color=red><h4 align="center">S ⇒ D aS ⇒ D aaB ⇒ D aabC ⇒ D aabaC ⇒ D aabaaC⇒ D aabaaaC ⇒ D aabaaaa</h4></font>
+
+<p>Esto quiere decir que no se puede obtener una cadena emparejada, por ejem-
+plo los paréntesis emparejados que son esenciales en análisis sintáctico.</p>
+
+EJEMPLO 7.
+
+<font color=yellow><h4 align="center">Representación de gramáticas libres de contexto</h4></font>
+
+<p>Las gramáticas libres de contexto se representan como ya se dijo por medio
+de cuartetos, pero también se representan por medio de la teorı́a de conjuntos:</p>
+
+<font color=red><h4 align="center">{cadena|logica}</h4></font>
+
+<p>ya que se requiere representar las estructuras por medio de un listado de la
+teorı́a de conjuntos, con la finalidad de expresar caracterı́sticas que no se pue-
+den observar por medio de la representación formal de las gramáticas libres de
+contexto. Como se muestra con el siguiente ejemplo:
+Gramática libre de contexto
+La gramática con conjunto de producciones:</p>
+
+<font color=red><h4 align="center">P = {S → aCa,
+C → aCa,
+C → b}</h4></font>
+
+<p>Se representa por medio de la teorı́a de conjuntos de la siguiente forma:</p>
+
+<font color=red><h4 align="center">L(G) = {a n ba n |n ≥ 1}</h4></font>
+
+<p>Gramática regular La gramática con conjunto de producciones:</p>
+
+<font color=red><h4 align="center">P = {S → aS,
+S → aB,
+B → bC,
+C → aC,
+C → a}</h4></font>
+
+<p>Se representa por medio de la teorı́a de conjuntos de la siguiente forma:</p>
+
+<font color=red><h4 align="center">L(G) = {a<SUP>n</SUP> ba<SUP>m</SUP> |n, m ≥ 1}</h4></font>
+
+EJEMPLO 8.
+
+<font color=yellow><h4 align="center">Gramáticas ambiguas</h4></font>
+
+<p>Para la construcción de analizadores sintácticos se usan las gramáticas libres
+de contexto, las cuales no todas son ideales. Existe el problema de que pueden
+ser ambiguas. Una gramática es ambigua si existe alguna cadena de terminales
+que pueda obtenerse mediante árboles de derivación distintos (dos árboles dis-
+tintos dan la misma cadena). El problema de la ambigüedad es que esta genera
+retroceso en la programación.</p>
+
+Definición 9.
+
+<p>Para la gramática G 3 , la cadena id + id ∗ id se obtiene por dos árboles de
+derivación diferentes. El segundo árbol de derivación se obtiene de la serie de
+derivaciones E ⇒ E ∗ E ⇒ E + E ∗ E ⇒ id + E ∗ E ⇒ id + id ∗ E ⇒ id + id ∗ id,
+y el árbol de análisis sintáctico es el siguiente:</p>
+
+Figura3.
+
+<p>Como esta derivación tiene dos árboles de análisis sintácticos diferentes, el
+árbol de análisis sintáctico de la figura 1 y el árbol de análisis sintáctico de la
+figura 3, entonces la gramática G 3 es una gramática ambigua.</p>
+
+<p>Otro ejemplo de gramática ambigua. Es la gramática G 4 con las siguien-
+tes producciones:</p>
+
+<font color=red><h4 align="center">S → aSbS|bSaS|&epsilon;</h4></font>
+
+<p>Para obtener la siguiente cadena de caracteres abab, se obtiene por medio de
+las siguientes derivaciones:</p>
+
+<font color=red><h4 align="center">S ⇒ aSbS ⇒ abSaSbS ⇒ ab&epsilon;aSbS ⇒ aba&epsilon;bS ⇒ abab&epsilon; ⇒ abab</h4></font>
+
+<p>El árbol de análisis sintáctico es el siguiente:</p>
+
+Figura 4.
+
+<p>Para la gramática G 4 se puede obtener otro árbol de análisis sintáctico. Por
+lo que esta gramática es ambigua.</p>
+
+<font color=yellow><h4 align="center">Eliminación de la ambigüedad</h4></font>
+
+<p>Si para una cadena de caracteres terminales con las producciones de una
+gramática no se obtienen dos árboles de derivación diferentes, entonces se dice
+que una gramática no es ambigua. Y se puede decir que una gramática ambigua
+al aplicarle las transformaciones, se demuestra que no cumple con el concepto
+de una gramática ambigua, entonces se afirma que se ha eliminado la
+ambigüedad.</p>
+
+<p>La eliminación de la ambigüedad en las gramáticas libres de contexto se hace
+de diferentes maneras:</p>
+
+<p>Uno, reduciendo la gramática. Esto se refiere a identificar aquellos sı́mbo-
+los gramaticales (llamados sı́mbolos gramaticales no usuales) y desde luego a las
+producciones que no juegan un papel en la derivación, la cual podemos eliminar
+de la gramática.</p>
+
+<p>De una gramática un sı́mbolo usual X es aquel que cumple lo siguiente:</p>
+
+1. Si este deriva en una cadena de terminales.
+2. Es usado en al menos en una derivación de w.
+Por lo que:
+1. X ⇒ ∗ w, dónde w esta en T ∗ .
+2. S ⇒ ∗ αXβ ⇒ ∗ w en L(G).
+
+EJEMPLO 9.
+
+Ejercicio 1.
+
+EJEMPLO 10.
+
+<p>Dos, reescribiendo la gramática. también reescribiendo la gramática:
+Para eliminar la ambigüedad se hace Para reescribir la gramática de tal manera que se elimine la ambigüedad se hace de la siguiente manera:</p>
+
+<font color=red><h4 align="center">E → E + T |E − T |T
+T → T ∗ F |T /F |F
+F → (E)|id</h4></font>
+
+<p>De la siguiente gramática obtener la cadena de caracteres aabbbcc:</p>
+
+<font color=red><h4 align="center">T → R,
+T → aT c,R → &epsilon;,
+R → RbR</h4></font>
+
+<p>Se hacen las siguientes derivaciones:</p>
+
+<font color=red><h4 align="center">T ⇒ aT c ⇒ aaT cc ⇒ aaRcc ⇒ aaRbRcc ⇒ aaRbcc ⇒ aaRbRbcc ⇒
+aaRbRbRbcc ⇒ aaRbbRbcc ⇒ aabbRbcc ⇒ aabbbcc</h4></font>
+
+<p>Otra derivación es la siguiente:</p>
+
+<font color=red><h4 align="center">T ⇒ aT c ⇒ aaT cc ⇒ aaRcc ⇒ aaRbRcc ⇒ aaRbRbRcc ⇒ aabRbRcc ⇒ aabRbRbRcc ⇒ aabbRbRcc ⇒ aabbbRcc ⇒ aabbbcc</h4></font>
+
+<p>Ahora la gramática reescrita es la siguiente:</p>
+
+<font color=red><h4 align="center">T → R,
+T → aT c,
+R → &epsilon;,
+R → bR</h4></font>
+
+<p>La siguiente gramática es ambigua:</p>
+
+<font color=red><h4 align="center">E → E Op E,
+E → num</h4></font>
+
+<p>Ahora se reescribe la gramática de la siguiente manera:</p>
+
+<font color=red><h4 align="center">E → E Op E' ,
+E → E' ,
+E' → num</h4></font>
+
+<p>Pero ahora se tiene el problema de la recursividad izquierda.</p>
+
+<p>Tres, recursividad izquierda. En el reconocimiento de tokens de izquierda
+a derecha se presenta un problema. Consideremos la siguiente gramática G<SUB>4</SUB>:</>
+
+<font color=red><h4 align="center">E → E + T |T,
+T → T ∗ F |F,
+F → i|(E)</h4></font>
+
+<p>Y analicemos la expresión i + i + i. Se aplican las siguientes derivaciones:</p>
+
+<font color=red><h4 align="center">E ⇒ E + T ⇒ E + T + T ⇒ T + T + T ⇒ F + T + T ⇒ i + T + T
+⇒ i + F + T ⇒ i + i + T ⇒ i + i + F ⇒ i + i + i</h4></font>
+
+<p>árbol de análisis sintáctico es el siguiente:</p>
+
+Figura 5.
+
+<font color=red><h4 align="center">E ⇒ E + T ⇒ E + T + T ⇒ E + T + T + T ⇒ ...</h4></font>
+
+<p>El problema que se presenta en las producciones es la recursividad izquierda.
+Ya que la producción E → E + T tiene la siguiente forma:</p>
+
+<font color=red><h4 align="center">A → Aα</h4></font>
+
+<p>O lo que es lo mismo A = E y α = +T , por lo que la gramática G 4 tiene
+recursividad izquierda.
+Un análisis descendente para la gramática G 4 comenzará por expandir E
+con la producción E ⇒ E + T . Se tratará de expandir de nuevo E de la misma
+forma. Esto da el siguiente árbol de análisis sintáctico:</p>
+
+Figura 6.
+
+<p>pero no sabemos cuando se debe expandir con E → T en lugar de otra vez
+usar E ⇒ E + T . Esto se soluciona eliminando la recursividad izquierda.</p>
+
+<font color=yellow><h4 align="center">Eliminación de la recursión izquierda en las gramáticas</h4></font>
+
+<p>Las producciones que tienen recursividad izquierda, se igualan carácter a
+carácter con las siguientes producciones:</p>
+
+<font color=red><h4 align="center">A → Aα|β</h4></font>
+
+<p>Aunque también se pueden usar las siguientes producciones:</p>
+
+<font color=red><h4 align="center">A → Bα| . . .
+B → Aβ| . . .</h4></font>
+
+<p>Para después hacer la siguiente transformación:</p>
+
+<font color=red><h4 align="center">A → βA 0
+A 0 → αA 0 |&epsilon;</h4></font>
+
+EJEMPLO 11.
+
+EJEMPLO 12.
+
+EJEMPLO 13.
+
+EJEMPLO 14.
+
+EJEMPLO 15.
+
+<font color=yellow><h4 align="center">Árboles de sintaxis</h4></font>
+
+<p>El árbol de sintaxis abstracta (ASA) o árbol de análisis sintáctico es el
+resultado de simplificar el árbol sintáctico concreto (ASC) hasta llegar a obtener
+lo que se necesita para representar el significado del programa. El ASA es un
+árbol que se define con mayor simplicidad y por lo tanto es más fácil de procesar
+en las etapas de ejecución.
+Para representar a los árboles existe una notación que se escribe como a
+continuación se plantea:</p>
+
+<font color=red><h4 align="center">#(ABC)</h4></font>
+
+<p>donde el sı́mbolo # indica que la primera letra dentro del paréntesis es un nodo
+y los otros caracteres representan a los hijos del nodo, como se muestra en la
+figura 7 :</p>
+
+Figura 7.
+
+<font color=yellow><h4 align="center">Definición de lenguajes libres de contexto</h4></font>
+
+<p>Una gramática es un conjunto finito de reglas para generar un conjunto infi-
+nito de sentencias. En lenguaje natural, las sentencias están hechas de palabras
+y en el lenguaje de programación las sentencias están hechas de tokens.
+Las gramáticas libres de contexto son una notación recursiva para describir
+conjuntos de cadenas e imponer una estructura en cada una de las cadenas.
+Esta notación puede en algunos casos ser traducida casi directamente en pro-
+gramas recursivos, pero es mejor generar un autómata de pila. Esto es similar
+al autómata finito del análisis léxico pero estos pueden usar adicionalmente una
+pila, lo cual permite contar y acoplar no localmente de sı́mbolos. Hay dos formas
+de generar este autómata: LL y LR.</p>
+
+Definición 10.
+
+Definición 11.
+
+<p>Se presentó la definición de estas gramáticas por medio de la jerarquı́a de
+Chomsky. La gramática libre de contexto o gramática 2 tiene sus produc-
+ciones de la forma:</p>
+
+<font color=red><h4 align="center">A → α</h4></font>
+
+<p>donde A ∈ N y α ∈ V .
+La gramática libre de contexto se expresa como:</p>
+
+<font color=red><h4 align="center">G(N, T, P, S)</h4></font>
+
+<p>y se dice que es una gramática libre de contexto, debido a que sus producciones
+cumplen con la forma 2 de la jerarquı́a de Chomsky.</p>
+
+Definición 12.
+
+<header>
+<h3 align="center" id=#arq>Tipos de analizadores sintácticos</h3>
+</header>
+
+<p>Existen dos tipos de analizadores sintácticos:</p>
+
+1. Analizador sintáctico descendente.
+2. Analizador sintáctico ascendente.
+
+<font color=yellow><h4 align="center">Análisis sintáctico descendente</h4></font>
+
+<p>El analizador sintáctico descendente comienza desde la raı́z del árbol de
+análisis sintáctico trata de reconstruir el crecimiento del árbol que nos lleva a la
+cadena de tokens. De modo que haciendo la derivación izquierda, en efecto los
+pasos resultan en la forma sentencial de derivación, en orden inverso.
+El análisis descendente se basa en gramáticas LL que permiten analizar una
+frase de entrada sin que existan bloqueos mutuos [6].</p>
+
+<font color=yellow><h4 align="center">Análisis sintáctico ascendente</h4></font>
+
+<p>Este analizador también se conoce como analizador por desplazamiento y
+reducción. Este analizador intenta construir un árbol de análisis sintáctico para
+una cadena de entrada que comienza por las hojas (el fondo) y avanza hacia la
+raı́z (la cima) [3].</p>
+
+<font color=yellow><h4 align="center">Primeros y siguientes</h4></font>
+
+<p>Estos dos conjuntos de sı́mbolos son importantes debido a que muestran los
+caracteres más importantes de la cadena y nos auxiliarán a plantear reglas que
+facilitarán la clasificación de las gramáticas LL(1).
+Para poder calcular los primeros y siguientes de una cadena de caracteres,
+se basa en la utilización de las producciones.</p>
+
+Defibición 13.
+
+EJEMPLO 16.
+
+Definición 14.
+
+EJEMPLO 17.
+
+<header>
+<h3 align="center" id=#arq>Analizadores sintácticos descendentes</h3>
+</header>
+
+<p>Para construir los analizadores sintácticos descendentes se considera la for-
+mación del árbol de análisis sintáctico y existen dos casos:
+Uno, las hojas del árbol de análisis sintáctico contiene solo sı́mbolos ter-
+minales, y la cadena de entrada se ha agotado. Es claro que el análisis tiene
+éxito.
+Dos, un claro acoplamiento ocurre entre las hojas del árbol de análisis
+sintáctico parcialmente construido y la cadena de entrada. Para este caso exis-
+ten dos situaciones:
+Una primer situación es, que el analizador pudo haber seleccionado la pro-
+ducción errónea en un paso anterior del proceso, en este caso se puede retroceder, sistemáticamente reconsiderando decisiones anteriores. Para una cadena que es
+una sentencia válida, el retroceso llevará al analizador a una secuencia correcta
+de selecciones y permitirá la construcción de un árbol de análisis sintáctico co-
+rrecto. La segunda situación es, que la cadena de entrada no es una sentencia
+válida, el retroceso fallará y el analizador deberá reportar el error al usuario.
+Un gran subconjunto de gramáticas libres de contexto pueden ser analizadas
+sin retroceso [5].
+Los analizadores sintácticos descendentes son: el analizador sintáctico por
+descenso recursivo y el analizador sintáctico LL(1).</p>
+
+<font color=yellow><h4 align="center">Construcción de analizadores sintácticos por descenso re-
+cursivo</h4></font>
+
+<p>Para construir el analizador sintáctico de descenso recursivo, conviene que
+la gramática sea LL(1). Ya que algunas de las gramáticas libres de contexto
+(GLC) tienen problemas, como:</p>
+
+1. Recursión izquierda o recursividad izquierda.
+2. Ambigüedad.
+3. Retroceso (backtracking).
+
+<p>Y aunque la mayorı́a de las gramáticas libres de contexto pueden ser anali-
+zadas sin retroceso. Es necesario comprobar que la GLC sea LL(1). Para saber
+que una GLC es LL(1) debe cumplir con los siguientes puntos:</p>
+
+<p>PRIMERO, si las producciones tienen la forma A → σ 1 |σ 2 |σ 3 deben cum-
+plir con la regla P RIM ERO(σ 1 ) ∩ P RIM ERO(σ 2 ) ∩ P RIM ERO(σ 3 ) = φ.
+Llamada regla UNO.
+SEGUNDO, si las producciones tienen la forma X → σ| deben cumplir
+con la rgla P RIM ERO(X) ∩ SIGU IEN T E(X) = φ. Llamada regla DOS</p>
+
+Método 2.
+
+Algoritmo 1.
+
+<p>El árbol sintáctico se da implı́citamente por la secuencia de llamadas a pro-
+cedimientos. Una gramática libre de backtrack (retroceso) se puede tratar con
+descenso recursivo. Una analizador con descenso recursivo se estructura como
+un conjunto de procedimientos mutuamente recursivos, uno para cada no termi-
+nal de la gramática. El procedimiento que corresponde a un no terminal A, que
+reconoce un valor de A en la cadena de entrada. Para reconocer un no terminal
+B en el lado derecho de A (A → αAβ), el analizador invoca el procedimiento
+correspondiente a B. Ası́ la gramática por si misma sirve como una guı́a para la
+implementación del analizador.</p>
+
+EJEMPLO 18.
+
+Cuadro2.
+
+<font color=yellow><h4 align="center">Gramática aumentada</h4></font>
+
+<p>Se agrega la producción T 0 → T al inicio del conjunto de producciones, con
+la finalidad de asegurar la aceptación de las cadenas de entrada que reconoce la
+gramática G 6 . La gramática G 6 aumentada se muestra en el cuadro 3 .</p>
+
+Cuadro 3.
+
+<font color=yellow><h4 align="center">Obtención de los primeros y siguientes</h4></font>
+
+<p>Se deben obtener los primeros y siguientes de la gramática G 6 , los cuales se
+concentran en el cuadro 4 .</p>
+
+Cuadro 4.
+
+<font color=yellow><h4 align="center">Obtención de los procedimientos del análisis por descenso recursivo</h4></font>
+
+<p>Se debe obtener un procedimiento para cada no terminal utilizando los pri-
+meros y siguientes del cuadro 4 . Para el sı́mbolo no terminal T’, que tiene como producción T 0 → T :</p>
+
+Algoritmo 2.
+
+<p>Para el sı́mbolo no terminal T, que tiene como producción T → R|aT c:</p>
+
+Algoritmo 3.
+
+<p>Para el sı́mbolo no terminal R, que tiene como producción R → bR|λ:</p>
+
+Algoritmo 4.
+
+<font color=yellow><h4 align="center">Análisis de cadenas de entrada con el analizador de descenso recursivo</h4></font>
+
+<p>Para analizar la cadena de entrada abbc, se van utilizando los procedimien-
+tos de manera recursiva que se muestran en el cuadro 5 .</p>
+
+Cuadro 5.
+
+Ejercicio 2.
+
+Ejercicio 3.
+
+Cuadro 6.
+
+Cuadro 7.
+
+Cuadro8.
+
+Algoritmo 5.
+
+Algoritmo 6.
+
+Algoritmo 7.
+
+Algoritmo 8.
+
+Algoritmo 9.
+
+Algoritmo 10.
+
+Algoritmo 11.
+
+<p>Análisis de cadenas en un analizador de descenso recursivo.
+de la cadena id * id + id, se muestra en el cuadro 9 :</p>
+
+Cuadro 9.
+
+<p>Se mete en una lista enlazada la cadena de entrada y se va leyendo carácter
+por carácter por medio de la función de lectura SigCar(), en la columna PRO-
+CEDIMIENTO del cuadro 9 se escribe la función o procedimiento del no
+terminal hasta consumirse la función o procedimiento. La aceptación es cuan-
+do coincide que en la lista de entrada aparece el sı́mbolo $ y en la columna
+PROCEDIMIENTO aparece Acep.</p>
+
+<font color=red><h4 align="center">G ⇒ E ⇒ T E 0 ⇒ F T 0 E 0 ⇒ idT 0 E 0 ⇒ id ∗ F T 0 E 0
+⇒ id ∗ idT 0 E 0 ⇒ id ∗ idλE 0 ⇒ id ∗ idE 0
+⇒ id ∗ id + T E 0 ⇒ id ∗ id + F T 0 E 0 ⇒ id ∗ id + idT 0 E 0
+⇒ id ∗ id + idλE 0 ⇒ id ∗ id + idλλ ⇒ id ∗ id + id</h4></font>
+
+<font color=yellow><h4 align="center">Construcción de analizadores sintácticos LL(1)</h4></font>
+
+<p>Para estudiar este analizador se usan las gramáticas libres de contexto, pero
+no todas las gramáticas libres de contexto son ideales. Las gramáticas libres de
+contexto que no tengan esa ventaja, deben ser adaptadas para poder programar
+sin retroceso.
+El analizador sintáctico LL(1) es descendente. Para poder determinar si la
+gramática es del tipo LL(1), debe cumplir con dos reglas:</p>
+
+1. Regla UNO. Si la producción es de la forma A → σ 1 | σ 2 | · · · | σ n , se de-
+be cumplir con la siguiente condición: P RIM ERO(σ 1 )∩P RIM ERO(σ 2 )∩
+· · · ∩ P RIM ERO(σ n ) = Φ.
+2. Regla DOS. Si la producción es de la siguiente forma X → σ | λ, se
+aplica la siguiente condición P RIM ERO(X) ∩ SIGU IEN T E(X) = Φ
+
+<p>Cuando una gramática no es LL(1), para convertirla en LL(1) se debe seguir
+el siguiente procedimiento:</p>
+
+1. Se aplican las reglas UNO y DOS, para determinar si es LL(1).
+2. Se debe determinar si las producciones de la gramática tienen recursividad
+izquierda. Esto se comprueba si las producciones tienen la siguiente forma
+A → Aα | β.
+3. Se debe eliminar la recursividad izquierda, haciendo la siguiente transfor-
+mación: A → βA 0 , A 0 → αA 0 | λ.
+
+<p>El siguiente ejemplo muestra el procedimiento para construir el analizador
+LL(1).</p>
+
+EJEMPLO 19.
+
+<font color=yellow><h4 align="center">Calcular los primeros y siguientes de los no terminales</h4></font>
+
+<p>Se obtienen los primeros y siguientes de los no terminales de la gramática,
+los cuales se muestran en el cuadro 10 .</p>
+
+Cuadro 10.
+
+<font color=yellow><h4 align="center">Comprobar si la gramática es LL(1)</h4></font>
+
+<p>Se comprueba si la gramática G 7 es del tipo LL(1). Para esto se aplican las
+reglas UNO y DOS, como a continuación se muestra. A la producción 2 se le
+aplica la regla UNO.</p>
+
+<font color=red><h4 align="center">PRIMERO(w) ∩ PRIMERO(Bv) =
+{w} ∩ {w} =
+Φ</h4></font>
+
+<p>A la producción 4 se aplica la regla DOS:</p>
+
+<font color=red><h4 align="center">PRIMERO(E) ∩ SIGUIENTE(E) =
+{y} ∩ {x, z} = φ</h4></font>
+
+<p>A la producción 5 se le aplica la regla DOS.</p>
+
+<font color=red><h4 align="center">PRIMERO(F ) ∩ SIGUIENTE(F ) =
+{x} ∩ {z} = φ</h4></font>
+
+<p>La producción 2 no cumple la regla UNO, debido a que tiene recursividad
+izquierda. La forma de la producción 2, es como sigue:</p>
+
+<font color=red><h4 align="center">A → Aα|β</h4></font>
+
+<p>La producción 2 se escribe a continuación:</p>
+
+<font color=red><h4 align="center">B → Bv|w</h4></font>
+
+<font color=yellow><h4 align="center">Convertir la gramática en LL(1)</h4></font>
+
+<p>Para hacer que la producción 2 cumpla con la regla UNO, se elimina la
+recursividad izquierda haciendo la siguiente transformación:</p>
+
+<font color=red><h4 align="center">A = B, A 0 = B 0 , α = v, β = w</h4></font>
+
+<p>Estos valores se substituyen en las siguientes producciones:</p>
+
+<font color=red><h4 align="center">A → βA 0
+A 0 → αA 0 |&epsilon;</h4></font>
+
+<p>La producción 2 se cambia por la producción 2 sin recursividad en la gramáti-
+ca. La producción 2 sin recursividad izquierda es la siguiente:</p>
+
+<font color=red><h4 align="center">B → wB 0
+B 0 → vB 0 |&epsilon;</h4></font>
+
+<p>La gramática G<SUB>7</SUB> y sin recursividad izquierda, se presenta a continuación:</p>
+
+1. S → uBDz
+2. B → wB 0
+3. B 0 → vB 0 |&epsilon;
+4. D → EF
+5. E → y
+6. E → &epsilon;
+7. F → x
+8. F → &epsilon;
+
+<p>A la producción 3 se le aplica la regla DOS:</p>
+
+<font color=red><h4 align="center">PRIMERO(B 0 ) ∩ SIGUIENTE(B 0 ) =
+{v} ∩ {y, z} = φ</h4></font>
+
+<p>Como la producción 3 cumple con la regla DOS, la gramática G 7 es ahora
+una gramática LL(1). La gramática G 7 expandida es:</p>
+
+1. S → uBDz
+2. B → wB 0
+3. B 0 → vB 0
+4. B 0 → &epsilon;
+5. D → EF
+6. E → y
+7. E → &epsilon;
+8. F → x
+9. F → &epsilon;
+
+<p>La nueva tabla de primeros y siguientes es la que se muestra en el cuadro 11 :</p>
+
+Cuadro 11.
+
+<font color=yellow><h4 align="center">Construcción de la tabla LL(1)</h4></font>
+
+<p>Para llenar el cuadro 12 , se utilizan los primeros y siguientes del cuadro
+10 . Para las producciones que no generan la cadena vacı́a de la gramática G 7
+expandida se usan los primeros. Para las producciones que generan la cadena
+vacı́a se usan los siguientes.</p>
+
+Cuadro12.
+
+<font color=yellow><h4 align="center">Análisis de cadenas de entrada con un analizador LL(1)</h4></font>
+
+<p>Se analiza la cadena de entrada uwvyxz y el análisis se muestra en el cua-
+dro 13 :</p>
+
+Cuadro13.
+
+<p>La cadena de entrada se mete a una lista enlazada y de esta lista se va
+leyendo carácter por carácter por medio de la función SigCar(). En la pila se
+mete el sı́mbolo $ y el sı́mbolo inicial de la gramática y en la columna del cuadro
+13 se escribe el número de producción utilizada. La flecha indica que se aplica
+un pop() a la pila. Cuando aparece la producción indicada por el número que
+se escribe en la columna NUM PRODUCCIÓN, se cambia el sı́mbolo no terminal por su equivalencia que se expresa en la parte derecha del número de
+producción que se indica con el número.</p>
+
+<p>Programación del analizador LL(1). La forma de programar una gramáti-
+ca LL(1), se hace de la siguiente forma:</p>
+
+Algoritmo 12.
+
+<font color=yellow><h4 align="center">Ejemplo de construcción de un analizador sintáctico descendente</h4></font>
+
+<p>Se muestra la gramática libre de contexto G 8 en el cuadro 14 :</p>
+
+Cuadro 14.
+
+<p>Basados en la gramática G 8 construir los analizadores LL(1) y el descenso recursivo. Primero se comprueba que la gramática es LL(1), como se muestra a
+continuación:
+Se aplican la regla UNO a las producciones 2 y 3. Para la producción 2:</p>
+
+<font color=red><h4 align="center">PRIMERO(aa) ∩ PRIMERO(a) 6 = φ
+{a} ∩ {a} = φ</h4></font>
+
+<p>Se aplica la regla UNO a la producción 3:</p>
+
+<font color=red><h4 align="center">PRIMERO(b) ∩ PRIMERO(ac) = φ
+{b} ∩ {a} = φ</h4></font>
+
+<p>Como la producción 2 no cumple con la regla UNO. Entonces la gramática
+se debe transformar en LL(1). Para cumplir con la caracterı́stica de gramática
+LL(1), se transforma la producción 2 como sigue:</p>
+
+<font color=red><h4 align="center">A → aa|a</h4></font>
+
+<p>Se factoriza como se muestra a continuación:</p>
+
+<font color=red><h4 align="center">A → a(a|λ)
+A → aC
+C → a|λ</h4></font>
+
+<p>Ahora, a la producción C → a|λ, se la aplica la regla DOS:</p>
+
+<font color=red><h4 align="center">PRIMERO(C) ∩ SIGUIENTE(C)
+{a} ∩ {a, b} =
+φ</h4></font>
+
+<p>Como no se puedo corregir, entonces se procede a reescribir la gramática. Se
+comienza con la producción 1, como se muestra en seguida:</p>
+
+<font color=red><h4 align="center">S → AB</h4></font>
+
+<p>En la producción 1 se substituyen las producciones 2 y 3 como se muestra:</p>
+
+<font color=red><h4 align="center">S → (aa|a)(b|ac)</h4></font>
+
+<p>Haciendo las operaciones en la parte derecha de la producción queda de la
+siguiente forma:</p>
+
+<font color=red><h4 align="center">S → (aa|a)(b|ac)</h4></font>
+
+<p>Haciendo las operaciones en la parte derecha de la producción queda de la
+siguiente forma:</p>
+
+<font color=red><h4 align="center">S → aab|aaac|ab|aac</h4></font>
+
+<p>Se factoriza la producción del no terminal S y queda como sigue:</p>
+
+<font color=red><h4 align="center">S → a(ab|aac|b|ac)
+S → aD
+D → ab|aac|b|ac</h4></font>
+
+<p>Se factoriza la producción del no terminal D y queda como sigue:</p>
+
+<font color=red><h4 align="center">D → a(ac|b|c)|b
+D → aE|b
+E → ac|b|c</h4></font>
+
+<p>Por lo que la gramática convertida a LL(1) se muestra en el cuadro 15 :</p>
+
+Cuadro 15.
+
+<p>Analizador LL(1). Primero se obtiene la tabla de primeros y siguientes que
+se muestra en 16 :</p>
+
+Cuadro 16.
+
+<p>Con el apoyo de la tabla 16 se obtiene la tabla LL(1) que se muestra en la
+tabla 17 :</p>
+
+Cuadro 17.
+
+<p>Se analiza la cadena aab usando el cuadro 17 de donde se obtiene el cuadro
+de análisis 18 :</p>
+
+Cuadro 18.
+
+<p>Analizador de descenso recursivo. Lo primero que se hace es aumentar la
+gramática la cual se muestra en el cuadro 19 :</p>
+
+Cuadro19.
+
+<p>Se obtiene la tabla de primeros y siguientes que se muestra en el cuadro 20 :</p>
+
+Cuadro20.
+
+<p>Apoyados en la gramática G 8 y la tabla de primeros y siguientes del cuadro
+20 , se obtienen las funcionas para cada uno de los no terminales G, S, D, E de la gramática. Para la producción G → S:</p>
+
+Algoritmo 13.
+
+<p>Para la producción S → aD la función es la siguiente:</p>
+
+Algoritmo 14.
+
+<p>Para las producciones D → aE y D → b la función es la siguiente:</p>
+
+Algoritmo 15.
+
+<p>Para las producciones E → ac, E → b, E → c la función es la siguiente:</p>
+
+Algoritmo 16.
+
+<p>Analizar con las funciones la cadena aab, el análisis se muestra en el cuadro
+21 :</p>
+
+Cuadro 21.
+
+<font color=yellow><h4 align="center">Ejercicios propuestos de analizadores sintácticos descen-
+dentes</h4></font>
+
+<p>Resolver los siguientes ejercicios por medio de la metodologı́a de LL(1) y de
+descenso recursivo:</p>
+
+Ejercicio 1.
+
+Cuadro 22.
+
+Ejercicio 2.
+
+Cuadro 23.
+
+Ejercicio3.
+
+Cuadro 24.
+
+Ejercicio 4.
+
+Cuadro 25.
+
+<p>Construcción del analizador LL(1) de la gramática del ejercicio 4.
+Se comprueba que la gramática sea LL(1), aplicando las reglas UNO y DOS.
+Solamente se aplican para las producciones que tienen alternativas, es el caso
+de las producciones 2, 3 y 4. Para la producción 2 se aplica la regla UNO:</p>
+
+<font color=red><h4 align="center">PRIMERO(T ) ∩ PRIMERO(EM T ) =
+{PRIMERO(T )} ∩ {PRIMERO(T ), PRIMERO(E)} = φ</h4></font>
+
+<p>La producción 2 no cumple la regla UNO, se debe corregir. Para la pro-
+ducción 3 se aplica la regla DOS ya que el no terminal M genera la cadena
+vacia:</p>
+
+<font color=red><h4 align="center">PRIMERO(M ) ∩ SIGUIENTE(M ) =
+{∗} ∩ {PRIMERO(T )}
+{∗} ∩ {i, n} = φ</h4></font>
+
+<p>La producción 3 si cumple con la regla DOS. Para la producción 4 se aplica
+la regla UNO:</p>
+
+<font color=red><h4 align="center">PRIMERO(i) ∩ PRIMERO(n) =
+{i} ∩ {n} = φ</h4></font>
+
+<p>La producción 4 si cumple con la regla UNO. Ası́ que se procede a corregir
+a la producción 2, la cual presenta la recursividad izquierda. Por lo que para
+corregirla se aplica la eliminación de la recursividad izquierda.
+Se usa la producción de la forma general de la recursividad izquierda, se
+compara para determinar las igualdades y usar la transformación para eliminar
+la recursividad izquierda, de la siguiente manera:</p>
+
+<font color=red><h4 align="center">A → Aα|β
+E → EMT |T</h4></font>
+
+<p>Las igualdades que se obtienen son :</p>
+
+<font color=red><h4 align="center">A = E, A 0 = E 0 , α = M T, β = T</h4></font>
+
+<p>Se aplica la transformación:</p>
+
+<font color=red><h4 align="center">A → βA 0
+A 0 → αA 0 |λ</h4></font>
+
+<p>Y se obtienen las producciones ya corregidas:</p>
+
+<font color=red><h4 align="center">E → T E'
+E' → M T E' |λ</h4></font>
+
+<p>Ası́ que la gramática queda como se muestra en el cuadro 26 :</p>
+
+Cuadro26.
+
+<p>Se procede a aplicar la regla DOS a la producción 3 de la gramática del
+cuadro 26 :</p>
+
+<font color=red><h4 align="center">PRIMERO(E 0 ) ∩ SIGUIENTE(E 0 ) =
+{i, n} ∩ {$} = φ</h4></font>
+
+<p>Ya que la producción 3 cumple con la regla DOS, la gramática del cuadro
+26 es LL(1). Por lo que para obtener su tabla LL(1). Se lista la gramática
+expandida:</p>
+
+Cuadro 27.
+
+<p>De la gramática del cuadro 27 se obtienen los primeros y siguientes de los
+no terminales que se muestran en el cuadro 28 :</p>
+
+Cuadro28.
+
+<p>La tabla LL(1) se obtiene basándose en el cuadro 27 de las producciones
+y en el cuadro 28 de los primeros y siguientes, como se muestra en el cuadro
+29 , donde se escriben las producciones a utilizar de acuerdo a los primeros y
+siguientes de cada no terminal de la gramática corregida del ejercicio 4:</p>
+
+Cuadro 29.
+
+<p>Con el uso del cuadro 29 se analiza la cadena i*n*i, el análisis se describe
+en el cuadro 30 :</p>
+
+Cuadro 30.
+
+<p>Construcción del analizador por descenso recursivo de la gramática
+corregida del ejercicio 4. La construcción del analizador sintáctico de des-
+censo recursivo se inicia con el aumento de la gramática, la que se muestra en
+el cuadro 31 :</p>
+
+Cuadro 31.
+
+<p>La gramática del cuadro 27 es una gramática aumentada, por lo que solo se
+escribe otra vez la gramática en el cuadro 31 . La tabla de primeros y siguientes
+es la que se muestra en el cuadro 28 . Las funciones se presentan a continuación, para la producción S → Z:</p>
+
+Algoritmo 17.
+
+<p>Ahora para la producción Z → E:</p>
+
+Algoritmo 18.
+
+<p>La función para la producción E considerando la producción E → T E 0 es la
+siguiente:</p>
+
+Algoritmo 19.
+
+<p>La función para el no terminal E’ considerando la producción E 0 → M T E 0 |λ es la siguiente:</p>
+
+Algoritmo 20.
+
+<p>La función para el no terminal M considerando la producción M → ∗|λ es
+la siguiente:</p>
+
+Algoritmo 21.
+
+<p>La función para el no terminal T considerando la producción T → i|n es la
+siguiente:</p>
+
+Algoritmo 22.
+
+<p>El siguiente paso es el análisis de cadenas utilizando las funciones ya cons-
+truidas anteriormente. Se analiza la cadena i*n*i, el análisis se muestra en el
+cuadro 32 :</p>
+
+Cuadro 32.
+
+Ejercicio 5.
+
+Cuadro 33.
+
+Ejercicio 6.
+
+Cuadro 34.
+
+Ejercicio 7.
+
+Cuadro 35.
+
+Ejercicio 8.
+
+Cuadro 36.
+
+Ejercicio 9.
+
+Cuadro 37.
+
+Ejercicio 10.
+
+Cuadro 38.
+
+<font color=yellow><h4 align="center">Construcción de tablas</h4></font>
+
+<p>Descubriendo la derivación de una cadena de entrada
+El compilador debe inferir la derivación para una cadena de entrada. El pro-
+ceso de construir una derivación de una sentencia de entrada se llama análisis.
+Un analizador toma como entrada un presunto programa escrito en algún len-
+guaje fuente. El analizador ve el programa como este emerge del escaner: un
+flujo de palabras acompañadas de su categorı́a sintáctica. Y la salida es una
+derivación o un mensaje de error para el programa de entrada. Visualizar el análisis para construir un árbol de análisis para el programa de entrada.
+El analizador descendente se construye mediante un algoritmo que se imple-
+menta con una derivación más a la izquierda, este árbol de análisis anclado a la
+variable raı́z, usa una pila, con funciones de acceso push() y pop() para seguir
+a la parte no acoplada de la periferia del árbol.</p>
+
+Algoritmo 23.
+
+<p>Construcción de tablas:</p>
+
+Algoritmo 24.
+
+<p>Aplicar la construcción de tablas para construir el analizador sintáctico, se hace de la siguiente forma:</p>
+
+Algoritmo 25.
+
+<header>
+<h4 align="center">Analizadores sintácticos ascendentes</h4>
+</header>
+
+<font color=yellow><h4 align="center">Analizadores LR(0)</h4></font>
+
+<p>Este tipo de analizador se basa en las derivaciones por la derecha y la lectura
+por la izquierda, lo que se expresa como LR(). Para este tipo de analizador se
+deben obtener los elementos LR(0), los cuales se representan usando un punto
+que indica la posición del análisis en las cadenas de las producciones. Si se tiene
+la siguiente gramática:</p>
+
+<font color=red><h4 align="center">E → E + T |T
+T → T ∗ F |F
+F → (E)|id</h4></font>
+
+<font color=yellow><h4 align="center">Aumentar la gramática</h4></font>
+
+<p>Se aumenta la gramática y se enumera.</p>
+
+Definición 15.
+
+EJEMPLO 20.
+
+Cuadro 39.
+
+<font color=yellow><h4 align="center">Analizadores LR(0)</h4></font>
+
+<p>Para comenzar a calcular los elementos LR(0) se hacen las siguientes defini-
+ciones y se muestra el procedimiento.</p>
+
+Definición 16.
+
+Definición 17.
+
+<p>Los elementos LR(0) se calculan de la siguiente manera. Se obtiene el estado
+I 0 aplicando la operación de cerradura a la producción aumentada:</p>
+
+<font color=red><h4 align="center">0 = cerradura(E 0 → •E) = { E 0 → •E , E → •E + T , E → •T , T → •T ∗ F , T → •F , F • (E) , F → •id }</h4></font>
+
+<p>Se obtiene el estado I 1 aplicando la función de movimiento Ir a de I 0 con
+E:</p>
+
+<font color=red><h4 align="center">1 = Ir a(I 0 , E) = cerradura(E 0 → E • , E → E • +T ) = { E 0 → E • ,
+E → E • +T }</h4></font>
+
+<p>Se obtiene el estado I<SUB>2</SUB> aplicando la función de movimiento Ir a de I 0 con T:</p>
+
+<font color=red><h4 align="center">I 2 = Ir a(I 0 , T ) = cerradura(E → T • , T → T • ∗F ) = { E → T • ,
+T → T • ∗F }</h4></font>
+
+<p>Se obtiene el estado I 3 aplicando la función de movimiento Ir a de I 0 con F:</p>
+
+<font color=red><h4 align="center">I 3 = Ir a(I 0 , F ) = cerradura(T → F •) = { T → F • }</h4></font>
+
+<p>Se obtiene el estado I 4 aplicando la función de movimiento Ir a de I 0 con (:</p>
+
+<font color=red><h4 align="center">I 4 = Ir a(I 0 , () = cerradura(F → (•E)) = { F → (•E) , E → •E+T , E → •T ,
+T → •T ∗ F , T → •F , F • (E) , F → •id }</h4></font>
+
+<p>Se obtiene el estado I 5 aplicando la función de movimiento de Ir a de I 0 con id:</p>
+
+<font color=red><h4 align="center">I 5 = Ir a(I 0 , id) = cerradura(F → id•) = { F → id • }</h4></font>
+
+<p>Se obtiene el estado I 6 aplicando la función de movimiento de Ir a de I 1 con +:</p>
+
+<font color=red><h4 align="center">I 6 = Ir a(I 1 , +) = cerradura(F → E+•T ) = { E → E+•T , T → •T ∗F , T → •F ,
+F → •(E) }</h4></font>
+
+<p>Se obtiene el estado I 7 aplicando la función de movimiento de Ir a de I 2 con *:</p>
+
+<font color=red><h4 align="center">I 7 = Ir a(I 2 , ∗) = cerradura(T → T ∗•F ) = { T → T ∗•F , F → •(E) , F → •id }</h4></font>
+
+<p>Se obtiene el estado I 8 aplicando la función de movimiento de Ir a de I 4 con E:</p>
+
+<font color=red><h4 align="center">I 8 = Ir a (I 4 , E) = cerradura(F → (E•) , E → E • +T ) = { F → (E•) ,
+E → E • +T }</h4></font>
+
+<p>Se obtiene el estado I 9 aplicando la función de movimiento de Ir a de I 6 con T:</p>
+
+<font color=red><h4 align="center">I 9 = Ir a(I 6 , T ) = cerradura(E → E + T • , T → T • ∗F ) = { E → E + T • ,
+T → T • ∗F }</h4></font>
+
+<p>Se obtiene el estado I 10 aplicando la función de movimiento de Ir a de I 7
+con F:</p>
+
+<font color=red><h4 align="center">I 10 = Ir a(I 7 , F ) = cerradura(T → T ∗ F •) = { T → T ∗ F • }</h4></font>
+
+<p>Se obtiene el estado I 11 aplicando la función de movimiento de Ir a de I 8
+con ):</p>
+
+<font color=red><h4 align="center">I 11 = Ir a(I 8 , )) = cerradura(F → (E)•) = { F → (E) • }</h4></font>
+
+<font color=yellow><h4 align="center">Cálculo de los primeros y siguientes</h4></font>
+
+<p>Se obtienen los PRIMEROS y SIGUIENTES de todos los no terminales, los
+cuales se muestran en el cuadro 40 :</p>
+
+Cuadro 40.
+
+<font color=yellow><h4 align="center">Construcción del grafo</h4></font>
+
+<p>Para obtener el grafo de los estados. Primero se observan los movimientos:
+el movimiento de I 0 con E se va a I 1 . El movimiento de I 0 con T se va a I 2 .
+El movimiento de I 0 con F se va a I 3 . El movimiento de I 0 con ( se va a I 4 . El
+movimiento de I 0 con id se va a I 5 . El movimiento de I 1 con + se va a I 6 . El
+movimiento de I 2 con * se va a I 7 . El movimiento de I 4 con E se va a I 8 . El
+movimiento de I 6 con T se va a I 9 . El movimiento de I 7 con F se va a I 10 . El
+movimiento de I 8 con ) se va a I 11 .</p>
+
+Definición 18.
+
+<p>Segundo se aplica la continuidad en cada uno de los 12 estados, de la siguiente
+forma: En el estado I 0 los elementos LR(0) tienen transiciones representadas en
+el grafo. En el estado I 1 los elementos LR(0) tienen transiciones representadas en
+el grafo. En el estado I 2 los elementos LR(0) tienen transiciones representadas en
+el grafo. En el estado I 3 los elementos LR(0) tienen transiciones representadas en
+el grafo. En el estado I 4 los elementos que no tienen transiciones representadas en el grafo son: E → •E + T se debe crear la transición con el sı́mbolo + del
+estado I 8 a I 6 . Para el elemento LR(0) E → •T se crea la transición con T
+de I 4 a I 2 , por lo que con esto se crea la continuidad para el elemento LR(0)
+T → •T ∗ F . Para el elemento LR(0) T → •F se crea la transición con F de I 4 a
+I 3 . Para el elemento LR(0) F → •(E) por lo que se crea la transición con ( de I 4
+a I 4 , esto es un ciclo. Para el elemento LR(0) F → •id se crea la transición con id
+de I 4 a I 5 . En el estado I 5 los elementos LR(0) tienen transiciones representadas
+en el grafo. En el estado I 6 los elementos LR(0) que faltan de representación en
+el grafo para F → •T ∗ F la transición con * falta, ası́ que se crea la transición
+con este sı́mbolo entre I 9 e I 7 . En el estado I 7 los elementos LR(0) F → •(E)
+el sı́mbolo ( no tiene transición por lo que se crea de I 7 a I 4 , para el elemento
+LR(0) F → •id no hay transición para el sı́mbolo id entonces se crea de I 7 a I 5 .
+Para el estado I 8 para el elemento LR(0) E → E • +T falta la transición con el
+sı́mbolo + por lo que se crea del estado I 8 al estado I 6 . Para el estado I 9 se crea
+la transición con el sı́mbolo * del estado I 9 al estado I 7 . Los estados I 10 e I 11
+ya no tienen transiciones. Con esto se cumple con el concepto de continuidad.
+Todo esto se muestra en el grafo de la figura 8 .</p>
+
+Figura 8.
+
+<font color=yellow><h4 align="center">Obtención de las tablas ACCIÓN y de IR A</h4></font>
+
+Definición 19.
+
+Definición 20
+
+Definición 21.
+
+Definición 22.
+
+Definición 23.
+
+<p>Las acciones que se reportan en la tabla de acciones, son la reducción que
+se representa con una r y como subı́ndice el número de producción, el despla-
+zamiento que se representa por una d y como subı́ndice el estado al cuál se
+desplaza, la aceptación que se representa por acp y el error que se representa
+con e. Se obtienen las tablas de Acción y de IR A que se muestran en el cuadro
+41 :</p>
+
+Cuadro 41.
+
+<font color=yellow><h4 align="center">Análisis de cadenas de entrada</h4></font>
+
+<p>Se hace el análisis de la cadena de entrada id ∗ id + id: la cadena de entrada
+se coloca en la columna ENTRADA del cuadro 42, la flecha vertical indica que
+se esta leyendo el sı́mbolo que esta a la izquierda de dicha flecha. En la pila se
+coloca el $ (eof) y el estado I 0 queda en la cima de la pila, que esta representada
+en la columna PILA. Para determinar la acción que se escribirá en la columna
+ACCIÓN, se consulta el cuadro de Acción: se comienza en el estado I 0 y con el
+sı́mbolo de entrada id concurre la acción d 5 , por lo que en la columna PILA se
+escribe el sı́mbolo id y el subı́ndice 5 quiere decir que en la cima de la pila se
+escribe el estado I 5 , después se avanza la flecha vertical y queda a su izquierda
+el sı́mbolo *. Ahora en el estado I 5 y la concurrencia con el sı́mbolo * se tiene
+la acción r 6 , que quiere decir que el sı́mbolo id se transforma en F. Se consulta
+la tabla IR A, por lo que un sı́mbolo F en el estado I 0 se va al estado I 3 . En
+el cuadro 42 se tiene todo el recorrido de la cadena de entrada hasta llegar a $,
+donde se muestra como va cambiando el contenido de la pila.</p>
+
+Cuadro 42.
+
+<font color=yellow><h4 align="center">Ejercicios de analizadores LR(0)</h4></font>
+
+<p>Construir el analizador LR(0) de las siguientes gramáticas:</p>
+
+Ejercicio 4.
+
+Ejercicio 5.
+
+Ejercicio 6.
+
+Ejercicio 7.
+
+<p>Solución a ejercicio 7. Se comienza aumentando la gramática y dividiéndola
+en capas, como se muestra en el cuadro 43 :</p>
+
+Cuadro 43.
+
+<p>Se comienza a calcular los elementos LR(0) utilizando las operaciones de
+cerradura y de Ir a, que se muestran en el cuadro 44 :</p>
+
+Cuadro 44.
+
+<p>Del conjunto de estados se obtiene el grafo que se muestra en la figura 9 .</p>
+
+Figura 9.
+
+<p>Aplicando la continuidad se obtiene el grafo completo que se muestra en la
+figura 10 :</p>
+
+Figura 10.
+
+<p>Del grafo completo de la figura 10 se obtienen las tablas de acción y de Ir a
+que se muestra en el cuadro 45 :</p>
+
+Cuadro 45.
+
+<p>Con la tabla de acción y de Ir a se hace el análisis de cadenas de entrada,
+como se muestra con la cadena x = * x. Lo que se muestra en la tabla ?? :</p>
+
+Ejercicio 8.
+
+Ejercicio 9.
+
+Ejercicio 10.
+
+<font color=yellow><h4 align="center">Analizadores LR(1)</h4></font>
+
+<p>La construcción del analizador sintáctico LR(1) al igual que el analizador
+sintáctico LR(0) es el mismo procedimiento, lo que se muestra a continuación.
+Se tiene la siguiente gramática:</p>
+
+1. S → E = E
+2. S → f
+3. E → T
+4. E → E + T
+5. T → f
+6. T → T ∗ f
+
+<font color=yellow><h4 align="center">Aumentar la gramática</h4></font>
+
+<p>El siguiente paso es aumentar la gramática y enumerar las producciones de
+0 a 6, como se muestra en el cuadro 46 :</p>
+
+Cuadro 46.
+
+<font color=yellow><h4 align="center">Calcular los primeros y siguientes</h4></font>
+
+<p>Se debe obtener la tabla de primeros y siguientes, los que se muestran en el
+cuadro 47 :</p>
+
+<font color=yellow><h4 align="center">Calcular los elementos LR(1)</h4></font>
+
+<p>Los elementos LR(1) tienen la forma G → S•, $, donde este consta de un
+núcleo que es la producción, se separa con una coma el núcleo y los sı́mbolos de
+análisis, entre cada uno de los sı́mbolos de análisis se separan por dos puntos
+como sigue: T → •T ∗ f, =: + : ∗ . Los elementos LR(1) se calculan de la
+siguiente manera. Se obtiene el estado I 0 aplicando la operación de cerradura a
+la producción aumentada:</p>
+
+<font color=red><h4 align="center">I 0 = Cerr(G → •S, $) = { G → •S, $ , S → •E = E, $ , S → •f, $ ,
+E → •T, =: + , E → •E + T, =: + , T → •f, =: + : ∗ ,
+T → •T ∗ f, =: + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I<SUB>1</SUB> aplicando la función de movimiento Ir a de I 0 con S:</p>
+
+<font color=red><h4 align="center"> I<SUB>1</SUB> = Ir a(I 0 , S) = Cerr(G → S•, $) = { G → S•, $ }</h4></font>
+
+<p>Se obtiene el estado I 2 aplicando la función de movimiento Ir a de I 0 con
+E:</p>
+
+<font color=red><h4 align="center">I 2 = Ir a(I 0 , E) = Cerr(E → E• = E, $ , E → E • +T, =: +)
+= { E → E• = E, $ , E → E • +T, =: + }</h4></font>
+
+<p>Se obtiene el estado I 3 aplicando la función de movimiento Ir a de I 0 con f:</p>
+
+<font color=red><h4 align="center">I 3 = Ir a(I 0 , f ) = Cerr(S → •f, $ , T → f •, =: + : ∗)
+= { S → f •, $ , T → f •, =: + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 4 aplicando la función de movimiento Ir a de I 0 con
+T:</p>
+
+<font color=red><h4 align="center">I 4 = Ir a(I 0 , T ) = Cerr(E → T •, =: + , T → T • ∗f, =: + : ∗)
+= { E → T •, =: + , T → T • ∗f, =: + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 5 aplicando la función de movimiento Ir a de I 2 con
+=:</p>
+
+<font color=red><h4 align="center">I 5 = Cerr( Ir − a(I 2 , =)) = Cerr(S → E = •E, $ ) = { S → E = •E, $ ,
+E → •T, $ : + , T → •f, $ : + : ∗ , T → •T ∗ f, $ : + : ∗ ,
+E → •E + T, $ : + }</h4></font>
+
+<p>Se obtiene el estado I 6 aplicando la función de movimiento Ir a de I 2 con
++:</p>
+
+<font color=red><h4 align="center">I 6 = Ir a(I 2 , +) = Cerr( E → E + •T, =: $ ) = { E → E + •T, =: $ ,
+T → •f, =: + : ∗ , T → •T ∗ f, =: + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 7 aplicando la función de movimiento Ir a de I 4 con *:</p>
+
+<font color=red><h4 align="center">I 7 = Ir a(I 4 , ∗) = Cerr( T → T ∗ •f, =: + : ∗ ) =
+{ T → T ∗ •f, =: + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 8 aplicando la función de movimiento Ir a de I 5 con
+E:</p>
+
+<font color=red><h4 align="center">I 8 = Ir a(I 5 , E) = Cerr( S → E = E•, $ , E → E • +T, $ : + ) =
+{ S → E = E•, $ , E → E • +T, $ : + }</h4></font>
+
+<p>Se obtiene el estado I 9 aplicando la función de movimiento Ir a de I 6 con
+T:</p>
+
+<font color=red><h4 align="center">I 9 = Ir a(I 6 , T ) = Cerr( E → E+T • , = : + ; T → T •∗f , = : + : ∗ ) =
+{ E → E + T • , = : + ; T → T • ∗f , = : + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 10 aplicando la función de movimiento Ir a de I 7 con
+f:</p>
+
+<font color=red><h4 align="center">I 10 = Ir a(I 7 , f ) = Cerr( T → T ∗ f • , = : + : ∗ ) =
+{ T → T ∗ f • , = : + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 11 aplicando la función de movimiento Ir a de I 5 con
+T:</p>
+
+<font color=red><h4 align="center">I 11 = Ir a(I 5 , T ) = Cerr( E → T • , $ : + ; T → T • ∗f , $ : + : ∗ ) =
+{ E → T • , $ : + ; T → T • ∗f , $ : + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 12 aplicando la función de movimiento Ir a de I 5 con
+T:</p>
+
+<font color=red><h4 align="center">I 12 = Ir a(I 5 , f ) = Cerr( T → f • , $ : + : ∗ ) =
+{ T → f • , $ : + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 13 aplicando la función de movimiento Ir a de I 11 con
+*:</p>
+
+<font color=red><h4 align="center">I 13 = Ir a(I 11 , ∗) = Cerr( T → T ∗ •f , $ : + : ∗ ) =
+{ T → T ∗ •f , $ : + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 14 aplicando la función de movimiento Ir a de I 13 con
+f:</p>
+
+<font color=red><h4 align="center">I 14 = Ir a(I 13 , f ) = Cerr( T → T ∗ f • , $ : + : ∗ ) =
+{ T → T ∗ f • , $ : + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 15 aplicando la función de movimiento Ir a de I 8 con
++:</p>
+
+<font color=red><h4 align="center">I 15 = Ir a(I 8 , +) = Cerr( E → E + •T , $ : + ) =
+{ E → E + •T , $ : + ; T → •f , $ : + : ∗ ; T → •T ∗ f , $ : + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 16 aplicando la función de movimiento Ir a de I 15 con
+T:</p>
+
+<font color=red><h4 align="center">I 16 = Ir a(I 15 , T ) = Cerr( E → E +T • , $ : + ; T → T •∗f , $ : + : ∗ ) =
+{ E → E + T • , $ : + ; T → T • ∗f , $ : + : ∗ }</h4></font>
+
+<font color=yellow><h4 align="center">Construir el grafo del analizador LR(1)</h4></font>
+
+<p>Ahora se comienza a revisar la continuidad desde el estado I 0 . Si el elemento
+LR(1) no se acopla a un estado, se le debe crear un estado nuevo:
+El estado I 0 es continuo. Ya que para cada sı́mbolo que esta a la derecha del
+punto de análisis existe un arco en el grafo. El estado I 1 también es continuo.
+Para el estado I 2 también es continuo. También el estado I 3 es continuo. La
+diferencia en este paso de crear el grafo con el analizador LR(0) es que aquı́ se
+crean estados y arcos, por lo que siguiendo el proceso, se obtiene el grafo de la
+figura 11.</p>
+
+Figura 11.
+
+<font color=yellow><h4 align="center">Obtención de las tablas ACCIÓN y de IR A del analizador LR(1)</h4></font>
+
+<p>Del grafo de la figura 11, se obtiene la tabla del analizador LR(1) que se
+muestra en el cuadro 48:</p>
+
+Cuadro 48.
+
+<font color=yellow><h4 align="center">Análisis de cadenas de entrada con el analizador LR(1)</h4></font>
+
+<p>Se hace el análisis de la cadena de entrada f = f ∗f +f : la cadena de entrada
+se coloca en la columna ENTRADA del cuadro 49, la flecha vertical indica que
+se esta leyendo el sı́mbolo que esta a la derecha de dicha flecha. En la pila se
+coloca el $ (eof) y el estado I 0 queda en la cima de la pila, que esta representada
+en la columna PILA. Para determinar la acción que se escribirá en la columna
+ACCIÓN, se consulta el cuadro de Acción: se comienza en el estado I 0 y con
+el sı́mbolo de entrada f concurre la acción d 3 , por lo que en la columna PILA
+se escribe el sı́mbolo f y el subı́ndice 3 quiere decir que en la cima de la pila se
+escribe el estado I 3 , después se avanza la flecha vertical y queda a su izquierda
+el sı́mbolo f. Ahora en el estado I 3 y la concurrencia con el sı́mbolo f se tiene
+la acción r 5 , que quiere decir que el sı́mbolo f se transforma en T. Se consulta
+la tabla IR A, por lo que un sı́mbolo T en el estado I 0 se va al estado I 4 . En
+el cuadro 49 se tiene todo el recorrido de la cadena de entrada hasta llegar al
+sı́mbolo $, donde se muestra como va cambiando el contenido de la pila.</p>
+
+Cuadro 49.
+
+<font color=yellow><h4 align="center">Ejercicios LR(1)</h4></font>
+
+Ejercicio 11.
+
+Ejercicio 12.
+
+<font color=yellow><h4 align="center">Analizadores LALR</h4></font>
+
+<p>Este método de analizar es más poderoso pero similar que un analizador
+SLR(1), porque usa un análisis por adelantado el cual puede ser obtenido del
+proceso de construcción LR(1). Aunque el LALR(1) no es más poderoso que
+un LR(1), la ventaja que tiene es que requiere menos espacio para su tabla de
+análisis que el mismo LR(1) [7].
+La construcción del analizador sintáctico LALR al igual que el analizador
+sintáctico LR(1) tiene el mismo procedimiento. El procedimiento se muestra a
+continuación con la misma gramática que LR(1) que ya se analizó:</p>
+
+1. S → E = E
+2. S → f
+3. E → T
+4. E → E + T
+5. T → f
+6. T → T ∗ f
+
+<font color=yellow><h4 align="center">Aumentar la gramática</h4></font>
+
+<p>El siguiente paso es aumentar la gramática y enumerar las producciones de
+0 a 6, que se muestran en el cuadro 50 :</p>
+
+Cuadro 50.
+
+<font color=yellow><h4 align="center">Tabla de primeros y siguientes</h4></font>
+
+<p>Se debe obtener la tabla de primeros y siguientes, que se muestran en el
+cuadro 51 :</p>
+
+Cuadro 51.
+
+<font color=yellow><h4 align="center">Elementos LR(1)</h4></font>
+
+<p>Se obtienen los elementos LR(1), los cuales ya se calcularon en la parte del
+analizador LR(1) y se presentan a continuación otra vez:</p>
+
+
+<p>El estado I 0 :</p>
+
+<font color=red><h4 align="center">I 0 = { G → •S, $ , S → •E = E, $ , S → •f, $ ,
+E → •T, =: + , E → •E + T, =: + , T → •f, =: + : ∗ ,
+T → •T ∗ f, =: + : ∗ }</h4></font>
+
+<p>El estado I 1 :</p>
+
+<font color=red><h4 align="center">I 1 = { G → S•, $ }</h4></font>
+
+<p>El estado I 2 :</p>
+
+<font color=red><h4 align="center">I 2 = { E → E• = E, $ , E → E • +E, =: + }</h4></font>
+
+<p>El estado I 3 :</p>
+
+<font color=red><h4 align="center">I 3 = { S → f •, $ , T → f •, =: + : ∗ }</h4></font>
+
+<p>El estad I 4 :</p>
+
+<font color=red><h4 align="center">I 4 = { E → T •, =: + , T → T • ∗T, =: + : ∗ }</h4></font>
+
+<p>El estado I 5 :</p>
+
+<font color=red><h4 align="center">I 5 = { S → E = •E, $ ,
+E → •T, $ : + , T → •f, $ : + : ∗ , T → •T ∗ f, $ : + : ∗ ,
+E → •E + T, $ : + }</h4></font>
+
+<p>El estado I 6 : </p>
+
+<font color=red><h4 align="center">I 6 = { E → E + •T, =: $ ,
+T → •f, =: + : ∗ , T → •T ∗ f, =: + : ∗ }</h4></font>
+
+<p>El estado I 7 :</p>
+
+<font color=red><h4 align="center">I 7 = { T → T ∗ •f, =: + : ∗ }</h4></font>
+
+<p>El estado I 8 :</p>
+
+<font color=red><h4 align="center">I 8 = { S → E = E•, $ , E → E • +T, $ : + }</h4></font>
+
+<p>El estado I 9 :</p>
+
+<font color=red><h4 align="center">I 9 = { E → E + E • , = : + ; T → T • ∗f , = : + : ∗ }</h4></font>
+
+<p>El estado I 10:</p>
+
+<font color=red><h4 align="center">I 10 = { T → T ∗ f • , = : + : ∗ }</h4></font>
+
+<p>El estado I 11 :</p>
+
+<font color=red><h4 align="center">I 11 = { E → T • , $ : + ; T → T • ∗f , $ : + : ∗ }</h4></font>
+
+<p>El estado I 12 :</p>
+
+<font color=red><h4 align="center">I 12 = { T → f • , $ : + : ∗ }</h4></font>
+
+<p>El estado I 13 :</p>
+
+<font color=red><h4 align="center">I 13 = { T → T ∗ •f , $ : + : ∗ }</h4></font>
+
+<p>El estado I 14 :</p>
+
+<font color=red><h4 align="center">I 14 = { T → T ∗ f • , $ : + : ∗ }</h4></font>
+
+<p>El estado I 15 :</p>
+
+<font color=red><h4 align="center">I 15 = { E → E +•T , $ : + ; T → •f , $ : + : ∗ ; T → •T ∗f , $ : + : ∗ }</h4></font>
+
+<p>El estado I 16 : </p>
+
+<font color=red><h4 align="center">I 16 = { E → E + T • , $ : + ; T → T • ∗f , $ : + : ∗ }</h4></font>
+
+<font color=yellow><h4 align="center">Unión de estados</h4></font>
+
+<p>El siguiente paso es unir los núcleos de los siguientes estados.
+La unión de los estados I 6 e I 15 , se convierte en el estado I 6</p>
+
+<font color=red><h4 align="center">I 6 = { E → E+•T , = : $ : + ; T → •f , = : $ : + : ∗ ; T → •T ∗f , = : $ : + : ∗ }</h4></font>
+
+<p>La unión de los estados I 4 e I 11 , se convierte en el estado I 4 :</p>
+
+<font color=red><h4 align="center">I 4 = { E → T • , = : $ : + ; T → T • ∗f , = : $ : + : ∗ }</h4></font>
+
+<p>La unión de los estados I 10 e I 14 , se convierte en el estado I 10 :</p>
+
+<font color=red><h4 align="center">I 10 = { T → T ∗ f • , = : $ : + : ∗ }</h4></font>
+
+<p>La unión de los estados I 9 e I 16 , se convierte en el estado I 9 :</p>
+
+<font color=red><h4 align="center">I 9 = { E → E + T • , = : $ : + ; T → T • ∗f , = : $ : + : ∗ }</h4></font>
+
+<p>La unión de los estado I 7 e I 13 , se convierte en el estado I 7 :</p>
+
+<font color=red><h4 align="center">I 7 = { T → T ∗ •f , = : $ : + : ∗ }</h4></font>
+
+<font color=yellow><h4 align="center">Formación de estados</h4></font>
+
+<p>Ası́ que ahora los estados quedan como a continuación se presentan:
+Se obtiene el estado I 0 aplicando la operación de cerradura a la producción
+aumentada:</p>
+
+<font color=red><h4 align="center">I 0 = Cerr(G → •S, $) = { G → •S, $ , S → •E = E, $ , S → •f, $ ,
+E → •T, =: + , E → •E + T, =: + , T → •f, =: + : ∗ ,
+T → •T ∗ f, =: + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 1 aplicando la función de movimiento Ir a de I 0 con S:</p>
+
+<font color=red><h4 align="center">I 1 = Ir a(I 0 , S) = Cerr(G → S•, $) = { G → S•, $ }</h4></font>
+
+<p>Se obtiene el estado I 2 aplicando la función de movimiento Ir a de I 0 con
+E:</p>
+
+<font color=red><h4 align="center">I 2 = Ir a(I 0 , E) = Cerr(E → E• = E, $ , E → E • +E, =: +)
+= { E → E• = E, $ , E → E • +T, =: + }</h4></font>
+
+<p>Se obtiene el estado I 3 aplicando la función de movimiento Ir a de I 0 con f:</p>
+
+<font color=red><h4 align="center">I 3 = Ir a(I 0 , f ) = Cerr(S → •f, $ , T → f •, =: + : ∗)
+= { S → f •, $ , T → f •, =: + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 4 aplicando la función de movimiento Ir a de I 0 con
+T:</p>
+
+<font color=red><h4 align="center">I 4 = Ir a(I 0 , T ) = { E → T •, =: + , T → T • ∗T, =: + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 5 aplicando la función de movimiento Ir a de I 2 con
+=:</p>
+
+<font color=red><h4 align="center">I 5 = Ir a(I 2 , =) = { S → E = •E, $ ,
+E → •T, $ : + , T → •f, $ : + : ∗ , T → •T ∗ f, $ : + : ∗ ,
+E → •E + T, $ : + }</h4></font>
+
+<p>Se obtiene el estado I 6 aplicando la función de movimiento Ir a de I 2 con
++:</p>
+
+<font color=red><h4 align="center">I 6 = Ir a(I 2 , +) = { E → E + •T , = : $ : + ;
+T → •f , = : $ : + : ∗ ; T → •T ∗ f , = : $ : + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 7 aplicando la función de movimiento Ir a de I 4 con *:</p>
+
+<font color=red><h4 align="center">I 7 = Ir a(I 4 , ∗) = { T → T ∗ •f , = : $ : + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 8 aplicando la función de movimiento Ir a de I 5 con
+E:</p>
+
+<font color=red><h4 align="center">I 8 = Ir a(I 5 , E) = Cerr( S → E = E•, $ , E → E • +T, $ : + ) =
+{ S → E = E•, $ ; E → E • +T, $ : + }</h4></font>
+
+<p>Se obtiene el estado I 9 aplicando la función de movimiento Ir a de I 6 con
+T:</p>
+
+<font color=red><h4 align="center">I 9 = Ir a(I 6 , T ) = { E → E+T • , = : $ : + ; T → T •∗f , = : $ : + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 10 aplicando la función de movimiento Ir a de I 7 con
+f:</p>
+
+<font color=red><h4 align="center">I 10 = Ir a(I 7 , f ) = { T → T ∗ f • , = : $ : + : ∗ }</h4></font>
+
+<p>Se obtiene el estado I 11 aplicando la función de movimiento Ir a de I 5 con
+f:</p>
+
+<font color=red><h4 align="center">I 11 = Ir a(I 5 , f ) = Cerr( T → f • , $ : + : ∗ ) =
+{ T → f • , $ : + : ∗ }</h4></font>
+
+<font color=yellow><h4 align="center">Construcción del grafo</h4></font>
+
+<p>Posteriormente se obtiene el grafo que se presenta en la figura 12, aplicándose
+continuidad:</P>
+
+Figura 12.
+
+<font color=yellow><h4 align="center">Construcción de las tablas ACCIÓN e IR A</h4></font>
+
+<p>Del grafo y de los elementos de los estados de I 0 a I 11 se obtienen las tablas
+de ACCIÓN y de IR A, que se presentan en el cuadro 52 .</p>
+
+Cuadro 52.
+
+<font color=yellow><h4 align="center">Análisis de cadenas</h4></font>
+
+<p>La tabla de análisis de la cadena de entrada f = f + f ∗ f es la que se
+presenta en el cuadro 53.</p>
+
+Cuadro 53.
+
+<font color=yellow><h4 align="center">Conflictos</h4></font>
+
+<p>Existen conflictos de desplazamiento/reducción y conflicto de reducción/-
+reducción. Cuando surge un conflicto desplazamiento/reducción, el conflicto se
+resuelve a favor del desplazamiento. En el caso del conflicto reducción/reducción
+el conflicto se resuelve a favor de la reducción que usa la producción que aparece
+primero en la gramática.</p>
+
+<header>
+<h4 align="center">Ejercicios</h4>
+</header>
+
+<font color=yellow><h4 align="center">Ejercicios LALR</h4></font>
+
+Ejercicio 13.
+
+Ejercicio 14.
+
+<font color=yellow><h4 align="center">Proyectos</h4></font>
+
+Proyecto 1.
+
+Proyecto 2.
+
+<header>
+<h4 align="center">Generadores de analizadores sintácticos
+(YACC, JACC, JACCIE, GPPG)</h4>
+</header>
+
+<p>Yacc [9]. Es el que proporciona una herramienta general para describir la en-
+trada para un programa de ordenador. El nombre yacc quiere decir “yet another
+compiler-compiler”. El usuario del yacc especifica las estructuras de su input,
+junto con el código que se va a llamar a medida que se reconocen cada estruc-
+tura. Yacc convierte tal especificación en una subrutina que maneja el proceso
+de input; frecuentemente, es conveniente y apropiado hacer que esta subrutina
+maneje el flujo de control de la aplicación del usuario.
+La subrutina producida por yacc llama a una rutina proporcionada por el
+usuario para devolver el siguiente item de entrada básico. Por lo tanto, el usuario
+puede especificar su entrada en términos de caracteres de entrada individuales o
+en términos de construcciones de nivel más alto tales como nombres y números.
+La rutina proporcionada por el usuario puede también manejar caracterı́sticas
+idiomáticas tales como convenciones de comentarios y de continuación, las cua-
+les normalmente desafı́an las especificaciones gramaticales sencillas. La clase de especificaciones aceptadas es una clase muy general: gramáticas LALR con re-
+glas que evitan la ambigüedad.
+Una especificación en Yacc esta dividida en tres secciones separadas por el
+sı́mbolo % %:</p>
+
+Código.
+
+<p>Las declaraciones del analizador incluye una lista de sı́mbolos terminales y
+no terminales.
+Las reglas gramaticales son producciones de la forma;</p>
+
+<font color=red><h4 align="center">exp : exp PLUS exp { acción semántica }</h4></font>
+
+<p>Donde exp es un no terminal que tiene como lado derecho exp + exp, y
+PLUS es un sı́mbolo terminal (token).
+Los programas son código C usado como acciones semánticas embebidas.</p>
+
+<font color=yellow><h4 align="center">Ejemplo</h4></font>
+
+<p>Se tiene la siguiente gramática:</p>
+
+1. P → L
+2. S → i := i
+3. S → while i do S
+4. S → begin L end
+5. S → if i then S
+6. S → if i then S else S
+7. L → S
+8. L → L ; S
+
+<font color=yellow><h4 align="center">Programa en Yacc:</h4></font>
+
+Código.
+
+<p>Jacc [8]. Es un generador de analizadores para Java [3] usa un modelado
+cercano al yacc clásico de Johnson [7]. Es fácil de encontrar un generador de
+analizador para Java incluyendo el CUP [4], Antlr [11], JavaCC [9], SableCC
+[13], Coco/R [10], BYACC/Java [5], y el Jikes Parser Generator [12]. Ası́ que,
+¿si queremos usar jacc en lugar de una de estas herramientas? En resumen, la
+diferencia de jacc con otras herramientas, es la combinación de las siguientes
+caracterı́sticas:</p>
+
+1. Compatibilidad sintáctica con el generador de anlizador sintáctico clásico
+de Johnson para C (de modo que es posible dar que dos herramientas
+manejen diferentes lenguajes);
+2. Compatibilidad semántica con el generador yacc—jacc y el analizador
+ascendente/desplazamiento-reducción para gramáticas LALR(1) con re-
+glas de desambiguedad;
+3. Una implementación pura con Java que es portable y reglas en Java para
+desarrollar plataformas;
+4. Agregados modestos para auxiliar a entender y depurar analizadores ge-
+nerados, incluyendo: una caracterı́stica para trazar el comportamiento de
+una cadena de entrada, salida en HTML, y pruebas para conflictos LR(0)
+y SLR(1);
+5. Soporte primario para distribuir gramáticas descritas a lo largo de múlti-
+ples archivos para soportar una construcción modular o la extención del
+analizador;
+6. Un mecanismo para generar mensajes de error sintáctico de ejemplos ba-
+sados en ideas descritas por Jeffery [6];
+7. Analizadores generados que usan la técnica descrita por Bhamidipaty y
+Proebsting [1] para crear fácilmente el analizador yacc-compatible para
+generar código en lugar de codificar un especı́fico y particular análisis de
+un conjunto de tablas como en la implementación del yacc clásico.
+
+</div>
+</article>
+
+
+
+<!--Ventana 1-->
+
+<div id="openModal" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 1</font></h3>
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+	<font color=black>Características de las figuras</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques del programa objeto.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig1.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 2-->
+
+<div id="openModal1" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 2</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la arquitectura del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig2.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 3-->
+
+<div id="openModal2" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 3</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de definiciones</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Definición de intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<p><font color=black>Otro tipo de traductor, llamado intérprete, procesa en forma 			interna el programa fuente y los datos al mismo tiempo. Es decir, la interpretación 				del formulario de origen interno se produce en tiempo de ejecución y no se 				genera ningún programa objeto.</font></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<aside class="lateral">
+
+<p class="p4">
+<table class="t" CELLSPACING="18">
+<tr><td><a href="#openModal">FIGURA 1</a></td><td><a href="#openModal1">FIGURA 2</a></td></tr>
+<tr><td><a href="#openModal2">INTÉRPRETE</a></td><td><a href="#openModal4">Conversión</a></td></tr>
+</table>
+</p>
+
+</aside>
+
+
+</body>
+</html>

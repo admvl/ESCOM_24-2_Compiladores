@@ -1,0 +1,402 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Solución cuestionario uno</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Programación orientada a objetos<br>Capítulo 2</header>
+ <nav>
+    <!--<div class="contenedor">-->
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+
+      <p class="derecha"><a href="TemarioPOO.html">Classroom</a></p>
+      <p><a href="TemarioPOO.html">Temario</a></p>
+      <p><a href="41EnlacesPrac.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="41EnlacesHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">SOLUCIÓN DEL CUESTIONARIO DEL PRIMER PARCIAL</h1>
+    <section class="interna">
+      
+      <article>
+       <h1>Cuestionario del 10 marzo del 2022</h1>
+       <hr>
+       <br>
+       <p><strong>Instrucciones.</strong> Lea con cuidado cada una de las preguntas. Contestar en una hoja de word cada una de las preguntas, la cual puede exportar a PDF. Para después subir el archivo de word o PDF, en el repositorio de classroom corespondiente. <br> <br> <strong>No comprimir los archivos, por favor.</strong></p>
+       <br>
+       <hr>
+       <h3>Pregunta 1 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 3 puntos</h3>
+       <hr>
+       <br>
+       <p><strong>Programa.</strong> En el modelo orientado a objetos el elemento principal es el objeto.</p>
+     <br>
+     <p><strong>Código en java.</strong> Se pueden construir las clases Animal, Instrumento, Luz, Robot, Estudiante, Trabajador, FiguraGeometrica, etc.</p>
+        <br>
+        <pre>
+         public class Animal {
+           String comida;
+         }
+         </pre>
+         <br>
+        <pre>
+         public class Instrumento {
+           String nota;
+         }
+         </pre>
+         <p>
+         . <br>
+         . <br>
+         .
+         </p>
+         <br>
+     <p>Se presenta el código de la clase <strong>Instrumento</strong> que incluye métodos:</p>
+    <br>
+     <pre>
+         public class Instrumento {
+           String instrumento;
+           String nota;
+           
+           public void setInstrumento(String instrumento) {
+             this.instrumento = instrumento;
+           }
+           
+           public void tocar() {
+             System.out.println("México lindo y querido");
+           }
+           
+           public String getInstrumento() {
+             return "Instrumento";
+           }
+           
+           public void afinar() {
+               System.out.println("afinar");
+           }
+         }
+     </pre>
+     <br>
+     <p>Basado en la clase Instrumento con sus métodos. Construya un programa que toque la guitarra. <strong>Recomendación: Construya el objeto cuerda. Y use los métodos get y set.</strong> </p>
+     <br>
+     <p><font color=yellow><strong>Solución a la pregunta 1.</strong></font></p>
+     <br>
+     <br>
+     <br>
+     
+     <pre>
+     public class InstrumentoR {
+        public String instrumento;
+        
+        public void setInstrumento(String instrumento) {
+           this.instrumento = instrumento;
+        }
+
+        public String getInstrumento() {
+            return instrumento;
+        }
+        
+        public void tocar() {
+          System.out.println("toca la ");
+        }
+
+        public String toString() {
+           return "El músico " ;
+        }
+        
+        public static void main(String[] args) {
+           InstrumentoR cuerda = new InstrumentoR();
+           
+           cuerda.setInstrumento("guitarra");
+           
+           System.out.println(cuerda.toString());
+           cuerda.tocar();
+           System.out.println(cuerda.getInstrumento());
+
+        }
+     }
+     </pre>
+     
+       
+       <hr>
+       <h3>Pregunta 2 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2 puntos</h3>
+       <hr>
+       <br>
+       <br>
+       <p><strong>Programa.</strong> La clase SerVivo representa a los seres vivos animales y vegetales.</p>
+     <br>
+     <pre>
+     class SerVivo {
+       boolean venado;
+       boolean lechuga;
+       
+       boolean esAnimal() {
+         return venado;
+       }
+       
+       boolean esVegetal() {
+        return lechuga;
+       }
+       
+       boolen equals() {
+          return falso;
+       }
+     }
+     </pre>
+     <br>
+          
+     <p>Construya un programa que indique que la lechuga no es igual al ser vivo venado. Que diga: <strong>"La lechuga no es un venado"</strong>.</p>
+     <br>
+     
+     <pre>
+     if(!ser.equals())
+       System.out.println("El venado no es un lechuga");
+     else
+       System.out.println("La lechuga no es un venado");
+     </pre>
+     
+     <p><font color=yellow><strong>Una solución a la pregunta 2.</strong></font></p>
+     <br>
+     <br>
+     <br>
+     
+     <pre>
+     public class SerVivo {
+       boolean venado;
+       boolean lechuga;
+       
+       boolean esAnimal() {
+         return venado;
+       }
+       
+       boolean esVegetal() {
+        return lechuga;
+       }
+       
+       boolen equals() {
+          return falso;
+       }
+       
+       public static void main(String[] args) {
+          SerVivo s1 = new SerVivo();
+          
+          if(s1.esAnimal())
+             System.out.println("El venado no es un lechuga");
+          else
+             System.out.println("La lechuga no es un venado");
+       }
+     }
+     </pre>
+     
+     <p><font color=yellow><strong>Otra solución a la pregunta 2.</strong></font></p>
+     <br>
+     <br>
+
+     <pre>
+     public class SerVivoR1 {
+        String ser;
+
+        public void setSer(String ser) {
+           this.ser = ser;
+        }
+   
+        public boolean equals(SerVivoR1 o) {
+           return ser.equals(o.ser);
+        }   
+
+        public static void main(String[] args) {
+           SerVivoR1 animal = new SerVivoR1();
+           SerVivoR1 vegetal = new SerVivoR1();
+
+           animal.setSer("venado");
+           vegetal.setSer("lechuga");
+
+           if(animal.equals(vegetal))
+              System.out.println("Son del mismo reino.");
+           else
+              System.out.println("La lechuga no es un venado.");
+        }
+     }
+     </pre>
+
+     
+
+     <br>
+     <br>
+      <hr>
+       <h3>Pregunta 3 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2 puntos</h3>
+       <hr>
+       <br>
+       
+       <p><strong>Programa.</strong> El programa ArbolDriver.java contiene sobrecarga para constructores y sobrecarga para métodos.</p>
+       <br>
+       <pre>
+       class Arbol {
+          int altura;
+          Arbol() {
+             visualizar ("Plantando un retoño");
+             altura = 0;
+          }
+
+        Arbol(int i) {
+           visualizar("Creando un nuevo arbol que tiene "
+             + i + " metros de alto");
+           altura = i;
+        }
+
+        void info() {
+           visualizar("E1 arbol tiene " + altura
+             + " metros de alto");
+        }
+
+        void info(String s) {
+           visualizar(s + " : El arbol tiene "
+             + altura + " metros de alto");
+        }
+
+        static void visualizar(String s) {
+           System.out.println(s);
+        }
+     }
+
+     public class ArbolDriver {
+        public static void main(String[] args) {
+
+        for(int i = 0; i < 5; i++) {
+           Arbol t = new Arbol(i);
+           t.info();
+           t.info("metodo sobrecargado");
+         } // Constructor sobrecargado:
+      
+      }
+   }
+       </pre>
+      <br>
+      <p>Construya un programa que indique: <strong>"El árbol ya tiene 6 metros de alto y ya florece con jacarandas"</strong>.</p>
+      <br>
+       <br>
+       <br>
+       <p><font color=yellow><strong>Solución a la pregunta 3.</strong></font></p>
+     <br>
+     <br>
+     <br>
+     <pre>
+      public class ArbolR {
+          int altura;
+
+          ArbolR() {
+             visualizar ("Plantando un retoño");
+             altura = 0;
+          }
+
+          ArbolR(int i) {
+             visualizar("Creando un nuevo arbol que tiene "
+             + i + " metros de alto");
+             altura = i;
+          }
+
+          void info() {
+             visualizar("E1 arbol tiene " + altura
+               + " metros de alto");
+          }
+
+          void info(String s) {
+             visualizar(s + " : El arbol tiene "
+               + altura + " metros de alto");
+          }
+
+          static void visualizar(String s) {
+             System.out.println(s);
+          }
+    
+          public static void main(String[] args) {
+
+             for(int i = 0; i < 7; i++) {
+                 ArbolR t = new ArbolR(i);
+                 t.info();
+                 t.info("metodo sobrecargado");
+             } 
+             System.out.println("y ya florece con jacarandas");
+          }
+       }
+      </pre>
+       <br>
+       <br>
+       <hr>
+       <h3>Pregunta 4 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 3 puntos</h3>
+       <hr>
+       <br>
+       
+       <p><strong>Programa.</strong> El programa ConstructorPorDefecto.java no contiene constructores declarados.</p>
+       <br>
+      
+      <br>
+      <pre>
+        class Pajaro {
+          String color;
+        }
+
+        public class ConstructorPorDefecto {
+          public static void main(String[] args) {
+            Pajaro ave1 = new Pajaro(); // ¡por defecto!
+            
+          }
+        }
+        </pre>
+      <br>
+      <p>Construya un programa que de pajaros azules y rojos: <strong>Use Constructores.</strong>.</p>
+       
+       <br>
+       <br>
+       <p><font color=yellow><strong>Solución a la pregunta 4.</strong></font></p>
+     <br>
+     <br>
+     <br>
+       <pre>
+       class Pajaro {
+          String color;
+          
+          Pajaro(String color) {
+             this.color = color;
+          }
+
+          String getColor() {
+             return color;
+          }
+
+          public static void main(String[] args) {
+             Pajaro p1 = new Pajaro("azul");
+             Pajaro p2 = new Pajaro("rojo");
+
+             System.out.println("Hay pajaros de color " + p1.getColor() 
+               + " y " + p2.getColor());
+          }
+       }
+       </pre>
+       
+ </article>
+<br>
+<br>
+     
+      <article>
+       
+    <br>
+     </article>
+    </section>
+    
+    
+      <aside>
+      <h1>Pauta para el desarrollo del cuestionario.</h1>
+      <hr>
+      <br>
+      <p><strong>El objeto es la parte central del paradigma orientado a objetos.</strong> </p>
+      <br>
+      <hr>
+       
+      </aside>
+      
+      <footer><p>Cuestionario primer parcial: 10 marzo del 2022</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

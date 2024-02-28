@@ -1,0 +1,783 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Guía mayo2022 de Programación orientada a objetos</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Programación orientada a objetos<br>Solución de la guía de mayo del 2022</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioPOO.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">SOLUCIÓN A PROGRAMAS PARA EVALUACIÓN DEL CAPÍTULO TRES</h1>
+    
+    
+    <section class="izquierdaGuia">
+        <h1>Preguntas</h1>
+        <hr>
+        <p><strong>Tema y preguntas:</strong></p>
+        <hr>
+        <br>
+        
+        <h2>3.1 Agregación.</h2>
+        <br>
+        <p><strong>Pregunta 1.</strong> ¿Que tipos de relación se pueden considerar entre las clases?</p>
+        <br>
+        <p><strong>Pregunta 2.</strong> ¿Que significa relación de agregación?</p>
+        <br>
+        <p><strong>Pregunta 3.</strong> ¿Que significa relación de composición?</p>
+        <br>
+        <br>
+       
+     <h2>3.2 Herencia.</h2>
+        <br>
+        <p><strong>Pregunta 1.</strong>  ¿Que es una superclase?</p>
+        <br>
+     <p><strong>Pregunta 2.</strong> ¿Que es una subclse?</p>
+        <br>
+       <p><strong>Pregunta 3.</strong> Como se da acceso a una superclase a partir de una subclase.</p>
+    <br>
+    <br>
+    <h2>3.2.1 Herencia simple.</h2>
+    <br>
+    <p><strong>Pregunta 1.</strong> ¿Como sabe el compilador que se esta haciendo un herencia?</p>
+       <br>
+       <p><strong>Pregunta 2.</strong> De la superclase se herada a la subclase. ¿Cómo se crea el objeto para accesarse a un método de una superclase.</p>
+     <br>
+     <br>
+     <br>
+     <h2>3.2.2 Herencia múltiple.</h2>
+      <br>
+     <p><strong>Pregunta 1.</strong> Si tenemos una superclase y dos subclases. ¿Como se realiza la herencia múltiple?</p>
+      <br>
+      <br>
+      <h2>Clases abstractas.</h2>
+       <br>
+       <br>
+       <p><strong>Pregunta 1.</strong> ¿Como se especifica una clase abstracta?</p>
+      <br>
+      <p><strong>Pregunta 2.</strong> ¿Cuál es la condición para marcar a una clase como clase abstracta?</p>
+      <br>
+      <br>
+      <h2>Interfaces.</h2>
+      <br>
+      <p><strong>Pregunta 1.</strong> Como la interface es una caratula ¿Como se expresa una interface?</p>
+      <br>
+      <p><strong>Pregunta 2.</strong> ¿como deben ser los métodos dentro de la interface?</p>
+      <br>
+      <h2>Clases.</h2>
+      <br>
+      <p><strong>Pregunta 1.</strong> ¿Que significa el ambito de una clase?</p>
+      <br>
+      <p><strong>Pregunta 2.</strong> ¿Cuál es el límite del ambito de una clase?</p>
+      <br>
+      <p><strong>Pregunta 3.</strong> En un programa multiclase. ¿Como puedo accesarme al ambito de la otra clase?</p>
+      <br>
+      <p><strong>Pregunta 4.</strong> ¿Que es una variable o campo de datos de clase?</p>
+        
+        
+
+    </section>
+
+    <!--
+    <section class="derecha">
+        <h1>Tema</h1>
+        <hr>
+        
+        <p><strong>Tema y ejercicios:</strong></p>
+        <hr>
+        <br>
+    
+        <h2>1.1 Antecedentes.</h2>
+        <br>
+        <p><strong>Ejercicio 1. Código en java.</strong> El código para plantear los objetos en la programación orientada a objetos, es el siguiente:</p>
+         <br>
+         <pre>
+         public class Animal {
+           String a1;
+         }
+         </pre>
+     <p>Se presenta el código que incluye un método:</p>
+     <br>
+     <pre>
+         class Animal {
+           String a1;
+             void comer() {
+               System.out.println("El " + a1 + "come croquetas");
+             }
+         }
+     </pre>
+     <br>
+     <p>Use el código anterior para hacer comer whiskas a un gato.</p>
+     <br>
+        <p><strong>Ejercicio 2.</strong> Investigar sobre los lenguajes de programación que utilizan el paradigma orientado a objetos.</p>
+        <br>
+        <p><strong>Ejercicio 3.</strong> La sintaxis de las declaraciones de las clases que se presentan a continuación. ¿A que lenguaje pertenecen?</p>
+        <br>
+        <br>
+        <pre>
+        class NombreDeClase {
+          miembros de la clase
+        }
+        </pre>
+        <br>
+        <br>
+        <pre>
+        class cualquierNombreDeClase {
+          miembros de la clase
+        };
+        </pre>
+        <br>
+        <br>
+        <h2>1.2 Modelo orientado a objetos.</h2>
+        <br>
+        
+        <p><strong>Ejercicio 1.</strong> Construir dos clases con sus objetos.</p>
+        <br>
+        <p><strong>Ejercicio 2.</strong> De acuerdo a la reseña presentada con respecto a la historia de los lenguajes orientados a objetos. Argumentar porque el lenguaje Phyton es el que cumple mejor con el paradigma orientado a objetos.</p>
+      <br>
+       <p><strong>Ejercicio 3.</strong> Será que el paradigma orientado a objetos es perdurable por mucho tiempo. Ya que las características de encapsulamiento, herencia y polimorfismo, son importantes para la reutilización del código. ¿Habrá otra característica que surja de acuerdo con la utilidad?</p>
+        <br>
+        <br>
+        <br>
+        <h2>2.1 Clases y objetos.</h2>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Realizar la clase <strong>Estudiante</strong> con boleta, nombre y calificación.</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>2.1.1 Atributos y métodos.</h2>
+        <br>
+        <p><strong>Ejercicio 1. Atributos.</strong> Construir las clases Estudiante, Instructor, miembroPersonal, Curso. Instancia objetos de cada una de las clases y crea variables de cada objeto.</p>
+     <br>
+     <p><strong>Ejercicio 2. Métodos.</strong> Construir un programa basado en el ejemplo de métodos. El programa debe contener una clase con dos o tres métodos, que después deben ser invocados.</p>
+        <br>
+        <br>
+        <h2>2.1.2 Constructores y destructores.</h2>
+        <br>
+        <p><strong>Ejercicio.</strong> Utilizar la clase <strong>Circulo</strong> con su constructor para inicializar los objetos:</p>
+       <br>
+       <pre>
+  class Circulo {
+    double radio = 1.0;
+    
+    Circulo() {
+    }
+    
+    Circulo(double radioNuevo) {
+      radio = radioNuevo;
+    }
+    
+    double getArea() {
+      return radio * radio * Math.PI;
+    }
+  }
+  
+  public class AreaCirculoDriver {
+    public static void main(String[] args) {
+      Circulo c = new Circulo(2.2);
+      
+      System.out.println("El area del circulo, es: " + 
+      c.getArea());
+    }
+  }
+       </pre>
+        <br>
+        <p>Inializar un circulo c1 con radio de 5.5 y calcular su area.</p>
+        <br>
+        <h2>2.1.3 Variables y métodos de clase.</h2>
+        <br>
+        <p><strong>Ejercicio 1.</strong> Comentar los programas del 1 al 3 de la página 222SobrecargaOperadores.html.</p>
+     <br>
+      
+       <p><strong>Ejercicio 2.</strong> Comentar los programas 4 y 5 de la página 222SobrecargaOperadores.html.</p>
+      <p><a href="222SobrecargaOperadores.html">Sobrecarga de operadores.</a></p>
+      <br>
+      <br>
+        <p><strong>Ejercicio 1.</strong> Comentar los programas del 1 al 4 de la página 222MasProgramas.html.</p>
+      <p><a href="222MasProgramas.html">Más programas.</a></p>
+      <br>
+      <br>
+      <p><strong>Ejercicio 1.</strong> Comentar los programas del 1 al 4 de la página 222MasProgramas1.html.</p>
+      <p><a href="222MasProgramas1.html">Más programas.</a></p>
+        <br>
+        <br>
+        <h2>2.2 Sobrecarga.</h2>
+        <br>
+        <br>
+        <h2>2.2.1 Sobrecarga de funciones.</h2>
+        <br>
+        <br>
+        <h2>2.2.2 Sobrecarga de operadores.</h2>
+        
+              
+    </section>
+    -->
+    
+    <aside class="largoGuia">
+
+        <h1>Programas</h1>
+        <hr>
+        
+        <p><strong>Tema y programas:</strong></p>
+        <hr>
+        <br>
+        <h2>3.1 Agregación.</h2>
+        <br>
+        <p><strong>Programa 1.</strong> Escriba un programa, donde un caballo come avena y bebe agua.</p>
+        <br>
+        
+        <pre>
+        public class Caballo {
+           //Definición de la clase
+        }
+
+        public class Caballo {
+           //Definición de la clase
+        }
+        </pre>
+        <br>
+
+        <p><strong>Programa 2.</strong> Escriba un programa, donde un caballo come avena y bebe agua.</p>
+        <br>
+        
+        <pre>
+        public class Caballo {
+           //Definición de la clase
+        }
+
+        public class Caballo {
+           //Definición de la clase
+        }
+        </pre>
+        <br>
+                
+        <h2>3.2 Herencia.</h2>
+        <br>
+     <p class="asideGuia"><strong>Programa 1.</strong> Considere las clases "Personas", "Estudiantes", y la clase primcipal:  construya un programa utilizando la herencia simple, que entregue nombre e ine de una persona, y además el nombre, dirección y calificación de un Estudiante.</p>
+     <br>
+     <pre>
+     public class Personas {
+         String nombre;
+         String direccion;
+         String ine;
+
+         public Personas() {
+             this.nombre = nombre;
+             this.direccion = direccion;
+             this.ine = ine;
+         }
+     }
+
+     public class Estudiantes {
+         int boleta;
+         int calificacion;
+
+         public Estudiantes() {
+             //Completar
+         }
+     }
+         </pre>
+         <br>
+     <p class="asideGuia"><strong>Programa 2.</strong> Considere las clases "Instrumentos" , "Violines", y la clase principal:  construya un programa utilizando la herencia simple, que tres violines toquen "Sobre las olas".</p>
+     <br>
+     <pre>
+     public class Instrumentos {
+         int cantidadInstrumentos;
+         String nota;
+         String senialInicio;
+
+         public Instrumentos() {
+             this.cantidadInstrumentoas = cantidadInstrumentos;
+             this.nota = nota;
+             this.senialInicio = senialInicio;
+         }
+         
+     }
+
+     public class Violines {
+         String arco;
+
+         public Violines() {
+             this.arco = arco;
+         }
+
+         public void tocar() {
+             //Escriba el código
+         }
+         //Completar la clase
+     }
+     </pre>
+     <p class="asideGuia"><strong>Programa 3.</strong> Considere las clases "Animales", "Caballos", y la clase principal:  construya un programa utilizando la herencia simple, que exprese "El caballo de crianza que tiene un peso de 200 kg corre a 120 k/h".</p>
+     <br>
+     <pre>
+     public class Animales {
+         public String condicion;
+         int peso;
+         int edad;
+
+         public Animales() {
+             this.condicion = condicion;
+             this.peso = peso;
+             this.edad = edad;
+         }
+         
+     }
+
+      public class Caballos {
+         public int velocidad;
+         public String nombre;
+
+         public Caballos() {
+             this.velocidad = velocidad;
+             this.nombre = nombre;
+             //Completar el código
+         }
+         
+     }
+     </pre>
+     <br>
+     
+     <h2>3.2.1 Herencia simple.</h2>
+     <br>
+     <br>
+     <p class="asideGuia"><strong>Programa 1. En java.</strong> Considere las clases "Musicas", "Clasicas", y la clase principal:  construya un programa utilizando la herencia simple, que presente "La novena de Bethoven se compuso en 1860 y es un placer de 2 horas".</p>
+     <br>
+          
+     <pre>
+     public class Musicas {
+           String titulo;
+           String autor;
+           int fechaComposicion;
+
+           public Musicas() {
+               this.titulo = titulo;
+               this.autor = autor;
+               this.fechaComposicion = fechaComposicion;
+           }
+           
+     }
+
+     public class Clasicas {
+           int duracion;
+
+           public Clasicas() {
+               this.duracion = duracion;
+           }
+           
+           //Completar la clase
+     }
+     </pre>
+     <br>
+     <p class="asideGuia"><strong>Programa 2.</strong> Considere las clases "Viajes", "Destinos", y la clase principal:  construya un programa utilizando la herencia simple, que despliegue "Al señor Martinez le costó un viaje a Cancún por 5 días".</p>
+     <br>
+     <pre>
+     class Viajes {
+         String nombre;
+         int costo;
+         int duracion;
+
+         public Viajes() {
+             this.nombre = nombre;
+             this.costo = costo;
+             this.duracion = duracion;
+         }
+       
+     }
+
+     public class Destinos {
+           String ciudad;
+
+           public Destinos() {
+               this.ciudad = ciudad;
+           }
+           //Definición de la clase
+     }
+     </pre>
+     <br>
+     <p class="asideGuia"><strong>Programa 3.</strong> Considere las clases "Comidas", "Bocadillos", y la clase principal:  construya un programa utilizando la herencia simple, que desarrolle "El papá le dió hambre a las 12 del día y quiere una baguete de queso" .</strong>.</p>
+     <br>
+     <pre>
+     public class Comidas {
+           String comensal;
+           int hora;
+
+           public Comidas() [
+               this.comensal = comensal;
+               this.hora = hora;
+           }
+           //Definición de la clase
+     }
+
+     public class Bocadillos {
+           String tipoBocadillo;
+           String ingrediente;
+
+           public Bocadillos() {
+               this.tipoBocadillo = tipoBocadillo;
+               this.ingrediente = ingrediente;
+           }
+     }
+     </pre>
+     <br>
+     
+     <h2>3.2.2 Herencia múltiple.</h2>
+     <br>
+     <br>
+     <p class="asideGuia"><strong>Programa 1.</strong> Considere las clases "FigurasGeometricas", "Rectangulos", "Triangulos", y la clase principal:  construya un programa utilizando la herencia múltiple, que calcule el area de los rectángulos y triángulos.</p>
+     <br>
+     <pre>
+     public class FigurasGeometricas {
+        double ladoAltura;
+        double ladoBase;
+     }
+
+     public class Rectangulos {
+           
+         Rectangulos() {
+
+         }
+         
+         double areaR() {
+
+         }
+     }
+
+     public class Triangulos {
+           
+           Triangulos() {
+
+           }
+           
+           double areaT() {
+
+           }
+     }
+     </pre>
+     <br>
+     <p class="asideGuia"><strong>Programa 2.</strong> Considere las clases "Trabajadores", "JefesDepartamento", "Ingeniers", y la clase principal:  construya un programa utilizando la herencia múltiple, que muestre "El señor Jimenez jefe del departamento de recursos humanos tiene un sueldo de 10 000 pesos cobra con el número de empleado 022" y "El ingeniero Rodriguez de mantenimiento cobró 8 000 pesos.</p>
+     <br>
+     <pre>
+     public class Trabajadores {
+        String nombre;
+        int numeroEmpleado;
+        int sueldo;
+
+        public Trabajadores() {
+            this.nombre = nombre;
+            this.numeroEmpleado = numeroEmpleado;
+            this.sueldo = sueldo;
+        }
+     }
+
+     public class JefesDepartamento {
+           String nombreDepartamento;
+
+           
+           //Definición de la clase
+     }
+
+     public class Ingenieros {
+           String nombreArea;
+
+           //Definición de la clase
+     }
+     </pre>
+     <br>
+      
+       <p class="asideGuia"><strong>Programa 3.</strong> Considere las clases "Arboles", "Pinos", "Caobas", y la clase principal:  construya un programa utilizando la herencia múltiple, que despliegue en pantalla "El precio de los pies cubicos de pino, son:" y "El costo de pies cubicos de caoba, son;
+       : ".</p>
+     <br>
+     <pre>
+     class Arboles {
+         int altura;
+         int ancho;
+         double costoPieCubico;
+         
+         public Arboles() {
+             this.altura = altura;
+             this.ancho = ancho;
+             this.costoPieCubico = costoPiecubico;
+         }
+     }
+
+     public class Pinos {
+           
+           public void volumenPino() {
+           
+           }
+           
+           public double costoPino() {
+           
+           }
+     }
+
+     public class Caobas {
+           
+           public void volumenCaoba() {
+           
+           }
+           
+           public double costoCaoba() {
+           
+           }
+     }
+     </pre>
+     <br>
+     
+     <h2>Clases abstractas.</h2>
+     <br>
+     <br>
+     <p class="asideGuia"><strong>Programa 1.</strong> Considere una clase abstracta "Trabajadores", clases concretas "Personas", "Robots", y la clase principal, además de la herencia:  construya un programa, que indique "El R1 solda una pieza de giro durante 3 minutos" y "El señor Moreno coloca un toldo durante 15 minutos".</p>
+     <br>
+     
+     <pre>
+     abstract class Trabajadores {
+         String area;
+         String tarea;
+         
+         public void tarea(); 
+         
+         
+     
+     }
+     
+     class Personas {
+         String nombre;
+         int clabeEmpleado;
+         
+         public void tarea() {
+         
+         }
+     
+     }
+     
+     class Robots {
+         String numeroRobot;
+         
+         public void tarea() {
+         
+         }
+     
+     }
+     </pre>
+     <br>
+
+     <p class="asideGuia"><strong>Programa 2.</strong> Considere una clase abstracta "Instrumentos", clases concretas "Arpas", "Jarana", y la clase principal, además de la herencia:  construya un programa, que "El arpa toca: una escalera grande," y "La jarana toca: y otra chiquita".</p>
+     <br>
+     
+     <pre>
+     abstract class Instrumentos {
+         public void tocar();
+     
+     }
+     
+     class Arpas {
+         
+         public void tocar() {
+         
+         }
+     
+     }
+     
+     class Jaranas {
+         
+         public void tocar() {
+         
+         }
+     
+     }
+     </pre>
+     <br>
+     
+     <p class="asideGuia"><strong>Programa 3.</strong> Considere una clase abstracta "Animales", clases concretas "Leones", "Perritos", y la clase principal, además de la herencia:  construya un programa, que presente en consola "La leona caza gacelas" y "El perrito no caza, pero juega".</p>
+     <br>
+     
+     <pre>
+     abstract class Animales {
+         
+         public void cazar();
+     }
+     
+     class Leones {
+         
+         public void cazar() {
+         
+         }
+     
+     }
+     
+     class Perritos {
+         
+         public void cazar() {
+         
+         }
+     
+     }
+     </pre>
+     <br>
+     
+     <h2>Interfaces.</h2>
+     <br>
+     <br>
+     <p class="asideGuia"><strong>Programas 1.</strong> Considere una interface "Alimentos", clases concretas "Bocadillos", "Cafes", y la clase principal:  construya un programa, que muestre en consola "Una torta de jamón se prepara con pan y jamón y se sirve en un plato extendido" y "Un café americano se prepara con dos onzas de café en grano y se sirve en una taza mediana".</p>
+     <br>
+     
+     <pre>
+     interface Alimentos {
+         
+         public void servir();
+         public void preparar();
+     }
+     
+     class Bocadillos {
+         
+         public void preparar() {
+         
+         }
+         
+         public void servir() {
+         
+         }
+     
+     }
+     
+     class Cafes {
+         
+         public void preparar() {
+         
+         }
+         
+         public void servir() {
+         
+         }  
+     
+     }
+     </pre>
+     <br>
+
+     <p class="asideGuia"><strong>Programa 2.</strong> Considere una interface "Animales", clases concretas "Leones", "Perritos" y la clase principal:  construya un programa, que .</p>
+     <br>
+     
+     <pre>
+     interface Animales {
+         
+         public void queCome();
+         public void dondeVive();
+     }
+     
+     class Leones {
+         
+         public void queCome() {
+         
+         }
+         
+         public void dondeVive() {
+         
+         }
+     
+     }
+     
+     class Perritos {
+         
+         public void queCome() {
+         
+         }
+         
+         public void dondeVive() {
+         
+         }
+     
+     }
+     </pre>
+     <br>
+
+     <p class="asideGuia"><strong>Programa 3.</strong> Considere una interface "Trabajadores", clases concretas "Personas", "Robots", y la clase principal:  construya un programa, que presente en consola "La persona revisa un producto" y "El robot mueve un barra de acero".</p>
+     <br>
+     
+     <pre>
+     interface Trabajadores {
+         
+         public void quienEs();
+         public void queHace();
+     }
+     
+     class Personas {
+         
+         public void quienEs() {
+         
+         }
+         
+         public void queHace() {
+         
+         }
+     
+     }
+     
+     class Robots {
+         
+         public void quienEs() {
+         
+         }
+         
+         public void queHace() {
+         
+         }
+     
+     }
+     </pre>
+     <br>
+
+     <h2>Clases.</h2>
+     <br>
+     <p class="asideGuia"><strong>Programa 1.</strong> Construya las clases: de tal manera que la salida del programa, presente .</p>
+     <br>
+
+     <pre>
+     public class Clase1 {
+         
+     }
+         
+     public class Clase2 {
+           //Definición de la clase
+     }
+     </pre>
+     <br>
+
+     <p class="asideGuia"><strong>Programa 2.</strong> Construya las clases: de tal manera que la salida del programa, presente .</p>
+     <br>
+
+      <pre>
+     public class Clase1a {
+         
+     }
+         
+     public class Clase2a {
+           //Definición de la clase
+     }
+     </pre>
+     <br>
+      
+     <hr>
+     <p><h3>Aquí se presentan los links para su 
+Estudio, y que tengan buen desempeño.</h3></p> 
+       
+     <p><a href="ListaDeProgramas.html">Link a programas.</a></p>
+     <hr>
+        
+        
+     </aside>
+     <footer><p>Evaluación de programación orientada a objetos: Solución de la guía de mayo del 2022</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

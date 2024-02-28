@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Práctica 6 Compiladores</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Práctica 6</header>
+ <nav>
+    
+     <p><img src="temario-icono.png" width=95% border=5></image></p>
+     
+     <p class="derecha"><a href="TemarioCompiladores.html">Temario<img src="iconoPoo.png" width=65% border=5></image></a></p>
+     
+     <p><a href="MaterialPoo.html"><img src="iconoPoo.png" width=90% border=5></image></a></p>
+         
+ </nav>
+
+  <section class="envoltura">
+    <h1 class="titulo">DISEÑO E IMPLEMENTACIÓN DE LA CLASE PARA OBTENER LA TABLA LL(1) DE UNA GRAMÁTICA LIBRE DEL CONTEXTO SIN RECURSIÓN IZQUIERDA</h1>
+
+    <section class="interna">
+      
+      <article>
+       
+       <h1>Objetivo</h1>
+       <hr>
+       <br>
+       <p>Describir de manera teórica el procedimiento para obtener la tabla LL(1). Traspasarlo a un programa construyendo una clase para obtener la tabla LL(1).</p>
+      <br>
+      <br>
+      <hr>
+      <h1>Actividades</h1>
+      <hr>
+      <br>
+      <p>Acondicionar la gramática libre de contexto. (Presentar todo el proceso de acondicionamiento).</strong></p>
+      <br>
+      <font color=lime size=6><h3 align="center"> S &rarr; M(P)C <br> M &rarr; p s v m | s v m | v m <br> P &rarr; Str [ ] args <br> C &rarr; { D } <br> D &rarr; t id ; </h3></font>
+      <br>
+      <p><strong>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Actividad 1.</strong> Aplica las reglas UNO y DOS para determinar que la gramática libre de contexto es una gramática LL(1).</strong></p>
+      <br>
+      <p><strong>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Actividad 2.</strong> Acondicionar a la gramática libre de contexto de tal manera que no tenga problemas de recursividad izquierda.</strong></p>
+      <br>
+      <p><strong>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Actividad 3.</strong> Cálculo de la tabla de primeros y siguientes.</strong></p>
+      <br>
+      <p><strong>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Actividad 4.</strong> Procedimiento de construcción de la tabla LL(1).</strong></p>
+      <br>
+       <p><strong>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Actividad 5.</strong> Construir la clase para obtener la tabla LL(1).</p>
+       <br>
+       <p><strong>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Esqueleto de programa: &nbsp &nbsp  DriverTLL1.java:</strong></p>
+       <br>
+       <pre>
+                   public class TLL1 {
+
+                   }
+         
+                   public class ReglaUnoDos {
+           
+                   }
+
+                   public class TablaPrimeroSiguiente {
+           
+                   }
+
+                   public class ConstruccionTablaLL1 {
+           
+                   }
+        
+                   public class DriverTLL1 {
+                       public static void main(String[] args) {
+                           TLL1 t = new TLL1();
+           
+                       }
+                   }
+       </pre>
+       <br>
+       <br>
+       <hr>
+      <h1>Cuestionario</h1>
+      <hr>
+      <br>
+      <p><strong>Pregunta 1.</strong> Presentar un proceso para la construcción de la tabla LL(1).</p>
+      <br>
+      <p><strong>Pregunta 2.</strong> Analizar una cadena de entrada usando la tabla LL(1).                                                                                                                </p>
+      <br>
+      <font color=yellow size=6><h3 align="center"> psvm(Str[] args){int c;} </h3></font>
+      <br>
+      </article>
+       <br>
+       <hr>
+       <br> 
+          
+    </section>
+
+       <aside>
+        <h1>Sugerencias</h1>
+        <hr>
+        <br>
+        <p><strong>Sugerencia en general. </strong> Todo el proceso lo puede hacer de manera general o puede utilizar la gramática que se presenta al principio de la página.</p>
+        <br>
+        <hr>
+        <br>
+        <p><strong>Sugerencia 1. </strong> Para la <strong>Actividad 1 </strong> </strong>. Aplicar las reglas UNO y DOS a cada una de las producciones.</p>
+        <br>
+        <p><strong>Sugerencia 2. </strong> Para la <strong>Actividad 2 </strong>. Cuando no se cumpla la regla UNO aplicar la forma general de la recursividad izquierda y si tiene recursividad izquierda, aplicar la transformación. Esto también se aplica a cada una de las producciones.</p>
+        <br>
+        <p><strong>Sugerencia 3. </strong> Para la <strong>Actividad 3 </strong>. Aplicando las derivaciones se va aplicando el concepto de PRIMERO y de SIGUIENTE.</p>
+        <br>
+        <p><strong>Sugerencia 4. </strong> Para la <strong>Actividad 4 </strong>. Utilizando la tabla de primeros y siguientes, la tabla LL(1) se forma con los no terminales que se colocan en la columna y todos los no terminales incluyendo el fin de cadena de tokens se colocan en el renglón. En la intersección del no terminal y el terminal de acuerdo al primero se coloca el número de producción.</p>
+        <br>
+        <p><strong>Sugerencia 5. </strong> La <strong>Actividad 5 </strong> es opcional.</p>
+        <br>
+       </aside>
+      <footer><p>Práctica 6</p><p class="derecha">Prof. José Sánchez Juárez</p></footer>
+   </section>
+</body>
+</html>

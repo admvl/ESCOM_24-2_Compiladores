@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Forzamiento hacia arriba</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Programación orientada a objetos<br>Capítulo 4</header>
+ <nav>
+    <!--<div class="contenedor">-->
+      <p>Enseñanza<img src="curie.svg" align=center width=35% border=5></image>Clásica</p>
+      <p class="derecha"><a href="TemarioPOO.html">Temario</a></p>
+      
+      <p><a href="41EnlacesPrac.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="41EnlacesHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">FORZAMIENTO HACIA ARRIBA</h1>
+    <section class="interna">
+      
+      <article>
+       <h1>Forzamiento hacia arriba</h1>
+       <hr>
+       <p><strong>Definición de forzamiento hacia arriba.</strong> 
+Siempre es posible convertir una instancia de una subclase a una variable de una superclase (conocida como
+upcasting), porque una instancia de una subclase es siempre una instancia de su superclase. Cuando
+lanzar una instancia de una superclase a una variable de su subclase (conocida como downcasting),
+se debe utilizar la conversión explícita para confirmar su intención al compilador con el
+(SubclassName) notación de conversión. Para que el casting sea exitoso, debes asegurarte de que el
+El objeto que se va a convertir es una instancia de la subclase. Si el objeto de superclase no es una instancia del
+subclase, se produce una ClassCastException en tiempo de ejecución. Por ejemplo, si un objeto no es un
+instancia de Student, no se puede convertir en una variable de Student. Es una buena práctica,
+Por lo tanto, para asegurarse de que el objeto sea una instancia de otro objeto antes de intentar un casting. Esta
+se puede lograr utilizando el operador instanceof. Considere el siguiente código:
+
+Una referencia de tipo SubClass (subclase) se puede convertir como referencia de tipo SuperClass (superclase).</p>
+       <br>
+       <p class="cita"><cite>Introduction to programing in Java, John Dean and Raymond Dean, Pág. 387</cite></p>
+       <p><strong>Código en Java.</strong> El siguiente código explica como se hace el forzamiento hacia arriba. </p>
+       <br>
+       <pre>
+ Object myObject = new Circle();
+
+ if (myObject instanceof Circle) {
+   System.out.println("The circle diameter is " +
+     ( (Circle)myObject) .getDiameter());
+    ...
+ }
+
+ class ReferenciaDemo {
+   public static void main(String args[]) {
+     PesoCaja pesocaja = new PesoCaja(3, 5, 7, 8.37);
+     Caja plancaja = new Caja();
+     double vol;
+
+     vol = pesocaja.volumen();
+     System.out.println("El volumen de pesocaja es" + vol);
+     System.out.println("El peso de pesocaja es" + pesocaja.peso);
+     System.out.println();
+
+     plancaja = pesocaja;
+     vol = plancaja.volumen();
+     System.out.println("El volumen de plancaja es" + vol);
+   }
+ }
+       </pre>
+       <br>
+       <pre>
+ public class CastingDemo {
+   /** Main method */
+   public static void main(String[] args) {
+    // Create and initialize two objects
+    Object object1 = new Circle4(1);
+    Object object2 = new Rectangle1(1, 1);
+    // Display circle and rectangle
+    displayObject(object1);
+    displayObject(object2);
+  }
+
+  /** A method for displaying an object */
+
+  public static void displayObject(Object object) {
+    if ( object instanceof Circle4 ) {
+      System.out.println("The circle area is " +
+        ((Circle4)object).getArea());
+      System.out.println("The circle diameter is " +
+        ((Circle4)object).getDiameter());
+  }
+
+  else if ( object instanceof Rectangle1 ) {
+    System.out.println("The rectangle area is " +
+      ((Rectangle1)object).getArea());
+  }
+  }
+ }
+       </pre>
+       <br>
+       <p class="cita"><cite>Object-Oriented Analysis and Design, Brahma Dathan and Sarnath Ramnath, Pág. 64</cite></p>
+      <p class="cita"><cite>Java: manual de referencia, Patrick Naughton y Herbert Schildt, Pág. 19-115.</cite></p>
+      <br>
+       <p><strong>Definición de casting.</strong> Ya ha utilizado el operador de conversión para convertir variables de un tipo primitivo a
+otro. La conversión también se puede utilizar para convertir un objeto de un tipo de clase en otro dentro de un
+jerarquía de herencia. En la sección anterior, la declaración.</p>
+      <br>
+     <pre>
+ m(new Estudiante());
+     </pre>
+     <p>Asigna el objeto nuevo Estudiante() a un parametro del tipo Objeto. Esta sentencia es equivalente a:</p>
+    <br>
+    <pre>
+ Object o = new Estudiante();
+ m(o);
+    </pre>
+    <br>
+   <p>
+   La sentecia <strong> Object o = new Estudiante();</strong>, conocido como un <i>casting implicito</i>, es ilegal porque una instancia de <strong>Estudiante</strong> es automáticamente una instancia de <strong>Object</strong>.
+   </p>
+   <br>
+  <p>La conversión solo se puede realizar cuando el objeto de origen es una instancia de la clase destino. El programa usa el operador <strong>instanceof</strong> para asegurarse de que el objeto fuente es una instancia de la clase destino antes de realizar un casting.</p>
+     <br>
+    
+    <br>
+       <p><strong>Definición de instancia.</strong> Cada objeto de una clase contiene la estructura y el comportamiento  definidos por la clase, como si fuera grabado por un molde con la forma de la clase. Por esta razón, a los objetos se les llama a veces instancias de una clase. Una clase es una construcción lógica; un objeto tiene realidad física.</p>
+      <br>
+      <p>Cuando se crea una clase, hay que especificar el código y los datos que constituyen la clase. En su conjunto, estos elementos son miembros de la clase. Los datos definidos por la clase son las variables miembro o variables de instancia. El código que opera sobre esos datos se conoce como método miembro o simplementemente método.</p>
+       <br>
+      <p>Una clase es un template (modelo) para un objeto y un objeto es una instancia de una clase. Debido a que un objeto es una instancia de una clase, a menudo se utilizan las palabras objeto e instancia de manera indistinta. La manera de usar la palabra clave <strong>instanceof</strong> es como se muestra en las siguientes líneas de código, que comprueba si el objeto miObjeto es instancia de la clase Circulo;</p>
+     <br>
+     <pre>
+  if (miObject instanceof Circulo) {
+    System.out.println("El diametro del circulo es " +
+      ( (Circulo)miObject).getDiametro());
+    ...
+  }
+      </pre>
+      <br>
+        <p class="cita"><cite>Java: manual de referencia, Patrick Naughton y Herbert Schildt, Pág. 19-115.</cite></p>
+       <p class="cita"><cite>Introduction to programing in Java, John Dean and Raymond Dean, Pág. 388</cite></p>
+       <br>
+       <p><strong>Definición de forzamiento.</strong> Siempre es posible convertir una instancia de una subclase a una variable de una superclase (conocida como
+upcasting), porque una instancia de una subclase es siempre una instancia de su superclase. Cuando
+lanzar una instancia de una superclase a una variable de su subclase (conocida como downcasting),
+se debe utilizar la conversión explícita para confirmar su intención al compilador con la sentencia (SubclassName) que es la notación de conversión. Para que el casting sea exitoso, debes asegurarte de que el
+objeto que se va a convertir es una instancia de la subclase. Si el objeto de superclase no es una instancia de la
+subclase, se produce una ClassCastException en tiempo de ejecución. Por ejemplo, si un objeto no es un
+instancia de Student, no se puede convertir en una variable de Student. Es una buena práctica, asegurarse de que el objeto sea una instancia de otro objeto antes de intentar un casting. Esta
+se puede lograr utilizando el operador <strong>instanceof</strong>. Considere el siguiente código:</p>
+       <br>
+       <p class="cita"><cite>Introduction to programing in Java, John Dean and Raymond Dean, Pág. 387</cite></p>
+       <br>
+       <p>Un método ficticio que será anulado en todos los instantes por los métodos definidos en las
+clases descendentes. Hay una forma mejor de como usar una clase abstracta para
+decirle al compilador lo que está tratando de hacer con anticipación. En la clase abstracta, se declaran aquellos métodos que son inapropiados para la clase de la variable de referencia pero que serán definidos por clases descendentes que instancian objetos. Para declarar un método, simplemente escriba el encabezado del método con el resumen adicional del modificador y termine este encabezado de método modificado con un punto y coma.
+Por ejemplo, observe el modificador <strong>abstract</strong> en el encabezado de la clase Empleado.
+Una declaración abstracta no contiene suficiente información para definir el método. Solo especifica
+su interfaz del mundo exterior y dice que las definiciones existirán en algún otro lugar. ¿Dónde? En todo instanciable
+clases descendientes! El uso de un método abstracto evita la definición poco elegante del método ficticio y es una mejor manera de implementar el polimorfismo. 
+<br>
+<br>
+Una declaración <strong>abstract</strong> no contiene suficiente información para definir el método. Solo especifica
+su interfaz del mundo exterior y dice que las definiciones existirán en algún otro lugar. ¿Dónde? En toda clase instanciable
+descendente! El uso de un método abstracto evita la definición poco elegante del método ficticio, y es una
+mejor forma de implementar el polimorfismo.
+<br>
+<br>
+El modificador <strong>abstract</strong> está bien nombrado. Algo es abstracto si es de naturaleza general, no detallado
+en la naturaleza. Una declaración de método abstracto es de naturaleza general. No proporciona detalles del método. Eso
+solo sirve para advertir que el método existe y que debe ser desarrollado por definiciones de métodos "reales" en todas
+las clases instanciables descendentes. ¿Hemos seguido esta regla para nuestro programa? En otras palabras, ¿tenemos definiciones del método getPay en todas las clases descendentes de Empleado? Sí, el Asalariado y
+las clases por hora ya contienen las definiciones requeridas del método getPay. Cómo siempre, necesitamos revisar las clases Salaried, Hourly, y Payroll haciendo estos reemplazos:
+<strong>obj.toString</strong> en la siguiente declaración:</p>
+     <br>
+     <pre>System.out.println(obj.toString());</pre>
+      <br>
+    <p><strong>Definición de superclase.</strong> Si deseas describir una clase de animales más específica, como los mamíferos, tendrían atributos más específicos, como el tipo de dientes y las glándulas mamarias. A esto se le conoce como subclase de animales, mientras que los animales son una superclase de los mamiferos.
+<br>
+Dado que los mamiferos son simplemente unos animales especificados con más precisión, heredan todos los atributos de los animales. Una subclase hereda todos los atributos de cada uno de sus antecesores en la jerarquía de clases.</p>
+   <br>
+   <pre>
+ class A {
+   int i, j;
+   void mostrarij() {
+     System.out.println("i y j:"+ i +"" + j);
+   }
+ }
+   </pre>
+   <br>
+   <p><strong>Definición de subclase.</strong> El siguiente código es la implementación de una subclase, donde la palabra clave <strong>extends</strong> expresa que la clase A hereda características a la clase B:</p>
+   <br>
+   <pre>
+ class B extends A {
+   int k;
+   void mostrark() {
+     System.out.println("k:" + k);
+   }
+   void sum() {
+     System.out.println("i + j + k:" (i + j + k));
+   }
+ }
+   </pre>
+    </article>
+    <br>
+     
+      </section>
+      <aside>
+            
+      <h1>Ejercicios de forzamiento hacia arriba</h1>
+        <hr>
+        <br>
+        <p><strong>Forzamiento hacia arriba.</strong> Construir un programa basado en el ejemplo de forzamiento. El programa debe contener una superclase y dos subclases. Usar las dos clases que se muestran a continuación:</p>
+       <br>
+  <pre>
+ class Caja {
+   double ancho;
+   double alto;
+   double profundo;
+
+   Caja(Caja ob) {
+     ancho = ob.ancho;
+     alto = ob.alto;
+     profundo = ob.profundo;
+   }
+
+   Caja(double an, double al, double p) {
+     ancho = an;
+     alto = al;
+     profundo = p;
+   }
+
+   Caja() {
+     ancho = -1;
+     alto = -1;
+     profundo = -1;
+   }
+
+   double volumen() {
+     return ancho * alto * profundo;
+   }
+ }
+  </pre>
+  <br>
+  <pre>
+ class PesoCaja {
+   double peso;
+
+   PesoCaja(double an, double al, 
+    double p, double pe) {
+     ancho = an;
+     alto = al;
+     profundo = p;
+     peso = pe;
+   }
+ }
+  </pre>
+  <!--     <hr>
+      <p><strong>Enlaces dinámicos.</strong> Construir un programa basado en el ejemplo de enlaces dinámicos. El programa debe hacer ladrar a un perro, mauyar a un gato y cantar a un canario.</p>
+      <br>
+     <hr>
+     <h1>Práctica 4 (la correspondiente)</h1>
+        <hr>
+        <br>
+        <p>Realizar la siguiente prácticas presentarlas en un formato de power point y enviarla por correo.</p>
+       <p>Ejercicios. Práctica. Proyecto.</p>
+      
+      <br>
+     <hr>
+     <h1>Realizar el proyecto (parcial 1)</h1>
+        <hr>
+        <br>
+        <p>Presentar el proyecto por medio de un formato de power point y enviarla por correo.</p>
+       <p>Ejercicios. Práctica. Proyecto.</p> -->
+        </aside>
+      <footer><p>Polimorfismo: Tema 4.3.1</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

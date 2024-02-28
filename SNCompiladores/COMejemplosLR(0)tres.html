@@ -1,0 +1,453 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+    width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+Compiladores
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPoo.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+TEMARIO 2009
+</a></p>
+
+<p align=right><a href=EstudianteAgoDic2022.html style="float:center">
+LISTA DE CLASES
+</a></p>
+
+<p align="right" class="p5"><a href=SNCompiladores/COMapuntes9.svg target="_blank" style="float:center">
+(APUNTES 9) SNCompiladores/COMapuntes9.dia
+</a></p>
+
+<p align=right><a href=Pizarron9COM.svg style="float:center">
+(PIZARRÓN DE CLASE 9) MiMIC/Pizarron9COM.dia
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+EJEMPLO TRES <br> LR(0) 579
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<!--
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Autómata AFD mínimo</font></p>
+
+
+<p>Las expresiones regulares aplicadas a las clases léxicas
+<br>
+<font color=red size=7><h3 align="center">abcd, &epsilon; o &lambda;</h3></font>
+<br>
+<font color=red size=7><h3 align="center">&epsilon; o &lambda;</h3></font>
+<br>
+<p align=center><font color=yellow size=6>Las expresiones regulares aplicadas a las clases léxicas</font></p>
+<br>
+<font color=red size=7><h3 align="center">a | b = {a} o {b}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a  b = {ab}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>*</SUP> = {&epsilon;,a,aa,aaa, ...}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>+</SUP> = {a,aa,aaa, ...}</h3></font>
+<br>
+</p>
+</header> -->
+
+<br>
+
+<section class=izquierda><strong>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Código fuente</font></p>
+</header>
+
+<br>
+<font color=lime size=6><h3 align="center"> public static void main(String[] args) { int a ; } </h3></font>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de la gramática libre de contexto</font></p>
+</header>
+
+<br>
+<font color=red size=6><h3 align="center"> S &rarr; b <br> S &rarr; BcB <br> B &rarr; b </h3></font>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Aumentar, expandir y dividir en capas a la gramática libre de contexto</font></p>
+</header>
+
+<br>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Análisis de la cadena de operaciones de suma y multiplicación.</CAPTION>
+        <tr><th scope="row"> NÚMERO </th> <th> PRODUCCIÓN </th> <th> C1 </th> <th> C2 </th> <th> C3 </th> <th> C4 </th> <th> C5 </th> </tr>
+        <tr> <td> 0 </td> <td> S' &rarr; </td> <td> S </td>  <td>  </td> <td>  </td> <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 1 </td> <td> S &rarr; </td> <td> M </td>  <td> ( </td> <td> P </td> <td> ) </td> <td> C </td> </tr>
+        
+        <tr> <td> 2 </td> <td> M &rarr; </td> <td> p </td>  <td> s </td> <td> v </td> <td> m </td> <td>  </td> </tr>
+        
+        <tr> <td> 3 </td> <td> P &rarr;  </td> <td> Str </td>  <td> [ </td> <td> ] </td> <td> args </td> <td>  </td> </tr>
+        
+        <tr> <td> 4 </td> <td> C &rarr;  </td> <td> { </td>  <td> D </td> <td> } </td> <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 5 </td> <td> D &rarr;  </td> <td> t </td>  <td> id </td> <td> ; </td> <td>  </td> <td>  </td> </tr>
+        
+                
+      </table>
+      </CENTER>
+      
+      <br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de los elementos LR(1)</font></p>
+</header>
+
+<br>
+
+<p align=right><a href=SNCompiladores/332AnalizadorSintacticoLR(1).html style="float:center">
+3.3.2 Analizadores LR(1)
+</a></p>
+
+<br>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla que muestra la construcción de los conjuntos cerradura.</CAPTION>
+        <tr><th scope="row"> ESTADO </th> <th> CERRADURA </th> <th> CONJUNTO CERRADURA </th> </tr>
+        <tr> <td> I<sub>0</sub> =</td> <td> cerr (S' → •S) = </td> <td> { S' → •S , S → •M ( P ) C , M → &#8226;p s v m } </td>  </tr>
+        
+        <tr> <td> I<sub>1</sub> =</td> <td> cerr (Ir a(I<sub>0</sub>, S)) = cerr ( S' &rarr; S • ) = </td> <td> { S' &rarr; S &#8226; } </td>  </tr>
+        
+        <tr> <td> I<sub>2</sub> =</td> <td> cerr (Ir a(I<sub>0</sub>, M)) = cerr (S &rarr; M &#8226; ( P ) C ) = </td> <td> { S &rarr; M &#8226; ( P ) C } </td>  </tr>
+        
+        <tr> <td> I<sub>3</sub> =</td> <td> cerr (Ir a(I<sub>0</sub>, p)) =  ( M &rarr; p &#8226; s v m ) = </td> <td> { M &rarr; p &#8226; s v m } </td>  </tr>
+        
+        <tr> <td> I<sub>4</sub> =</td> <td> cerr (Ir a(I<sub>2</sub>, ()) = cerr ( S &rarr; M ( &#8226; P ) C ) = </td> <td> { S &rarr; M ( &#8226; P ) C , P &rarr; &#8226; Str [ ] args } </td>  </tr>
+        
+        <tr> <td> I<sub>5</sub> =</td> <td> cerr (Ir a(I<sub>4</sub>, Str)) = cerr ( P &rarr; Str &#8226; [ ] args ) =  </td> <td> { P &rarr; Str &#8226; [ ] args } </td>  </tr>
+        
+        <tr> <td> I<sub>6 =</sub> </td> <td> cerr (Ir a(I<sub>4</sub>, P)) = cerr ( S &rarr; M ( P &#8226; ) C ) =  </td> <td> { S &rarr; M ( P &#8226; ) C } </td>  </tr>
+        
+        <tr> <td> I<sub>7</sub> =</td> <td> cerr (Ir a(I<sub>6</sub>, )) = cerr ( S &rarr; M ( P ) &#8226; C ) =  </td> <td> { S &rarr; M ( P ) &#8226; C , C &rarr; &#8226; { D } } </td>  </tr>
+        
+        <tr> <td> I<sub>8</sub> =</td> <td> cerr (Ir a(I<sub>7</sub>, {)) = cerr ( C &rarr; { &#8226; D } ) =  </td> <td> { C &rarr; { &#8226; D } , D &rarr; &#8226; t id ; } </td>  </tr>
+        
+        <tr> <td> I<sub>9</sub> </td> <td> cerr (Ir a(I<sub>8</sub>, t)) = cerr ( D &rarr; t &#8226; id ; ) =  </td> <td> { D &rarr; t &#8226; id ; } </td>  </tr>
+        
+        <tr> <td> I<sub>10</sub> </td> <td> cerr (Ir a(I<sub>3</sub>, s)) = cerr ( M &rarr; p s &#8226; v m ) =  </td> <td> { M &rarr; p s &#8226; v m } </td>  </tr>
+        
+        <tr> <td> I<sub>11</sub> =</td> <td> cerr (Ir a(I<sub>5</sub>, [)) = cerr ( P &rarr; Str [ &#8226; ] args ) =  </td> <td> { P &rarr; Str [ &#8226; ] args } </td>  </tr>
+        
+        <tr> <td> I<sub>12</sub> =</td> <td> cerr (Ir a(I<sub>8</sub>, D)) = cerr ( C &rarr; { D &#8226; } ) =  </td> <td> { C &rarr; { D &#8226; } } </td>  </tr>
+        
+        <tr> <td> I<sub>13</sub> =</td> <td> cerr (Ir a(I<sub>9</sub>, id)) = cerr ( D &rarr; t id &#8226; ; ) =  </td> <td> { D &rarr; t id &#8226; ; } </td>  </tr>
+        
+        <tr> <td> I<sub>14</sub> =</td> <td> cerr (Ir a(I<sub>10</sub>, v)) = cerr ( M &rarr; p s v &#8226; m ) =  </td> <td> { M &rarr; p s v &#8226; m } </td>  </tr>
+        
+        <tr> <td> I<sub>15</sub> =</td> <td> cerr (Ir a(I<sub>11</sub>, ])) = cerr ( P &rarr; Str [ ] &#8226; args ) =  </td> <td> { P &rarr; Str [ ] &#8226; args } </td>  </tr>
+        
+        <tr> <td> I<sub>16</sub> =</td> <td> cerr (Ir a(I<sub>12</sub>, })) = cerr ( C &rarr; { D } &#8226; ) =  </td> <td> { C &rarr; { D } &#8226; } </td>  </tr>
+        
+        <tr> <td> I<sub>17</sub> </td> <td> cerr (Ir a(I<sub>13</sub>, ;)) = cerr ( D &rarr; t id ; &#8226; ) =  </td> <td> { D &rarr; t id ; &#8226; } </td>  </tr>
+        
+        <tr> <td> I<sub>18</sub> </td> <td> cerr (Ir a(I<sub>14</sub>, m)) = cerr ( M &rarr; p s v m &#8226; ) =  </td> <td> { M &rarr; p s v m &#8226; } </td>  </tr>
+        
+        <tr> <td> I<sub>19</sub> </td> <td> cerr (Ir a(I<sub>15</sub>, args)) = cerr ( P &rarr; Str [ ] args &#8226; ) =  </td> <td> { P &rarr; Str [ ] args &#8226; } </td>  </tr>
+        
+        <tr> <td> I<sub>20</sub> =</td> <td> cerr (Ir a(I<sub>7</sub>, C)) = cerr ( S &rarr; M ( P ) C &#8226; ) =  </td> <td> { S &rarr; M ( P ) C &#8226; } </td>  </tr>
+        
+                
+      </table>
+      </CENTER>
+    
+      <br>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de la tabla de primeros y siguientes  </font></p>
+</header>
+
+<br>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de primeros y siguientes de la gramática de declaración del método principal.</CAPTION>
+        <tr><th scope="row"> </th> <th> S' </th> <th> S </th> <th> M </th> <th> P </th> <th> C </th> <th> D </th> </tr>
+        
+        <tr> <td> PRIMEROS </td> <td> p </td> <td> p </td>  <td> p </td> <td> Str </td> <td> { </td> <td> t </td> </tr>
+        
+        <tr> <td> SIGUIENTES </td> <td> $ </td> <td> $ </td>  <td> ( </td> <td> ) </td> <td> $ </td> <td> } </td> </tr>
+        
+                
+      </table>
+      </CENTER>
+      
+      <br>
+
+<p align=center><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+DEL TEMARIO 2009
+</a></p>
+
+</strong>
+</section>
+
+<!--------------------------------------------------------->
+
+<aside class=derecha>
+<strong>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de grafo</font></p>
+</header>
+
+<br>
+<p align="center">
+<img src="GraMetodoLR0.svg" align=center width=80% border=0></p>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de la tabla de acciones e Ir a</font></p>
+</header>
+
+<br>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de Acciones y de Ir a.</CAPTION>
+        
+        <tr> <th colspan=17>Acciones </th> <th colspan=5>Ir-a </th> </tr>
+        
+        <tr><th scope="row"> ESTADOS </th> <th> p </th> <th> s </th> <th> v </th> <th> m </th> <th> ( </th> <th> ) </th> <th> Str </th> <th> [ </th> <th> ] </th> <th> args </th> <th> { </th> <th> } </th> <th> t </th> <th> id </th> <th> ; </th> <th> $ </th> <th> S </th> <th> M </th> <th> C </th> <th> D </th> <th> P </th> </tr>
+        
+        <tr> <td> I<sub>0</sub> </td> <td> d<sub>3</sub> </td> <td> e </td> <td>e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 1 </td> <td> 2 </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>1</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> acp </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>2</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>4</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td>e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>3</sub> </td> <td> e </td> <td> d<sub>10</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>4</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>5</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 6 </td> </tr>
+        
+        <tr> <td> I<sub>5</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>11</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>6</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>7</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td><td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td></tr>
+        
+        <tr> <td> I<sub>7</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>8</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 20 </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>8</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>9</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 12 </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>9</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>13</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>10</sub> </td> <td> e </td> <td> e </td> <td> d<sub>14</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>11</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>15</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>12</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>16</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>13</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>17</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>14</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>18</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>15</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>19</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>16</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> r<sub>4</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>17</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> r<sub>5</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>18</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> r<sub>2</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>19</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> r<sub>3</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>20</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> r<sub>1</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+      </table>
+      </CENTER>
+
+       <br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>¿Cómo se analizan las sentencias?</font></p>
+</header>
+
+<br>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de análisis de una cadena de tokens.</CAPTION>
+        <tr><th scope="row"> ESTADOS </th> <th> PILA </th> <th> ACCIÓN </th> <th> ENTRADA </th> </tr>
+        
+        <tr> <td> - </td> <td> $I<sub>0</sub> </td> <td> - </td> <td> &uarr; p s v m ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>0</sub> </td> <td> $I<sub>0</sub> </td> <td> d<SUB>3</SUB> </td> <td> &uarr; p s v m ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>3</sub> </td> <td> $I<sub>0</sub> p I<SUB>3</SUB> </td> <td> d<SUB>10</SUB> </td> <td>  p &uarr; s v m ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>10</sub> </td> <td> $I<sub>0</sub> p I<SUB>3</SUB> s I<SUB>10</SUB> </td> <td> d<SUB>14</SUB> </td> <td>  p s &uarr; v m ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>14</sub> </td> <td> $I<sub>0</sub> p I<SUB>3</SUB> s I<SUB>10</SUB> v I<SUB>14</SUB> </td> <td> d<SUB>18</SUB> </td> <td>  p s v &uarr; m ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>18</sub> </td> <td> $I<sub>0</sub> p I<SUB>3</SUB> s I<SUB>10</SUB> v I<SUB>14</SUB> m I<SUB>18</SUB> </td> <td> r<SUB>2</SUB> </td> <td>  p s v m &uarr; ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>2</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> </td> <td> d<SUB>4</SUB> </td> <td>  p s v m &uarr; ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>4</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> </td> <td> d<SUB>5</SUB> </td> <td>  p s v m ( &uarr; Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>5</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> Str I<sub>5</sub> [ I<sub>11</sub> </td> <td> d<SUB>11</SUB> </td> <td>  p s v m ( Str [ &uarr; ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>11</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> Str I<sub>5</sub> [ I<sub>11</sub> ] I<sub>15</sub> </td> <td> d<SUB>15</SUB> </td> <td>   p s v m ( Str [ ] &uarr; args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>15</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> Str I<sub>5</sub> [ I<sub>11</sub> ] I<sub>15</sub> args I<sub>19</sub> </td> <td> r<SUB>3</SUB> </td> <td>  p s v m ( Str [ ] args &uarr; ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>19</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> </td> <td> d<SUB>7</SUB> </td> <td>  p s v m ( Str [ ] args ) &uarr; { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>7</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> { I<sub>8</sub> </td> <td> d<sub>8</sub> </td> <td>  p s v m ( Str [ ] args ) { i &uarr; a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>8</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> { I<sub>8</sub> i I<sub>9</sub> </td> <td> d<sub>13</sub> </td> <td>   p s v m ( Str [ ] args ) { i &uarr; a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>9</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> { I<sub>8</sub> i I<sub>9</sub> a I<sub>13</sub> </td> <td> d<sub>17</sub> </td> <td>   p s v m ( Str [ ] args ) { i a &uarr; ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>13</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> { I<sub>8</sub> i I<sub>9</sub> a I<sub>13</sub> ; I<sub>17</sub> </td> <td> r<sub>5</sub> </td> <td>  p s v m ( Str [ ] args ) { i a ; &uarr; } $ </td> </tr>
+        
+        <tr> <td> I<sub>12</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> { I<sub>8</sub> D I<sub>12</sub> </td> <td> d<sub>16</sub> </td> <td>  p s v m ( Str [ ] args ) { i a ; &uarr; } $ </td> </tr>
+        
+        <tr> <td> I<sub>16</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> { I<sub>8</sub> D I<sub>12</sub> } I<sub>16</sub> </td> <td> r<sub>4</sub> </td> <td>  p s v m ( Str [ ] args ) { i a ; } &uarr; $ </td> </tr>
+        
+        <tr> <td> I<sub>20</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> C I<sub>20</sub> </td> <td> r<sub>1</sub> </td> <td>  p s v m ( Str [ ] args ) { i a ; } &uarr; $ </td> </tr>
+        
+        <tr> <td> I<sub>1</sub> </td> <td> $I<sub>0</sub> S I<sub>1</sub> </td> <td> acp </td> <td>  p s v m ( Str [ ] args ) { i a ; } &uarr; $ </td> </tr>
+        
+      </table>
+      </CENTER>
+      
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Otros ejemplos</font></p>
+</header>
+
+<br>
+
+<p align=center><a href=Ejem9ejemplo1.html style="float:center">
+Ejemplo 1
+</a></p>
+
+<p align=center><a href=Ejem9ejemplo2.html style="float:center">
+Ejemplo 2
+</a></p>
+
+</strong>
+</aside>
+
+
+</body>
+</html>

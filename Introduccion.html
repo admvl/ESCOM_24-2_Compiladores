@@ -1,0 +1,1000 @@
+<html>
+<style>
+header {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height:26%;
+width:50%;
+margin-left:25%;
+border: solid;
+border-color:#FFFF00;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+article {
+background-color: #8ba987;
+display: block;
+margin-left: 25%;
+margin-top: 0.5%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width:50%;	
+height:25%;	
+}
+
+article header {
+background-color: #009F80;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#800000;
+padding: 2px;
+height:36%;
+width:44%;
+text-align: center;
+font-size: 20px;
+margin-left:26%;
+margin-bottom: 5%;
+margin-top: 5%;
+}
+
+article h1 {
+font-size: 20px;
+
+}
+
+article div{
+background-color: #8ba987;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#0000FF;
+padding: 5px;
+width:40%;
+text-align: center;
+margin-left:0%;
+}
+
+p.p4  {
+ background-color: #808080;
+ font-size: 20px;
+ width: 230px;
+ margin: 10px 20px;
+ padding: 10px;
+ border: solid 6px #000;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+	.modalDialog {
+		position: fixed;
+		font-family: Arial, Helvetica, sans-serif;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.2);
+		z-index: 99999;
+		opacity:0;
+		-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+		pointer-events: none;
+	}
+	.modalDialog:target {
+		opacity:1;
+		pointer-events: auto;
+	}
+	.modalDialog > div {
+		width: 30%;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+	  	-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+	}
+	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+	.close:hover { background: #00d9ff; }
+
+table {
+  margin-left: 15%;
+  padding: 15px;
+  
+}
+
+.lateralIzq {
+	position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+	left: 0; /* Establecemos la barra en la izquierda */
+	top: 500px; /* Bajamos la barra 200px de arriba a abajo */
+	z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+}
+
+.lateralDer {
+	position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+	right: 0; /* Establecemos la barra en la izquierda */
+	top: 500px; /* Bajamos la barra 200px de arriba a abajo */
+	z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+}
+
+
+.t {
+  margin-left: -5%;
+  margin-top: -10%;
+  padding: 10px;
+}
+
+</style>
+
+<head>
+<title>Introducción</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<a>
+<img src="LibCompiladores.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=24% height=44% border=0>
+</a>
+
+<a>
+<img src=ApuntesInt.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=24% height=44% border=0>
+</a>
+
+<header>
+<img src=Estudiante.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=16% height=97% border=0>
+
+<img src=ApuntesInt.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=15% height=97% border=0>
+
+<h1 align=center>
+<font color=maroon size=8>
+CAPÍTULO 1
+</font>
+</h1>
+
+<h2 align=center>
+<font color=white size=6>
+Introducción a los Compiladores
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<nav>
+<h3 align=center><font size=6>Índice</font></h3>
+
+<p align=center><font size=5>
+El material de estudio para el estudiante que se presenta en esta página, esta dividido de acuerdo al temario de la asignatura.</font></p>
+
+<hr>
+
+<font color=yellow><h3 align="center">Temas:</h3></font>
+
+<p align=center>
+
+<a href=#arq>
+Arquitectura de los compiladores e intérpretes.
+</a>
+&nbsp; &nbsp;
+<a href=#def>
+Definición de compiladores e intérpretes.
+</a>
+&nbsp; &nbsp;
+<a href=#maq>
+Máquinas vituales.
+</a>
+&nbsp; &nbsp;
+<a href=#fun>
+Funcionalidad de las fases de un compilador.
+</a>
+</p>
+
+</nav>
+
+
+<hr>
+
+
+<article>
+<div class="section-content" style="width:900px;">
+<p style="text-align: center; ">El rol de la computadora en la vida diaria crece cada año. Con el aumento
+de Internet, las computadoras y el software que corre sobre ellas proveen aplicaciones,
+ noticias, entretenimiento y seguridad. Las computadoras embebidas
+han cambiado las formas en que construimos automóviles, aviones, teléfonos,
+televisores y radios. La computación ha creado categorı́as de actividad
+ completamente nuevas, desde videojuegos para redes sociales. Las supercomputadoras
+predicen el clima a diario y el curso de las tormentas violentas. Las
+ computadoras integradas sincronizan los semáforos y entregan un correo electrónico a un
+usuario.</p>
+
+<br>
+
+<p>Todas estas aplicaciones informáticas se basan en programas informáticos de
+software que crean herramientas virtuales además de las abstracciones de bajo
+nivel proporcionadas por el hardware subyacente. Casi todo este software se
+ traduce por una herramienta llamada compilador. Un compilador es simplemente
+un programa de computadora que traslada otros programas de computadora
+para prepararlos para su ejecución, gráficamente mostrado en la <a href="#openModal">FIGURA 2</a> [5] .</p>
+
+
+<header>
+<h3 align="center" id=arq>Arquitectura de los compiladores e intérpretes</h3>
+</header>
+
+<p>Para determinar la estructura general de los compiladores e intérpretes con
+base en la funcionalidad de sus etapas y fases. Podemos modelar el proceso
+de traducción entre dos lenguajes como el resultado de dos etapas, tal como
+se presenta en la <a href="#openModal1">FIGURA 1</a>. En la primera etapa se analiza la entrada para
+averiguar qué es lo que se intenta comunicar. Esto es lo que se conoce como
+análisis. El fruto de esta etapa es una representación de la entrada que permite
+que la siguiente etapa se desarrolle con facilidad. La segunda etapa, es la sı́ntesis,
+toma la representación obtenida en el análisis y la transforma en su equivalente
+en el lenguaje destino. En el caso de la interpretación, se utiliza la representación
+intermedia para obtener los resultados deseados.
+</p>
+
+<p>
+Si el programa objeto es un ejecutable en lenguaje de máquina, este entonces
+puede ser llamado por el usuario para procesar entradas y producir salidas,
+gráficamente mostrado en la <a href="#openModal3">FIGURA 3</a> [3] .</p>
+
+<p>
+Un intérprete es otra clase común de lenguaje de procesador. En lugar de
+producir un lenguaje objeto como una traducción, un intérprete aparece para
+directamente ejecutar las operaciones de especificadas en el programa fuente
+sobre las entradas alimentadas por el usuario.
+</p>
+
+<header>
+<h4 align="center" id=def>Definición de compiladores e intérpretes</h4>
+</header>
+
+<p>
+Mientras que el objetivo de los compiladores mostrado en la <a href="#openModal">FIGURA 2</a> , es
+obtener una traducción del programa fuente a otro lenguaje, los interprete tienen
+como objeto la obtención de los resultados del programa mostrado en la <a href="#openModal4">FIGURA 4</a> . Para ello deben realizar dos tareas: analizar su entrada y llevar a cabo las
+acciones especificadas por ella. La parte de análisis puede realizarse de manera
+idéntica a como se lleva a cabo en los compiladores. Es la parte de sı́ntesis la
+que se diferencia sustancialmente. En el caso de la interpretación, se parte del
+árbol de sintaxis abstracta y se recorre, junto con los datos de entrada, para
+obtener los resultados.
+</p>
+
+<p>
+Un <a href="#openModal2">INTÉRPRETE</a> es simplemente un dispositivo que toma alguna representación
+de un programa y lleva a cabo las operaciones que el programa especifica, es
+decir, imita o simula las operaciones que una máquina llevarı́a a cabo si fuera
+directamente capaz de procesar programas escritos en ese idioma. Un compilador toma una representación similar de un programa y produce instrucciones
+que, cuando es medido por una máquina, llevará a cabo las operaciones que
+el programa especifique. La diferencia entre un intérprete y una máquina bajo esta definición no es muy bueno: el microprograma de una computadora es un
+<a href="#openModal2">INTÉRPRETE</a> que dice que el programa de código de máquina imita el comportamiento que una máquina “real” que harı́a expresar ese programa dado [?] .
+
+<br>
+
+Un <a href="#openModal2">INTÉRPRETE</a> es otra forma de implementar un lenguaje de programación.
+La interpretación comparte muchos aspectos con la compilación. análisis léxico y verificación de tipos están en un intérprete como en un compilador. Pero
+en lugar de generar el código del árbol de sintaxis, el árbol de sintaxis se procesa directamente para evaluar expresiones y sentencias de ejecución, etc. Un
+intérprete puede necesitar el mismo fragmento del árbol de sintaxis (por ejemplo, el cuerpo de un bucle), la interpretación es tı́picamente más lenta que la
+ejecución de un programa de compilador. Pero escribir un intérprete es a menudo más simple que escribir un compilador y el intérprete es más fácil de emigrar
+a una máquina diferente, por lo que para aplicaciones donde la velocidad no es
+esencial, a menudo se usan <a href="#openModal2">INTÉRPRETES</a> [4] .
+</p>
+
+
+<font color=yellow><h3 align="center">Arquitectura de los compiladores e intérpretes</h3></font>
+
+
+<p>
+La arquitectura de un compilador tiene las dos etapas: análisis y sı́ntesis.
+Mientras que un intérprete solamente tiene la etapa de análisis.
+</p>
+
+<header>
+<h4 align="center" id=maq>Máquinas virtuales</h4>
+</header>
+
+<p>
+Una máquina virtual es un software que emula el hardware de una PC. Existen dos tipos de máquinas virtuales: máquina virtual de sistema y máquina
+virtual de proceso.
+</p>
+
+<p>
+Como el Bytecode es un lenguaje intermedio, este puede ser la entrada a una
+máquina virtual, que tenga conexión con un sistema operativo.
+</p>
+
+<p>
+Algunos lenguajes adoptan esquemas de traducción que incluyen tanto compilación e interpretación. Java se compila desde el código fuente en un formulario llamado bytecode, una representación compacta destinada a disminuir los
+tiempos de descarga para aplicaciones Java. Las aplicaciones Java se ejecutan
+ejecutando el bytecode en el máquina virtual Java correspondiente (jvm), un
+intérprete para bytecode. Al complicar aún más la imagen, muchas implementaciones de la jvm incluyen un compilador que se ejecuta en tiempo de ejecución,
+a veces llamado compilador just-in-time, o jit, que traduce secuencias de código de bytes muy usados en código nativo para la computadora subyacente. Parecido
+a lo que se muestra en la <a href="#openModal">FIGURA 7</a>.
+</p>
+
+<font color=red><h3>Las máquinas virtuales siven para:</h3></font>
+
+<table CELLSPACING="20">
+<tr><td>1</td><td>Para poder probar otros sistemas operativos.</td></tr>
+<tr><td>2</td><td>Para ejecutar programas antiguos.</td></tr>
+<tr><td>3</td><td>Para usar aplicaciones disponibles para otros sistemas.</td></tr>
+<tr><td>4</td><td>Para probar una aplicación en distintos sistemas.</td></tr>
+<tr><td>5</td><td>Como seguridad adicional.</td></tr>
+<tr><td>6</td><td>Para aprovechar su gran dinamismo.</td></tr>
+</table>
+
+<header>
+<h3 align="center" id=fun>Funcionalidad de las fases de un compilador</h3>
+</header>
+
+<p>
+Para observar la funcionalidad de las fases del compilador, considerar una
+expresión como entrada al compilador: posición := inicial + velocidad ∗ 60. y
+observemos que pasa a la salida de cada una de las fases del compilador hasta
+la salida del mismo compilador.
+</p>
+
+<font color=yellow><h3 align="center">Análisis léxico</h3></font>
+
+<p>
+Generalmente en computación lo que el compilador debe analizar es un programa del cual debe reconocer las palabras que contiene. De esta manera se
+comienza a saber si el programa esta bien escrito. Al agrupar los caracteres se
+van formando las palabras con la aplicación de un conjunto de reglas, las cuales
+se expresan por medio de producciones. Si la palabra es válida, el reconocedor asigna una categorı́a sintáctica, o parte del habla. Lo cual se muestra en la <a href="#openModal">FIGURA 8</a> , se observa que el analizador léxico entrega los tokens.
+</p>
+
+<p>
+Existen herramientas automáticas para generar reconocedores. El proceso de
+la herramienta es una descripción matemática de la sintaxis léxica del lenguaje.
+</p>
+
+<p>
+Para construir los reconocedores artesanales y los reconocedores generados,
+se aplican las mismas técnicas en ambos. Los compiladores comerciales y los
+compiladores de código abierto usan reconocedores artesanales. Los reconocedores artesanales son más rápidos que los reconocedores generados, porque la
+implementación optimiza una porción del encabezado que no se puede evitar en
+un reconocedor generado.
+</p>
+
+<p>
+Modelo de reconocedor, programa que identifica palabras de una cadena de
+caracteres.
+</p>
+
+<p>
+Reconocedor de palabras, la explicación más simple de un algoritmo para
+reconocer palabras es reconocer carácter por carácter. Por ejemplo reconocer
+la palabra clave new. Considerando la rutina SiguienteCaracter() que regresa
+el siguiente carácter y EsEnPan() que escribe en pantalla, se implementa como
+</p>
+
+<font color=yellow><h3 align="center">Análisis Sintáctico</h3></font>
+
+<p>
+En la fase de análisis sintáctico, un compilador verifica si o no los tokens
+generados por el analizador léxico son agrupados de acuerdo a reglas sintácticas
+del lenguaje. Si los tokens en una cadena son agrupados de acuerdo a reglas de
+sintaxis del lenguaje, entonces las cadenas de tokens generados por el analizador
+léxico son aceptados como construcción válida del lenguaje; de otra manera un
+manejo de error es llamado. De ahı́ que dos casos son involucrados cuando se
+diseña la fase de análisis sintáctico de un proceso de compilación;
+</p>
+
+<p>
+Todas las construcciones válidas de un lenguaje de programación deben ser
+especificadas: y para usar estas especificaciones un programa válido se forma.
+Aquellas, nosotros formamos una especificación de aquellos tokens que el analizador léxico regresará, y nosotros especificamos de que manera estos tokens son
+agrupados de modo que lo que resulte del agrupamiento sea una construcción
+válida del lenguaje.
+</p>
+
+<p>
+Un reconocedor adecuado será designado para reconocer si una cadena de
+tokens generado por el analizador léxico es una construcción válida o no.
+</p>
+
+<p>
+Por ello una notación apropiada debe ser usada para especificar la construcción de un lenguaje. La notación para especificar la construcción debe ser compacta, precisa y fácil de entender. La especificación de la estructura sintáctica
+para el lenguaje de programación (es decir, la construcción válida del lenguaje)
+usa gramática libre de contexto (GLC), porque para ciertas clases de gramáticas,
+nosotros podemos automáticamente construir un analizador eficiente que determine si un programa fuente es sintácticamente correcto. De ahı́ que la notación
+GLC sea un tópico de estudio.
+El análisis sintáctico es menos local en la naturaleza que el análisis léxico,
+donde se requieren métodos más avanzados. Se usa la misma estrategia: una notación más fácil para el entendimiento humano es transformada en una máquina
+semejante a una más sencilla de bajo nivel para una ejecución más eficiente. Este
+proceso es llamado generación del analizador.
+Para encontrar la estructura del texto de entrada, el análisis sintáctico debe
+rechazar el texto invalido para reportar los errores de sintaxis. En la figura 9
+se muestra que a la entrada del analizador sintáctico entran los tokens y a la
+salida se entrega un árbol sintáctico, el cual se muestra en la figura 10 .
+</p>
+
+<font color=yellow><h3 align="center">Análisis Semántico</h3></font>
+
+<p>
+Un programa que es gramaticalmente correcto puede contener serios errores
+que evitarı́an su compilación. Para detectar tales errores, un compilador realiza
+un mayor nivel de verificación que involucra considerar cada sentencia en su
+contexto. Estas verificaciones encuentran errores de tipo y concordancia. En la
+<a href="#openModal">FIGURA 11</a> se muestra la entrada y la salida del analizador semántico. En la <a href="#openModal">FIGURA 12</a> se muestra el árbol adornado.
+</p>
+
+<p>
+Hay dos técnicas para verificar la sensitividad del contexto. Gramáticas de
+atributos, que son un formalismo funcional para especificar el cálculo sensible
+al contexto. Para esto la traducción dirigida por la sintaxis provee un marco de
+trabajo simple donde el escritor de compiladores puede colgar arbitrariamente
+fragmentos de código para desempeñar estas verificaciones.
+</p>
+
+<p>
+La última tarea del compilador es traducir el programa de entrada en una
+forma que pueda ser ejecutado directamente en la máquina objeto. Para este
+propósito, se necesita saber acerca del programa de entrada que va bien acompañado de la sintaxis. El compilador debe construir una base grande de conocimientos de los códigos calculados detalladamente en el programa de entrada.
+Se debe saber que valores son representados, donde residen, y como fluyen de
+nombre a nombre. Se debe entender la estructura del cálculo. Se debe analizar
+como el programa interactúa con los archivos y los dispositivos externos. Todos
+estos hechos pueden ser derivados del código fuente, usando conocimiento contextual. Ası́, el compilador debe desempeñar un análisis más profundo que es
+tı́pico de un escaner o un analizador.
+Estas clases de análisis desempeñan uno u otro junto con el análisis o con
+un pase después que atraviesa la representación intermedia (IR) producida por
+el analizador. Llamemos a estos análisis entre ellos análisis sensible al contexto,
+a diferencia de la forma del analizador, o elaboración semántica, de la que se
+construye la representación intermedia. Se estudian dos formas: una aumentada basada en gramáticas de atributos y la otra ad hoc que utiliza conceptos
+similares.
+Considerar un solo nombre usado en el programa que esta siendo compilado;
+llamemosla x. Antes de que el compilador pueda emitir un código de máquina ejecutable para el cálculo donde se involucra x, debemos tener respuesta a
+muchas preguntas.
+¿Qué clase de valor esta almacenado en x? Los lenguajes de programación
+modernos usan una plétora de tipos de datos, incluyendo números, caracteres,
+valores booleanos, apuntadores a otros objetos, conjuntos (tales como {rojo,
+amarillo, verde }), y otros. Muchos lenguajes incluyen objetos compuestos que
+agregan valores individuales; estos incluyen arreglos, estructuras, conjuntos, y
+cadenas.
+¿Qué tan grande es x? Porque el compilador debe manipular x, se necesita
+conocer la longitud de la representación de x en la máquina objeto. Si x es un
+número, este pudiera ser una palabra (un número entero o de punto flotante),
+dos palabras (un número de punto flotante de doble precisión o un número
+complejo), o cuatro palabras (un número de punto flotante de cuarta precisión
+o un número complejo de doble precisión). Para arreglos y cadenas, el número
+de elementos puede ser fijado a la vez en la compilación o puede ser determinado
+en el tiempo de ejecución.
+¿Si x es un procedimiento, qué argumento se toma? ¿Qué clase de valor, si
+cualquiera, se retoma? Antes de que el compilador pueda generar código para
+involucrar un procedimiento, debe saber cuantos argumentos se codifican para la
+llamada esperada del procedimiento, donde se espera encontrar esos argumentos,
+y que clase de valor es esperado en cada argumento. Si el procedimiento regresa
+un valor, ¿dónde estará la rutina que se llama para encontrar el valor, y que clase
+de dato será ? (El compilador debe asegurar que la llamada a procedimiento usa
+el valor de una manera consistente y segura. Si la llamada a procedimiento asume
+que el valor regresado es un apuntador que se puede diferenciar, y la llamada a
+procedimiento regresa una cadena de caracteres arbitraria, los resultados pueden
+no ser predecibles, seguros, o consistentes.)
+¿Cuánto debe valer x para ser preservado? El compilador debe asegurar que
+el valor de x permanece accesible para cualquier parte de los cálculos que deban
+hacer referencia de estos. Si x es una variable local en Pascal, el compilador puede fácilmente sobrestimar el tiempo de vida de interés de x para preservar
+su valor durante la duración del procedimiento que declara x. Si x es una variable
+global que puede ser referenciada donde sea, o si esta es un elemento de una
+estructura explı́citamente posicionado por el programa, el compilador puede
+tener más dificultades que determinan su tiempo de vida. El compilador puede
+siempre preservar el valor de x para el cálculo entero; sin embargo, la información
+más precisa acerca del tiempo de vida de x deja al compilador la reutilización
+del espacio para otros valores sin ningún conflicto en el tiempo de vida.
+¿Quién es responsable de la gestión de espacio de x (y de la inicialización)?
+¿Esta gestión de espacio para x implı́cita, o el programa gestiona explı́citamente
+el espacio para x? Si la gestión es explicita, entonces el compilador debe asumir
+que la dirección de x no puede ser conocida hasta que el programa corra. Si, de
+otra manera, el compilador gestiona el espacio para x en un tiempo de ejecución
+de las estructuras de los datos que este maneje, entonces se sabe más de la
+dirección de x. Este conocimiento puede dejar código eficiente.
+El compilador debe derivar las respuestas a preguntas, y más, del programa
+fuente y de sus reglas. En un lenguaje parecido al Algol, tal como Pascal o C,
+muchas de estas preguntas pueden ser respondidas al examinar las declaraciones
+para x. Si el lenguaje no tiene declaraciones, como en APL, el compilador debe
+ya sea derivar esta clase de información al analizar el programa, o debe generar
+código que pueda manejar cualquier caso que pueda surgir.
+Muchos, si no todos, estas preguntas van más alla que la sintaxis del contexto
+libre del lenguaje fuente. Por ejemplo, el árbol de análisis para x ← y y x ← z
+definen solamente en el texto del nombre en el lado derecho de la asignación. Si
+x y y son enteros mientras z es una cadena de caracteres, el compilador puede
+necesitar emitir diferente código para x ← y que para x ← z. Para distinguir
+entre estos casos, el compilador debe ahondar en el significado del programa.
+Tratar exclusivamente el escaneo y el análisis. Con la forma del programa; el
+análisis del significado es el reino del análisis sensible al contexto.
+Para ver esta diferencia entre la sintaxis y el significado más claramente,
+considerar la estructura de un programa en muchos lenguajes parecidos al Algol. Estos lenguajes requieren que cada variable sea declarada antes de que sea
+usada y cada vez que se use sea consistente con su declaración. El escritor de
+compiladores puede estructurar la sintaxis y para asegurar que todas las decla-
+raciones ocurran antes que cualquier sentencia ejecutable. Una producción como:
+</p>
+
+<p>
+<font color=red size=5>CuerpoProcedimiento → Declaraciones Ejecutables</font>
+</p>
+
+<p>
+donde los no terminales tienen el significado obvio, asegura que todas las
+declaraciones ocurran antes que cualquier sentencia ejecutable. Esta restricción
+sintáctica no verifica la regla más adentro (que el programa en el momento declara cada variable antes que su primer uso en una sentencia ejecutable. Nadie
+provee una forma obvia para manejar la regla en C++ que requiere declaracio-
+nes antes de usarse para algunas categorı́as de variables, pero permite que el
+programador mezcle declaraciones y sentencias ejecutables.
+Hacer cumplir la regla “declarar antes de usar” requiere un nivel de ma-
+yor profundidad del conocimiento que pueda ser codificado con una gramática
+lebre de contexto. La gramática libre de contexto va de acuerdo con la categorı́a sintáctica más que con las palabras especificadas. Ası́, la gramática puede
+especificar la posición en una expresión donde el nombre de la variable puede ocurrir, y esto nos puede decir una vez ocurrido.
+Sin embargo, la gramática no tiene forma de acoplar un ejemplo de un nom-
+bre de variable con otro; que requerirı́a la gramática para especificar un nivel
+mucho más profundo de análisis, un análisis que puede contar con el contexto
+y que puede examinar y manipular información en un nivel más profundo que
+la sintaxis libre de contexto.
+</p>
+
+<p>
+Introducción a los sistemas de tipo Muchos lenguajes de programación
+asocian una colección de propiedades con cada uno de los valores dato. Llamamos
+a esta colección de propiedades los tipos de valores. El tipo especifica un conjunto
+de propiedades que mantienen en común para todos los valores del tipo. El
+tipo puede ser especificado por afiliación; por ejemplo, un entero puede ser
+cualquier i en el rango −2 31 ≤ i < 2 31 , o el rojo puede ser un valor de un tipo
+enumerado color, definido como el conjunto { rojo, naranja, amarillo, verde,
+azul, café, negro, blanco } . Los tipos pueden ser especificados por reglas; por
+ejemplo, la declaración de una estructura en C define un tipo. En este caso, el
+tipo incluye cualquier objeto con los campos declarados en un orden; el campo
+individual tiene tipos que especifican los rangos permitidos de valores y sus
+interpretaciones. (Representamos el tipo de una estructura como el producto
+de tipos de sus campos que lo constituyen) Algunos tipos son predefinidos por
+un lenguaje de programación; otros son constituidos por el programador. El
+conjunto de tipos en un lenguaje de programación, a lo largo de las reglas que
+usan tipos para especificar el comportamiento del programa, son colectivamente
+llamados un sistema tipo.
+</p>
+
+<p>
+Los propósitos del sistema tipo Los diseñadores de lenguajes de progra-
+mación introducen sistemas tipo de tal manera que ellos puedan especificar el
+comportamiento del programa en un nivel más preciso tanto como sea posible
+que una gramática libre de contexto. Los sistemas tipo crean un vocabulario
+para describir ambos la forma y el comportamiento de programas válidos. Analizando un programa desde la perspectiva de su rendimiento del sistema tipo la
+información que no puede ser obtenido usando las técnicas de escaneo y análisis.
+En un compilador, esta información es tı́picamente usado para tres propósitos
+distintos: seguridad, expresividad, y eficiencia en tiempo de ejecución.
+</p>
+
+<p>
+Asegurar la seguridad en tiempo de ejecución Un sistema tipo bien
+diseñado auxilia al compilador a detectar y evitar errores en tiempo de ejecución.
+El sistema tipo asegura que los programas son bien comportados, aquello es,
+el compilador y el sistema tiempo de ejecución pueden identificar todos los
+programas mal formados antes de que ejecuten una operación que cause un
+error en tiempo de ejecución. En realidad, el sistema tipo no puede captar todos
+los programas mal formados no es calculable. Algunos errores en tiempo de
+ejecución, tal como desreferencia fuera de los limites de un apuntador, tiene
+obvios efectos (y frecuentemente catastróficos). Otros, tales como errores de
+interpretación de un entero como un número de punto flotante, puede tener y
+efectos acumulativos. El compilador deberı́a eliminar muchos errores de tiempo
+de ejecución con técnicas de verificación de tipo.
+Para completar esto, el compilador debe: Primero, inferir un tipo por cada
+expresión. Estos tipos inferidos exponen situaciones en la cual un valor es interpretado incorrectamente, tal como usar un número de punto flotante en lugar
+de un valor booleano.
+Segundo, el compilador debe verificar los tipos de los operandos de cada
+operador contra las reglas que definen que permite el lenguaje. En algunos casos, estas reglas pueden requerir que el compilador convierta valores de una
+representación a otra. En otras circunstancias, ellos pueden olvidar tal conversión y simplemente declarar que el programa esta mal formado y, por ello, no
+ejecutable.
+En muchos lenguajes, el compilador puede inferir un tipo por cada expresión.
+FORTRAN 77 tiene una particularidad su sistema tipo es simple con justamente
+un puñado de tipos. Los casos que pueden surgir para el operador +. Dada una
+expresión a + b y los tipos de a y b, la tabla especifica el tipo de a + b. Para
+un entero a y un doble precisión b, a + b deberı́a ser ilegal. El compilador
+deberı́a detectar esta situación y reportar antes de que el programa se ejecute,
+un ejemplo simple de seguridad tipo.
+Para algunos lenguajes, el compilador no puede inferir tipos para todas las
+expresiones. APL, por ejemplo, carece de declaraciones, permite un tipo de
+variable para cambiar en cualquier asignación, y permite al usuario meter código
+arbitrario a la entrada de una indicación. Mientras que esto hace que APL
+sea potente y expresivo, esto asegura que la implementación debe hacer alguna
+cantidad de inferencia en tiempo de ejecución tipo y verificación. La alternativa,
+por su puesto, es asumir que el comportamiento del programa bien e ignore tal
+verificación. En general, esto lleva a mal comportamiento cuando un programa
+va torcido. En APL, muchas de las caracterı́sticas avanzadas realmente fuertes
+sobre la disponibilidad de tipo y la dimensión de la información.
+La seguridad es una razón fuerte para usar lenguajes con tipos, Una implementación del lenguaje que garantice captar más errores relacionados con
+los tipos antes de la ejecución puede simplificar el diseño e implementación de
+programas. Un lenguaje en el cual a cada expresión se le puede asignar un tipo
+ambiguo es llamado un lenguaje fuertemente tipeado. Cada expresión puede ser
+tipeada a la vez que se compila, el lenguaje es tipeado estáticamente; si alguna
+expresión puede solamente ser tipeada en tiempo de ejecución el lenguaje es
+tipeado dinámicamente. Dos alternativas existen: un lenguaje monotipeado, tal
+como código ensamblador o BCPL, y un lenguaje débilmente tipeado , uno con
+un peor sistema de tipo.
+</p>
+
+<font color=yellow><h3 align="center">Generación de código intermedio</h3></font>
+
+<p>
+Traducción a notación postfija. La notación postfija para una expresión E
+se define inductivamente como sigue:
+
+<table CELLSPACING="30">
+<tr><td>1</td><td>Si E es una variable o constante, entonces la notación postfija para E es
+E mismo.</td></tr>
+<tr><td>2</td><td>Si E es una expresión de la forma E<SUB>1</SUB> op E<SUB>2</SUB>, dónde op es cualquier operador
+binario, entonces la notación postfija para E es E'<SUB>1</SUB> E'<SUB>2</SUB> op, dónde E'<SUB>1</SUB> y
+E'<SUB>2</SUB> son la notación postfija de E<SUB>1</SUB> y E<SUB>2</SUB>, respectivamente.</td></tr>
+<tr><td>3</td><td>Si E es una expresión de paréntesis de la forma (E<SUB>1</SUB>), entonces la notación
+postfija de E es la misma que la notación postfija para E<SUB>1</SUB>.</td></tr>
+</table>
+
+</p>
+
+<p>
+En la <a href="#openModal">FIGURA 13</a> se muestra la entrada y la salida del generador de código
+intermedio. En el <a href="#openModal">LISTADO 1</a> se presenta el código intermedio, salida del generador de código intermedio.
+</p>
+
+<font color=yellow><h3 align="center">Optimización de código</h3></font>
+
+<p>
+Un sistema de tipos bien diseñado provee al compilador con una información
+detallada de cada expresión en el programa , la información que puede ofrecer
+se usa para producir más traducciones eficientes. Considerar la implementación
+de la suma en FORTRAN 77. El compilador puede determinar completamente
+los tipos de todas las expresiones, de modo que este puede consultar una tabla.
+</p>
+
+<p>
+La <a href="#openModal">FIGURA 14</a> muestra la entrada y la salida de la fase optimizador de código.
+</p>
+
+<p>
+En el <a href="#openModal">LISTADO 2</a> se muestra la salida del optimizador de código.
+</p>
+
+<p>
+En un lenguaje con tipos que no pueden ser totalmente determinados durante
+el timpo de compilación, algunas de estas verificaciones pueden ser desreferenciadas en el tiempo de ejecución. Para complementar esto, el compilador necesitarı́a emitir código para dos tipos numéricos, entero y real. Una implementación
+actualizada necesita cubrir el conjunto entero de posibilidades. Mientras estas
+aproximaciones aseguran un tiempo de ejecución seguro, estas sumas significan
+gastos generales para cada operación. Un objetivo en el tiempo de compilación
+es verificar esto para proveer tal seguridad sin costo de tiempo de ejecución.
+Notar que el tiempo de ejecución de la verificación de tipos requiere un
+tiempo de ejecuciones representativas por tipo. Ası́, cada variable tiene ambos un
+campo de valor y un campo de etiqueta. El código que desempeña el tiempo de
+ejecución de verificación realiza dos el campo de etiqueta, mientras la aritmética
+usa el valor de los campos. Con etiquetas, cada elemento dato necesita más
+espacio, que es, más bytes de memoria. Si una variable es almacenada en un
+registro, ambos su valor y una etiqueta debe ser inicilizada, leı́do, comparado,
+y escrito en tiempo de ejecución. Todas las actividades suman gustos generales
+a una simple operación de suma.
+El tiempo de ejecución de verificación de tipos imponen un gran gasto general sobre una simple aritmética, o una conversión y una suma, con el código
+anidado if then else fuertemente sugiere que los operadores tales como la suma
+son implementados como procedimientos y tienen cada instancia de un operador
+ser tratado como una llamada de procedimiento. En un lenguaje que requiere
+tiempo de ejecución de verificación, puede fácilmente abrumar el costo de las
+operaciones que se realizan.
+El desempeño de la inferencia y verificación de tipos en el compilador a la
+vez elimina esta clase de gasto general.
+</p>
+
+<font color=yellow><h3 align="center">Generación de código objeto</h3></font>
+
+<p>
+El proceso de traducción directo es relativamente sencillo. Cada instrucción
+del código intermedio puede traducirse en una secuencia de instrucciones de
+máquina. En la <a href="#openModal">FIGURA 15</a> se muestra la entrada y la salida de la fase generador de código.
+</p>
+
+<p>
+En el listado 3 se muestra el código ensamblador que es la salida del generador
+de código y que es también la salida del compilador.
+</p>
+
+<font color=yellow><h3 align="center">La tabla de sı́mbolos</h3></font>
+
+<p>
+La tabla de sı́mbolos es la que guarda la información y debe tener el formato
+que se muestra en el <a href="#openModalC1">CUADRO 1</a> .</p>
+
+
+</div>
+</article>
+
+
+
+<!--Ventana 1-->
+
+<div id="openModal" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 2</font></h3>
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+	<font color=black>Características de las figuras</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la entrada y salida del Compilador.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig3.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 2-->
+
+<div id="openModal1" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 1</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la arquitectura del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig2.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 3-->
+
+<div id="openModal2" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 3</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de definiciones</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Definición de intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<p><font color=black>Otro tipo de traductor, llamado intérprete, procesa en forma 			interna el programa fuente y los datos al mismo tiempo. Es decir, la interpretación 				del formulario de origen interno se produce en tiempo de ejecución y no se 				genera ningún programa objeto.</font></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 4-->
+
+<div id="openModal3" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 4</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la entrada y salida del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig1.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 5-->
+
+<div id="openModal4" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 4</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama del concepto del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig4.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 6-->
+
+<div id="openModal5" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 5</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama del intérprete para ejemplificar con el compilador.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig5.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+
+<!--Ventana Cuadro-->
+
+<div id="openModalC1" class="modalDialog">
+	<div>
+		<h3><font color=black>CUADRO 1</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de cuadros</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Sugerencia sobre la tabla de sı́mbolos.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+                <table color=black CELLSPACING="20">
+                    <tr><td><font color=black>1</font></td><td><font color=black>Posición</font></td><td><font color=black>...</fony></td></tr>
+                    <tr><td><font color=black>2</font></td><td><font color=black>Inicial</font></td><td><font color=black>...</sont></td></tr>
+                    <tr><td><font color=black>3</font></td><td><font color=black>Velocidad</fony></td><td><font color=black>...</font></td></tr>
+                    <tr><td><font color=black>4</font>/td><td></td><td><font color=black>...</font></td></tr>
+                </table>
+			    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<aside class="lateralIzq">
+<font color=yellow><h3 align="center">Figuras:</h3></font>
+<p class="p4">
+<table class="t" CELLSPACING="18">
+<tr><td><a href="#openModal1">FIGURA 1</a></td><td><a href="#openModal">FIGURA 2</a></td></tr>
+<tr><td><a href="#openModal2">INTÉRPRETE</a></td><td><a href="#openModal3">FIGURA 4</a></td></tr>
+
+<tr><td><a href="#openModal4">FIGURA 5</a></td><td><a href="#openModal5">FIGURA 6</a></td></tr>
+
+<tr><td><a href="#openModalC1">CUADRO</a></td><td></td></tr>
+
+</table>
+</p>
+
+</aside>
+
+
+<aside class="lateralDer">
+<font color=yellow><h3 align="center">Tablas:</h3></font>
+<p class="p4">
+<table class="t" CELLSPACING="18">
+<tr><td><a href="#openModal1">FIGURA 1</a></td><td><a href="#openModal">FIGURA 2</a></td></tr>
+<tr><td><a href="#openModal2">INTÉRPRETE</a></td><td><a href="#openModal3">FIGURA 4</a></td></tr>
+
+<tr><td><a href="#openModal4">FIGURA 5</a></td><td><a href="#openModal5">FIGURA 6</a></td></tr>
+
+<tr><td><a href="#openModalC1">CUADRO</a></td><td></td></tr>
+
+</table>
+</p>
+
+</aside>
+
+
+</body>
+</html>

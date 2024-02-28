@@ -1,0 +1,310 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+    width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+Compiladores
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPoo.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+TEMARIO 2009
+</a></p>
+
+<p align=right><a href=EstudianteAgoDic2022.html style="float:center">
+LISTA DE CLASES
+</a></p>
+
+<p align="right" class="p5"><a href=SNCompiladores/COMapuntes7.svg target="_blank" style="float:center">
+(APUNTES 7) SNCompiladores/COMapuntes7.dia
+</a></p>
+
+<p align=right><a href=Pizarron7COM.svg style="float:center">
+(PIZARRÓN DE CLASE 7) MiMIC/Pizarron7COM.dia
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+EJEMPLOS 7
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<!--
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Autómata AFD mínimo</font></p>
+
+
+<p>Las expresiones regulares aplicadas a las clases léxicas
+<br>
+<font color=red size=7><h3 align="center">abcd, &epsilon; o &lambda;</h3></font>
+<br>
+<font color=red size=7><h3 align="center">&epsilon; o &lambda;</h3></font>
+<br>
+<p align=center><font color=yellow size=6>Las expresiones regulares aplicadas a las clases léxicas</font></p>
+<br>
+<font color=red size=7><h3 align="center">a | b = {a} o {b}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a  b = {ab}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>*</SUP> = {&epsilon;,a,aa,aaa, ...}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>+</SUP> = {a,aa,aaa, ...}</h3></font>
+<br>
+</p>
+</header> -->
+
+<br>
+
+<section class=izquierda><strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de los elementos LR(0)</font></p>
+</header>
+
+<p>El siguiente AFD:</p>
+
+<font color=red size=7><h3 align="center">AFD</h3></font>
+
+<p>Se puede convertir, por medio de un algoritmo en un AFD mínimo:</p>
+
+<font color=red size=7><h3 align="center">AFD<SUB>no mínimo</SUB> = Q(Q<sub>t</sub>, Q<sub>tf</sub>, Q<sub>ti</sub>, &Sigma;, &delta;<sub>t</sub>)</h3></font>
+
+<br>
+<p align=center><a href=SNCompiladores/Ejem5Afd1.svg style="float:center">
+AFD 1
+</a></p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>¿Cómo se obtiene la tabla de acciones e IR_A?</font></p>
+</header>
+<br>
+
+<p align=center><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+DEL TEMARIO 2009
+</a></p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejemplo 1</font></p>
+</header>
+
+<p>El siguiente AFD:</p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejemplo 2</font></p>
+</header>
+
+<p>El siguiente AFD:</p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Analizadores sintácticos ascendentes</font></p>
+</header>
+
+<p>Los analizadores sintácticos ascendentes usan derivaciones por la derecha, por lo tanto no les perjudican los problemas que tienen los analizadores sintácticos descendentes:</p>
+
+<p align="center" class="p5">
+Página, archivo html: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/331AnalizadorSintacticoLR(0).html target="_blank" style="float:center"><strong>SNCompiladores/331AnalizadorSintacticoLR(0).html</strong></font></a>
+</p>
+
+<p>Diagrama del proceso de construcción de un analizador ascendente tipo LR(0)</p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AsEjercicioLR(0).svg target="_blank" style="float:center"><strong>SNCompiladores/AsEjercicioLR(0).dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AsEjercicioLR(0).svg" align=center width=54% border=0></p>
+
+</strong>
+</section>
+
+<!--------------------------------------------------------->
+
+<aside class=derecha>
+<strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>¿Cómo se analizan las sentencias?</font></p>
+</header>
+
+<p>Este algoritmo se aplica para reducir el número de estados de un AFD:</p>
+<p>Se aplica a todo AFD:</p>
+
+<table CELLSPACING="16" align=center>
+<tr><th>&delta;</th><th>a</th><th>b</th></tr>
+
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+
+</table>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Analizadores sintácticos descendentes</font></p>
+</header>
+
+<p align=right><a href=LenguajeJava.html style="float:center">
+Características del lenguaje Java
+</a></p>
+
+<p align="center" class="p5">
+Página, archivo html: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/321ConstruccionAnaliDescRecursivo.html target="_blank" style="float:center"><strong>SNCompiladores/321ConstruccionAnaliDescRecursivo.html</strong></font></a>
+</p>
+
+<p align="center" class="p5">
+Página, archivo html: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/322ConstruccionAnalizadoresLL1.html target="_blank" style="float:center"><strong>SNCompiladores/322ConstruccionAnalizadoresLL1.html</strong></font></a>
+</p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlAsEjercicio2.svg target="_blank" style="float:center"><strong>SNCompiladores/AlAsEjercicio2.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlAsEjercicio2.svg" align=center width=54% border=0></p>
+
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlAsEjercicio2a.svg target="_blank" style="float:center"><strong>SNCompiladores/AlAsEjercicio2a.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlAsEjercicio2a.svg" align=center width=54% border=0></p>
+
+<p>Tabla de transiciones del autómata de las palabras clave:</p>
+
+<table CELLSPACING="16" align=center>
+<tr><th>&delta;</th><th>c</th><th>l</th><th>a</th><th>s</th><th>p</th><th>u</th><th>b</th><th>i</th><th>v</th><th>o</th><th>d</th><th>e</th><th>t</th><th>n</th><th>w</th> </tr>
+
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>1</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>2</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>3</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>4</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>5</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+
+</table>
+
+<p>Análisis sintáctico descendente: obtención de la gramática libre de contexto.</p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlAsEjercicio2b.svg target="_blank" style="float:center"><strong>SNCompiladores/AlAsEjercicio2b.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlAsEjercicio2b.svg" align=center width=54% border=0></p>
+
+</strong>
+</aside>
+
+
+</body>
+</html>

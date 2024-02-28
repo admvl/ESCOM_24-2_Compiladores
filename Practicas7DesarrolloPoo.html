@@ -1,0 +1,602 @@
+<html>
+<style>
+header {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: auto;
+width: auto;
+margin-left:25%;
+border: solid;
+border-color:#FFFF00;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+article {
+background-color: #8ba987;
+display: block;
+margin-left: 25%;
+margin-top: 0.5%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: auto;	
+height: auto;	
+}
+
+article header {
+background-color: green;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding: 5px;
+height: auto;
+width:40%;
+text-align: center;
+margin-left:30%;
+}
+
+article h1 {
+font-size: 12px;
+
+}
+
+pre.p2  {
+ background-color: #808080;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #80A93E;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  
+}
+
+pre.p1  {
+ background-color: #808080;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #80A93E;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+</style>
+
+<head>
+<title>PrácticasDesarrollo7Poo</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<!--
+<a>
+<img src="EstudiarPracticandoDer.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=25% border=0>
+</a>
+
+<a>
+<img src=Biblioteca.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=24.5% height=82% border=0>
+</a>-->
+
+<header>
+<!--
+<img src=IconoPracticas.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=16% height=97% border=0>
+
+<img src=EstudianteIz.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=12% height=auto border=0>-->
+
+<h1 align=left>
+<font color=maroon size=8>
+Práctica 7
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=6>
+Programación Orientada a Objetos:
+<br>
+Desarrollo
+</font>
+</h2>
+
+<br>
+
+<h2 align=center>
+<font color=white size=6>
+Uso de interfaces
+</font>
+</h2>
+</header>
+
+<hr>
+
+<article>
+<header>
+<h1 align=center>
+<font color=white size=5>
+ACTIVIDADES
+</font>
+</h1>
+</header>
+
+<br>
+
+<p align=center>Estudiar y analizar el siguiente código que aparece en el recuadro. Este código no corre y no es necesario hacerlo funcionar.</p>
+
+<font color=yellow><h3 align="center">Programa en java:</h3></font>
+
+<pre class="p1">
+
+// : c07:Poligonos.java
+
+class Poligono {
+  void dibujar() {
+  }
+  void borrar() {
+  }
+}
+
+class Circulo extends Poligono {
+  void dibujar() {
+    System.out.println("Circulo.dibujar( )");
+  }
+
+  void borrar ( ) {
+    System.out.println ("Circulo.borrar( )");
+}
+
+class Cuadrado extends Poligono {
+  void dibujar( ) {
+    System.out.println("Cuadrado.dibujar( )");
+  }
+
+  void borrar ( ) {
+    System.out.println("Cuadrado.borrar( )");
+  }
+}
+
+class Triangulo extends Poligono {
+  void dibujar( ) {
+    System.out.println("Triangulo.dibujar()");
+  }
+  
+  void borrar( ) {
+    System.out.println("Triangulo.borrar()");
+  }
+}
+
+public class Poligonos {
+  public static void PoligonoAleatorio( ) {
+    switch( (int) (Math.random( ) * 3) ) {
+      default:
+      case 0: return new Circulo( );
+      case 1: return new Cuadrado( );
+      case 2: return new Triangulo( );
+    }
+  }
+ 
+  public static void main (String[] args) {
+    Poligono[] s = new Poligono[9];
+    // Rellenar el array con PolÃ­gonos:
+    for(int i = 0; i < s.length; i++)
+      s[i] = PoliqonoAleatorio( );
+    // Hacer llamadas a mÃĐtodos polimÃģrficos:
+    for(int i = 0; i < s.length; i++)
+      s[i].dibujar( );
+  }
+}// : m
+
+</pre>
+
+
+<!--
+<table CELLSPACING="22">
+<tr><th>Tema del programa</th><th>Título del programa </th><th>Enlace al programa</th></tr>
+<tr><td>Clases múltiples</td><td>BoxDemo2.java</td><td>cap 1</td></tr>
+<tr><td>Clases múltiples</td><td>BoxDemo4.java</td><td>cap 1</td></tr>
+<tr><td>Clases múltiples</td><td>BoxDemo5.java</td><td>cap 1a</td></tr>
+<tr><td>Clases múltiples</td><td>cajaDialogo.java</td><td>cap 1a</td></tr>
+<tr><td>Clases múltiples</td><td>carEst.java</td><td>cap 1a</td></tr>
+<tr><td>Clases múltiples</td><td>componenetesGUI.java</td><td>cap 1a</td></tr>
+<tr><td>Clases múltiples</td><td>pruebaForma.java</td><td>cap 1a</td></tr>
+</table>-->
+
+<p align=center>Estudiar a detalle el código anterior. Comentar los programas ejecutados para una explicación clara de cada uno de dichos programas.</p>
+
+<!--
+<table CELLSPACING="18">
+<tr><td>1</td><td>
+<p align=center>
+Describir las partes de una clase.
+</p>
+
+<font color=yellow><h3 align="center">Listado 1: Formato de clase.</h3></font>
+
+<pre class="p2">
+public class Student {
+
+	private String name;
+	private String address;
+	private double gpa;
+	public Student(String studentName) {
+	
+	name = studentName;
+
+	}
+
+	public void setName(String studentName) {
+	name = studentName;
+
+	}
+
+	public void setAddress(String studentAddress) {
+	address = studentAddress;
+
+	}
+
+	public String getName() {
+	return name;
+
+	}
+
+	public String getAddress() {
+	return address;
+
+	}
+
+	public double getGpa() {
+	return gpa;
+
+	}
+
+	public void computeGPA(Course newCourse, char grade) {
+	// use the grade and course to update gpa
+
+	}
+
+}
+</pre></td>
+
+<tr><td>2</td><td>
+<p align=center>
+<a href=Poo2.html>Bases de la programación orientada a objetos.</a></p>
+
+<p align=center>
+Programar una clase en diferentes lenguajes de programación. Considera los siguientes ejemplos:
+</p></td>
+<table>
+
+<!--<p align=center>
+<a href=Poo.html>Introducción a la programación orientada a objetos.</a></p>-->
+
+<br>
+
+
+<font color=yellow><h3 align="center">Programas en java:</h3></font>
+
+<p align=center>Ejecutar y estudiar a detalle los programas que se presentan a continuación.</p>
+
+<p align=center>
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Prueba.java style="float:center" target="_blank">Prueba.java</a>
+&nbsp; &nbsp;
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Prueba1.java style="float:center" target="_blank">Prueba1.java</a>
+&nbsp; &nbsp;
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Car2.java style="float:center" target="_blank">Car2.java</a>
+</p>
+
+<p align=center>También los siguientes programas.</p>
+
+<p align=center>
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/TestIface.java style="float:center" target="_blank">TestIface.java</a>
+
+&nbsp; &nbsp;
+
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/TestIface2.java style="float:center" target="_blank">TestIface2.java</a>
+&nbsp; &nbsp;
+</p>
+
+
+<font align=center color=maroon><h2>Entregar las respuestas de su cuestionario en una presentación en power point.</h2></font>
+
+</article>
+
+<br>
+<hr>
+
+<article>
+
+<!--<img src="BiblioComp.svg" align=left width="150" height="300">-->
+
+<header>
+<h1 align=center>
+<font color=white size=5>
+CUESTIONARIO
+</font>
+</h1>
+</header>
+
+<!--
+<header>
+<h1 align=center>
+<font color=white size=5>
+BIBLIOTECA
+</font>
+</h1>
+</header>
+
+<br>
+
+<p align=center>Aquí se exponen las notas por capítulo de la asignatura compiladores en formato PDF.</p>
+<font color=maroon size=5><p align=center>Seleccionar el enlace azul que desee.</p></font>
+
+<p align=center>
+ <a href=Capitulointroduccion.pdf><i><font color=blue size=4>Introducción a los compiladores.</i></font></a> 
+</p>
+
+<p align=center>
+ <a href=CapituloLexico.pdf><i><font color=blue size=4>Análisis léxico.</i></font></a> 
+</p>
+
+<p align=center>
+ <a href=CapituloSintactico.pdf><i><font color=blue size=4>Análisis sintáctico.</i></font></a> 
+</p>
+
+<p align=center>
+ <a href=CapituloSemantico.pdf><i><font color=blue size=4>Análisis semántico.</i></font></a>
+</p>
+
+<p align=center>
+ <a href=CapituloSemantico.pdf><i><font color=blue size=4>Optimización de código.</i></font></a>
+</p>
+
+</article>
+
+<hr>
+
+<article>
+<img src="MatDigComp.svg" align=left width="150" height="300">
+
+<header>
+<h1 align=center>
+<font color=white size=5>
+MATERIAL DIGITAL
+</font>
+</h1>
+</header>
+
+<br>
+
+<p align=center>Aquí se exponen las notas por capítulo de la asignatura compiladores en formato HTML.</p>
+<font color=maroon size=5><p align=center>Seleccionar el enlace azul que desee.</p></font>
+
+<p align=center>
+ <a href=Introduccion.html><i><font color=blue size=4>Introducción a los compiladores.</i></font></a>
+</p>
+
+<p align=center>
+ <a href=AnalisisLexico.html><i><font color=blue size=4>Análisis léxico.</i></font></a>
+</p>
+
+<p align=center>
+ <a href=AnalisisSintactico.html><i><font color=blue size=4>Análisis sintáctico.</i></font></a>
+</p>
+
+<p align=center>
+ <a href=AnalisisSemantico.html><i><font color=blue size=4>Análisis semántico.</i></font></a> 
+</p>
+
+<p align=center>
+ <a href=OptimizacionCodigo.html><i><font color=blue size=4>Optimización de código.</i></font></a>
+</p>
+
+</article>
+
+<hr>
+
+<article>
+<img src="Mdisponible1.svg" align=left width="150" height="300">
+
+<header>
+<h1 align=center>
+<font color=white size=5>
+MATERIAL DE APOYO
+</font>
+</h1>
+</header>
+
+<p>
+ <i><font color=blue size=4>Presentaciones</i></font>. Este es un material de apoyo para las presentaciones de los estudiantes durante el curso semestral.
+</p>
+
+<p>
+ <i><font color=blue size=4>Prácticas</i></font>. Aquí se incluyen las prácticas que se realizarán durante el semestre.
+</p>
+
+<p>
+ <i><font color=blue size=4>Procedimientos</i></font>. Este es un material de apoyo para la solución de los ejemplos y ejercicios que se plantean en los apuntes.
+</p>
+
+<p>
+ <i><font color=blue size=4>Definiciones</i></font>. Aquí se enlistan todos las definiciones de los conceptos más importantes de la asignatura.
+</p>
+
+<p>
+ <i><font color=blue size=4>Código</i></font>. Se presentan los códigos de los algoritmos significativos para la construcción del compilador.
+</p>
+
+</article>
+
+<hr>
+
+<article>
+<img src="Fa.svg" align=left width="150" height="300">
+
+<header>
+<h1 align=center>
+<font color=white size=5>
+PRÁCTICA 3
+</font>
+</h1>
+</header>
+
+<br>
+
+<font align=center size=5><p>Después de haber contestado el <a href=Cuestionario.html><font color=maroon>cuestionario de características</font></a>. Se orientará  para usar una de las tres formas de aprendizaje.</p></font>
+
+<p align=center>
+ <a href=MMCPractica1.svg><img src="MMCPractica1.svg"  width=5%></a>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+ <a href=MMCPractica2.svg><img src="MMCPractica2.svg"  width=5%></a>
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+ <a href=MMCPractica3.svg><img src="MMCPractica3.svg"  width=5% ></a> 
+</p>-->
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>¿Cuál es la sintaxis para herencia de superclases con subclases?</td></tr>
+<tr><td>2</td><td>¿Cuál es la sintaxis para el uso de la intercace?</td></tr>
+<tr><td>3</td><td>¿Cuando se sobrecraga y cuando se sobrescribe un método?</td></tr>
+<tr><td>4</td><td>¿Cuál es la diferencia entre la herencia simple y la interface?</td></tr>
+</table>
+
+<!--
+<p align=center>
+<a href=Poo.html><img src="Practica1Poo.svg"  width=35% ></a>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<a href=EstudioClasico.html><img src="MMCPractica2.svg"  width=35% ></a>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<a href=EstudioClasico.html><img src="MMCPractica3.svg"  width=35% ></a>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<a href=EstudioClasico.html><img src="MMCPractica4.svg"  width=35% ></a>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<a href=EstudioClasico.html><img src="MMCPractica5.svg"  width=35% ></a>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<a href=EstudioClasico.html><img src="MMCPractica6.svg"  width=35% ></a>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<a href=EstudioClasico.html><img src="MMCPractica7.svg"  width=35% ></a>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<a href=EstudioClasico.html><img src="MMCPractica8.svg"  width=35% ></a>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<a href=EstudioClasico.html><img src="MMCPractica9.svg"  width=35% ></a>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<a href=EstudioClasico.html><img src="MMCPractica10.svg"  width=35% ></a>
+</p>
+-->
+
+<!--
+<font color=yellow><h3 align="center">Listado 2: Formato C++.</h3></font>
+
+<pre class="p2">
+#include &lt; iostream &gt;
+
+using namespace std;
+
+class person
+{
+	char name[30];
+	int age;
+	
+	public:
+		void getdata(void);
+		void display(void);
+};
+
+void person :: getdata(void)
+{
+	cout << "Agregar Nombre:" ;
+	cin >> name;
+	cout << "Agregar Edad:";
+	cin >> age;
+}
+
+void person :: display(void)
+{
+	cout << "\nNombre:" << name;
+	cout << "\nEdad:" << age;
+}
+
+int main()
+{
+	person p;
+	
+	int count = 0;
+
+	while (count < 5) {
+	
+	p.getdata();
+	p.display();
+	//System.out.println("Bienvenido a Java!");
+	count++;
+
+	}
+	
+	
+
+	return 0;
+}
+</pre>
+
+<font color=yellow><h3 align="center">Listado 3: Formato Java.</h3></font>
+
+<pre class="p2">
+public class Person {
+
+	private String name;
+
+	public void setName(String name) {
+
+	this.name = name;
+
+	} // Fin setName
+
+	public String getName() {
+
+	return this.name;
+
+	} // Fin getName
+
+	public void swapPerson(Person otherPerson) {
+
+	String temp;
+	temp = otherPerson.name;
+	otherPerson.name = this.name;
+	this.name = temp;
+
+	} // Fin swapPerson
+
+	public static void main(String[] args) {
+
+		Person person1 = new Person();
+		Person person2 = new Person();
+		person1.setName("Jonathan");
+		person2.setName("Benji");
+		System.out.println(person1.getName() + ", " +
+			person2.getName());
+
+		person1.swapPerson(person2);
+		System.out.println(person1.getName() + ", " +
+			person2.getName());
+
+	} // Fin main
+
+} // Fin de clase Person
+</pre>
+-->
+
+
+</article>
+
+</body>
+</html>

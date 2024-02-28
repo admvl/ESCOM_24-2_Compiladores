@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Construccion de thompson</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 2</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">CREACIÓN DE AFN POR MEDIO DE LA CONTRUCCIÓN DE THOMPSON</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Autómatas finitos no determinísticos (AFN)</h1>
+       <hr>
+       <br>
+      <p><strong>Continuación con la construcción del analizador léxico.</strong> Analizador léxico y escaner significa lo mismo, también se llama reconocedor de tokens. Para esto continuamos con el bloque construcción de thompson:</p>
+      <br>
+    <p align="center">
+<img src="ProcedimientoAL1a.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=100% border=0></p>
+
+     <!-- <p>Este capítulo describe las herramientas matemáticas y técnicas de programación.
+que se utilizan comúnmente para construir escáneres, ambos generados
+y escáneres hechos a mano. El capítulo comienza, en la Sección 2.2, presentando un modelo para reconocedores, programas que identifican palabras en un flujo de
+caracteres. La sección 2.3 describe las expresiones regulares, una notación formal para
+especificando la sintaxis. En la sección 2.4, mostramos un conjunto de construcciones para convertir un
+expresión regular en un reconocedor. Finalmente, en la Sección 2.5 presentamos tres
+diferentes formas de implementar un escáner: un escáner de mesa, un escáner de codificación directa
+escáner y un enfoque codificado a mano.
+Tanto los escáneres generados como los hechos a mano se basan en las mismas técnicas subyacentes. Si bien la mayoría de los libros de texto y cursos abogan por el uso de
+los escáneres, la mayoría de los compiladores comerciales y los compiladores de código abierto utilizan escáneres hechos a mano. Un escáner hecho a mano puede ser más rápido que uno generado
+escáner porque la implementación puede optimizar una parte de la sobrecarga que no se puede evitar en un escáner generado. Porque los escáneres son
+simples y cambian con poca frecuencia, muchos escritores de compiladores consideran que la ganancia de rendimiento de un escáner hecho a mano supera la conveniencia
+de generación automática de escáneres. Exploraremos ambas alternativas. </p>
+      <br>-->
+      
+      <br>
+      <br>
+      <p>Otra forma de representar a los tokens se hace por medio de los autómatas.</p>
+      <br>
+      <p><strong>Definición de autómata finito no determinístico (AFN).</strong> Esta formado por cinco elementos, esto desde su definición formal. Es un autómata que tiene transiciones con el símbolo cadena vacia (&epsilon;) o que tiene transiciones con el mismo símbolo a dos estados diferentes.</p>
+      <br>
+     <p>Considerando la misma parte del programa. Los tokens se representan por medio de expresiones regulares y después se transforma en AFN.</p>
+     <br>
+     <pre>
+     /* encuentra un cero */
+     float acopla0(char *s) {
+       if (!strncmp(s, "0.0", 3))
+       return 0.;
+     }
+     </pre>
+     <br>
+     <p>Los tokens que se identifican, son los siguientes:</p>
+     <br>
+     <p>FLOAT ID(acopla0) LPAREN CHAR STAR ID(s)
+RPAREN LBRACE IF LPAREN BANG ID(strncmp) LPAREN
+ID(s) COMMA STRING(0.0)  COMMA NUM(3) RPAREN RPAREN 
+RETURN REAL(0.0) SEMI RBRACE EOF </p>
+      <br>
+      <p>Siguiendo el proceso de transformación de ER a AFN, se usa la construcción de Thompson. Nos basamos en las operaciónes básicas de las ER.</p>
+     <br>
+     <p class="cita"><cite>Modern compiler implementation in C, Andrew W. Appel, Pág. 17-18</cite></p>
+      <br>
+      <p><strong>Clases léxicas.</strong> Podemos decir que los tokens, son: identificadores, palabras clave o palabras reservadas, delimitadores, números, operadores.</p>
+      <br>
+     <p><a href="ALex.pdf">Función del analizador léxico. En pdf.</a></p>
+     <br>
+     <p><strong>La representación de la concatenación de los símbolos a b.</strong> Esta representación se considera un modelo: entre a y b se escribe &epsilon; :</p>
+      <br>
+      <p align="center">
+<img src="PThomConcat.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0></p>
+     <br>
+     <p><strong>La representación de la alternativa a|b.</strong> Esta representación se considera un modelo: entre a y b se escribe &epsilon; entre los arcos vacios:</p>
+      <br>
+      <p align="center">
+<img src="ALexAlt.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0></p>
+      <br>
+      <br>
+      <p>Los modelos de Thompson de las operaciones básicas de las expresiones regulares, se muestran en el siguiente diagrama:</p>
+      <br>
+      <p align="center">
+<img src="ModeloThompson.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0></p>
+      <br>
+     </article>
+    </section>
+      <aside>
+        <h1>Resumen</h1>
+        <hr>
+        <br>
+     <p><strong>Ejercicio 1.</strong> Describe los 4 primeros bloques del diagrama a bloques de la sección azul.</p>
+     <br>
+     <hr>
+     <h1>Pregunta</h1>
+        <hr>
+        <br>
+     <p><strong>Pregunta.</strong> Enumera y describe los nombres que se le da al analizador léxico.</p>
+     <br>
+     <hr>
+     <h1>Ejemplos</h1>
+     <hr>
+     <br>
+     <p><strong>Enlace a Ejemplos.</strong> La pagina es dónde se muestran varios ejemplos:</p>
+     <br>
+     <p><a href="221EjemplosErAfn.html">Ejemplos de conversión de ER a AFN.</a> por medio de la construcción de Thompson tema 2.2.1.</p>
+        </aside>
+      <footer><p>Construcción de analizadores léxicos: Tema 2.2</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

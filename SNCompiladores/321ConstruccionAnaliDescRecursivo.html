@@ -1,0 +1,657 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>3.2.1Construcción de analizadores sintácticos por descenso recursivo</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 3</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">CONSTRUCCIÓN DE ANALIZADORES SINTÁCTICOS POR DESCENSO RECURSIVO</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Problemas y acondicionamiento de las gramáticas libres de contexto para su análisis por descenso recursivo</h1>
+       <hr>
+       <br>
+      <p><strong>Problemas con las gramáticas libres de contexto.</strong> Para construir el analizador sintáctico de descenso recursivo, conviene que la gramática sea LL(1). Ya que algunas de las gramáticas libres de contexto (GLC) tienen problemas, como:</p>
+      <br>
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Problemas</CAPTION>
+        <tr><th scope="row">Número </th> <th>Problema </th> </tr>
+        <tr><td>1 </td> <td><a href="312EliminacionRecursion.html">Recursión o recursividad izquierda.</a> </td> </tr>
+        <tr><td>2 </td> <td><a href="311GramaticasAmbiguas.html">Ambigüedad.</a> </td> </tr>
+        <tr><td>3 </td> <td><a href="21ClasObjPra.html">Retroceso (backtracking).</a> </td> </tr>
+      </table>
+      </CENTER>
+      <br>
+      <p>Y aunque la mayorı́a de las gramáticas libres de contexto pueden ser analizadas sin retroceso. Es necesario comprobar que la GLC sea LL(1). Para saber que una GLC es LL(1) debe cumplir con los siguientes puntos:</p>
+      <br>
+      <dl>
+        <dt><strong>Primero</strong> </dt>
+        <dd>Regla UNO. Si las producciones tienen la forma A → σ<SUB>1</SUB> |σ<SUB>2</SUB> |σ<SUB>3</SUB> deben cumplir con la condición PRIMERO(σ<SUB>1</SUB> ) ∩ PRIMERO(σ<SUB>2</SUB> ) ∩ PRIMERO(σ<SUB>3</SUB> ) = &empty;.</dd>
+      
+        <dt><strong>Segundo</strong> </dt>
+        <dd>Regla DOS. Si las producciones tienen la forma X → σ|&epsilon; deben cumplir con la condición PRIMERO(X) ∩ SIGUIENTE(X) = &empty;.</dd>
+      </dl>
+      <br>
+      <hr>
+      <h1>Cálculo de primeros</h1>
+       <hr>
+       <br>
+       <p>Lo que hace el analizador sintáctico, es determinar si la cadena de tokens que ha entregado el analizador léxico estan colocados en el lugar adecuado. Esto lo hace comparando la cadena de tokens con la GLC que se ha definido.</p>
+       <br>
+       <p>Por lo que es necesario saber cuál es el primer símbolo de una cadena y también reconocer el siguiente símbolo de una cadena.</p>
+       <br>
+       <p><strong>Definición de PRIMERO.</strong> Para un símbolo gramatical α, PRIMERO(α) es el conjunto de
+terminales que pueden aparecer al inicio de una
+oración derivada de α.</p>
+       <br>
+       <p>Para determinar el conjunto PRIMERO(&alpha;), se puede aplicar la intuición y aunque esta es clara, es necesario formalizar el proceso de obtención del conjunto PRIMERO(&alpha;), para lo cual se requiere cierta notación. Para cada símbolo gramatical α, se define el conjunto PRIMERO(α) como el conjunto de símbolos terminales
+que pueden aparecer como la primera palabra en alguna cadena derivada de α. El dominio de primero es el conjunto de símbolos gramaticales, T ∪ N ∪ {&epsilon;, eof} y su rango es
+T ∪ {&epsilon;, eof}. Si α es terminal, &epsilon; o eof, entonces PRIMERO(α) tiene exactamente un miembro, α. Para un no terminal A, PRIMERO(A) contiene el conjunto completo de
+símbolos terminales que pueden aparecer como primer símbolo en forma de oración derivado de A.</p>
+      <br>
+      
+      <p>Definimos los conjuntos PRIMERO sobre símbolos gramaticales únicos. Es conveniente
+extender esa definición a cadenas de símbolos. Para una cadena de símbolos,
+S<SUB>1</SUB> = β<SUB>1</SUB> β<SUB>2</SUB> β<SUB>3</SUB>. . . β<SUB>k</SUB>, definimos PRIMERO(s) como la unión de los conjuntos PRIMERO para
+β<SUB>1</SUB>, β<SUB>2</SUB>,. . . , β<SUB>n</SUB>, donde β<SUB>n</SUB> es el primer símbolo cuyo primer conjunto no contiene &epsilon;, y &epsilon; ∈ PRIMERO(s) si y solo si está en el conjunto para cada uno de los β<SUB>i</SUB>, 1 ≤ i ≤ k.
+</p>
+      <br>
+      <font color=red size=5><h3 align="center">S<SUB>1</SUB> = β<SUB>1</SUB> β<SUB>2</SUB> β<SUB>3</SUB> . . . β<SUB>k</SUB></h3></font>
+      <br>
+      <p>El cálculo del conjunto PRIMERO se lo aplicamos a la sguiente gramática:</p>
+      <br>
+      <font color=red size=5><h3 align="center">S → aCa, <br> C → aCa | b</h3></font>
+      <br>
+      <p>Usando el procedimiento, hacemos la siguiente consideración:</p>
+      <br>
+      <font color=red size=5><h3 align="center">S &rarr; β<SUB>1</SUB> β<SUB>2</SUB> β<SUB>3</SUB></h3></font>
+      <br>
+      <p>Por lo que se aplica al símbolo inicial, como sigue:</p>
+      <br>
+      <font color=red size=5><h3 align="center">PRIMERO(S) = PRIMERO(β<SUB>1</SUB> β<SUB>2</SUB> β<SUB>3</SUB>) = {β<SUB>1</SUB>}</h3></font>
+      <br>
+      <p>Como:</p>
+      <br>
+      <font color=red size=5><h3 align="center">β<SUB>1</SUB> = a</h3></font>
+      <br>
+      <p>Y ya que:</p>
+      <br>
+      <font color=red size=5><h3 align="center">&epsilon; &notin; {β<SUB>1</SUB>}</h3></font>
+      <br>
+      <p>Se tiene que:</p>
+      <br>
+      <font color=red size=5><h3 align="center">PRIMERO(S) = {β<SUB>1</SUB>} = {a}</h3></font>
+      <br>
+      
+      <h1>Ejemplo de cálculo de siguientes</h1>
+       <hr>
+       <br>
+       <p>Se tiene el siguiente bloque de código:</p>
+       <br>
+       <font color=lime size=5><h3 align="center">void suma(int i, int j) { int t; t = i + j; }</h3></font>
+       <br>
+       <p>Se aplica la siguiente gramática obtenida del mismo código:</p>
+       <br>
+       <font color=lime size=5><h3 align="center">S → void M , <br> M → id (LA) {LC} , <br> LA → LA, A | A , <br>
+A → int id | &epsilon; , <br> LC → LC C | C , <br> C → int id; | id = id + id;</h3></font>
+       <br>
+       <p>Se obtienen las derivaciones, de la siguiente manera:</p>
+       <br>
+       <font color=lime size=5><h3 align="center">S ⇒  void M ⇒  void id (LA) {LC} ⇒  <br> void id (LA , A) {LC} ⇒ void id (A , A) {LC} <br> ⇒ void id (int id , A) {LC} ⇒ <br> void id (int id , int id) {LC} ⇒ <br> void id (int id , int id) {LC C} ⇒ <br> void id (int id , int id) {C C} ⇒ <br> void id (int id , int id) {int id; C} ⇒ <br> void id (int id , int id) {int id; id = id + id;} </font>
+       
+       <br>
+       
+       <p>Cálculo de los PRIMEROS:</p>
+       <br>
+      
+       <font color=red size=5><h3 align="center">PRIMERO(S) = {void}</h3></font>
+       
+       <font color=red size=5><h3 align="center">PRIMERO(M) = {id}</h3></font>
+       
+       <font color=red size=5><h3 align="center">PRIMERO(LA) = PRIMERO(LA)</h3></font>
+       
+       <font color=red size=5><h3 align="center">PRIMERO(A) = {int}</h3></font>
+       
+       <font color=red size=5><h3 align="center">PRIMERO(C) = {int, id}</h3></font>
+       
+       <font color=red size=5><h3 align="center">PRIMERO(LA) = {,}</h3></font>
+       
+       <font color=red size=5><h3 align="center">PRIMERO(LC) = {int, id}</h3></font>
+       
+       <font color=red size=5><h3 align="center">PRIMERO(LA') = {int, id}</h3></font>
+       
+       <font color=red size=5><h3 align="center">PRIMERO(LC') = {int, id}</h3></font>
+       
+       <br>
+       
+       
+       
+       <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de primeros y siguientes.</CAPTION>
+        <tr><th scope="row"> </th> <th> S </th> <th> M </th> <th> A </th> <th> C </th> <th> LA </th> <th> LC </th> <th> LA' </th> <th> LC' </th></tr>
+        <tr><td>PRIMEROS </td> <td> void </td> <td> id </td> <td> int </td> <td> int, id </td> <td> int </td> <td> int, id </td> <td> , </td> <td> int, id </td> </tr>
+        <tr><td>SIGUIENTES </td> <td> $ </td> <td> $ </td> <td> ), , </td> <td> }, PRIMERO(C) </td> <td> int, id </td> <td> } </td> <td> ) </td> <td> } </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+      
+      <font color=yellow size=3><h3 align="center">SIGUIENTE(S) = {$}</h3></font>
+      
+      <font color=yellow size=2><h3 align="center">SIGUIENTE(M) = {$}</h3></font>
+      
+      <font color=yellow size=2><h3 align="center">SIGUIENTE(A) = {), ,}</h3></font>
+      
+      <font color=yellow size=2><h3 align="center">SIGUIENTE(C) = {}, PRIMERO(C)}</h3></font>
+      
+      <font color=yellow size=2><h3 align="center">SIGUIENTE(LV) = {,}</h3></font>
+      
+      <font color=yellow size=2><h3 align="center">SIGUIENTE(LC) = {$}</h3></font>
+      
+      <font color=yellow size=2><h3 align="center">SIGUIENTE(LV') = {$}</h3></font>
+      
+      <font color=yellow size=2><h3 align="center">SIGUIENTE(LC') = {$}</h3></font>
+      
+      <br>
+      
+      <p>La forma general de la recursividad izquierda:</p>
+       <font color=red size=5><h3 align="center">A &rarr; A &alpha; | &beta;</h3></font>
+       <br>
+      
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Eliminación de la recursividad izquierda.</CAPTION>
+        <tr><th scope="row">Transformación </th> <th> Producción </th> <th> Igualdades </th> <th> Resultado </th> </tr>
+        <tr><td>A &rarr; &beta; A' <br> A' &rarr; &alpha; A' | &epsilon; </td> <td> LA → LA, A | A </td> <td> A = LA, A' = LA', &alpha; = ,A , &beta; = A </td> <td> LA &rarr; A LA' , LA' &rarr; ,A LA' | &epsilon; </td> </tr>
+        <tr><td>A &rarr; &beta; A' <br> A' &rarr; &alpha; A' | &epsilon; </td> <td> LC → LC C | C </td> <td> A = LC, A' = LC', &alpha; = C , &beta; = C </td> <td> LC &rarr; C LC' , LC' &rarr; C LC' | &epsilon; </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+      <p>La gramatica queda de la siguiente forma:</p>
+      <br>
+      <font color=lime size=5><h3 align="center">S → void M , <br> M → id (LA) {LC} , <br> LA &rarr; A LA' , <br> LA' &rarr; ,A LA' | &epsilon; , <br>
+A → int id | &epsilon; , <br> LC &rarr; C LC' , <br> LC' &rarr; C LC' | &epsilon; , <br> C → int id; | id = id + id;</h3></font>
+      <br>
+      <p>La gramática anterior cumple con la regla dos para las producciones 4, 5 y 7. Debido a esto la la gramática es LL(1). </p>
+      <br>
+      <br>
+      <hr>
+      <h1>Cálculo de siguientes</h1>
+       <hr>
+       <br>
+       <p><strong>Definición de SIGUIENTE.</strong> Para un α no terminal, SIGUIENTE(α) contiene el conjunto de palabras que pueden aparecer inmediatamente después de α en una frase.</p>
+       <br>
+      <p>Se toma la misma gramática para conocer el conjunto SIGUIENTE de todos los no terminales:</p>
+      <br>
+      <font color=red size=5><h3 align="center">G(N, T, S, P)</h3></font>
+      <br>
+      <p>Ahora se requiere que una cadena de tokens sea colocada en el proceso de derivación. Por lo que la siguiente cadena de tokens, se requiere emparejar con las derivaciones adecuadas. Sea la cadena <strong>((i v))</strong> que se debe reconocer:</p>
+      <br>
+      <font color=red size=5><h3 align="center">S → (C), <br> C → (C) | i v</h3></font>
+      <br>
+      <p>Por lo que el inicio de las derivaciones es el uso del símbolo S, como se presenta a continuación:</p>
+      <br>
+      <font color=lime size=5><h3 align="center">S ⇒  (C) ⇒  ((C)) ⇒  ((i v))</h3></font>
+      <br>
+      <p>El siguiente de los no terminales S y C, se calcula usando las producciones de la gramática, como sigue:</p>
+      <br>
+      <font color=red size=5><h3 align="center">SIGUIENTE(S) = {$}</h3></font>
+      <font color=red size=5><h3 align="center">SIGUIENTE(C) = {)}</h3></font>
+      <p align="center">
+<img src="ArbolParenVar.svg" align=center width=80% border=0></p>
+     <br>
+     <hr>
+     <h1>Ejemplo de construcción del analizador de descenso recursivo</h1>
+     <hr>
+     <br>
+     <p><strong>Comprobar si la gramática es LL(1).</strong> Por lo que se aplican las reglas UNO y DOS a la gramática siguiente:</p>
+     <br>
+     <font color=red size=5><h3 align="center">T → R | aTc, <br> R → bR | &epsilon;</h3></font>
+     <br>
+     <p><strong>Proceso de construcción.</strong> Después de haber acondicionado a la gramática. Se procede a convertir cada una de las producciones en funciones, como se muestra con el siguiente ejemplo:</p>
+     <br>
+     <p>Por lo que la gramática se escribe aumentandola de la siguiente forma:</p>
+     <br>
+     <font color=red size=5><h3 align="center">T' &rarr; T, <br> T → R | aTc, <br> R → bR | &epsilon;</h3></font>
+     <br>
+     <p>Se obtienen los primeros y siguientes que se muestran en la siguiente tabla:</p>
+     <br>
+     <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de primeros y siguientes.</CAPTION>
+        <tr><th scope="row"> </th> <th> T' </th> <th> T </th> <th> R </th></tr>
+        <tr><td>PRIMEROS </td> <td> a, b </td> <td> a, b </td> <td> b, &epsilon; </td></tr>
+        <tr><td>SIGUIENTES </td> <td> $ </td> <td> $, c </td> <td> $, c </td></tr>
+        
+      </table>
+      </CENTER>
+      <br>
+     <p>Por lo que las funciones se obtienen de la siguiente forma:</p>
+     <br>
+     <font color=red size=5><h3 align="center">T' $ ⇒ T $ </h3></font>
+       <br>
+     <p><strong>Para la primera producción se obtiene PRO T'():</strong></p>
+     <br>
+     <pre>
+     PRO T'() {
+       Token ← SigTok();
+       if Token == PRIMERO(T’) then
+         PRO T();
+         if Token == eof then
+           EsEnPan(SentenciaAceptada);
+         else
+           EsEnPan(Error);
+       else
+         EsEnPan(Error);
+     }
+     </pre>
+     <br>
+     <p><strong>Para la segunda producción se obtiene PRO T():</strong></p>
+     <br>
+     <pre>
+     PRO T() {
+       if Token == b then
+         PRO R();
+       else if Token == a then
+         Token := SigTok(a);
+         PRO T() ;
+         Token := SigTok(c) ;
+       else
+         EsEnPan(Error);
+     }
+     </pre>
+     <br>
+     <p><strong>Para la tercera producción se obtiene PRO R():</strong></p>
+     <br>
+     <pre>
+     PRO R() {
+       if Token == b then
+         Token := SigTok(b);
+         PRO R() ;
+       else if Palabra == SIGUIENTE(R) then
+         RETURN() ;
+       else
+         EsEnPan(Error);
+     }
+     </pre>
+     <br>
+     <hr>
+     <h1>Comprobación por medio de la entrada de una cadena</h1>
+     <hr>
+     <br>
+     
+     <p>Se comprueba el analizador por medio de la entrada de la cadena <strong>abbc</strong>. Se muestra en la siguiente tabla.</p>
+     <br>
+     <br>
+      <font color=lime size=5><h3 align="center">T' ⇒ T ⇒ aTc ⇒ aRc ⇒ abRc ⇒ abbRc ⇒ abbc</h3></font>
+      <br>
+
+     <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de análisis de cadenas.</CAPTION>
+        <tr><th scope="row"> ENTRADA </th> <th> PROCEDIMIENTOS </th> </tr>
+        <tr><td>↑ abbc$ </td> <td> pal(a) </td> <td> PRO T’() </td> </tr>
+        <tr><td>a↑bbc$ </td> <td> PRO T’(a) </td> </tr>
+        <tr><td>a↑bbc$ </td> <td> PRO T(a) </td> <td> Acep </td> </tr>
+        <tr><td>a↑bbc$ </td> <td> Pal(a) </td> <td>PRO T()</td> <td>Pal(c)</td> <td> Acep </td> </tr>
+        <tr><td>ab↑bc$ </td> <td> PRO T(b)</td> <td> Pal(c)</td> <td>Acep </td> </tr>
+        <tr><td>ab↑bc$ </td> <td> PRO R(b)</td> <td> Pal(c) </td> <td> Acep </td> </tr>
+        <tr><td>ab↑bc$ </td> <td> Pal(b)</td> <td> PRO R()</td> <td> pal(c)</td> <td> Acep </td> </tr>
+        <tr><td>abb↑c$ </td> <td> PRO R(b)</td> <td> Pal(c)</td> <td> Acep </td> </tr>
+        <tr><td>abb↑c$ </td> <td> Pal(b)</td> <td> PRO R()</td> <td> Pal(c)</td> <td> Acep </td> </tr>
+        <tr><td>abb↑c$ </td> <td> PRO R(c)</td> <td> Pal(c)</td> <td> Acep </td> </tr>
+        <tr><td>abb↑c$ </td> <td> PRO R(c)</td> <td> Acep </td> </tr>
+        <tr><td>abbc↑$ </td> <td> Acep </td> </tr>
+      </table>
+      </CENTER>
+
+      <br>
+      
+      
+      <hr>
+      <h1>Procedimiento de construcción del analizador sintáctico descendente</h1>
+       <hr>
+       <br>
+       <p>Se da el siguiente código de entrada:</p>
+       <br>
+       <font color=lime size=5><h3 align="center">void suma(int i, int j) { int t; t = i + j; }</h3></font>
+       <br>
+       <p>Se obtiene la gramática del código anterior:</p>
+       <br>
+       <font color=yellow size=5><h3 align="center">S →void M</h3></font>
+       <br>
+       <font color=red size=5><h3 align="center">S → void suma(LA){LC}</h3></font>
+       <br>
+       <font color=yellow size=5><h3 align="center">S → void id(LA){LC}</h3></font>
+       <br>
+       <font color=yellow size=5><h3 align="center">LA → LA, A | A</h3></font>
+       <br>
+       <font color=yellow size=5><h3 align="center">A → int id</h3></font>
+       <br>
+       <font color=yellow size=5><h3 align="center">LC → LC C | C</h3></font>
+       <br>
+       <font color=yellow size=5><h3 align="center">C → int id; | id = id + id;</h3></font>
+       <br>
+       
+       <p><strong>Obtenida la gramática. Se comprobará, si es LL(1):</strong></p>
+       <br>
+       <p><strong>Primero.</strong> Se aplican las reglas UNO y DOS a las producciones del tipo alternativa.</p>
+       <br>
+       <p>Si no se cumple con las reglas UNO y DOS. Se debe acondicionar la gramática hasta convertirla en gramática LL(1). Y se aplica el <strong>el punto Segundo</strong>.</p>
+       <br>
+       <p>En caso de cumplir con las reglas UNO y DOS, se pasa al <strong>punto Tercero</strong>.</p>
+       <br>
+       <p><strong>Segundo.</strong> Si existen problemas en la gramática, se deben corregir. Por lo que en la tabla siguiente se presenta la gramática ya corregida.</p>
+       <br>
+        <br>
+        
+       <font color=yellow size=5><h3 align="center">LA → LA, A | A</h3></font>
+       <br>
+       <font color=yellow size=5><h3 align="center">LC → LC C | C</h3></font>
+       <br>
+       
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Gramática corregida. Ya es LL(1).</CAPTION>
+        <tr><th scope="row"> ORDEN </th> <th> PRODUCCIÓN </th> </tr>
+        <tr><td> 1 </td> <td> S → void M </td> </tr>
+        <tr><td> 2 </td> <td> M → id (LA) {LC} </td> </tr>
+        <tr><td> 3 </td> <td> LA &rarr; A LA' </td> </tr>
+        <tr><td> 4 </td> <td> LA' &rarr; ,A LA' | &epsilon; </td> </tr>
+        <tr><td> 5 </td> <td> A → int id | &epsilon; </td> </tr>
+        <tr><td> 6 </td> <td> LC &rarr; C LC' </td> </tr>
+        <tr><td> 7 </td> <td> LC' &rarr; C LC' | &epsilon; </td> </tr>
+        <tr><td> 8 </td> <td> C → int id; | id = id + id; </td> </tr>
+        
+        
+      </table>
+      </CENTER>
+      <br>
+      <p><strong>Tercero.</strong> Aumentar la gramática LL(1).</p>
+       <br>
+       <p align="center">
+<img src="GramaticasObtencion.svg" align=center width=80% border=0></p>
+       <br>
+       <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Gramática corregida y aumentada. Gramática LL(1).</CAPTION>
+        <tr><th scope="row"> ORDEN </th> <th> PRODUCCIÓN </th> </tr>
+        <tr><td> 0 </td> <td> S' → S </td> </tr>
+        <tr><td> 1 </td> <td> S → void M </td> </tr>
+        <tr><td> 2 </td> <td> M → id (LA) {LC} </td> </tr>
+        <tr><td> 3 </td> <td> LA &rarr; A LA' </td> </tr>
+        <tr><td> 4 </td> <td> LA' &rarr; ,A LA' | &epsilon; </td> </tr>
+        <tr><td> 5 </td> <td> A → int id | &epsilon; </td> </tr>
+        <tr><td> 6 </td> <td> LC &rarr; C LC' </td> </tr>
+        <tr><td> 7 </td> <td> LC' &rarr;  C LC' | &epsilon; </td> </tr>
+        <tr><td> 8 </td> <td> C → int id; | id = id + id; </td> </tr>
+        
+        
+      </table>
+      </CENTER>
+      <br>
+       <p><strong>Cuarto.</strong> Construir las funciones para cada uno de los símbolos no terminales.</p>
+       <br>
+       <p>Utilizando la tabla de PRIMEROS y SIGUIENTES.</p>
+       <br>
+       <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de primeros y siguientes.</CAPTION>
+        <tr><th scope="row"> </th> <th> S' </th> <th> S </th> <th> M </th> <th> A </th> <th> C </th> <th> LA </th> <th> LC </th> <th> LA' </th> <th> LC' </th></tr>
+        <tr><td>PRIMEROS </td> <td> void </td> <td> void </td> <td> id </td> <td> int </td> <td> int, id </td> <td> int, , </td> <td> int, id </td> <td> , </td> <td> , </td> </tr>
+        <tr><td>SIGUIENTES </td> <td> $ </td> <td> $ </td> <td> $ </td> <td> ), , </td> <td> }, , </td> <td> ) </td> <td> } </td> <td> ) </td> <td> } </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+      <font color=lime size=5><h3 align="center">S' $ ⇒  S $ <br>
+      S $ ⇒  void M $ <br> void M $ ⇒ void id (LA) {LC} $<br> void id (LA) {LC} $ ⇒ void id (A LA') {C LC'} $ </h3></font>
+      <br>
+       <p>Se construyen las funciones:</p>
+       <br>
+       <p>Para S'():</p>
+       <br>
+       <p align="center">
+<img src="LecturaMetodo.svg" align=center width=80% border=0></p>
+       <br>
+       <pre>
+       PRO S'() {
+         Token ← SigTok();
+         if Token == PRIMERO(S’) then
+           PRO S();
+           if Token == $ then
+             EsEnPan(SentenciaAceptada);
+           else
+             EsEnPan(Error);
+         else
+           EsEnPan(Error);
+       }
+     </pre>
+     <br>
+     
+     <p>Para S():</p>
+       <br>
+       <p align="center">
+<img src="LecturaMetodo1.svg" align=center width=80% border=0></p>
+       <pre>
+       PRO S() {
+         Token ← SigTok();
+         if Token == PRIMERO(S) then
+           Token := SigTok(void);
+           PRO M();
+         else
+             EsEnPan(Error);
+         
+       }
+     </pre>
+     <br>
+     
+     <p>Para M():</p>
+       <br>
+       <pre>
+       PRO M() {
+         Token ← SigTok();
+         if Token == PRIMERO(M) then
+           Token := SigTok(id);
+           Token := SigTok(();
+           PRO LA();
+           Token := SigTok());
+           Token := SigTok({);
+           PRO LC ();
+           Token := SigTok(});
+           
+         else
+           EsEnPan(Error);
+       }
+     </pre>
+     <br>
+     
+     <p>Para LA():</p>
+       <br>
+     <pre>
+       PRO LA() {
+         Token ← SigTok();
+         if Token == PRIMERO(LA) then
+           PRO A ();
+           PRO LA' ();
+           
+         else
+           EsEnPan(Error);
+       }
+     </pre>
+     <br>
+     
+     <p>Para LA'():</p>
+       <br>
+     <pre>
+       PRO LA'() {
+         Token ← SigTok();
+         if (Token == PRIMERO(LA')) then
+           Token := SigTok(,);
+           PRO A ();
+           PRO LA' ();
+         else if(Token == SIGUIENTE(LA')) then
+           RETURN(); 
+         else
+           EsEnPan(Error);
+       }
+     </pre>
+     <br>
+     <p>Para A():</p>
+       <br>
+     <pre>
+     PRO A() {
+       Token ← SigTok();
+       if (Token == PRIMERO(LA')) then
+         Token := SigTok(int);
+         Token := SigTok(id);
+         
+       else if(Token == SIGUIENTE(A)) then
+         RETURN(); 
+       else
+         EsEnPan(Error);
+     }
+     </pre>
+     <br>
+     <p>Para LC():</p>
+       <br>
+     <pre>
+     PRO LC() {
+       Token ← SigTok();
+       if Token == PRIMERO(LC) then
+         PRO C();
+         PRO LC'();
+         
+       else
+         EsEnPan(Error);
+     }
+     </pre>
+     <br>
+     <p>Para LC'():</p>
+       <br>
+     <pre>
+     PRO LC'() {
+       Token ← SigTok();
+       if (Token == PRIMERO(LC')) then
+         PRO C();
+         PRO LC'();
+       else if (Token == SIGUIENTE(LC')) then
+         RETURN();
+         
+       else
+         EsEnPan(Error);
+     }
+     </pre>
+     <br>
+     <p>Para C():</p>
+       <br>
+     <pre>
+     PRO C() {
+       Token ← SigTok();
+       if (Token == int) then
+         Token := SigTok(int);
+         Token := SigTok(id);
+         Token := SigTok(;);
+       else if (Token == id) then
+         Token := SigTok(id);
+         Token := SigTok(=);
+         Token := SigTok(id);
+         Token := SigTok(+);
+         Token := SigTok(id);
+         Token := SigTok(;);
+       else
+         EsEnPan(Error);
+     }
+     </pre>
+     <br>
+     <p>Se analiza la secuencia de tokens que representan la declaración de un método:</p>
+     <br>
+     <font color=lime size=5><h3 align="center">void suma(int i, int j) { int t; t = i + j; }</h3></font>
+       <br>
+     <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de análisis de la cadena método.</CAPTION>
+        <tr><th scope="row"> ENTRADA </th> <th> PROCEDIMIENTO </th> </tr>
+        <tr><td>↑ void suma(int i, int j) { int t; t = i + j; }$ </td> <td> PRO S’() </td> </tr>
+        <tr><td>↑void suma(int i, int j) { int t; t = i + j; }$ </td> <td> pal(void),PRO S(void) Acep </td> </tr>
+        <tr><td>↑void suma(int i, int j) { int t; t = i + j; }$ </td> <td> pal(void) PRO M(), Acep </td> </tr>
+        <tr><td>void ↑suma(int i, int j) { int t; t = i + j; }$ </td> <td> PRO M(suma), Acep </td> </tr>
+        <tr><td>void ↑suma(int i, int j) { int t; t = i + j; }$ </td> <td> pal(suma), pal((), PRO LA(), pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma↑(int i, int j) { int t; t = i + j; }$ </td> <td> pal((), PRO LA(), pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(↑int i, int j) { int t; t = i + j; }$ </td> <td> PRO LA(int), pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(↑int i, int j) { int t; t = i + j; }$ </td> <td> PRO A(int), PRO LA'(), Pal(c), Acep </td> </tr>
+        <tr><td>void suma(↑int i, int j) { int t; t = i + j; }$ </td> <td> pal(int), pal(id), PRO LA'(), pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int ↑i, int j) { int t; t = i + j; }$ </td> <td> pal(id), PRO LA'(), pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i↑, int j) { int t; t = i + j; }$ </td> <td> PRO LA'(,), pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void ↑suma(int i↑, int j) { int t; t = i + j; }$ </td> <td> pal(,), PRO A(), PRO LA'(), pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, ↑int j) { int t; t = i + j; }$ </td> <td> PRO A(int), PRO LA'(), pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, ↑int j) { int t; t = i + j; }$ </td> <td> pal(int), pal(id), PRO LA'(), pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int ↑j) { int t; t = i + j; }$ </td> <td> pal(id), PRO LA'(), pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j↑) { int t; t = i + j; }$ </td> <td> PRO LA'()), pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j↑) { int t; t = i + j; }$ </td> <td> pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j↑) { int t; t = i + j; }$ </td> <td> pal()), pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) ↑{ int t; t = i + j; }$ </td> <td> pal({), PRO LC(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { ↑int t; t = i + j; }$ </td> <td> PRO LC(int), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { ↑int t; t = i + j; }$ </td> <td> PRO C(int), PRO LC'(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { ↑int t; t = i + j; }$ </td> <td> pal(int), pal(id), pal(;), PRO LC'(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int ↑t; t = i + j; }$ </td> <td> pal(id), pal(;), PRO LC'(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int t; ↑t = i + j; }$ </td> <td> PRO LC'(id), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int t; ↑t = i + j; }$ </td> <td> PRO C(id), PRO LC'(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int t; ↑t = i + j; }$ </td> <td> pal(id), pal(=), pal(id), pal(+), pal(id), pal(;), PRO LC'(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int t; t ↑= i + j; }$ </td> <td> pal(=), pal(id), pal(+), pal(id), pal(;), PRO LC'(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int t; t = ↑i + j; }$ </td> <td> pal(id), pal(+), pal(id), pal(;), PRO LC'(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int t; t = i ↑+ j; }$ </td> <td> pal(+), pal(id), pal(;), PRO LC'(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int t; t = i + ↑j; }$ </td> <td> pal(id), pal(;), PRO LC'(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int t; t = i + j↑; }$ </td> <td> pal(;), PRO LC'(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int t; t = i + j; ↑}$ </td> <td> PRO LC'(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int t; t = i + j; ↑}$ </td> <td> PRO LC'(), pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int t; t = i + j; ↑}$ </td> <td> pal(}), Acep </td> </tr>
+        <tr><td>void suma(int i, int j) { int t; t = i + j; }↑$ </td> <td> Acep </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+    </article>
+    </section>
+
+
+      <aside>
+        <h1>Resumen</h1>
+        <hr>
+        <br>
+       <p><strong>Pregunta 1.</strong> Describir los dos tipos de derivaciones.</p>
+     <br>
+     <p><strong>Pregunta 2.</strong> ¿Cuál tipo de derivación se usa para el análisis sintáctico descendente? Describir su respuesta.</p>
+       <br>
+       <hr>
+      <h1>Ejercicios</h1>
+        <hr>
+        <br>
+      <p><strong>Ejercicio 1.</strong> Construir el analizador sintáctico de descenso recursivo que acepte el siguiente código de entrada:</p>
+      <br>
+      <p><strong>Ejercicio 2.</strong> Construir el analizador sintáctico de descenso recursivo que acepte el siguiente código de entrada:</p>
+      <br>
+      <p><strong>Ejercicio 3.</strong> Construir el analizador sintáctico de descenso recursivo de la siguiente gramática:</p>
+      <br>
+        </aside>
+      <footer><p>Construcción de analizadores sintácticos: Tema 3.2.1</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

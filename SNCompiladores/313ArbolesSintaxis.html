@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Árboles de sintaxis</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 3</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">ÁRBOLES DE SINTAXIS</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Árboles</h1>
+       <hr>
+       <br>
+      <p><strong>Árbol de sintaxis.</strong> El árbol de sintaxis abstracta (ASA) o árbol de análisis sintáctico es el
+resultado de simplificar el árbol sintáctico concreto (ASC) hasta llegar a obtener
+lo que se necesita para representar el significado del programa. El ASA es un
+árbol que se define con mayor simplicidad y por lo tanto es más fácil de procesar
+en las etapas de ejecución.
+Para representar a los árboles existe una notación que se escribe como a continuación se plantea:</p>
+      <font color=red size=7><h3 align="center">#(ABC)</h3></font>
+      <br>
+      <p>donde el sı́mbolo # indica que la primera letra dentro del paréntesis es un nodo y los otros caracteres representan a los hijos del nodo, como se muestra en la figura siguiente:</p>
+      <br>
+      <p align="center">
+<img src="ArbolAbc.svg" align=center width=55% border=0></p>
+       <br>
+      <p><strong>Beneficio del uso de los árboles sintácticos.</strong> Nos ayudan a entender la sintaxis de las sentencias.</p>
+     <br>
+     <p>Se tiene el siguiente árbol:</p>
+     <p align="center">
+<img src="ArbNumero.svg" align=center width=55% border=0></p>
+      <br>
+      <p>Si ahora tenemos la gramática de números expresada en forma de producciones:</p>
+      <font color=red size=7><h3 align="center">N &rarr; D <br>  D &rarr; D A | A <br> A &rarr; 1 | ... | 0</h3></font>
+      <br>
+      <p>Se puede saber que se obtine del śiguiente árbol, sólamente con verlo:</p>
+      <br>
+      <p align="center">
+<img src="ArbNumero3.svg" align=center width=55% border=0></p>
+      <br>
+      <p>La siguiente es una gramática de oraciones:</p>
+      <br>
+      <font color=red size=7><h3 align="center">O &rarr; S P | P D <br>  S &rarr; N <br> D &rarr; N <br> P &rarr; V <br> N &rarr; t | m <br> V &rarr; t | m</h3></font>
+      <br>
+      <p>Se entiende mejor el árbol siguiente que la gramática de producciones:</p>
+      <br>
+      
+      <p align="center">
+<img src="ArbOracion.svg" align=center width=55% border=0></p>
+      <br>
+      <p>Considerar la siguiente gramática, la cual esta en notación BNF (Backus Naur Form):</p>
+      <br>
+      <font color=red size=7><h3 align="center">&lt;Sentencia&gt; ::= &lt;sujeto&gt; &lt;predicado&gt; <br> <br> &lt;sujeto&gt; ::= &ltarticulo&gt; &lt;adjetivo&gt; &lt;nombre&gt; | &lt;pronombre&gt; <br> <br>  &lt;predicado&gt; ::= &ltverbo&gt; &lt;objeto directo&gt; <br> &lt;objeto directo&gt; ::= &ltarticulo&gt; &ltnombre&gt; <br> &lt;pronombre&gt; ::= el <br> &lt;articulo&gt; ::= El <br> &lt;adjetivo&gt; ::= grande <br> &lt;verbo&gt; ::= comio <br> &lt;nombre&gt; ::= elefante | cacahuate</h3></font>
+      <br>
+       <br>
+    </article>
+    </section>
+
+
+      <aside>
+        <h1>Preguntas</h1>
+        <hr>
+        <br>
+       <p><strong>Pregunta 1.</strong> Explicar cada una de las formas de representar una gramática libre de contexto.</p>
+     <br>
+     <p><strong>Pregunta 2.</strong> Explicar si el árbol sintáctico ayuda a entender bien la sintaxis de una gramática libre de contexto.</p>
+       <br>
+       <hr>
+      <h1>Ejercicios</h1>
+        <hr>
+      <p><strong>Ejercicio 1.</strong> Obtener la cadena <strong>El elefante comio cachuates</strong> de la gramática que esta en BNF.</p>
+      <br>
+      <p><strong>Ejercicio2.</strong> Presentar en BNF la gramática de números.</p>
+        <br>
+     
+        </aside>
+      <footer><p>Construcción de analizadores sintácticos: Tema 3.1.3</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

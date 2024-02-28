@@ -1,0 +1,351 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+    width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+Compiladores
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPoo.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+TEMARIO 2009
+</a></p>
+
+<p align=right><a href=EstudianteAgoDic2022.html style="float:center">
+LISTA DE CLASES
+</a></p>
+
+<p align="right" class="p5"><a href=SNCompiladores/COMapuntesRepasoAlexico.svg target="_blank" style="float:center">
+(APUNTES 5) SNCompiladores/COMapuntesRepasoAlexico.dia
+</a></p>
+
+<p align=right><a href=PizarronRepasoAlexico.svg style="float:center">
+(PIZARRÓN DE CLASE REPASO) MiMIC/PizarronRepasoAlexico.dia
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+EJERCICIOS REPASO
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<!--
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Definición de expresión regular</font></p>
+
+
+<p>La expresión regular es una serie de símbolos colocados uno después de otro.
+<br>
+<font color=red size=7><h3 align="center">abcd, &epsilon; o &lambda;</h3></font>
+<br>
+<font color=red size=7><h3 align="center">&epsilon; o &lambda;</h3></font>
+<br>
+<p align=center><font color=yellow size=6>Las operaciones básicas de las expresiones regulares</font></p>
+<br>
+<font color=red size=7><h3 align="center">a | b = {a} o {b}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a  b = {ab}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>*</SUP> = {&epsilon;,a,aa,aaa, ...}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>+</SUP> = {a,aa,aaa, ...}</h3></font>
+<br>
+</p>
+</header> -->
+
+<br>
+
+<section class=izquierda><strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>¿Cómo se aplica el algoritmo?</font></p>
+</header>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejercicio 1</font></p>
+</header>
+<p>Obtener el AFN de la siguiente expresión regular:</p>
+<font color=red size=7><h3 align="center"> if | else | return </h3></font>
+<p align=right><a href=PizarronAlexicoE1.svg style="float:center">
+(PIZARRÓN DE EJERCICIO 1) MiMIC/PizarronAlexicoE1.dia
+</a></p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejercicio 2</font></p>
+</header>
+<p>Obtener el AFN de la siguiente expresión regular:</p>
+<font color=red size=7><h3 align="center"> < | + | - </h3></font>
+<p align=right><a href=PizarronAlexicoE2.svg style="float:center">
+(PIZARRÓN DE EJERCICIO 2) MiMIC/PizarronAlexicoE2.dia
+</a></p>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=10 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de comprobación para la implementación del analizador léxico para operadores.</CAPTION>
+        
+        <tr><th scope="row">sigCar()</th> <th>est</th> <th>car</th> <th>&delta;</th></tr>
+        
+        <tr><td>&uarr; <</td> <td>q0</td> <td><</td> <td>q</td> </tr>
+        <tr><td><&uarr;</td> <td>q</td> <td>e</td> <td>q</td> </tr>
+        <tr><td></td> <td></td> <td></td> <td></td> </tr>
+        
+        
+</table>
+</CENTER>
+
+<br>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejercicio 3</font></p>
+</header>
+<p>Obtener el AFN de la siguiente expresión regular:</p>
+<font color=red size=7><h3 align="center"> ( | ) | ; </h3></font>
+<p align=right><a href=PizarronAlexicoE3.svg style="float:center">
+(PIZARRÓN DE EJERCICIO 3) MiMIC/PizarronAlexicoE3.dia
+</a></p>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=10 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de comprobación para la implementación del analizador léxico para delimitadores.</CAPTION>
+        
+        <tr><th scope="row">sigCar()</th> <th>est</th> <th>car</th> <th>&delta;</th></tr>
+        
+        <tr><td>&uarr; (</td> <td>q0</td> <td><</td> <td>q</td> </tr>
+        <tr><td>(&uarr;</td> <td>q</td> <td>e</td> <td>q</td> </tr>
+        <tr><td></td> <td></td> <td></td> <td></td> </tr>
+        
+        
+</table>
+</CENTER>
+
+<br>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Algoritmo de minimización</font></p>
+</header>
+
+<p>Determinar si el AFD de la expresión regular es un AFD mínimo:</p>
+<font color=red size=7><h3 align="center"> if | else | return </h3></font>
+<p align=right><a href=PizarronAlexicoE4.svg style="float:center">
+(PIZARRÓN DE EJERCICIO 4) MiMIC/PizarronAlexicoE4.dia
+</a></p>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>¿Cómo se usa la tabla de transiciones?</font></p>
+</header>
+
+<p>Uso de la tabla de transiciones:</p>
+<font color=red size=7><h3 align="center"> &delta; </h3></font>
+<p align=right><a href=PizarronAlexicoE5.svg style="float:center">
+(PIZARRÓN DE EJERCICIO 5) MiMIC/PizarronAlexicoE5.dia
+</a></p>
+<br>
+
+<pre>
+ car = sigCar();
+ est = q0;
+
+ while(car != eof || est != qe)
+    est = &delta;[est, car];
+    car = sigCar();
+ if(est == qa)
+    System.out.println(Aceptado);
+ else
+    System.out.println(Error);
+</pre>
+
+<br>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=10 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de comprobación para la implementación del analizador léxico para palabras reservadas.</CAPTION>
+        
+        <tr><th scope="row">sigCar()</th> <th>est</th> <th>car</th> <th>&delta;</th></tr>
+        
+        <tr><td>&uarr; return</td> <td>q0</td> <td>r</td> <td>q3</td> </tr>
+        <tr><td>r&uarr;eturn</td> <td>q3</td> <td>e</td> <td>q6</td> </tr>
+        <tr><td>re&uarr;turn</td> <td>q6</td> <td>t</td> <td>q8</td> </tr>
+        <tr><td>ret&uarr;urn</td> <td>q8</td> <td>u</td> <td>q10</td> </tr>
+        <tr><td>retu&uarr;rn</td> <td>q10</td> <td>r</td> <td>q11</td> </tr>
+        
+        <tr><td>retur&uarr;n</td> <td>q11</td> <td>n</td> <td>q12</td> </tr>
+        
+        <tr><td>return&uarr;</td> <td>q12</td> <td>-</td> <td>q12</td> </tr>
+        
+</table>
+</CENTER>
+
+<br>
+<br>
+
+</strong>
+</section>
+
+<!--------------------------------------------------------->
+
+<aside class=derecha>
+<strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Ejercicio 1:</font></p>
+</header>
+
+<font color=red size=7><h3 align="center"> if | then | else </h3></font>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejercicio 2:</font></p>
+</header>
+
+<font color=red size=7><h3 align="center">a (( b | a* c) x )* | x* a </h3></font>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Preguntas</font></p>
+</header>
+<p>1.- ¿Cómo se transforma la siguiente ER en AFN?</p>
+
+<font color=red size=5><h3 align="center">ER &rarr; >= | <= </h3></font>
+
+<p>2.- ¿Cómo se transforma la siguiente ER en AFN?</p>
+
+<font color=red size=5><h3 align="center">ER &rarr; a<SUP>*</SUP> b </h3></font>
+
+<p>3.- ¿Cómo se transforma la operación de concatenación en AFN?</p>
+
+<font color=red size=5><h3 align="center"> if(a &#60; b) <br> return a + b; <br> else <br> return a - b; </h3></font>
+
+<p>4.- ¿Cómo se transforma la operación alternativa en AFN?</p>
+
+<p>5.- ¿Cómo se transforma la operación de cerradura positiva en AFN?</p>
+
+<p>6.- ¿Cómo se transforma la operación de cerradura de Kleene en AFN?</p>
+
+<p>7.- ¿Cómo se aplica la operación de cerradura?</p>
+
+<font color=red size=5><h3 align="center">ER &rarr; if | else | return </h3></font>
+
+<p>8.- ¿Cómo se aplica la operación de movimiento?</p>
+
+<font color=red size=5><h3 align="center">ER &rarr; < | + | - </h3></font>
+
+<p>9.- ¿Cómo se forma el AFD?</p>
+
+<font color=red size=5><h3 align="center">ER &rarr; ( | ) | ; </h3></font>
+
+<header class=encabezado>
+<p align=center><font color=yellow>¿Cómo se aplica el método del árbol?</font></p>
+</header>
+<br>
+<br>
+
+</strong>
+</aside>
+
+
+</body>
+</html>

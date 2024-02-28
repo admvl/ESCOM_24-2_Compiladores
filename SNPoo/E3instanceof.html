@@ -1,0 +1,394 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Uso de Instanceof</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Programación orientada a objetos<br>Capítulo Extra</header>
+ <nav>
+    <!--<div class="contenedor">-->
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+
+      <p class="derecha"><a href="TemarioPOO.html">Classroom</a></p>
+      <p><a href="TemarioPOO.html">Temario</a></p>
+      <p><a href="41EnlacesPrac.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="41EnlacesHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">USO DE INSTANCEOF</h1>
+    <section class="interna">
+      
+      <article>
+       <h1>La clase Object</h1>
+       <hr>
+       <br>
+       <p>Todas las clases en Java tienen como superclase a <strong>java.lang.Object</strong>. Así que si una clase se declara de la manera siguiente:</p>
+       <br>
+       <pre>
+           public class NombreClase {
+              // Defición de la clase
+           }
+       </pre>
+       <br>
+       <p>Se esta declarando implicitamente a la clase como se muestra a continuación:</p>
+       <br>
+       <pre>
+           public class NombreClase extends Object {
+              // Defición de la clase
+           }
+       </pre>
+       <br>
+       <p>La clase <strong>Object</strong> tiene un método <strong>toString</strong>. Al invocarse este método por medio de un objeto regresa una cadena que describe al objeto. Por ejemplo si ejecutamos el siguiente código:</p>
+       <br>
+       <pre>
+           Loan l = new Loan();
+           System.out.println(l.toStrig());
+       </pre>
+       <br>
+       <p><a href="Loan.java"> Programa Loan.java</a></p>
+       <br>
+       <hr>
+       <h1>El casting o coversiones</h1>
+       <hr>
+       <br>
+       <p>Cuando se quiere convertir variables de tipo primitivo a otro tipo primitivo. También se puede convertir objetos de un tipo de clase a otro tipo de clase. Esto se hace utilizando el siguiente código:</p>
+       <br>
+       <pre>
+           public static void m(Object x) {
+               System.out.printl(x.toString());
+           }
+       </pre>
+       <br>
+       <p>Si usamos el procedimiento m(), lo podemos usar de la siguiente manera para hacer una conversión:</p>
+       <br>
+       <pre>
+           m(new Constructor());
+       </pre>
+       <br>
+       <p>Dónde:</p>
+       <br>
+       <pre>
+           new Constructor()
+       </pre>
+       <br>
+       <p>Es lo mismo que:</p>
+       <br>
+       <pre>
+           Object o = new Constructor();
+           m(o);
+       </pre>
+       <br>
+       <hr>
+       <h1>La palabra clave instanceof</h1>
+       <hr>
+       <br>
+       <p><strong>Definición de instancia.</strong> Cada objeto de una clase contiene la estructura y el comportamiento definidos por la clase, como si fuera grabado por un molde con la forma de la clase. Por esta razón, a los objetos se les llama a veces instancias de una clase. Una clase es una construcción lógica; un objeto tiene realidad física.
+<br>
+
+<br>
+Cuando se crea una clase, hay que especificar el código y los datos que constituyen la clase. En su conjunto, estos elementos son miembros de la clase. Los datos definidos por la clase son las variables miembro o variables de instancia. El código que opera sobre esos datos se conoce como método miembro o simplementemente método.
+<br>
+<br>
+Una clase es un template (modelo) para un objeto y un objeto es una instancia de una clase. Debido a que un objeto es una instancia de una clase, a menudo se utilizan las palabras objeto e instancia de manera indistinta. La manera de usar la palabra clave <strong>instanceof</strong> es como se muestra en las siguientes líneas de código, que comprueba si el objeto miObjeto es instancia de la clase Circulo;</p>
+       <br>
+       <pre>
+       
+           miObjeto instanceof Circulo;
+       
+       </pre>
+       <br>
+       <pre>
+           if(miObject instanceof Circulo) {
+               System.out.println("El diametro del círculo es " + 
+               ((Circulo)miObject).getDiametro());
+           }
+       <pre>
+       <br>
+       </article>
+       
+       <article>
+       <p>Es una buena práctica, asegurarse de que el objeto sea una instancia de otro objeto antes de intentar un casting. Esta se puede lograr utilizando el operador <strong>instanceof</strong>. Considere el siguiente código:</p>
+       <br>
+       <br>
+       <p><strong>A veces, es útil conocer el tipo de objeto durante el tiempo de ejecución</strong>. Por ejemplo, puede tener un subproceso de ejecución que genera varios tipos de objetos y otro subproceso que procesa estos objetos. En esta situación, puede ser útil para el subproceso de procesamiento conocer el tipo de cada objeto cuando lo recibe. Otra situación en la que es importante conocer el tipo de un objeto en tiempo de ejecución es la conversión. En Java, una conversión no válida provoca un error en tiempo de ejecución. Se pueden capturar muchas conversiones no válidas en tiempo de compilación. Sin embargo, las conversiones que involucran jerarquías de clases pueden producir conversiones no válidas que solo se pueden detectar en tiempo de ejecución. Por ejemplo, una superclase llamada A puede producir dos subclases, llamadas B y C. Por lo tanto, lanzar un objeto B
+en el tipo A o convertir un objeto C en el tipo A es legal, pero convertir un objeto B en el tipo C (o viceversa) no es legal. Debido a que un objeto de tipo A puede referirse a objetos de B o C, ¿cómo puede saber, en tiempo de ejecución, a qué tipo de objeto se hace referencia realmente antes de intentar
+el elenco para escribir C? Podría ser un objeto de tipo A, B o C. Si es un objeto de tipo B, se lanzará una excepción de tiempo de ejecución. Java proporciona el operador <strong>instanceof</strong> en tiempo de ejecución para responder a esta pregunta.</p>
+       <br>
+       <p><a href="InstanceOf.java"> Programa InstanceOf.java</a></p>
+       <br>
+       <pre>
+       final int N = 1:
+       </pre>
+       <br>
+       <p><strong>Segundo uso de final.</strong> Para evitar la sobrescritura.</p>
+       <br>
+       <pre>
+       class A {
+         final void metodoA() {
+           System.out.println("Metodo final "):
+         }
+       }
+       
+       class B extends A {
+         void metodoB() {
+           System.out.println(" Error ");
+         }
+       }
+       </pre>
+       <br>
+       <p><a href="B.java"> Programa B.java</a></p>
+       <br>
+       <p><a href="Sobrescritura.java"> Programa Sobrescritura.java</a></p>
+       <br>
+       <p><a href="Sobrescritura1.java"> Programa Sobrescritura1.java</a></p>
+       <br>
+       <p><strong>Tercer uso de final.</strong> Para evitar la herencia.</p>
+       <br>
+       <pre>
+       final class A {
+         final void metodoA() {
+           System.out.println("Metodo final "):
+         }
+       }
+       
+       class B extends A {
+         void metodoB() {
+           System.out.println(" Error ");
+         }
+       }
+       </pre>
+       <br>
+       
+     <br>
+     <pre>
+     System.out.println(obj.toString());
+     </pre>
+      <br>
+      <p>En el siguiente programa se usa un método <strong>toString()</strong>;</p>
+      <br>
+      <pre>
+      class Producto {
+        private String compania;
+        private double precio;
+        private int cantidadVendida = 1;
+  
+        public Producto(String compania, double precio) {
+          this.compania = compania;
+          this.precio = precio;
+        }
+  
+        public void venta() {
+          cantidadVendida++;
+        }
+  
+        public void setPrecio(double nuevoPrecio) {
+          precio = nuevoPrecio;
+        }
+  
+        public String toString() {
+          return "Compañía: " + compania + " precio: " + precio + " cantidad vendida: " + cantidadVendida;
+        }
+      }
+  
+      class Television extends Producto {
+        private String modelo;
+    
+        public Television(String modelo, String compania, double precio) {
+          super(compania, precio);
+          this.modelo = modelo;
+        }
+    
+        public String toString() {
+          return super.toString() + " modelo: " + modelo;
+        }
+      }
+  
+      class Libro extends Producto {
+        private String titulo;
+        private String autor;
+        private double precio;
+        private String editor;
+        private int cantidadVendida;
+    
+        public Libro(String titulo, String autor, String compania, double precio) {
+          super(compania, precio);
+          this.titulo = titulo;
+          this.autor = autor;
+        }
+    
+        public void venta() {
+          cantidadVendida++;
+        }
+    
+        public void setPrecio(double nuevoPrecio) {
+          precio = nuevoPrecio;
+        }
+    
+      }
+  
+      public class ProductoDriver {
+        public static void main(String args[]) {
+          Libro l = new Libro("Crimen y castigo", "Dostoivsky", "Porrua", 340.2);
+          System.out.println(l.toString());
+      
+          Television tv1 = new Television("S1", "Samsung", 4000.0);
+          System.out.println(tv1.toString());
+        }
+      }
+      </pre>
+      <br>
+   <p class="cita"><cite>Introduction to programing in Java, John Dean and Raymond Dean, Pág. 520</cite></p>
+      <br>
+      
+       <hr>
+       <h1>Enlace</h1>
+       <hr>
+       <br>
+       <p><strong>Definición de enlace.</strong> Es el vínculo entre la llamada a un método y la definición del método. El enlace identifica que método se ejecuta. Existen dos tipos de enlaces: enlace estático y enlace dinámico.</p>
+       <br>
+        
+        <h3>Ejemplo de código de enlace</h3>
+        <hr>
+        <br>
+         <p><strong>Código en java.</strong> El siguiente código es un ejemplo del vínculo entre el método y la definición del mismo:</p>
+         <pre>
+        <br>
+ public class Ab {
+    public void metodo1() {
+      System.out.println("Metodo 1");
+    }
+    public void metodo2() {
+      System.out.println("Metodo 2");
+    }
+    public static void main(string[] args) {
+      Ab obj = new Ab();
+      obj.metodo1 ();
+      obj.metodo2 ();
+    }
+  }
+         </pre>
+
+       <br>
+       
+       <hr>
+       <h1>Enlace estático</h1>
+       <hr>
+       <br>
+        <p><strong>Definición de enlace estático.</strong> El compilador identificará el método que se va a ejecutar en tiempo de compilación. Generalmente el enlace estático se aplica cuando se usa sobrecarga.</p>
+       <br>
+      <h3>Ejemplo de código de enlace estático</h3>
+        <hr>
+        <br>
+     <p><strong>Código en java.</strong> Se presenta el código que incluye sobrecarga:</p>
+     <br>
+     <pre>
+   public class Operacion {
+     public void suma(int x, int y) {
+       int z = x + y;
+       System.out.println("La suma es: " + x  " + " + y + " = " + z);
+     }
+     public void suma(double x, double y) {
+       double z = x + y;
+       System.out.println("La suma es: " + x " + " + y + " = " + z);
+     }
+     public static void main(String[] args) {
+       Operacion cal = new Operacion();
+       cal.suma(52,32);
+       cal.suma(32.3,26.5);
+     }
+   }
+     </pre>
+ </article>
+<br>
+<br>
+     
+      <article>
+       <hr>
+       <h1>Enlace dinámico</h1>
+       <hr>
+       <br>
+        <p><strong>Definición de enlace dinámico.</strong>
+La identificación del método se hace en tiempo de ejecución. Generalmente se usa cuando se utilizan superclases.</p>
+      <br>
+
+     <h3>Ejemplo de código de enlace dinámico</h3>
+        <hr>
+        <br>
+     <p><strong>Código en java.</strong> Se presenta el código que incluye superclases:</p>
+     <br>
+     <pre>
+   class Forma {
+     public void dibujar() {
+       System.out.println("Se dibuja una forma");
+     }
+   }
+   class Circulo extends Forma {
+     public void dibujar() {
+       System.out.println("Se dibuja un circulo");
+     }
+   }
+   class Triangulo extends Forma {
+     public void dibujar() {
+       System.out.println("Se dibuja un triangulo");
+     }
+   }
+   public class PruebaDriver {
+     public static void main(String[] args) {
+       Forma s;
+       s = new Forma();
+       s.dibujar();
+       
+       s = new Circulo();
+       s.dibujar();
+
+       s = new Triangulo();
+       s.dibujar();
+     }
+   }
+    </pre>
+      <br>
+       
+
+
+       <p class="cita"><cite>Beginnig HTML and CSS, Rob Larsen, Pág. 341</cite></p>
+    <br>
+     </article>
+    </section>
+    
+    <section>
+      <aside>
+            
+      <h1>Ejercicios de código de enlaces</h1>
+        <hr>
+        <br>
+        <p><strong>Enlaces.</strong> Construir un programa basado en el ejemplo de enlaces. El programa debe contener una clase y dos o tres métodos diferentes, que después sean invocados.</p>
+     <br>
+      <hr>
+       <p><strong>Enlaces estáticos.</strong> Construir un programa basado en el ejemplo de enlaces estáticos. El programa debe contener una clase con dos o tres métodos, que después deben ser invocados usando sobrecarga.</p>
+       <br>
+       <hr>
+      <p><strong>Enlaces dinámicos.</strong> Construir un programa basado en el ejemplo de enlaces dinámicos. El programa debe hacer ladrar a un perro, mauyar a un gato y cantar a un canario.</p>
+      <br>
+ <!--    <hr>
+     <h1>Práctica 4 (la correspondiente)</h1>
+        <hr>
+        <br>
+        <p>Realizar la siguiente prácticas presentarlas en un formato de power point y enviarla por correo.</p>
+       <p>Ejercicios. Práctica. Proyecto.</p>
+      
+      <br>
+     <hr>
+     <h1>Realizar el proyecto (parcial 1)</h1>
+        <hr>
+        <br>
+        <p>Presentar el proyecto por medio de un formato de power point y enviarla por correo.</p>
+       <p>Ejercicios. Práctica. Proyecto.</p> -->
+        </aside>
+      <footer><p>Capítulo extra: Tema E.1</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

@@ -1,0 +1,750 @@
+<html>
+<style>
+header {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: 26%;
+width:55%;
+margin-left:22%;
+border: solid;
+border-color:#FFFF00;
+}
+
+#imp {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: auto;
+width: 20%;
+margin-left:40%;
+border: solid 5px;
+border-color:#FFFF00;
+border-radius: 10px;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+article {
+background-color: #aab885;
+display: block;
+margin-left: 25%;
+margin-top: 0.5%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: 50%;	
+height: auto;	
+}
+
+article header {
+background-color: #009F80;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#800000;
+	border: solid 6px #800;
+padding: 2px;
+height: auto;
+width: 44%;
+text-align: center;
+font-size: 20px;
+margin-left:26%;
+margin-bottom: 5%;
+margin-top: 5%;
+}
+
+article h1 {
+font-size: 20px;
+
+}
+
+article div{
+background-color: #8ba987;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#0000FF;
+padding: 5px;
+width:40%;
+text-align: center;
+margin-left:0%;
+}
+
+	.modalDialog {
+		position: fixed;
+		font-family: Arial, Helvetica, sans-serif;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.2);
+		z-index: 99999;
+		opacity:0;
+		-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+		pointer-events: none;
+	}
+	.modalDialog:target {
+		opacity:1;
+		pointer-events: auto;
+	}
+	.modalDialog > div {
+		width: 30%;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+	  	-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+	}
+	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+	.close:hover { background: #00d9ff; }
+
+table {
+  margin-left: 20%;
+  padding: 15px;
+  
+}
+
+p.par1  {
+ width: 200px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #00f;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.p1  {
+ background-color: #808080;
+ width: 300px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #80A93E;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.p2  {
+ background-color: #808080;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #80A93E;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.e1  {
+ background-color: #808080;
+ width: 300px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #f60;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+body{
+font-size: 20px;
+}
+
+#columna {
+float: left;
+width: 250px;
+margin: 20px 0px;
+padding: 20px;
+background: #aab885;
+border: solid 6px #f60;
+margin-top: -40px;
+margin-bottom: -100000px;
+position: absolute;
+}
+
+</style>
+
+<head>
+<title>Procedimientos de compiladores uno</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<a>
+<img src="Mdisponible1.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=22% border=0>
+</a>
+
+<a>
+<img src=ApuntesInt.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=22% height=45% border=0>
+</a>
+
+<header>
+<img src=Estudiante.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=15% height=97% border=0>
+
+<img src=IconoProcedimientos.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=15% height=97% border=0>
+
+<h1 align=center>
+<font color=maroon size=8>
+PROCEDIMIENTOS DEL CAPÍTULO 1
+</font>
+</h1>
+
+<h2 align=center>
+<font color=white size=6>
+Introducción a los Compiladores
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<nav>
+<h3 align=center><font size=6>Índice</font></h3>
+
+<p align=center><font size=5>
+Este material dará al estudiante una secuencia de actividades para un aprendizaje de los temas que estan incluidos en el temario de la asignatura.
+</font></p>
+
+
+
+<a href=#bas>
+Definiciones básicas.
+</a>
+&nbsp; &nbsp;
+<a href=#imp>
+Implementando clases.
+</a>
+&nbsp; &nbsp;
+<a href=#con>
+Constructores.
+</a>
+&nbsp; &nbsp;
+<a href=ResumenPoo2.html>
+Resumen de capítulo 2.
+</a>
+</nav>
+
+<header id=imp>
+<h3 align="center" id=bas>Definiciones básicas de los compiladores</h3>
+</header>
+
+<table CELLSPACING="22">
+<tr><th>DEFINICIONES</th><th>CONCEPTOS BÁSICOS</th><th>EJEMPLOS DE CÓDIGO</th></tr>
+
+<tr><td>
+<font color=yellow><h3 align="center">De atributo</h3></font>
+<p class="par1">
+DEFINICIÓN 1 (Atributo.) Un atributo es una propiedad
+que asociamos con un objeto; sirve para describir el objeto que
+contiene algún valor que se requiere para el procesamiento. [5] .
+</p></td>
+
+<td>
+<font color=yellow><h3 align="center">Características nativas del paradigma orientado a objetos</h3></font>
+
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Identificación de la comunidad de usuarios para el automóvil y evaluación
+de las necesidades del usuario. Para esto, el fabricante puede formar un
+equipo.</td></tr>
+<tr><td>2</td><td>Después de evaluar los requisitos, el equipo puede expandirse para incluir
+ingenieros automotrices y otros especialistas que elaboran un diseño preliminar.</td></tr>
+<tr><td>3</td><td>Se puede utilizar una variedad de métodos para evaluar y refinar el diseño
+inicial (el equipo puede tener experiencia en la construcción de un vehı́culo
+similar): se pueden construir prototipos, simulaciones y se puede realizar
+un análisis matemático.</td></tr>
+</table>
+</td>
+
+<td>
+<font color=yellow><h3 align="center">Clase Estudiante</h3></font>
+
+<pre class="e1">
+public class Estudiante {
+// codigo para hacer otras cosas
+public void setName ( String studentName ) {
+// codigo para guardar el nombre
+}
+}
+</pre></td></tr>
+
+<tr><td></td><td><pre class="p1">
+public class Student {
+// codigo para hacer otras cosas
+public void setName ( String studentName ) {
+// codigo para guardar el nombre
+	}
+}
+</pre></td><td></td></tr>
+
+
+<tr><td></td><td><pre class="p1">
+Student aStudent = new Student ( ) ;
+aStudent . setName ( ”Ron” ) ;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+public class Student {
+private String name ;
+public void setName ( String studentName ) {
+name = studentName ;
+}
+public String getName ( ) {
+return name ;
+}
+}
+</pre></td><td></td></tr>
+
+
+
+<tr><td></td><td><pre class="p2">
+Student student1 = new Student ( ) ;
+Student student2 = new Student ( ) ;
+student1 . setName ( ” John ” ) ;
+student2 . setName ( ”Mary” ) ;
+System . out . println ( student1 . getName ( ) ) ;
+System . out . println ( student2 . getName ( ) ) ;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+&#60; object−reference &#62;.&#60; member−name &#62;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+name = studentName ;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p2">
+public class Student {
+// code
+private String name ;
+public void setName ( String studentName ) {
+name = studentName ;
+}
+public String getName ( ) {
+return name ;
+}
+public static void main ( String[ ] s ) {
+Student student1 = new Student ( ) ;
+Student student2 = new Student ( ) ;
+student1 . setName ( ” John ” ) ;
+student2 . setName ( ”Mary” ) ;
+System . out . println ( student1 . getName ( ) ) ;
+System . out . println ( student2 . getName ( ) ) ;
+	}
+}
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+name = studentName;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+Student someStudent = new Student ( ) ;
+someStudent . name = ”Mary” ;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p2">
+public class Student {
+// field stostore the class es the student has registered for .
+private String name ;
+private double gpa ;
+public void setName ( String studentName ) {
+name = studentName ;
+}
+public void addCourse ( Course newCourse ) {
+// code to store are fto newCourse in the Student object .
+}
+private void computeGPA ( ) {
+// code to access the stored courses , compute and set the gpa
+}
+public double getGPA ( ) {
+return gpa ;
+}
+public void assign Grade ( Course aCourse , char newGrade ) {
+// code to assign newGrade to aCourse
+computeGPA ( ) ;
+}
+}
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p2">
+Student aStudent = new Student ( ) ;
+Course aCourse = new Course ( ) ;
+aStudent . addCourse ( aCourse ) ;
+aStudent . assign Grade ( aCourse, 'B');
+System . out . println ( aStudent . getGPA ( ) ) ;
+</pre></td><td></td></tr>
+</table>
+
+<header id=imp>
+<h4 align="center" >¿Como se puede traducir un lenguaje de programación a ensamblador?</h4>
+</header>
+
+
+
+<table CELLSPACING="22">
+<tr><th>DEFINICIONES</th><th>CÓDIGO DE CLASES</th><th>EJEMPLOS DE CÓDIGO</th></tr>
+
+<tr><td>
+<font color=yellow><h3 align="center">De campo</h3></font>
+<p class="par1">
+DEFINICIÓN 2 (Campo.) Un campo es una variable definida
+directamente dentro de una clase y corresponde a un atributo Cada
+instancia del objeto tendrá almacenamiento para el campo.
+</p></td><td>
+<font color=yellow><h3 align="center">Clase Student</h3></font>
+<pre class="p2">
+public class Student {
+// codigo pera implementar un solo Estudiante
+}
+</pre>
+</td><td>
+<font color=yellow><h3 align="center">Clase Estudiante</h3></font>
+<pre class="e1">
+public class Estudiante {
+// codigo para hacer otras cosas
+public void setName ( String studentName ) {
+// codigo para guardar el nombre
+}
+}
+</pre></td></tr>
+
+<tr><td></td><td><pre class="p1">
+public class Student {
+// codigo para hacer otras cosas
+public void setName ( String studentName ) {
+// codigo para guardar el nombre
+	}
+}
+</pre></td><td></td></tr>
+
+
+<tr><td></td><td><pre class="p1">
+Student aStudent = new Student ( ) ;
+aStudent . setName ( ”Ron” ) ;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+public class Student {
+private String name ;
+public void setName ( String studentName ) {
+name = studentName ;
+}
+public String getName ( ) {
+return name ;
+}
+}
+</pre></td><td></td></tr>
+
+
+
+<tr><td></td><td><pre class="p2">
+Student student1 = new Student ( ) ;
+Student student2 = new Student ( ) ;
+student1 . setName ( ” John ” ) ;
+student2 . setName ( ”Mary” ) ;
+System . out . println ( student1 . getName ( ) ) ;
+System . out . println ( student2 . getName ( ) ) ;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+&#60; object−reference &#62;.&#60; member−name &#62;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+name = studentName ;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p2">
+public class Student {
+// code
+private String name ;
+public void setName ( String studentName ) {
+name = studentName ;
+}
+public String getName ( ) {
+return name ;
+}
+public static void main ( String[ ] s ) {
+Student student1 = new Student ( ) ;
+Student student2 = new Student ( ) ;
+student1 . setName ( ” John ” ) ;
+student2 . setName ( ”Mary” ) ;
+System . out . println ( student1 . getName ( ) ) ;
+System . out . println ( student2 . getName ( ) ) ;
+	}
+}
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+name = studentName;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+Student someStudent = new Student ( ) ;
+someStudent . name = ”Mary” ;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p2">
+public class Student {
+// field stostore the class es the student has registered for .
+private String name ;
+private double gpa ;
+public void setName ( String studentName ) {
+name = studentName ;
+}
+public void addCourse ( Course newCourse ) {
+// code to store are fto newCourse in the Student object .
+}
+private void computeGPA ( ) {
+// code to access the stored courses , compute and set the gpa
+}
+public double getGPA ( ) {
+return gpa ;
+}
+public void assign Grade ( Course aCourse , char newGrade ) {
+// code to assign newGrade to aCourse
+computeGPA ( ) ;
+}
+}
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p2">
+Student aStudent = new Student ( ) ;
+Course aCourse = new Course ( ) ;
+aStudent . addCourse ( aCourse ) ;
+aStudent . assign Grade ( aCourse, 'B');
+System . out . println ( aStudent . getGPA ( ) ) ;
+</pre></td><td></td></tr>
+</table>
+
+
+
+
+
+<header id=imp>
+<h3 align="center" id=con>¿Como es la arquitectura de un compilador y la de un intérprete?</h3>
+</header>
+
+
+
+
+<table CELLSPACING="22">
+<tr><th>DEFINICIONES</th><th>CÓDIGO DE CONSTRUCTORES</th><th>EJEMPLOS DE CÓDIGO</th></tr>
+
+<tr><td>
+<font color=yellow><h3 align="center">De constructor</h3></font>
+<p class="par1">
+DEFINICIÓN 3 (Constructor.) Un constructor es parecido a un
+método en el que se puede tener un especificador de acceso (público o privado), un nombre, parámetros y código ejecutable.
+Sin embargo, los constructores tienen las siguientes diferencias o
+caracterı́sticas especiales:
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Los constructores no pueden regresar un tipo: ni siquiera un nulo.</td></tr>
+
+<tr><td>2</td><td>Los constructores tienen el mismo nombre que la clase en la que están definidos.</td></tr>
+
+<tr><td>3</td><td>Se llama a los constructores cuando se crea el objeto.</td></tr>
+</table>
+</p></td><td>
+
+<font color=yellow><h3 align="center">Declaraciones</h3></font>
+<pre class="p2">
+int counter = 0 ;
+double final PI = 3 . 1 4 ;
+</pre>
+</td><td>
+<font color=yellow><h3 align="center">Clase Estudiante</h3></font>
+<pre class="e1">
+public class Estudiante {
+// codigo para hacer otras cosas
+public void setName ( String studentName ) {
+// codigo para guardar el nombre
+}
+}
+</pre></td></tr>
+
+<tr><td></td><td><pre class="p1">
+public class Student {
+// codigo para hacer otras cosas
+public void setName ( String studentName ) {
+// codigo para guardar el nombre
+	}
+}
+</pre></td><td></td></tr>
+
+
+<tr><td></td><td><pre class="p1">
+Student aStudent = new Student ( ) ;
+aStudent . setName ( ”Ron” ) ;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+public class Student {
+private String name ;
+public void setName ( String studentName ) {
+name = studentName ;
+}
+public String getName ( ) {
+return name ;
+}
+}
+</pre></td><td></td></tr>
+
+
+
+<tr><td></td><td><pre class="p2">
+Student student1 = new Student ( ) ;
+Student student2 = new Student ( ) ;
+student1 . setName ( ” John ” ) ;
+student2 . setName ( ”Mary” ) ;
+System . out . println ( student1 . getName ( ) ) ;
+System . out . println ( student2 . getName ( ) ) ;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+&#60; object−reference &#62;.&#60; member−name &#62;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+name = studentName ;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p2">
+public class Student {
+// code
+private String name ;
+public void setName ( String studentName ) {
+name = studentName ;
+}
+public String getName ( ) {
+return name ;
+}
+public static void main ( String[ ] s ) {
+Student student1 = new Student ( ) ;
+Student student2 = new Student ( ) ;
+student1 . setName ( ” John ” ) ;
+student2 . setName ( ”Mary” ) ;
+System . out . println ( student1 . getName ( ) ) ;
+System . out . println ( student2 . getName ( ) ) ;
+	}
+}
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+name = studentName;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p1">
+Student someStudent = new Student ( ) ;
+someStudent . name = ”Mary” ;
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p2">
+public class Student {
+// field stostore the class es the student has registered for .
+private String name ;
+private double gpa ;
+public void setName ( String studentName ) {
+name = studentName ;
+}
+public void addCourse ( Course newCourse ) {
+// code to store are fto newCourse in the Student object .
+}
+private void computeGPA ( ) {
+// code to access the stored courses , compute and set the gpa
+}
+public double getGPA ( ) {
+return gpa ;
+}
+public void assign Grade ( Course aCourse , char newGrade ) {
+// code to assign newGrade to aCourse
+computeGPA ( ) ;
+}
+}
+</pre></td><td></td></tr>
+
+<tr><td></td><td><pre class="p2">
+Student aStudent = new Student ( ) ;
+Course aCourse = new Course ( ) ;
+aStudent . addCourse ( aCourse ) ;
+aStudent . assign Grade ( aCourse, 'B');
+System . out . println ( aStudent . getGPA ( ) ) ;
+</pre></td><td></td></tr>
+</table>
+
+
+<font color=yellow><h3 align="center">Imprimiendo el objeto</h3></font>
+
+
+<font color=yellow><h3 align="center">Miembros estáticos</h3></font>
+
+
+<font color=yellow><h3 align="center">Programando con clases mútipes</h3></font>
+
+
+<font color=yellow><h3 align="center">Interfaces</h3></font>
+
+
+<font color=yellow><h3 align="center">Implementación de StudentLinkedList</h3></font>
+
+
+<font color=yellow><h3 align="center">Implementación de listas con arreglos</h3></font>
+
+
+<font color=yellow><h3 align="center">Clases abstractas</h3></font>
+
+
+<font color=yellow><h3 align="center">Comparando objetos por igualdad</h3></font>
+
+
+<font color=yellow><h3 align="center">Casos de uso y diagramas de casos de uso</h3></font>
+
+
+<font color=yellow><h3 align="center">Diagramas de secuencia</h3></font>
+
+
+<font color=yellow><h3 align="center">Asosiación</h3></font>
+
+
+<font color=yellow><h3 align="center">Interfaces y su implementación</h3></font>
+
+
+<font color=yellow><h3 align="center">Proyectos</h3></font>
+
+
+<font color=yellow><h3 align="center">Ejercicios</h3></font>
+
+</body>
+</html>

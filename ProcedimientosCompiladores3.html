@@ -1,0 +1,734 @@
+<html>
+<style>
+header {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: 26%;
+width:55%;
+margin-left:22%;
+border: solid;
+border-color:#FFFF00;
+}
+
+#imp {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: auto;
+width: 20%;
+margin-left:40%;
+border: solid 5px;
+border-color:#FFFF00;
+border-radius: 10px;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+article {
+background-color: #aab885;
+display: block;
+margin-left: 25%;
+margin-top: 0.5%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: 50%;	
+height: auto;	
+}
+
+article header {
+background-color: #009F80;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#800000;
+	border: solid 6px #800;
+padding: 2px;
+height: auto;
+width: 44%;
+text-align: center;
+font-size: 20px;
+margin-left:26%;
+margin-bottom: 5%;
+margin-top: 5%;
+}
+
+article h1 {
+font-size: 20px;
+
+}
+
+article div{
+background-color: #8ba987;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#0000FF;
+padding: 5px;
+width:40%;
+text-align: center;
+margin-left:0%;
+}
+
+	.modalDialog {
+		position: fixed;
+		font-family: Arial, Helvetica, sans-serif;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.2);
+		z-index: 99999;
+		opacity:0;
+		-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+		pointer-events: none;
+	}
+	.modalDialog:target {
+		opacity:1;
+		pointer-events: auto;
+	}
+	.modalDialog > div {
+		width: 30%;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+	  	-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+	}
+	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+	.close:hover { background: #00d9ff; }
+
+table {
+  margin-left: 20%;
+  padding: 15px;
+  
+}
+
+table.v1 {
+  margin-left: 20%;
+  padding: 10px;
+}
+
+table.v2 {
+  margin-left: 40%;
+  padding: 10px;
+}
+
+table.v3 {
+  margin-left: 45%;
+  padding: 10px;
+}
+
+p.par1  {
+ width: 200px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #00f;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.p1  {
+ background-color: #808080;
+ width: 300px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #80A93E;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.p2  {
+ background-color: #808080;
+ width: 550px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #80A93E;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.p3  {
+ background-color: #808080;
+ width: 550px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #00f;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.e1  {
+ background-color: #808080;
+ width: 300px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #f60;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+body{
+font-size: 20px;
+}
+
+#columna {
+float: left;
+width: 250px;
+margin: 20px 0px;
+padding: 20px;
+background: #aab885;
+border: solid 6px #f60;
+margin-top: -40px;
+margin-bottom: -100000px;
+position: absolute;
+}
+
+</style>
+
+<head>
+<title>Procedimientos de compiladores tres</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<a>
+<img src="MDisponible1.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=22% border=0>
+</a>
+
+<a>
+<img src=CapAnalisisSintactico.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=22% height=45% border=0>
+</a>
+
+<header>
+<img src=Estudiante.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=15% height=97% border=0>
+
+<img src=IconoProcedimientos.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=15% height=97% border=0>
+
+<h1 align=center>
+<font color=maroon size=8>
+PROCEDIMIENTOS DEL CAPÍTULO 3
+</font>
+</h1>
+
+<h2 align=center>
+<font color=white size=6>
+Análisis sintáctico
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<nav>
+<h3 align=center><font size=6>Índice</font></h3>
+
+<p align=center><font size=5>
+Este material dará al estudiante una secuencia de actividades para un aprendizaje de los temas que estan incluidos en el temario de la asignatura.
+</font></p>
+
+<h3 align=center><font size=6>Temas:</font></h3>
+
+<a href=#bas>
+Bases para el análisis sintáctico.
+</a>
+&nbsp; &nbsp;
+<a href=#tip>
+Análisis sintáctico descendente.
+</a>
+&nbsp; &nbsp;
+<a href=#asa>
+Análisis sintáctico ascendente.
+</a>
+
+<!--
+&nbsp; &nbsp;
+<a href=#con>
+Constructores.
+</a>
+&nbsp; &nbsp;
+<a href=ResumenPoo2.html>
+Resumen de capítulo 2.
+</a>
+-->
+
+</nav>
+
+<hr>
+
+<header id=imp>
+<h1 align="center" id=bas>Bases para el análisis sintáctico</h1>
+</header>
+
+
+<p align=center>La salida del analizador léxico son los tokens los cuales recibe como entrada el analizador sintáctico. Este analizador va a tener como salida un árbol de análisis sintáctico.</p>
+
+<font color=yellow size=6><h3 align="center">Gramáticas formales</h3></font>
+
+<p align=center>Una gramática formal sirve para reducir la especificación de estas para una manipulación sintetizada, Por lo que se facilita su uso.</p>
+
+<font color=red size=6><h3 align="center">G(N, T, S, P)</h3></font>
+
+<pre class="p3">
+<font color=yellow size=4><h3 align="center">Cada una de las partes que componen al cuarteto, son:</h3></font>
+<table >
+<tr><td>1</td><td>N es el conjunto de los símbolos no terminales.</td></tr>
+<tr><td>2</td><td>T es el conjunto de los símbolos terminales.</td></tr>
+<tr><td>3</td><td>P es el conjunto de producciones.</td></tr>
+<tr><td>4</td><td>S es el sı́mbolo inicial.</td></tr>
+</table>
+</pre>
+
+<font color=yellow size=6><h3 align="center">Jerarquía de Chomsky</h3></font>
+
+<pre class="p3">
+<font color=yellow size=4><h3 align="center">DEFINICIÓN (Jerarquı́a de Chomsky.)</h3></font>
+<font color=yellow size=4>La gramática 0 o gramática sin restricciones</font> tiene la forma:
+<p align=center>αAβ → αγβ</p>
+, dónde A ∈ N, α, β, γ ∈ V<SUP>∗</SUP> y V es el alfabeto.
+<br>
+<font color=yellow size=4>La gramática 1 o gramática sensible al contexto</font> tiene la forma:
+<p align=center>α → β</p>
+donde |α| ≤ |β|.
+<br>
+<font color=yellow size=4>La gramática 2 o gramática libre de contexto</font> tiene la forma:
+<p align=center>A → α</p>
+donde A ∈ N y α ∈ V<SUP>∗</SUP>.
+<br>
+<font color=yellow size=4>La gramática 3 o gramática regular</font> tiene la forma:
+<p align=center>A → a</p>
+o
+<p align=center>A → aB</p>
+que es la forma lineal derecha o bien.
+<p align=center>A → a</p>
+o
+<p align=center>A → Ba</p>
+que es la forma lineal izquierda. Donde A, B ∈ N , a ∈ T<SUP>∗</SUP>.
+</pre>
+
+
+<font color=yellow size=6><h3 align="center">Gramáticas libres de  contexto</h3></font>
+
+<p align=center>La forma de la producción de la gramática libre de contexto tiene la forma siguiente:</p>
+
+<font color=red size=6><h3 align="center">A → α</h3></font>
+
+<p align=center>donde A ∈ N y α ∈ V<SUP>∗</SUP>.</p>
+
+
+
+
+<header id=imp>
+<h1 align="center" id=tip>Análisis sintáctico descendente</h1>
+</header>
+
+<p align=center>Como el analizador sintáctico genera un árbol de análisis sintáctico. Se tiene que si el análisis se hace de la raiz a las hojas el análisis es llamado descendente. Si el análisis se hace de las hojas a la raiz el análisis se llama ascendente.</p>
+
+
+<font color=yellow size=6><h3 align="center">Análisis sintáctico descendente</h3></font>
+
+<p align="center">
+<img src="ProcedimientoASin1a.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0></p>
+
+<font color=yellow size=4><h3 align="center">Analizador LL(1)</h3></font>
+
+<p align=center>Las gramáticas libres de contexto cuando cumplen las reglas UNO y DOS. Las gramáticas se llaman LL(1).</p>
+
+<p align=center>Cuando la producción tiene alternativas, se aplica la regla correspondiente a la forma que se muestra en la tabla siguiente:</p>
+
+
+<table class="v1" CELLSPACING="22">
+<tr><th>FORMA DE LA PRODUCCIÓN </th><th>NÚMERO DE REGLA </th></tr>
+
+<tr><td><p align=center>La regla UNO se aplica a producciones de la forma:</p><font color=red size=6><h3 align="center">A → &sigma;<SUB>1</SUB> | &sigma;<SUB>2</SUB></h3></font></td>
+<td><p align=center>La regla UNO es la siguiente:</p>
+
+<font color=red size=6><h3 align="center">PRIMERO(&sigma;<SUB>1</SUB>) &cap; PRIMERO(&sigma;<SUB>2</SUB>) = &empty;</h3></font></td>
+</tr>
+
+<tr><td><p align=center>La regla DOS se aplica a producciones de la forma:</p>
+
+<font color=red size=6><h3 align="center">X → &sigma; | &epsilon;</h3></font> </td>
+<td><p align=center>La regla DOS es la siguiente:</p>
+
+<font color=red size=6><h3 align="center">PRIMERO(X) &cap; SIGUIENTE(X) = &empty;</h3></font>  </td>
+</tr>
+</table>
+
+<p align=center>Si las producciones no cumplen con las reglas. Se tendrán que corregir las producciones de tal manera que se cumplan con las reglas UNO y DOS. Los problemas que se pueden presentar son los que se listan en la siguiente tabla:</p>
+
+<font color=yellow size=4><h3 align="center">Recursividad izquierda</h3></font>
+
+<p align=center>La forma general de la recursividad izquierda es la siguiente:</p>
+
+<font color=red size=6><h3 align="center">A → A &alpha; | &beta;</h3></font>
+
+<font color=yellow size=4><h3 align="center">Eliminación de la recursividad izquierda</h3></font>
+
+
+
+<p align=center>Para eliminar la recursividad izquierda, se hace la siguiente transformación:</p>
+
+<font color=red size=6><h3 align="center">A → &beta; A'</h3></font>
+
+<font color=red size=6><h3 align="center">A' → &alpha; A' | &lambda;</h3></font>
+
+<font color=yellow size=4><h3 align="center">Ambig&#252;edad</h3></font>
+
+<p align=center>La ambig&#252;edad se define como:</p>
+
+<p class="par1">
+DEFINICIÓN (Gramática ambigua.) Si aplicando las producciones de una gramática se obtienen para una cadena por derivación dos árboles sintácticos diferentes.
+</p>
+
+
+<p align=center>La ambig&#252;edad se elimina de tres formas:</p>
+
+<table class="v2" CELLSPACING="22">
+<tr><th>NÚMERO</th><th>FORMA</th></tr>
+<tr><td>Uno</td><td>Recursividad izquierda.</td></tr>
+<tr><td>Dos</td><td>Reescribiendo la gramática.</td></tr>
+<tr><td>Tres</td><td>Reduciendo la gramática.</td></tr>
+</table>
+
+<font color=yellow size=4><h3 align="center">Ejemplo</h3></font>
+
+<p align=center>Construir el analizador sintáctico LL(1), utilizando la siguiente gramática:</p>
+
+<table class="v3" CELLSPACING="18">
+<tr><td>1</td><td>S → uBDz</td></tr>
+<tr><td>2</td><td>B → w|Bv</td></tr>
+<tr><td>3</td><td>D → EF</td></tr>
+<tr><td>4</td><td>E → y| &epsilon;</td></tr>
+<tr><td>5</td><td>F → x| &epsilon;</td></tr>
+</table>
+
+<p align=center>En la producción 2 hay un problema de recursividad izquierda. Por lo que se aplica la transformación, haciendo las siguientes igualdades:</p>
+
+
+<font color=red size=6><h3 align="center">A = B, A' = B' , α = v, β = w</h3></font>
+
+<p align=center>Se obtienen los PRIMEROS y SIGUIENTES de la gramática del ejemplo. Los cuales se presentan en la tabla siguiente:</p>
+
+<table class="v2" CELLSPACING="18">
+<tr><td></td><th>S</th><th>B</th><th>B'</th><th>D</th><th>E</th><th>F</th></tr>
+<tr><td>PRIMEROS</td><td>u</td><td>w,PRIM(B)</td><td>v,&epsilon;</td><td>y,x</td><td>y,&epsilon;</td><td>x,&epsilon;</td></tr>
+<tr><td>SIGUIENTES</td><td>$</td><td>y,x,z</td><td>y,x,z</td><td>z</td><td>x,z</td><td>z</td></tr>
+</table>
+
+
+
+<p align=center >La gramática convertida a LL(1), es la que se presenta a continuación:</p>
+
+<table class="v3" CELLSPACING="18">
+<tr><td>1</td><td>S → uBDz</td></tr>
+<tr><td>2</td><td>B → wB'</td></tr>
+<tr><td>3</td><td>B' → vB'|&epsilon;</td></tr>
+<tr><td>4</td><td>D → EF</td></tr>
+<tr><td>5</td><td>E → y| &epsilon;</td></tr>
+<tr><td>6</td><td>F → x| &epsilon;</td></tr>
+</table>
+
+<p align=center >La tabla de PRIMEROS y SIGUIENTES de la gramática convertida a LL(1), se presenta en seguida:</p>
+
+<table class="v2" CELLSPACING="18">
+<tr><th></th><th>S</th><th>B</th><th>B'</th><th>D</th><th>E</th><th>F</th></tr>
+<tr><td>PRIMEROS</td><td>u</td><td>w</td><td>v,&epsilon;</td><td>y,x</td><td>y,&epsilon;</td><td>x,&epsilon;</td></tr>
+<tr><td>SIGUIENTES</td><td>$</td><td>y,x,z</td><td>y,x,z</td><td>z</td><td>x,z</td><td>z</td></tr>
+</table>
+
+<p align=center>La gramática expandida, es la siguiente:</p>
+
+<table class="v3" CELLSPACING="18">
+<tr><td>1</td><td>S → uBDz</td></tr>
+<tr><td>2</td><td>B → wB'</td></tr>
+<tr><td>3</td><td>B' → vB'</td></tr>
+<tr><td>4</td><td>B' → &epsilon;</td></tr>
+<tr><td>5</td><td>D → EF</td></tr>
+<tr><td>6</td><td>E → y</td></tr>
+<tr><td>7</td><td>E → &epsilon;</td></tr>
+<tr><td>8</td><td>F → x</td></tr>
+<tr><td>9</td><td>F → &epsilon;</td></tr>
+</table>
+
+<p align=center >De la gramática expandida y de la tabla de PRIMEROS y SIGUIENTES se obtiene la tabla LL(1), que se expone a continuación:</p>
+
+<table class="v2" CELLSPACING="18">
+<tr><th></th><th><font color=yellow size=4><h3 align="center">Simbolos terminales</h3></font></th> <tr>
+
+<tr> <th>No terminales</th> <th>u</th> <th>v</th><th>w</th><th>x</th><th>y</th><th>z</th><th>$</th></tr>
+
+<tr><td>S</td><td>1</td><td>e</td><td>e</td><td>e</td><td>e</td><td>e</td><td>e</td></tr>
+<tr><td>B</td><td>e</td><td>e</td><td>2</td><td>e</td><td>e</td><td>e</td><td>e</td></tr>
+<tr><td>B'</td><td>e</td><td>3</td><td>e</td><td>4</td><td>4</td><td>4</td><td>e</td></tr>
+<tr><td>D</td><td>e</td><td>e</td><td>e</td><td>5</td><td>5</td><td>e</td><td>e</td></tr>
+<tr><td>E</td><td>e</td><td>e</td><td>e</td><td>7</td><td>6</td><td>7</td><td>e</td></tr>
+<tr><td>F</td><td>e</td><td>e</td><td>e</td><td>e</td><td>8</td><td>9</td><td>e</td></tr>
+</table>
+
+
+
+<p align=center >Para analizar una sentencia <font color=black><strong>uwvyxz$</strong></font>, se usa la tabla LL(1). Este análisis se representa en la tabla siguiente:</p>
+
+<table class="v2" CELLSPACING="18">
+<tr> <th></th> <th><font color=yellow size=4><h3 align="center">Análisis de sentencias</h3></font></th> </tr>
+
+<tr><th>Sentencia de entrada</th><th>Pila</th><th>Producción</th></tr>
+<tr><td>↑uwvyxz$</td><td>$S</td><td>1</td></tr>
+<tr><td>↑uwvyxz$</td><td>$zDBu</td><td>←</td></tr>
+<tr><td>u↑wvyxz$'</td><td>$zDB</td><td>2</td></tr>
+<tr><td>u↑wvyxz$</td><td>$zDB'w</td><td>←</td></tr>
+<tr><td>uw↑vyxz$</td><td>$zDB'</td><td>3</td></tr>
+<tr><td>uw↑vyxz$</td><td>$zDB'v</td><td>←</td></tr>
+
+<tr><td>uwv↑yxz$</td><td>$zDB'</td><td>4</td></tr>
+<tr><td>uwv↑yxz$</td><td>$zD</td><td>5</td></tr>
+<tr><td>uwv↑yxz$'</td><td>$zFE</td><td>6</td></tr>
+<tr><td>uwv↑yxz$</td><td>$zFy</td><td>←</td></tr>
+<tr><td>uwvy↑xz$</td><td>$zF</td><td>8</td></tr>
+<tr><td>uwvy↑xz$</td><td>$zx</td><td>←</td></tr>
+<tr><td>uwvyx↑z$</td><td>$z</td><td>←</td></tr>
+<tr><td>uwvyxz↑$</td><td>$</td><td>Aceptación</td></tr>
+</table>
+
+<p align=center >Donde la sentencia de entrada se coloca en una lista o en un arreglo. Y la cima de la pila se va analizando de acuerdo a las producciones de la gramática convertida a LL(1):</p>
+
+<table class="v1" CELLSPACING="18">
+<tr> <td>
+<font color=yellow size=4><h3 align="center">Codificación del algoritmo LL(1)</h3></font>
+
+<pre class="p2">
+Token ← SigTok();
+PUSH(eof,Pila);
+PUSH(SimboloInicial,Pila);
+Cima ← Cima.valor;
+while True do
+	if Cima == eof ∧ Token == eof then
+		EsEnPan(Sentencia Aceptada);
+		Salir();
+	if Cima ∈ T ∨ Cima == eof then
+		if Cima == Token then
+			POP(Pila);
+			Token ← SigTok() ;
+		else
+			EsEnPan(Sentencia No Aceptada);
+	else
+		if Cima ∈ N then
+			A ← Leer(T abla[Cima, Token]);
+			k ←| A |;
+			POP(Pila);
+			for i ← k hasta 1 do
+				if B i <> λ then
+					PUSH(B i ,Pila);
+		else
+			EsEnPan(No se puede expandir B i );
+Cima ← Cima.valor;
+</pre>
+</td>
+
+<td>
+<table class="v2" CELLSPACING="18">
+<tr><th></th><th><font color=yellow size=4><h3 align="center">Análisis de sentencias</h3></font></th></tr>
+<tr><th>Sentencia de entrada</th><th>Pila</th><th>Producción</th></tr>
+<tr><td>↑uwvyxz$</td><td>$S</td><td>1</td></tr>
+<tr><td>↑uwvyxz$</td><td>$zDBu</td><td>←</td></tr>
+<tr><td>u↑wvyxz$'</td><td>$zDB</td><td>2</td></tr>
+<tr><td>u↑wvyxz$</td><td>$zDB'w</td><td>←</td></tr>
+<tr><td>uw↑vyxz$</td><td>$zDB'</td><td>3</td></tr>
+<tr><td>uw↑vyxz$</td><td>$zDB'v</td><td>←</td></tr>
+
+<tr><td>uwv↑yxz$</td><td>$zDB'</td><td>4</td></tr>
+<tr><td>uwv↑yxz$</td><td>$zD</td><td>5</td></tr>
+<tr><td>uwv↑yxz$'</td><td>$zFE</td><td>6</td></tr>
+<tr><td>uwv↑yxz$</td><td>$zFy</td><td>←</td></tr>
+<tr><td>uwvy↑xz$</td><td>$zF</td><td>8</td></tr>
+<tr><td>uwvy↑xz$</td><td>$zx</td><td>←</td></tr>
+<tr><td>uwvyx↑z$</td><td>$z</td><td>←</td></tr>
+<tr><td>uwvyxz↑$</td><td>$</td><td>Aceptación</td></tr>
+</table>
+</td> </tr>
+</table>
+
+
+
+<font color=yellow size=4><h3 align="center">Analizador de descenso recursivo</h3></font>
+
+<p align=center>Este analizador, preferiblemente debe usar la gramática LL(1). La gramática LL(1) se expande y se debe aumentar.</p>
+
+<p align=center>Así que la gramática expandida y aumentada es la siguiente;</p>
+
+<table class="v3" CELLSPACING="18">
+<tr><th>NÚMERO</th><th>PRODUCCIÓN</th></tr>
+<tr><td>0</td><td>S → S'</td></tr>
+<tr><td>1</td><td>S → uBDz</td></tr>
+<tr><td>2</td><td>B → wB'</td></tr>
+<tr><td>3 y 4</td><td>B' → vB'|&epsilon;</td></tr>
+<tr><td>5</td><td>D → EF</td></tr>
+<tr><td>6 y 7</td><td>E → y|&epsilon;</td></tr>
+<tr><td>8 y 9</td><td>F → x|&epsilon;</td></tr>
+</table>
+
+<p align=center>Se debe obtener por cada producción una función y usando la tabla de PRIMEROS y SIGUIENTES.</p>
+
+<table class="v2" CELLSPACING="18">
+<tr><td></td><th>S'</th><th>S</th><th>B</th><th>B'</th><th>D</th><th>E</th><th>F</th></tr>
+<tr><td>PRIMEROS</td><td>u</td><td>u</td><td>w</td><td>v,&epsilon;</td><td>y,x</td><td>y,&epsilon;</td><td>x,&epsilon;</td></tr>
+<tr><td>SIGUIENTES</td><td>$</td><td>$</td><td>y,x,z</td><td>y,x,z</td><td>z</td><td>x,z</td><td>z</td></tr>
+</table>
+
+<p align=center>Para cada producción de la tabla anterior debemos construir una función:</p>
+
+<table class="v2" CELLSPACING="18">
+<tr> <th>Producción</th><th>Función</th> </tr>
+
+<tr> <td>S' → S</td>
+<td><pre class="p1">
+Token ← SigTok();
+Fun S'()
+if (Tok == PRIMERO(S')) then
+	Fun S();
+	if Tok == eof then
+		EsEnPan(Sentencia Aceptada);
+	else
+		EsEnPan(ERROR);
+else
+	EsEnPan(Sentencia NO aceptada) ;
+</pre></td> </tr>
+
+<tr> <td>S → uBDz</td>
+<td><pre class="p1">
+Fun S()
+if (Tok == PRIMERO(S)) then
+	Token ← SigTok(u);
+	Fun B();
+	Fun D();
+	Token ← SigTok(z);
+else
+	EsEnPan(Sentencia NO aceptada) ;
+</pre></td> </tr>
+
+<tr> <td>B → wB'</td>
+<td><pre class="p1">
+Fun B()
+if (Tok == PRIMERO(B)) then
+	Token ← SigTok(w);
+	Fun B'();
+else
+	EsEnPan(Sentencia NO aceptada) ;
+</pre></td></tr>
+
+<tr><td>B' → vB'|&epsilon;</td>
+<td><pre class="p1">
+Fun B'()
+if (Tok == PRIMERO(B')) then
+	Token ← SigTok(v);
+	Fun B'();
+else if (Tok == SIGUIENTE(B')) then
+	return();
+else
+	EsEnPan(Sentencia NO aceptada) ;
+</pre></td> </tr>
+
+<tr> <td>D → EF</td>
+<td><pre class="p1">
+Fun D()
+if (Tok == PRIMERO(D)) then
+	Fun E();
+	Fun F();
+else
+	EsEnPan(Sentencia NO aceptada) ;
+</pre></td></tr>
+
+<tr><td>E → y|&epsilon;</td>
+<td><pre class="p1">
+Fun E()
+if (Tok == PRIMERO(E)) then
+	Token ← SigTok(y);
+else if Tok == SIGUIENTE(E)) then
+	return();
+else
+	EsEnPan(Sentencia NO aceptada) ;
+</pre> </td> </tr>
+
+<tr> <td>F → x|&epsilon;</td>
+<td><pre class="p1">
+Fun F()
+if (Tok == PRIMERO(F)) then
+	Token ← SigTok(x);
+else (if Tok == SIGUIENTE(F)) then
+	return();
+else
+	EsEnPan(Sentencia NO aceptada) ;
+</pre> </td> </tr>
+</table>
+
+<p align=center>Se analiza la sentencia <font colo=black>uwvyxz$</font> con las funciones obtenidas.</p>
+
+<table class="v3" CELLSPACING="18">
+<tr><th>SENTECIA</th><th>ACCIÓN</th></tr>
+<tr><td>uwvyxz$</td><td>Fun S'(u)</td></tr>
+<tr><td>uwvyxz$</td><td>Fun S(u), acep</td></tr>
+<tr><td>uwvyxz$</td><td>SigTok(u),Fun B(),Fun D(),SigTok(z), acep</td></tr>
+<tr><td>uwvyxz$</td><td>SigTok(w),Fun B'(),Fun D(),SigTok(z), acep</td></tr>
+<tr><td>uwvyxz$</td><td>Fun B'(v),Fun D(),SigTok(z), acep</td></tr>
+<tr><td>uwvyxz$</td><td>SigTok(v),Fun B'(v),Fun D(),SigTok(z), acep</td></tr>
+<tr><td>uwvyxz$</td><td>Fun B'(y),Fun D(),SigTok(z), acep</td></tr>
+<tr><td>uwvyxz$</td><td>Fun D(x),SigTok(z), acep</td></tr>
+<tr><td>uwvyxz$</td><td>Fun E(x),FunF(),SigTok(z), acep</td></tr>
+</table>
+
+<p align="right" class="p5">
+Página, archivo html. Procedimiento: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=COMdefiniciones8.html target="_blank" style="float:center"><strong>COMdefiniciones8.html</strong></font></a>
+</p>
+
+<p align=right><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+TEMARIO 2009
+</a></p>
+
+<br>
+<br>
+
+<header id=imp>
+<h1 align="center" id=asa>Análisis sintáctico ascendentes</h1>
+</header>
+
+<font color=yellow size=6><h3 align="center">Análisis sintáctico ascendente tipo LR(0)</h3></font>
+
+<font color=yellow size=6><h3 align="center">Análisis sintáctico ascendente tipo LR(1)</h3></font>
+
+<font color=yellow size=6><h3 align="center">Análisis sintáctico ascendente tipo LALR</h3></font>
+
+
+</body>
+</html>

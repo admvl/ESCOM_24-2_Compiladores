@@ -1,0 +1,755 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+	width: auto;
+    	margin-left: 0%;
+    	margin-right: 45%;
+	font-size: 20px;
+    overflow-x: auto;
+}
+
+.a1 {
+	margin-left: 56%;
+       margin-right: -7%;
+	float: right;
+	position: absolute;
+	transform: translate(0%, -170%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 20px;
+	width: 40%;
+}
+
+article {
+background-color: rgba(98,98,98,0.5);
+background-repeat: no-repeat;
+background-size: cover;
+opacity: 1;
+display: block;
+margin-left: 0%;
+padding: 10px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: auto;	
+height: auto;
+margin-left: 5%;
+margin-right: 0%;
+text-align: center;
+position: relative;	
+overflow-x: auto;
+}
+
+p {
+overflow-x: auto;
+}
+
+pre {
+overflow-x: auto;
+}
+
+p.p2  {
+ background-color: rgba(128,128,128,0.4);
+ font-size: 28px;
+ width: 65%;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #00f;
+ font: normal 15px arial, helvetica, sans-serif;
+ margin-left: auto;
+ margin-right: auto;
+ overflow-x: auto;
+ }
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPOO.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNPoo/211AtributosYmetodos.html style="float:center">
+TEMA 2.1.1 Atributos y métodos
+</a></p>
+
+<p align=right><a href=SNPoo/212ConstructoresYdestructores.html style="float:center">
+TEMA 2.1.2 Constructores
+</a></p>
+
+<p align=right><a href=SNPoo/31Agregacion.html style="float:center">
+TEMA 3.1 Agregación
+</a></p>
+
+<p align=right><a href=SNPoo/32Herencia.html style="float:center">
+TEMA 3.2 Herencia
+</a></p>
+
+<p align=right><a href=Pizarron13POO.html style="float:center">
+Pizarrón 13
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 13: Programas de herencia.
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section class="izquierda">
+<article>
+<pre><strong>
+<p align=center><font color=yellow>HERENCIA ENTRE CLASES</font></p>
+<!--<p align=left><font color=yellow>Libro: Introducción a la
+ programación de Java</font></p> -->
+
+<p align=left><font color=yellow>La determinación de las características de las superclase y la subclase, es la siguiente:</font></p>
+
+<p><font color=purple>La clase FormaGeometrica.</font>  Las características de esta clase, son: el color, el rellenado, 
+el dato de compilación. Las operaciones con los datos, son; la inicialización del objeto, 
+inicializar el color, entregar del color, inicializar el rellenado, entregar el rellenado, 
+entregar el dato de compilación, entregar una cadena. </p>
+<br> 
+<br>
+<p>
+<font color=blue>La clase Circulo.</font> Las características de la clase "Circulo", son: el radio. Las operaciones, como; 
+inicializar el objeto, inicializar el radio, entregar el radio, calcular 
+y entergar el área, clacular y entregar el perímetro, entregar el diametro, 
+imprimir la información del círculo. </p>
+ 
+<br> 
+<br>
+<p>
+<font color=blue>La clase Rectangulo.</font> Las características de la clase "Rectangulo", son: la base, la altura. Las operaciones, como; 
+inicializar el objeto, inicializar la base, entregar la base, inicializar la altura, entregar la altura, calcular 
+y entergar el área, clacular y entregar el perímetro.</p>
+<br>
+<br>
+
+<font color=brown>La clase Circulo que herda de la clase FormaGeometrica.</font> Hereda las características de la clase "FormaGeometrica", son: 
+el color, el rellenado, el dato de compilación. Más las características de la clase
+"Circulo".
+<br>
+<br>
+<p>
+<font color=brown>La clase Rectangulo que herda de la clase FormaGeometrica.</font> Hereda las características de la clase "FormaGeometrica", son: 
+el color, el rellenado, el dato de compilación. Más las características de la clase
+"Rectangulo".</p>
+
+<p align=left><font color=yellow>La sintaxis es la siguiente:</font></p>
+
+<p> La clase "FormaGeometrica", es la superclase:</p>
+
+<pre><font color=purple>
+public class FormaGeometrica {
+   private String color;
+   private boolean relleno;
+   
+   Formageometrica(String color, boolean relleno) {
+      this.color = color;
+      this.relleno = relleno;
+   }
+}
+</font></pre>
+
+<p>La clase "Circulo", es la subclase:</p>
+
+
+<pre><font color=blue>
+public class Circulo {
+
+}
+</font></pre>
+
+<p>La herencia se realiza con el siguiente código:</p>
+
+<pre><font color=brown>
+public class Circulo extends FormaGeometrica {
+
+}
+</font></pre>
+
+<pre><font color=brown>
+public class Rectangulo extends FormaGeometrica {
+
+}
+</font></pre>
+
+<p align=left><font color=yellow>La determinación de las características de las superclase y la subclase, es la siguiente:</font></p>
+
+<p><font color=purple>La clase ReinoVegetal.</font>  Las características de esta clase, son: el nombre del vegetal, el tipo de clima, 
+el tiempo de vida. 
+<br> 
+<br> 
+<font color=blue>La clase Arbol.</font> Las características de la clase "Arbol", son: el tipo de árbol, la altura del árbol, tiene hojas o tiene
+hojas con flores. 
+ 
+<br> 
+<br> 
+<font color=brown>La clase Arbol que herda de la clase ReinoVegetal.</font> Hereda las características de la clase "reinoVegetal", son: 
+el nombre, el tiempo de vida, el tipo de clima. Más las características de la clase
+"Arbol".</p>
+
+<p align=left><font color=yellow>La sintaxis es la siguiente:</font></p>
+
+<p> La clase "ReinoVegetal", es la superclase:</p>
+
+<pre><font color=purple>
+public class ReinoVegetal {
+
+}
+</font></pre>
+
+<p>La clase "Arbol", es la subclase:</p>
+
+
+<pre><font color=blue>
+public class Arbol {
+
+}
+</font></pre>
+
+<p>La herencia se realiza con el siguiente código:</p>
+
+<pre><font color=brown>
+public class Arbol extends ReinoVegetal {
+
+}
+</font></pre>
+
+<p align=left><font color=yellow>La determinación de las características de las superclase y la subclase, es la siguiente:</font></p>
+
+<p><font color=purple>La clase Luz.</font>  Las características de esta clase, son: el color, el rellenado, 
+el dato de compilación. Las operaciones con los datos, son; la inicialización del objeto, 
+inicializar el color, entregar del color, inicializar el rellenado, entregar el rellenado, 
+entregar el dato de compilación, entregar una cadena. 
+<br> 
+<br> 
+<font color=blue>La clase Foco.</font> Las características de la clase "Circulo", son: el radio. Las operaciones, como; 
+inicializar el objeto, inicializar el radio, entregar el radio, calcular 
+y entergar el área, clacular y entregar el perímetro, entregar el diametro, 
+imprimir la información del círculo.
+
+</p>
+
+<p align=left><font color=yellow>El siguiente programa para visualizar la herencia</font></p>
+<br>
+
+<p> La clase "Luz", es la superclase:</p>
+
+<pre><font color=purple>
+public class Luz {
+
+}
+</font></pre>
+
+<p> La clase "Foco", es la subclase:</p>
+
+<pre><font color=blue>
+public class Foco {
+
+}
+</font></pre>
+
+<p> La clase "Foco con características heredadas de la clase Luz", es la clase heredada:</p>
+
+<pre><font color=brown>
+public class Foco extends Luz {
+
+}
+</font></pre>
+
+<br> 
+<br>
+
+<p><font color=purple>La clase Luz.</font> Supongamos que se necesita asociar el peso y la altura con el
+ nombre de una persona y su fecha de nacimiento.<br> <br><font color=blue>La clase Foco.</font>  Declare variables separadas para almacenar los 
+valores. Por medio de crear objetos que los contenga. Donde 
+cada objeto debe ser caracterizado en campos de datos 
+instanciados. <br> <br> <font color=brown>La clase Foco qu hereda características de la clase Luz.</font>Las características, son:</p>
+
+<p align=center><font color=yellow>La herencia con la clase Estudiante</font></p>
+
+<pre><font color=orange>
+public class Estudiante {
+   private Nombre nombre;
+   private Direccion direccion;
+}
+</font></pre>
+
+<pre><font color=orange>
+public class Direccion {
+
+}
+</font></pre>
+
+
+<p><font color=yellow>Un ejemplo</font></p>
+
+<p> La clase "B", es la superclase:</p>
+
+<pre><font color=purple>
+public class B {
+   public void p(double i) {
+      System.out.println(i * 2);
+   }
+}
+</font></pre>
+
+<p>La clase "A", es la subclase:</p>
+
+
+<pre><font color=blue>
+public class A {
+   public void p(double i) {
+      System.out.println(i);
+   }
+}
+</font></pre>
+
+<p>La herencia se realiza con el siguiente código:</p>
+
+<pre><font color=brown>
+public class A extends B {
+   public void p(double i) {
+      System.out.println(i);
+   }
+   
+   public static void main(String[] args) {
+      A a = new A();
+      a.p(10);
+      a.p(10.0);
+   }
+}
+</font></pre>
+
+<p>Si se usa el siguiente código:</p>
+
+<pre><font color=brown>
+public class A extends B {
+   public void p(int i) {
+      System.out.println(i);
+   }
+   
+   public static void main(String[] args) {
+      A a = new A();
+      a.p(10);
+      a.p(10.0);
+   }
+}
+</font></pre>
+
+
+<br>
+<br>
+<br>
+<br>
+</article>
+</section>
+
+
+
+
+</strong>
+</pre>
+
+<section class="derecha">
+
+<pre class="a1"><strong>
+
+<p><font color=yellow>Diagramas de clase de FormaGeometrica</font></p>
+
+<p>
+<img src="SNPoo/HeClaseFiguraGeometrica.svg" align=left width=85% border=0></p>
+
+<p><font color=yellow>Diagramas de clase del ReinoVegetal</font></p>
+
+<p>
+<img src="SNPoo/ReinoVegetal.svg" align=left width=85% border=0></p>
+
+<p align=center>java nombre_archivo</p>
+
+<p align=left><font color=marroon>Las partes que componen a un programa: Los
+
+ campos de datos, los objetos, los métodos.</font></p>
+
+
+<p align=left><font color=yellow>Uso del método equals() en el programa "Estudiante.java"</font></p>
+
+<pre>
+public boolean equals(Object unObjeto) {
+   Estudiante e1 = (Estudiante) unObjeto;
+   return e1.nombre.equals(nombre) && 
+   e1.direccion.equals(direccion);
+}
+</pre>
+
+<p>Para definir el método main, es como sigue:</p>
+
+<pre>
+Estudiante e1 = new Estudiante("Tomás");
+e1.setDireccion("Av Othon de Mendizabal 234");
+
+Estudiante e2 = new Estudiante("Daniel");
+e2.setDireccion("Av IPN 344");
+
+if(e1.equals(e2)) {
+   System.out.println("El estudiante es el mismo que 
+   el estuadiante");
+}
+else {
+   System.out.println("El estudiante no es el mismo que 
+   el estuadiante");
+}
+</pre>
+
+<p align=left><font color=yellow>Uso del método toString() en el programa "Estudiante.java"</font></p>
+
+
+<pre>
+public class Estudiante {
+   private String nombre;
+   private int calificacion;
+   
+   public void setCalificacion(int calificacion) {
+      this.calificacion = calificacion;
+   }
+   
+   public int getCalificacion() {
+      return calificacion;
+   }
+   
+   public void setNombre(String nombre) {
+      this.nombre = nombre;
+   }
+   
+   public String getNombre() {
+      return nombre;
+   }
+
+   public String toString() {
+      return "El nombre del estudiante, es: " ;
+   }
+
+   public static void main(String[] args) {
+      Estudiante e1 = new Estudiante();
+      
+      e1.setNombre(" ");
+      e1.setCalificacion();
+      
+      System.out.println(e1.toString() + e1.getNombre() + 
+      "con calificación " + e1.getCalificacion());   
+   }
+}
+</pre>
+
+
+
+<p align=left><font color=yellow>El programa "Fecha.java"</font></p>
+
+
+<pre>
+public class Fecha {
+   private int dia;
+   private int mes;
+   private int anio;
+
+   public Fecha() {
+      dia = 1;
+      mes = 1;
+      anio = 1998;
+   }
+
+   public Fecha(int d1, int m1, int a1) {
+      dia = d1;
+      mes = m1;
+      anio = a1;
+   }
+
+   public boolean equals(Object ob1) {
+      if(!(ob1 instanceof Fecha))
+         return false;
+      Fecha ob2 = (Fecha) ob1;
+      return ob2.dia == dia && ob2.mes == mes && ob2.anio == anio;
+   }
+
+   public String toString() {
+      return dia + "/" + mes + "/" + anio;
+   }
+   
+   public static void main(String[] args) {
+      Fecha f1 = new Fecha(28,2,2022);
+
+      System.out.println(f1.toString());
+     
+   
+   }
+}
+</pre>
+
+
+<p align=left><font color=yellow>El programa "Animal.java"</font></p>
+
+<pre>
+class Animal {
+  static String a1;
+  
+  void comer() {
+    System.out.println("EL " + a1 + " come croquetas");
+  }
+  
+  public static void main(String args[]) {
+    Animal perro = new Animal();
+    a1 = "perro";
+    
+    perro.comer();
+  }
+}
+</pre>
+
+<!--
+class Test {
+public static void main(String[] args) {
+  Student student = new Student();
+  System.out.println("name? " + student.name );
+  System.out.println("age? " + student.age );
+  System.out.println("isScienceMajor? " + student.isScienceMajor );
+  System.out.println("gender? " + student.gender );
+  }
+}
+
+class Student {
+  String name; // name has default value null
+  int age; // age has default value 0
+  boolean isScienceMajor; // isScienceMajor has default value false
+  char gender; // c has default value '\u0000'
+}
+
+<p align=center><font color=yellow>EJEMPLO DE PROGRAMA EN JAVA</font></p>
+
+class Test2 {
+public static void main(String[] args) {
+  Student student = new Student();
+  student.setNombre("Julio");
+  System.out.println("name? " + student.name );
+  System.out.println("age? " + student.age );
+  System.out.println("isScienceMajor? " + student.isScienceMajor );
+  System.out.println("genero? " + student.genero );
+
+  System.out.println("El nombre del estudiante es:" + student.getNombre() );
+  }
+}
+
+class Student {
+  String name; // name has default value null
+  int age; // age has default value 0
+  boolean isScienceMajor; // isScienceMajor has default value false
+  char genero; // c has default value '\u0000'
+  
+  public void setNombre(String name) {
+    this.name = name;
+  }
+
+  public String getNombre() {
+    return this.name;
+  }
+
+  public void setGenero(char genero) {
+    this.genero = genero;
+  }
+}
+
+<p align=center><font color=yellow>OTRO EJEMPLO DE PROGRAMA EN JAVA</font></p>
+
+
+
+<p align=center><font color=yellow>EJERCICIO DE PROGRAMA EN JAVA</font></p>
+
+class Test1 {
+public static void main(String[] args) {
+  Student student = new Student();
+  System.out.println("name? " + student.name );
+  System.out.println("age? " + student.age );
+  System.out.println("isScienceMajor? " + student.isScienceMajor );
+  System.out.println("genero? " + student.genero );
+  }
+}
+
+class Student {
+  String name; // name has default value null
+  int age; // age has default value 0
+  boolean isScienceMajor; // isScienceMajor has default value false
+  char genero; // c has default value '\u0000'
+  
+  public void setNombre(String name) {
+    this.name = name;
+  }
+
+  public void setGenero(char genero) {
+    this.genero = genero;
+  }
+}
+
+
+
+public class TestCircle1 {
+  /** Metodo principal */
+  public static void main(String[] args) {
+    // Crea un circulo con radio 1.0
+    Circle1 circle1 = new Circle1();
+    System.out.println("El area del circulo de raio "
+	+ circle1.radius + " es " + circle1.getArea() );
+    // Crea un circulo con radio 25
+    Circle1 circle2 = new Circle1(25);
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea());
+    // Crea un circulo de radio 125
+    Circle1 circle3 = new Circle1(125);
+    System.out.println("El area del circulo de raio "
+	+ circle3.radius + " es " + circle3.getArea());
+    // Modifica el radio del circulo
+    circle2.radius = 100;
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea() );
+    }
+  }
+// Define la clase circulo con dos constructores
+class Circle1 {
+  double radius ;
+  /** Construir del circulo con radio 1 */
+  Circle1() {
+    radius = 1.0;
+  }
+  /** Construir un circulo con radio especificado */
+  Circle1(double newRadius) {
+    radius = newRadius;
+  }
+  /** Regresa el area del circulo */
+  double getArea() {
+    return radius * radius * Math.PI;
+  }
+}
+
+<p align=center><font color=yellow>OTRO EJERCICIO EN JAVA</font></p>
+
+Nombre de la clase: Circulo
+
+Campo de datos: radio: double
+
+Constructores y métodos: Circulo()
+			 Circulo(newRadio : double)
+			 getArea() : double
+
+public class Circle1 {
+  double radio;
+  double getArea() {
+    return Math.PI * radio * radio;
+  }
+  /** Metodo principal */
+  public static void main(String[] args) {
+    // Crea un circulo con radio 1.0
+    Circle1 circle1 = new Circle1();
+    circle1.radio = 1;
+    System.out.println("El area del circulo de raio "
+	+ circle1.radio + " es " + circle1.getArea() );
+    // Crea un circulo con radio 25
+    Circle1 circle2 = new Circle1();
+    circle2.radio = 25;
+    System.out.println("El area del circulo de radio "
+	+ circle2.radio + " es " + circle2.getArea());
+    // Crea un circulo de radio 125
+    Circle1 circle3 = new Circle1();
+    circle3.radio = 125;
+    System.out.println("El area del circulo de raio "
+	+ circle3.radiio + " es " + circle3.getArea());
+    // Modifica el radio del circulo
+    circle2.radio = 100;
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea() );
+    }
+  }
+
+<p align=center><font color=yellow>MÁS EJERCICIOS EN JAVA</font></p>
+
+public class Estudiante {
+  
+  private String nombre;
+  private int cal;
+  
+  public String getNombre() {
+  return this.nombre;
+  }
+
+  public int getCal() {
+  return this.cal;
+  }
+
+  public void setNombre(String nombre) {
+  this.nombre = nombre;
+  }
+
+  public void setCal(int cal) {
+  this.cal = cal;
+  }
+
+  public static void main(String[] args) {
+  Estudiante est1 = new Estudiante();
+  Estudiante est2 = new Estudiante();
+  est1.setNombre("Juan");
+  est1.setCal(6);
+
+  est2.setNombre("Benjamin");
+  est2.setCal(8);
+  System.out.println(est1.getNombre() + ", " +
+    est2.getNombre());
+  }
+}-->
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

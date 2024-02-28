@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Definiciones de clases léxicas por medio de expresiones regulares</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 2</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">DEFINICIÓN DE CLASES LÉXICAS POR MEDIO DE EXPRESIONES REGULARES</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Clases léxicas</h1>
+       <hr>
+     <!-- <p>Este capítulo describe las herramientas matemáticas y técnicas de programación.
+que se utilizan comúnmente para construir escáneres, ambos generados
+y escáneres hechos a mano. El capítulo comienza, en la Sección 2.2, presentando un modelo para reconocedores, programas que identifican palabras en un flujo de
+caracteres. La sección 2.3 describe las expresiones regulares, una notación formal para
+especificando la sintaxis. En la sección 2.4, mostramos un conjunto de construcciones para convertir un
+expresión regular en un reconocedor. Finalmente, en la Sección 2.5 presentamos tres
+diferentes formas de implementar un escáner: un escáner de mesa, un escáner de codificación directa
+escáner y un enfoque codificado a mano.
+Tanto los escáneres generados como los hechos a mano se basan en las mismas técnicas subyacentes. Si bien la mayoría de los libros de texto y cursos abogan por el uso de
+los escáneres, la mayoría de los compiladores comerciales y los compiladores de código abierto utilizan escáneres hechos a mano. Un escáner hecho a mano puede ser más rápido que uno generado
+escáner porque la implementación puede optimizar una parte de la sobrecarga que no se puede evitar en un escáner generado. Porque los escáneres son
+simples y cambian con poca frecuencia, muchos escritores de compiladores consideran que la ganancia de rendimiento de un escáner hecho a mano supera la conveniencia
+de generación automática de escáneres. Exploraremos ambas alternativas. </p>
+      <br>-->
+      
+      <br>
+      <p><strong>Etapas del compilador.</strong> El siguiente diagrama a bloques muestra las etapas de traducción de un compilador.</p>
+      <br>
+      <p align="center">
+<img src="EtapasCompilador.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=100% border=0></p>
+      <br>
+      <p><strong>TOKEN.</strong> Un token léxico es una secuencia de caracteres que puede tratarse como una unidad en el gramática de un lenguaje de programación. Un lenguaje de programación clasifica
+tokens léxicos en un conjunto finito de tipos de tokens. Por ejemplo, algunos de los tipos de tokens de un lenguaje de programación típico son: ID, NUM, REAL, IF, COMMA, NOTEQ, LPAREN, RPAREN.</p>
+      <br>
+     <p>Dado una parte de programa. Se identifican los tokens.</p>
+     <br>
+     <pre>
+     /* encuentra un cero */
+     float acopla0(char *s) {
+       if (!strncmp(s, "0.0", 3))
+       return 0.;
+     }
+     </pre>
+     <br>
+     <p>Los tokens que se identifican, son los siguientes:</p>
+     <br>
+     <p>FLOAT ID(acopla0) LPAREN CHAR STAR ID(s)
+RPAREN LBRACE IF LPAREN BANG ID(strncmp) LPAREN
+ID(s) COMMA STRING(0.0)  COMMA NUM(3) RPAREN RPAREN 
+RETURN REAL(0.0) SEMI RBRACE EOF </p>
+      <br>
+      <p>donde se informa el tipo de token de cada token reportado; algunos de los tokens, como identificadores y literales, tienen valores semánticos adjuntos, dando información adicional de auxilio además del tipo de token.
+¿Cómo se deben describir las reglas léxicas de un lenguaje de programación? ¿En qué idioma se debe escribir un analizador léxico?
+Podemos describir los tokens léxicos de un idioma en inglés.</p>
+     <br>
+     <p class="cita"><cite>Modern compiler implementation in C, Andrew W. Appel, Pág. 17-18</cite></p>
+      <br>
+      <p><strong>Clases léxicas.</strong> Podemos decir que los tokens, son: identificadores, palabras clave o palabras reservadas, delimitadores, números, operadores.</p>
+      <br>
+     <p><a href="ALex.pdf">Función del analizador léxico. En pdf.</a></p>
+     <br>     
+      <hr>
+       <h1>Expresiones Regulares</h1>
+       <hr>
+       <p>Digamos que un idioma es un conjunto de cadenas; una cadena es una secuencia finita de símbolos. Los símbolos mismos se toman de un alfabeto finito. El lenguaje Pascal es el conjunto de todas las cadenas que constituyen Pascal. Un programa; el lenguaje de los números primos es el conjunto de todas las cadenas de dígitos decimales que
+representar números primos; y el lenguaje de las palabras reservadas en C es el conjunto de
+todas las cadenas alfabéticas que no se pueden utilizar como identificadores en la programación C. Los dos primeros de estos lenguajes son conjuntos infinitos; el último es un finito conjunto. En todos estos casos, el alfabeto es el conjunto de caracteres ASCII.
+Cuando hablamos de idiomas de esta manera, no le asignaremos ningún significado a las cadenas; solo intentaremos clasificar cada cadena como en el idioma o no.
+Para especificar algunos de estos lenguajes (posiblemente infinitos) con descripciones finitas, usaremos la notación de expresiones regulares. Cada expresión regular representa un conjunto de cadenas.</p>
+      <br>
+       <p><strong>Expresiones regulares.</strong> Son: el símbolo, alternativa, concatenación, epsilón, repetición (cerradura).</p>
+      <br>
+      <article>
+      <p class="cita"><cite>Modern compiler implementation in C, Andrew W. Appel, Pág. 19</cite></p>
+    <br>
+    <p>La manera de representar a los tokens se hace por medio de expresiones regulares o por medio de autómatas. la representación por medio de expresiones regulares es de la manera siguiente:</p>
+    <br>
+    <p>La representación de la <strong>alternativa</strong> se hace de la siguiente manera:</p>
+    <br>
+    <font color=red size=7><h3 align="center">a | b = {a} o {b}</h3></font>
+    <br>
+    <p>La representación de la <strong>concatenación</strong> se hace de la siguiente manera:</p>
+    <br>
+    <font color=red size=7><h3 align="center">a  b = {ab}</h3></font>
+    <br>
+    <p>La representación de la <strong>cerradura</strong> se hace de la siguiente manera, la cerradura de Kleene:</p>
+    <br>
+    <font color=red size=7><h3 align="center">a<SUP>*</SUP> = {&epsilon;,a,aa,aaa, ...}</h3></font>
+    <br>
+    <p>La representación de la <strong>cerradura</strong> se hace de la siguiente manera, la cerradura de positiva:</p>
+    <br>
+    <font color=red size=7><h3 align="center">b<SUP>+</SUP> = {b,bb,bbb, ...}</h3></font>
+    <br>
+    <p>El caracter vacio se representa por las letras griegas epsilon o lambda.</p>
+    
+    <font color=red size=7><h3 align="center">&epsilon; o &lambda;</h3></font>
+        <font color=red size=7><h3 align="center">&int; ln x dx</h3></font>
+     </article>
+    </section>
+      <aside>
+        <h1>Resumen</h1>
+        <hr>
+        <br>
+     <p><strong>Planteamiento.</strong> Encontrar los tokens del siguiente código. Entregar en una hoja de word.</p>
+     <br>
+     <pre>
+     class C {
+       public static void main(String[] args){
+       }
+     }
+     </pre>
+       <br>
+     <hr>
+     <h1>Reflexiones</h1>
+     <hr>
+     <br>
+     <p><strong>1.</strong> ¿Qué es una expresión regular?</p>
+     <br>
+      <p><strong>2.</strong> ¿Qué es un autómata?</p>
+     <br>
+     <hr>
+     <h1>Expresiones Regulares (ER)</h1>
+     <hr>
+     <br>
+     <p>El texto "expresión regular", se escribe de manera abreviada como <strong>ER</strong>. Las ER se usan para representar a los tokens. Los tokens se clasifican en clases léxicas. </p>
+     <br>
+     <p><a href="211ExpresionesRegulares.html">Expresiones Regulares.</a> Es la continuación del tema 2.1.</p>
+        </aside>
+      <footer><p>Construcción de analizadores léxicos: Tema 2.1</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

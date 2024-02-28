@@ -1,0 +1,273 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+    width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+Compiladores
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPoo.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+TEMARIO 2009
+</a></p>
+
+<p align=right><a href=EstudianteAgoDic2022.html style="float:center">
+LISTA DE CLASES
+</a></p>
+
+<p align="right" class="p5"><a href=SNCompiladores/COMapuntesRepasoAlexico.svg target="_blank" style="float:center">
+(APUNTES REPASO) SNCompiladores/COMapuntesRepasoAlexico.dia
+</a></p>
+
+<p align=right><a href=PizarronRepasoAlexico.svg style="float:center">
+(PIZARRÓN DE CLASE REPASO) MiMIC/PizarronRepasoAlexico.dia
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+EJEMPLOS REPASO
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<!--
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Autómata AFD mínimo</font></p>
+
+
+<p>Las expresiones regulares aplicadas a las clases léxicas
+<br>
+<font color=red size=7><h3 align="center">abcd, &epsilon; o &lambda;</h3></font>
+<br>
+<font color=red size=7><h3 align="center">&epsilon; o &lambda;</h3></font>
+<br>
+<p align=center><font color=yellow size=6>Las expresiones regulares aplicadas a las clases léxicas</font></p>
+<br>
+<font color=red size=7><h3 align="center">a | b = {a} o {b}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a  b = {ab}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>*</SUP> = {&epsilon;,a,aa,aaa, ...}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>+</SUP> = {a,aa,aaa, ...}</h3></font>
+<br>
+</p>
+</header> -->
+
+<br>
+
+<section class=izquierda><strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Expresiones regulares</font></p>
+</header>
+
+<p>La siguiente ER:</p>
+
+<font color=red size=7><h3 align="center">ER</h3></font>
+
+<p>Los tokens clasificados en clases léxicas:</p>
+
+<font color=red size=5><h3 align="center">Operación de concatenación &rarr; a b <br> Operación de alternativa &rarr; a | b </h3></font>
+
+<font color=red size=5><h3 align="center">Operaciones de cerradura &rarr; a<SUP>*</SUP> | a <SUP>+</SUP> </h3></font>
+
+<br>
+<p align=center><a href=SNCompiladores/Ejem5Afd1.svg style="float:center">
+AFD 1
+</a></p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Construcción de Thompson</font></p>
+</header>
+<br>
+
+<p align=center><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+DEL TEMARIO 2009
+</a></p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Conversión de un AFN a un AFD</font></p>
+</header>
+
+<p>La operación de cerradura epsilon:</p>
+<p>La operación de movimiento:</p>
+<p>Formación de un AFD:</p>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Algoritmo de minimización</font></p>
+</header>
+
+<p>La aplicación de consistencia:</p>
+
+</strong>
+</section>
+
+<!--------------------------------------------------------->
+
+<aside class=derecha>
+<strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de estados</font></p>
+</header>
+
+<p>Este algoritmo se aplica para obtener los estados del autómata AFD<SUB>mínimo</SUB>:</p>
+<p>Se aplica a todo AFD:</p>
+
+<table CELLSPACING="16" align=center>
+<tr><th>&delta;</th><th>a</th><th>b</th></tr>
+
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+
+</table>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Preguntas</font></p>
+</header>
+<p>1.- ¿Cómo se transforma la siguiente ER en AFN?</p>
+
+<font color=red size=5><h3 align="center">ER &rarr; >= | <= </h3></font>
+
+<p>2.- ¿Cómo se transforma la siguiente ER en AFN?</p>
+
+<font color=red size=5><h3 align="center">ER &rarr; a<SUP>*</SUP> b </h3></font>
+
+<p>3.- ¿Cómo se transforma la operación de concatenación en AFN?</p>
+
+<font color=red size=5><h3 align="center"> if(a &#60; b) <br> return a + b; <br> else <br> return a - b; </h3></font>
+
+<p>4.- ¿Cómo se transforma la operación alternativa en AFN?</p>
+
+<p>5.- ¿Cómo se transforma la operación de cerradura positiva en AFN?</p>
+
+<p>6.- ¿Cómo se transforma la operación de cerradura de Kleene en AFN?</p>
+
+<p>7.- ¿Cómo se aplica la operación de cerradura?</p>
+
+<font color=red size=5><h3 align="center">ER &rarr; if | else | return </h3></font>
+
+<p>8.- ¿Cómo se aplica la operación de movimiento?</p>
+
+<font color=red size=5><h3 align="center">ER &rarr; < | + | - </h3></font>
+
+<p>9.- ¿Cómo se forma el AFD?</p>
+
+<font color=red size=5><h3 align="center">ER &rarr; ( | ) | ; </h3></font>
+
+</strong>
+</aside>
+
+
+</body>
+</html>

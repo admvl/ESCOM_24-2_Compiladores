@@ -1,0 +1,292 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+}
+
+.a1 {
+	margin-left: 52%;
+	float: right;
+	position: absolute;
+	transform: translate(-15%, -90%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 18px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+APUNTES
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+APUNTES: Página 2
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<p align=center><font color=yellow>Sobre herencia en multiclases</font></p>
+<p align=right><font color=yellow>Apuntes página 2</font></p>
+
+<p align=left><font color=yellow size=6>Ajustar los siguientes
+archivos para ejecutar 
+el programa de objetos 
+geométricos</font></p>
+
+El código <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/GeometricObject.java style="float:center" target="_blank">GeometricObject.java</a> es la 
+clase base.
+
+<p align=left><font color=yellow>Archivo sobre la clase
+círculo. Libro: Liasing [pág. 376]</font></p>
+
+El código <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Circle4.java style="float:center" target="_blank">Circle4.java</a> es sobre
+la clase círculo.
+
+El siguiente código se puede intercambiar en el
+constructor correspondiente en la clase círculo.
+
+public Circle4(double radius, String color, 
+       boolean filled) {
+  super(color, filled);
+  this.radius = radius;
+}
+
+<p align=left><font color=yellow>Archivo sobre
+la clase rectángulo. Libro: Liasing [pág. 378]</font></p>
+
+El código <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Rectangle1.java style="float:center" target="_blank">Rectangle1.java</a> es para
+la clase rectángulo.
+
+<p align=left><font color=yellow>Archivo sobre
+la clase principal. Libro: Liasing [pág. 379]</font></p>
+
+El código <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/TestCirculoRectangulo.java style="float:center" target="_blank">TestCirculoRectangulo.java</a> es para
+la clase principal.
+
+Si una clase está diseñada para extenderse, 
+es mejor proporcionar un constructor sin 
+argumentos para evitar errores de programación. 
+Considere el siguiente código:
+
+public class Apple extends Fruit {
+}
+
+class Fruit {
+  public Fruit(String name) {
+  System.out.println("El constructor de la 
+      Fruit es invocado");
+  }
+}
+
+Se agrega en la clase círculo.
+
+public class Circle4 extends GeometricObject1 {
+  // Otros metodos son omitidos
+
+  /** Sobrescribe el metodo toString definido en 
+    GeometricObject */
+  public String toString() {
+    return super.toString() + "\nel radio es " + 
+      radius;
+  }
+}
+
+<p align=left><font color=yellow>Sobreescribiendo
+y sobrecargando métodos. Libro: Liasing [pág. 383]</font></p>
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Prueba.java style="float:center" target="_blank">Prueba.java</a> sobreescribe
+métodos.
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Prueba1.java style="float:center" target="_blank">Prueba1.java</a> sobrecarga
+métodos.
+
+En el programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Car2.java style="float:center" target="_blank">Car2.java</a> sobreescribe
+el método toString [Dean, pág. 516].
+
+<p align=left><font color=yellow>Los tres pilares
+de la programación orientada a ojetos. 
+Libro: Liasing [pág. 384]</font></p>
+
+Los tres pilares de la programación orientada 
+a objetos son encapsulación, herencia y
+polimorfismo. Ya has aprendido los dos 
+primeros. Esta sección presenta polimorfismo.
+Primero definamos dos términos útiles: 
+subtipo y supertipo. Una clase define un 
+tipo. Un tipo definido por una subclase se 
+llama subtipo y un tipo definido por su 
+superclase se llama supertipo. Entonces, 
+puedes decir que Circle es un subtipo de 
+GeometricObject y GeometricObject es un
+supertipo para Circle.
+
+</strong>
+</pre>
+
+<pre class="a1"><strong>
+
+<p align=left><font color=yellow>Sobreescribiendo
+métodos. Libro: Liasing [pág. 382]</font></p>
+
+Una subclase hereda métodos de una
+superclase. Algunas veces es necesario
+en las subclases modificar la
+implementación de un método
+definido en la superclase. Esto
+es un método sobreescrito.
+
+El método toString en la clase 
+GeometricObject devuelve la 
+representación de cadena
+para un objeto geométrico. 
+Este método se puede anular para 
+devolver la representación de 
+cadena para un circulo. Para 
+anularlo, se agrega el siguiente 
+método nuevo en Circle4.java:
+
+public class Circle4 extends GeometricObject1 {
+  // Otros metodos son omitidos
+
+  /** Sobreescribir el metodo toString definido en
+      GeometricObject */
+  public String toString() {
+    return super.toString() + "\nel radio es " + 
+     radius;
+  }
+}
+
+<p align=left><font color=yellow>Herencia
+en las clases. Libro: Liasing [pág. 382]</font></p>
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/SimpleHerencia.java style="float:center" target="_blank">SimpleHerencia.java</a> sobre herencia
+simple [Manual java, pág. 158].
+
+Aunque una subclase incluye a todos los 
+miembros de su superclase, no puede acceder 
+a esos miembros de la superclase que han 
+sido declarados como privados. Por ejemplo, 
+considere el siguiente jerarquía de clases 
+simple:
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Access.java style="float:center" target="_blank">Access.java</a> sobre jerarquía
+de herencia simple [Manual java, pág. 159].
+
+
+Este programa no se compilará porque la 
+referencia a j dentro del método sum() de B
+causa una infracción de acceso. Como j se 
+declara como privado, solo otros miembros 
+pueden acceder a él de su propia clase. Las 
+subclases no tienen acceso a ella.
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/DemoBoxWeight.java style="float:center" target="_blank">DemoBoxWeight.java</a> sobre 
+herencia simple [Manual java, pág. 161].
+
+Tomar una referencia a un objeto y 
+tratarla como una referencia a su 
+clase base se denomina
+conversión hacia arriba, debido a 
+la forma en que se dibujan los 
+árboles de herencia, en los que la
+clase base se coloca siempre en 
+la parte superior.
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Musica.java style="float:center" target="_blank">Musica.java</a> sobre herencia.
+
+<p align=left><font color=yellow>Programa sobre la interface
+relación. Libro: Datan [pág. 212]</font></p>
+
+Esto funciona, pero hay un inconveniente: 
+se deben escribir métodos específicos 
+de cada tipo para
+cada clase Instrumento que se añada. En 
+primer lugar esto significa más 
+programación, pero también quiere decir 
+que si se desea 
+añadir un método nuevo como afinar( ) 
+o un nuevo tipo de
+Instrumento, se tiene mucho trabajo
+por delante. Añadiendo el hecho de 
+que el compilador no emitirá ningún 
+mensaje de error si se 
+olvida sobrecargar alguno de los 
+métodos, el hecho de trabajar
+con tipos podría convertirse 
+en inmanejable.
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Musica2.java style="float:center" target="_blank">Musica2.java</a> es sobre
+clases abstractas.
+
+<p align=left><font color=yellow>Programa sobre la herencia del Libro: Datan [pág. 212]</font></p>
+
+De nuevo, se podría esperar que se 
+invoque al método dibujar( ) de 
+Polígono porque se trata, des-
+pués de todo, de una referencia a 
+Polígono -por tanto, ¿cómo podría 
+el compilador saber que tiene
+que hacer otra cosa? Y sin embargo, 
+se invoca al Círculo.dibujar( ) 
+correcto debido a la ligadura 
+tardía (polimorfismo) .
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Poligonos.java style="float:center" target="_blank">Poligonos.java</a> es para
+estudiar herencia. Este no corre.
+
+
+
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

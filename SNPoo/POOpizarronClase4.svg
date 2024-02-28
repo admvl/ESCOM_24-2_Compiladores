@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="55cm" height="114cm" viewBox="78 58 1088 2280" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="212" y="58.1" width="515.95" height="40.9"/>
+    <text font-size="33.9118" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="212" y="92">
+      <tspan x="212" y="92">Clase 4 del 14 de febrero del 2022</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="204.5" y="122.45" width="540.65" height="69.4342"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="204.5" y="150.7">
+      <tspan x="204.5" y="150.7">La clase se compone de campos de datos y</tspan>
+      <tspan x="204.5" y="186.034">métodos.</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="198.5" y="226.2" width="649.05" height="69.4342"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="198.5" y="254.45">
+      <tspan x="198.5" y="254.45">Los tipos de métodos, los vamos a reconocer por su</tspan>
+      <tspan x="198.5" y="289.784">prefijo:</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="323" y="315.9" width="39.9" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="323" y="344.15">
+      <tspan x="323" y="344.15">get</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="321.5" y="362.2" width="36.9" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="321.5" y="390.45">
+      <tspan x="321.5" y="390.45">set</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="321" y="398.9" width="500.2" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="321" y="427.15">
+      <tspan x="321" y="427.15">is o es, es para los métodos booleanos. </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="319.5" y="441.1" width="46.05" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="319.5" y="469.35">
+      <tspan x="319.5" y="469.35">add</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="317" y="496.8" width="171.55" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="317" y="525.05">
+      <tspan x="317" y="525.05">Constructores</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="228.9" y="665.8" width="824.4" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="228.9" y="694.05">
+      <tspan x="228.9" y="694.05">Las clases que vamos a construir, son:   clase y la clase principal .</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="221.8" y="770.6" width="944.35" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="221.8" y="798.85">
+      <tspan x="221.8" y="798.85">Las clases normales contienen los métodos: get, set is o es, Constructores. </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="220.7" y="847.4" width="866.65" height="69.4342"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="220.7" y="875.65">
+      <tspan x="220.7" y="875.65">La clase principal contiene al método principal: el método principal se</tspan>
+      <tspan x="220.7" y="910.984">llama  "main" . </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="220.6" y="1021.2" width="830.25" height="69.4342"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="220.6" y="1049.45">
+      <tspan x="220.6" y="1049.45">Los campos de datos declarados en clase son los campos de datos</tspan>
+      <tspan x="220.6" y="1084.78">globales. </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="216.5" y="1163" width="852.05" height="69.4342"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="216.5" y="1191.25">
+      <tspan x="216.5" y="1191.25">Los métodos contienen campos de datos, los cuales son: campos de</tspan>
+      <tspan x="216.5" y="1226.58">datos locales. </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="191.9" y="1298.8" width="353.75" height="40.9"/>
+    <text font-size="33.9118" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="191.9" y="1332.7">
+      <tspan x="191.9" y="1332.7">Construir el método get</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="184.9" y="1379.8" width="503.9" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="184.9" y="1408.05">
+      <tspan x="184.9" y="1408.05">El método sirve para retornar los datos. </tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="427,1446.51 663.988,1565 427,1683.49 190.012,1565 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="427,1446.51 663.988,1565 427,1683.49 190.012,1565 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="427" y="1505.8">
+      <tspan x="427" y="1505.8">public class Estudiante {</tspan>
+      <tspan x="427" y="1521.8">String nombre;</tspan>
+      <tspan x="427" y="1537.8">int clificacion;</tspan>
+      <tspan x="427" y="1553.8"></tspan>
+      <tspan x="427" y="1569.8">String getNombre() {</tspan>
+      <tspan x="427" y="1585.8">return Nombre;</tspan>
+      <tspan x="427" y="1601.8">}</tspan>
+      <tspan x="427" y="1617.8"></tspan>
+      <tspan x="427" y="1633.8">}</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="157.9" y="1732.8" width="350.15" height="40.9"/>
+    <text font-size="33.9118" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="157.9" y="1766.7">
+      <tspan x="157.9" y="1766.7">Construir el método set</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="136.9" y="1798.8" width="757.6" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="136.9" y="1827.05">
+      <tspan x="136.9" y="1827.05">El método sirve para asignar valores a los campos de datos. </tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="430.888,1858.56 782.351,2034.29 430.888,2210.03 79.425,2034.29 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="430.888,1858.56 782.351,2034.29 430.888,2210.03 79.425,2034.29 "/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="430.888" y="1935.09">
+      <tspan x="430.888" y="1935.09">public class Estudiante {</tspan>
+      <tspan x="430.888" y="1951.09">String nombre;</tspan>
+      <tspan x="430.888" y="1967.09">int clificacion;</tspan>
+      <tspan x="430.888" y="1983.09"></tspan>
+      <tspan x="430.888" y="1999.09">String getNombre() {</tspan>
+      <tspan x="430.888" y="2015.09">return Nombre;</tspan>
+      <tspan x="430.888" y="2031.09">}</tspan>
+      <tspan x="430.888" y="2047.09"></tspan>
+      <tspan x="430.888" y="2063.09">void setCalificacion(int calificacion) {</tspan>
+      <tspan x="430.888" y="2079.09">this.calificacion = calificacion;</tspan>
+      <tspan x="430.888" y="2095.09"></tspan>
+      <tspan x="430.888" y="2111.09">}</tspan>
+      <tspan x="430.888" y="2127.09"></tspan>
+      <tspan x="430.888" y="2143.09">}</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="208.9" y="573.8" width="534.7" height="40.9"/>
+    <text font-size="33.9118" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="208.9" y="607.7">
+      <tspan x="208.9" y="607.7">Clase 4b del 16 de febrero del 2022</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="138.9" y="2294.8" width="531.6" height="40.9"/>
+    <text font-size="33.9118" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="138.9" y="2328.7">
+      <tspan x="138.9" y="2328.7">Clase 4c del 17 de febrero del 2022</tspan>
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,268 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	font-size: 18px;
+}
+
+.a1 {
+	margin-left: 58%;
+	float: right;
+	position: absolute;
+	transform: translate(-18%, -200%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 18px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 16: Principio de jerarquía
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<p align=center><font color=yellow>¿Qué es el principio de jerarquía?</font></p>
+
+<p align=left><font color=yellow>Enlace: https://compilandoconocimiento.com/2017/01/02/fundamentos-de-poo/</font></p>
+<p align=left><font color=blue>DEFINICIÓN DE JERARQUÍA</font></p>
+
+Todo conocimiento o modulo de tu programa puede ordenarse 
+como un árbol como por ejemplo (transporte-raíz, y las hojas 
+sean autos, barcos, caballos), de que el que esta más abajo 
+hereda todas las características de los de arriba.
+
+<p align=left><font color=yellow>Diccionario: 
+Real Académia de la lengua</font></p>
+
+1. f. Gradación de personas, valores o dignidades.
+
+<p align=left><font color=orange>EJEMPLO DE PROGRAMA</font></p>
+
+public class GeometricObject1 {
+  private String color = "white";
+  private boolean filled;
+  private java.util.Date dateCreated;
+
+  /** Construct a default geometric object */
+  public GeometricObject1() {
+    dateCreated = new java.util.Date();
+  }
+
+  /** Construct a geometric object with the specified color
+    * and filled value */
+  public GeometricObject1(String Color, boolean filled) {
+    dateCreated = new java.util.Date();
+    this.color = color;
+    this.filled = filled;
+  }
+
+  /** Return color */
+  public String getColor() {
+    return color;
+  }
+
+  /** Set a new color */
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  /** Return filled. Since filled is boolean,
+    its get method is named isFilled */
+  public boolean isFilled() {
+    return filled;
+  }
+
+  /** Set a new filled */
+  public void setFilled(boolean filled) {
+    this.filled = filled;
+  }
+
+  /** Get dateCreated */
+  public java.util.Date getDateCreated() {
+    return dateCreated;
+  }
+  
+  /** Return a string representation of this object */
+  public String toString() {
+    return "created on " + dateCreated + "\ncolor: " + color +
+      " and filled: " + filled;
+  }
+
+<p align=left><font color=yellow>Con el siguiente código 
+se jerarquizan las clases.</font></p>
+
+public class Circle4 extends GeometricObject1 {
+  private double radius;
+
+  public Circle4() {
+  }
+
+  public Circle4(double radius) {
+    this.radius = radius;
+  }
+
+  public Circle4(double radius, String color, boolean filled) {
+    this.radius = radius;
+    setColor(color);
+    setFilled(filled);
+  }
+
+  /** Return radius */
+  public double getRadius() {
+    return radius;
+  }
+
+  /** Set a new radius */
+  public void setRadius(double radius) {
+    this.radius = radius;
+  }
+
+  /** Return area */
+  public double getArea() {
+    return radius * radius * Math.PI;
+  }
+
+  /** Return diameter */
+  public double getDiameter() {
+    return 2 * radius;
+  }
+
+  /** Return perimeter */
+  public double getPerimeter() {
+    return 2 * radius * Math.PI;
+  }
+
+  /* Print the circle info */
+  public void printCircle() {
+    System.out.println("The circle is created " + getDateCreated() +
+      " and the radius is " + radius);
+  }
+}
+
+
+public class Bienvenido {
+	public static void main(String[] args) {
+		// Despliega el mensaje Bienvenido
+		 a Java! en la consola
+	System.out.println("Bienvenido a Java!");
+	}
+}
+
+</strong>
+</pre>
+
+<pre class="a1"><strong>
+
+<p align=left><font color=red>EJERCICIOS</font></p>
+
+<p align=right><font color=yellow>Hacer una calculadora 
+usando la jerarquía de las clases. Formando las 
+clases suma, resta, multiplicación y división.</font></p>
+
+public class CalcularExpresion {
+	public static void main(String[] args) {
+		System.out.println((10.5 + 2 * 3)
+		 / (45 – 3.5));
+	}
+}
+
+<p align=right><font color=yellow>Hacer una orquesta 
+usando la jerarquía de las clases. Formando las 
+clases guitarra, violín, flauta y piano.</font></p>
+
+// Herencia y conversión hacia arriba.
+class Nota {
+  private int valor;
+  private Nota(int val) { 
+    valor = val;
+  }
+  public static final Nota
+    DO_MAYOR = new Nota(0),
+    DO_SOSTENIDO = new Nota(1) ,
+
+    SI_BEMOL = new Nota(2);
+} // Etc.
+
+class Instrumento {
+  public void tocar(Nota n) {
+    System.out.println ("Instrumento.tocar( ) ") ;
+  }
+}
+
+// Los objetos de viento son instrumentos
+// dado que tienen la misma interfaz:
+class Viento extends Instrumento {
+  // Redefinir el metodo interfaz:
+  public void tocar(Nota n) {
+    System.out.println ("Viento.tocar( ) ") ;
+  }
+}
+
+public class Orquesta {
+  public static void afinar(Instrumento i) {
+  // ...
+  i.tocar(Nota.DO_SOSTENIDO);
+  }
+
+  public static void main(String[] args) {
+    Viento flauta = new Viento( ) ;
+    afinar(flauta) ; // Conversión hacia arriba
+  }
+} ///:-
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

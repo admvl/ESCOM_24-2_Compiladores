@@ -1,0 +1,250 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+    width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+Paradigmas de la programación
+</font>
+</h2>
+
+<p align=right><a href=ParadigmasProgramacion2020/TemarioParadigmasProgramacion.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align="right" class="p5"><a href=SNCompiladores/COMapuntes2.svg target="_blank" style="float:center">
+APUNTES DE LA CLASE
+</a></p>
+
+<p align=right><a href=Pizarron40POO.html style="float:center">
+Pizarrón 40
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+DEFINICIONES 7
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Características de los lenguajes</font></p>
+
+<p align="center">
+<img src="ParadigmasProgramacion2020/CaracteristicasLenguaje.svg" align=center width=54% border=0></p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=ParadigmasProgramacion2020/CaracteristicasLenguaje.svg target="_blank" style="float:center"><strong>ParadigmasProgramacion2020/CaracteristicasLenguaje.dia</strong></font></a>
+</p>
+
+<p align=center><font color=yellow size=6>Expresiones lambda</font></p>
+
+<p align=center><strong>Aritmética de funciones</strong> </p>
+
+<p align=center><font color=red size=6>Suma: f() + g()</font></p>
+
+<p align=center><font color=red size=6>Resta: f() - g()</font></p>
+
+<p align=center><font color=red size=6>Multiplicación: f() * g()</font></p>
+
+<p align=center><font color=red size=6>División: f() / g()</font></p>
+
+
+<p align=center><font color=yellow size=6>Polimorfismo</font></p>
+
+<p><strong>Definición. </strong>La habilidad de usar la misma expresión para denotar diferentes operaciones. </p>
+
+<p align=center><font color=yellow size=6>Sobrecarga</font></p>
+
+<p><strong>Definición. </strong>Dos o más funciones pueden tener el mismo nombre con diferentes parámetros. Las funciones sobrecargadas son una forma de lograr el polimorfismo. </p>
+
+<p align=center><strong>Composición de funciones </strong> </p>
+
+<p align=center><font color=red size=6>Composición: f(g())</font></p>
+
+<p align=center><font color=red size=6>Composición: f() &compfn; g()</font></p>
+
+
+<p align=center><font color=yellow size=6>Programación lógica</font></p>
+
+<p align=center><strong>Encadenamiento de funciones </strong> </p>
+
+<p align=center><font color=red size=6>Encadenamiento: f(g(h()))</font></p>
+
+<p align=center><font color=red size=6>Encadenamiento: f() &compfn; (g() &compfn; h())</font></p>
+
+<p align=center><font color=yellow size=6>Cálculo de predicados </font></p>
+
+<p align=center><font color=yellow size=6>Recursividad </font></p>
+
+<p><strong>Definición </strong> Algo es definido en terminos de una pequeña versión de si mismo. </p>
+
+
+</header>
+
+<br>
+
+<!--
+<section class=izquierda><strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Sintaxis de la clase interna:</font></p>
+</header>
+
+<pre>
+ClaseExterna.ClaseInterna objetoInterno = objetoExterno.new ClaseInterna();
+</pre>
+
+<p>Si la clase interna es del tipo static, entonces se aplica la siguiente
+sintaxis:</p>
+
+<pre>
+ClaseExterna.ClaseInterna objetoInterno = new ClaseExterna.ClaseInterna();
+</pre>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Programa Logistica.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa Logistica.java</font> Se quiere saber cuánto se envia y a donde se envia un paquete.</p>
+
+<p><a href=Logistica.java style="float:center" target="_blank">Logistica.java</a>.</p>
+
+<p align=right><a href=SNPoo/ProgramaLogisticaVariante.svg style="float:center">
+Diagrama de programa logistica
+</a></p>
+
+<p align="center">
+<img src="SNPoo/ProgramaLogisticaVariante.svg" align=left width=54% border=0></p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Programa TemperaturaCuerpoHumano.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa TemperaturaCuerpoHumano.java</font> Se quiere saber si la temperatura del cuerpo humano requiere atención médica.</p>
+
+<p><a href=TemperaturaCuerpoHumano.java style="float:center" target="_blank">TemperaturaCuerpoHumano.java</a>.</p>
+
+</strong>
+</section>-->
+
+<!--------------------------------------------------------->
+
+<!--
+<aside class=derecha>
+<strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Programa CompraBotellas.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa Comprabotellas.java</font> Se quiere saber cuánto se debe pagar por una cantidad de botellas compradas.</p>
+
+<br>
+
+<p><a href=CompraBotellas.java style="float:center" target="_blank">CompraBotellas.java</a>.</p>-->
+
+</strong>
+</aside>
+
+
+</body>
+</html>

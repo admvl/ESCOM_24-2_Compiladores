@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="42cm" height="78cm" viewBox="160 52 826 1552" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="160.9" y="52.8" width="526.55" height="40.9"/>
+    <text font-size="33.9118" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="160.9" y="86.7">
+      <tspan x="160.9" y="86.7">Clase 5 del 22 de febrero del 2022 </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="164.9" y="144.1" width="791.7" height="55.5287"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="164.9" y="166.7">
+      <tspan x="164.9" y="166.7">Las clases léxicas, son:  Números, Identificadores, Operadores, Delimitadores y</tspan>
+      <tspan x="164.9" y="194.979">palabras clave  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="235.6" y="263" width="98.8" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="235.6" y="263" width="98.8" height="38"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="285" y="286.8">
+      <tspan x="285" y="286.8">Clases léxicas</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="546" y="261" width="40" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="546" y="261" width="40" height="38"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="566" y="284.8">
+      <tspan x="566" y="284.8">ER</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="339" y1="280" x2="526.264" y2="280"/>
+    <polygon style="fill: #0000ff" points="533.764,280 523.764,285 526.264,280 523.764,275 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="533.764,280 523.764,285 526.264,280 523.764,275 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="166.9" y="334.8" width="337.25" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="166.9" y="357.4">
+      <tspan x="166.9" y="357.4">La ER de un número flotante, es  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="298.8" y="407.6" width="26.6" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="298.8" y="430.2">
+      <tspan x="298.8" y="430.2">d  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="382.9" y="404.8" width="26.6" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="382.9" y="427.4">
+      <tspan x="382.9" y="427.4">d  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="316.8" y="387.6" width="30.55" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="316.8" y="410.2">
+      <tspan x="316.8" y="410.2">+  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="407.7" y="383.4" width="30.55" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="407.7" y="406">
+      <tspan x="407.7" y="406">+  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="344" y="389.4" width="36.8" height="47.8"/>
+    <text font-size="39.6127" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="344" y="429">
+      <tspan x="344" y="429">.  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="166.5" y="461" width="391.75" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="166.5" y="483.6">
+      <tspan x="166.5" y="483.6">Determinar la ER de un identificador:   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="294.4" y="502.8" width="345" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="294.4" y="525.4">
+      <tspan x="294.4" y="525.4">El símbolo l representa una letra:  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="295.3" y="535.6" width="351" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="295.3" y="558.2">
+      <tspan x="295.3" y="558.2">El símbolo d representa un digito:  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="186.2" y="581.4" width="708.5" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="186.2" y="604">
+      <tspan x="186.2" y="604">El identificador debe comenzar forzosamente con una letra, ejemplo:   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="379.1" y="638.2" width="326.65" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="379.1" y="660.8">
+      <tspan x="379.1" y="660.8">a1, b1, c1, d1, e1, a_1, b_1 ....  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="314.9" y="723.8" width="231.95" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="314.9" y="746.4">
+      <tspan x="314.9" y="746.4">1a, 1b, 1c, 1d, 1e, ....  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="178.9" y="673.8" width="569.3" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="178.9" y="696.4">
+      <tspan x="178.9" y="696.4">Los siguientes ejemplos, no representan idenficadores:   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="175.8" y="788.6" width="315.1" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="175.8" y="811.2">
+      <tspan x="175.8" y="811.2">La ER de un identificador, es:   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="396.9" y="833.8" width="45.85" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="396.9" y="856.4">
+      <tspan x="396.9" y="856.4">l d   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="509.9" y="829.8" width="91.05" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="509.9" y="852.4">
+      <tspan x="509.9" y="852.4">l (d | l)   </tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="456" y1="846" x2="474.289" y2="844.694"/>
+    <polygon style="fill: #0000ff" points="481.77,844.159 472.151,849.859 474.289,844.694 471.439,839.884 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="481.77,844.159 472.151,849.859 474.289,844.694 471.439,839.884 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="611.968" y1="850.146" x2="630.257" y2="848.84"/>
+    <polygon style="fill: #0000ff" points="637.738,848.305 628.119,854.005 630.257,848.84 627.407,844.03 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="637.738,848.305 628.119,854.005 630.257,848.84 627.407,844.03 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="670.9" y="833.8" width="91.05" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="670.9" y="856.4">
+      <tspan x="670.9" y="856.4">l (d | l)   </tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="345.968" y1="850.146" x2="364.257" y2="848.84"/>
+    <polygon style="fill: #0000ff" points="371.738,848.305 362.119,854.005 364.257,848.84 361.407,844.03 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="371.738,848.305 362.119,854.005 364.257,848.84 361.407,844.03 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="290.9" y="832.8" width="26.3" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="290.9" y="855.4">
+      <tspan x="290.9" y="855.4">l   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="748" y="827" width="26.45" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="748" y="849.6">
+      <tspan x="748" y="849.6">*  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="411.502" y="973.6" width="91.05" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="411.502" y="996.2">
+      <tspan x="411.502" y="996.2">l (d | l)   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="488.602" y="966.8" width="26.45" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="488.602" y="989.4">
+      <tspan x="488.602" y="989.4">*  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="170.502" y="923.8" width="315.1" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="170.502" y="946.4">
+      <tspan x="170.502" y="946.4">La ER de un identificador, es:   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="169.502" y="1026.8" width="191.85" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="169.502" y="1049.4">
+      <tspan x="169.502" y="1049.4">¿Qué es un AFN?   </tspan>
+    </text>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="354.544" cy="1176.3" rx="25.5" ry="25.5"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="354.544" cy="1176.3" rx="25.5" ry="25.5"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="354.544" cy="1176.3" rx="25.5" ry="25.5"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff0000" x1="302.544" y1="1175.8" x2="319.31" y2="1176.12"/>
+    <polygon style="fill: #ff0000" points="326.808,1176.26 316.716,1181.07 319.31,1176.12 316.904,1171.07 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff0000" points="326.808,1176.26 316.716,1181.07 319.31,1176.12 316.904,1171.07 "/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="512.402" cy="1175.7" rx="25.9" ry="25.9"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="512.402" cy="1175.7" rx="25.9" ry="25.9"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="512.402" cy="1175.7" rx="25.9" ry="25.9"/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="620.252" cy="1175.55" rx="26.75" ry="26.75"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="620.252" cy="1175.55" rx="26.75" ry="26.75"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="620.252" cy="1175.55" rx="26.75" ry="26.75"/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="620.002" cy="1175.8" rx="22.5" ry="22.5"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="620.002" cy="1175.8" rx="22.5" ry="22.5"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="620.002" cy="1175.8" rx="22.5" ry="22.5"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="380.044" y1="1176.3" x2="464.866" y2="1176.93"/>
+    <polygon style="fill: #0000ff" points="472.366,1176.98 462.329,1181.91 464.866,1176.93 462.403,1171.91 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="472.366,1176.98 462.329,1181.91 464.866,1176.93 462.403,1171.91 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="544.602" y1="1176" x2="571.869" y2="1176.74"/>
+    <polygon style="fill: #0000ff" points="579.367,1176.94 569.235,1181.67 571.869,1176.74 569.505,1171.67 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="579.367,1176.94 569.235,1181.67 571.869,1176.74 569.505,1171.67 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="392.502" y="1132.8" width="83.75" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="392.502" y="1155.4">
+      <tspan x="392.502" y="1155.4">epsilon  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="556.502" y="1131.8" width="26.6" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="556.502" y="1154.4">
+      <tspan x="556.502" y="1154.4">b  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="255.402" y="1067.6" width="505.95" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="255.402" y="1090.2">
+      <tspan x="255.402" y="1090.2">Es el que tiene transiciones con el caracter vacio:  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="259.9" y="1233.8" width="725.65" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="259.9" y="1256.4">
+      <tspan x="259.9" y="1256.4">Es que de un mismo estado una transición va a dos estados diferentes:  </tspan>
+    </text>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="329.919" cy="1370.3" rx="25.5" ry="25.5"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="329.919" cy="1370.3" rx="25.5" ry="25.5"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="329.919" cy="1370.3" rx="25.5" ry="25.5"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff0000" x1="277.919" y1="1369.8" x2="294.684" y2="1370.12"/>
+    <polygon style="fill: #ff0000" points="302.183,1370.26 292.09,1375.07 294.684,1370.12 292.279,1365.07 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #ff0000" points="302.183,1370.26 292.09,1375.07 294.684,1370.12 292.279,1365.07 "/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="487.777" cy="1369.7" rx="25.9" ry="25.9"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="487.777" cy="1369.7" rx="25.9" ry="25.9"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="487.777" cy="1369.7" rx="25.9" ry="25.9"/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="595.627" cy="1369.55" rx="26.75" ry="26.75"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="595.627" cy="1369.55" rx="26.75" ry="26.75"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="595.627" cy="1369.55" rx="26.75" ry="26.75"/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="595.377" cy="1369.8" rx="22.5" ry="22.5"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="595.377" cy="1369.8" rx="22.5" ry="22.5"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="595.377" cy="1369.8" rx="22.5" ry="22.5"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="355.419" y1="1370.3" x2="440.241" y2="1370.93"/>
+    <polygon style="fill: #0000ff" points="447.741,1370.98 437.704,1375.91 440.241,1370.93 437.778,1365.91 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="447.741,1370.98 437.704,1375.91 440.241,1370.93 437.778,1365.91 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="519.977" y1="1370" x2="547.244" y2="1370.74"/>
+    <polygon style="fill: #0000ff" points="554.741,1370.94 544.61,1375.67 547.244,1370.74 544.88,1365.67 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="554.741,1370.94 544.61,1375.67 547.244,1370.74 544.88,1365.67 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="531.877" y="1325.8" width="26.6" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="531.877" y="1348.4">
+      <tspan x="531.877" y="1348.4">b  </tspan>
+    </text>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="482.8" cy="1454.7" rx="25.9" ry="25.9"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="482.8" cy="1454.7" rx="25.9" ry="25.9"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="482.8" cy="1454.7" rx="25.9" ry="25.9"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="515" y1="1438" x2="562.194" y2="1402.82"/>
+    <polygon style="fill: #0000ff" points="568.207,1398.34 563.178,1408.32 562.194,1402.82 557.201,1400.3 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="568.207,1398.34 563.178,1408.32 562.194,1402.82 557.201,1400.3 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="516.9" y="1387.8" width="24.55" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="516.9" y="1410.4">
+      <tspan x="516.9" y="1410.4">c  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="386.8" y="1322.6" width="25.95" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="386.8" y="1345.2">
+      <tspan x="386.8" y="1345.2">a  </tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="342" y1="1402" x2="442.001" y2="1443.28"/>
+    <polygon style="fill: #0000ff" points="448.933,1446.15 437.782,1446.95 442.001,1443.28 441.598,1437.71 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="448.933,1446.15 437.782,1446.95 442.001,1443.28 441.598,1437.71 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="392.7" y="1390.4" width="25.95" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="392.7" y="1413">
+      <tspan x="392.7" y="1413">a  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="206.9" y="1493.8" width="383.35" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="206.9" y="1516.4">
+      <tspan x="206.9" y="1516.4">De una ER se transforma en un AFN:  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="379" y="1563" width="40" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="379" y="1563" width="40" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="399" y="1586.8">
+      <tspan x="399" y="1586.8">ER</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="754.525" y="1565" width="44.95" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="754.525" y="1565" width="44.95" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="777" y="1588.8">
+      <tspan x="777" y="1588.8">AFN</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="422" y1="1579" x2="733.264" y2="1581.91"/>
+    <polygon style="fill: #0000ff" points="740.764,1581.98 730.718,1586.89 733.264,1581.91 730.811,1576.89 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="740.764,1581.98 730.718,1586.89 733.264,1581.91 730.811,1576.89 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="440.9" y="1544.8" width="301.8" height="27.25"/>
+    <text font-size="22.6229" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="440.9" y="1567.4">
+      <tspan x="440.9" y="1567.4">Tranformación de Thompson  </tspan>
+    </text>
+  </g>
+</svg>

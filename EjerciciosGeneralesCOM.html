@@ -1,0 +1,412 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+    width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+Compiladores
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPoo.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+TEMARIO 2009
+</a></p>
+
+<p align=right><a href=EstudianteAgoDic2022.html style="float:center">
+LISTA DE CLASES
+</a></p>
+
+<p align="right" class="p5"><a href=SNCompiladores/COMapuntes5.svg target="_blank" style="float:center">
+(APUNTES 5) SNCompiladores/COMapuntes5.dia
+</a></p>
+
+<p align=right><a href=Pizarron5COM.svg style="float:center">
+(PIZARRÓN DE CLASE 5) MiMIC/Pizarron5COM.dia
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+EJERCICIOS GENERALES
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<!--
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Definición de expresión regular</font></p>
+
+
+<p>La expresión regular es una serie de símbolos colocados uno después de otro.
+<br>
+<font color=red size=7><h3 align="center">abcd, &epsilon; o &lambda;</h3></font>
+<br>
+<font color=red size=7><h3 align="center">&epsilon; o &lambda;</h3></font>
+<br>
+<p align=center><font color=yellow size=6>Las operaciones básicas de las expresiones regulares</font></p>
+<br>
+<font color=red size=7><h3 align="center">a | b = {a} o {b}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a  b = {ab}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>*</SUP> = {&epsilon;,a,aa,aaa, ...}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>+</SUP> = {a,aa,aaa, ...}</h3></font>
+<br>
+</p>
+</header> -->
+
+<br>
+
+<section class=izquierda>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Preguntas <br> Trabajo individual </font></p>
+</header>
+
+<p><strong>Pregunta 1</strong> Considerar un simple buscador Web que
+toma como entrada una cadena textual en formato HTML que despliega
+las graficas especificadas en la pantalla. ¿Es el proceso de despliegue
+un proceso decompilación o un proceso de interpretación?</p>
+
+<p><strong>Pregunta 2</strong> En el diseño de un compilador, te enfrentarás a muchas consideraciones. ¿Cuáles son las cinco cualidades que tú, como usuario, consideras más importantes en un compilador que tú comprarías? ¿Qué cambia de la lista cuándo tú estas construyendo el compilador? ¿Qué dices de la lista cuándo implementas al compilador? </p>
+
+<p><strong>Pregunta 3</strong> Los compiladores se usan en cirscunstancias diferentes. ¿Qué diferencias se pueden esperar en el diseño de un compilador para las siguientes aplicaciones? a.- Un compilador en tiempo real usado para traducir el código de una interface de usuario cargado para una red. b.- Un compilador tiene por objetivo el procesador embebido usado en un teléfono celular. c.- Un compilador usado en un curso de introducción a la programación. d.- Un compilador usado para construir la simulación de un tunel de viento que funciona en procesadores paralelos masivos (los procesadores son identicos). e.- Un compilador que tiene como objetivo programas intesivamente numéricos para grandes números en diversas máquinas.</p>
+
+<p><strong>Pregunta 4</strong> Los diferentes lenguajes de programación usan diferente notación para representar: a.- Enteros no negativos en c en bases de 10 y 16. b.- Enteros no negativos en VHDL que puede incluir subrayados (un subrayado no puede ocurrir como primero o último caracter). c.- Moneda, en dólares, representada como un número decimal positivo
+redondeado a la centésima más cercana. Dichos números comienzan con
+el carácter $, tiene comas separando cada grupo de tres dígitos
+a la izquierda del punto decimal, y terminar con dos dígitos a la derecha
+del punto decimal, por ejemplo, $8,937.43 y $7,777,777.77.</p>
+
+<p><strong>Pregunta 5</strong> Escribe una expresión regular para describir cada uno de los siguientes
+construcciones del lenguaje de programación:
+a. Cualquier secuencia de tabulaciones y espacios en blanco (a veces llamados espacios en blanco)
+b. Comentarios en el lenguaje de programación c
+C. Constantes de cadena (sin caracteres de escape)
+d. Números de punto flotante
+</p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejercicios <br> Trabajo colectivo</font></p>
+</header>
+
+<br>
+
+<p>Completar el proceso en cada uno de los siguientes ejercicios hasta obtener un analizador léxico:</p>
+
+<p><strong>Ejercicio 1</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E1.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E1.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E1.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 2</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E2.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E2.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E2.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 3</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E3.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E3.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E3.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 4</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E4.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E4.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E4.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 5</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E5.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E5.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E5.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 6</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E6.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E6.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E6.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 7</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E7.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E7.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E7.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 8</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E8.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E8.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E8.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 9</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E9.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E8.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E8.svg" align=center width=54% border=0></p>
+
+</section>
+
+<!--------------------------------------------------------->
+
+
+<aside class=derecha>
+<strong>
+
+<p><strong>Ejercicio 10</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E10.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E10.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E10.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 11</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E11.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E11.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E11.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 12</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E12.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E12.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E12.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 13</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E13.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E13.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E13.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 14</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E14.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E14.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E14.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 15</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E15.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E15.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E15.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 16</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E16.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E16.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E16.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 17</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E17.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E17.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E17.svg" align=center width=54% border=0></p>
+
+<p><strong>Ejercicio 18</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlP1E18.svg target="_blank" style="float:center"><strong>SNCompiladores/AlP1E18.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlP1E18.svg" align=center width=54% border=0></p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejercicio 19:</font></p>
+</header>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlAsEjercicio1.svg target="_blank" style="float:center"><strong>SNCompiladores/AlAsEjercicio1.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlAsEjercicio1.svg" align=center width=54% border=0></p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejercicio 20:</font></p>
+</header>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlAsEjercicio2.svg target="_blank" style="float:center"><strong>SNCompiladores/AlAsEjercicio2.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlAsEjercicio2.svg" align=center width=54% border=0></p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejercicio 21:</font></p>
+</header>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/AlAsEjercicio3.svg target="_blank" style="float:center"><strong>SNCompiladores/AlAsEjercicio3.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="SNCompiladores/AlAsEjercicio3.svg" align=center width=54% border=0></p>
+
+</strong>
+</aside>
+
+
+</body>
+</html>

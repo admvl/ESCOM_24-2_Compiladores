@@ -1,0 +1,1076 @@
+<html>
+<style>
+/*
+body {
+	background-image: url(SAM_2598.jpg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 1;
+}*/
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 0%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+header.a {
+
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 25%;
+margin-right: 20%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+h1 {  font-size: 50px;
+      margin: 6px;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+article {
+background-color: #8ba987;
+
+background-repeat: no-repeat;
+background-size: cover;
+opacity: 1;
+display: block;
+margin-left: 0%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: auto;	
+height:35%;	
+}
+
+article.uno {
+background-color: #8ba987;
+opacity: 0.8;
+display: block;
+margin-left: 0%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: auto;	
+height: auto;	
+}
+
+article header {
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding: 5px;
+width:30%;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+}
+
+article.uno header {
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding: 5px;
+width: 30%;
+height: auto;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+}
+
+article h1 {
+font-size: 18px;
+}
+
+.contenedor{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    
+    
+}
+ 
+.texto-encima{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+     
+}
+.centrado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+p.p2  {
+ background-color: #808080;
+ font-size: 28px;
+ width: auto;
+ margin: 20px auto;
+ padding: 5px;
+ border: solid 6px #c9e3ec;
+ font: normal 15px arial, helvetica, sans-serif;
+ margin-left: 0%;
+ margin-right: auto;
+ }
+
+p.p3  {
+ background-color: #808080;
+ font-size: 28px;
+ width: 800px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px orange;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+p.p4  {
+ background-color: #808080;
+ font-size: 28px;
+ width: auto;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px white;
+ font: normal 15px arial, helvetica, sans-serif;
+ margin-left: 0%;
+ margin-right: auto;
+ }
+
+.ventanaD {
+ background-color: #808080;
+ width: 600px;
+ height: auto;
+ margin-left: 0%;
+ /*transform: translate(0%,0%);*/
+ position: left;
+ 
+}
+
+.ventanaD5 {
+ background-color: #808080;
+ width: 600px;
+ height: auto;
+ margin-left: 0%;
+ /*transform: translate(0%,-340%);
+ position: left;*/
+ overflow: hidden;
+}
+
+.ventanaF {
+ background-color: #808080;
+ width: 600px;
+ height: auto;
+ margin-left: 0%;
+ /*transform: translate(0%,-70%);*/
+}
+
+.ventanaT {
+ background-color: #808080;
+ width: 600px;
+ height: auto;
+ margin-left: 0%;
+ /*transform: translate(0%,-130%);*/
+}
+
+.ventanaC {
+ background-color: #808080;
+ width: 600px;
+ height: auto;
+ margin-left: 0%;
+ /*transform: translate(0%,-100%);*/
+}
+
+.ventana-titulo {
+ background: green;
+ width: 600px;
+ height: 80px;
+ 
+}
+
+.ventana-cuerpo {
+ 
+ width: 588px;
+ height: auto;
+ opacity: 1;
+ border: solid 6px #80aab7;
+}
+
+pre.p1  {
+ background-color: #808080;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #80A93E;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+p.par1  {
+ background-color: #808080;
+ width: 400px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px yellow;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+#nodo {
+	display: none;
+	transform: translate(5%,-300%);
+}
+
+#listEnlazada {
+	display: none;
+	transform: translate(50%,-300%);
+}
+
+</style>
+
+<head>
+<title>Clase 11</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<!--
+<a>
+<img src="MMCPagina1.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=24.5% border=0>
+</a>
+
+<a>
+<img src=socrates.jpeg align=right alt="seleccione aquí para visitar la página oficial del material" width=24.5% height=102% border=0>
+</a>
+
+
+<img src=MaestroViejo.jpg align=left alt="seleccione aquí para visitar la página oficial del material" width=9% height=auto border=0>
+
+<!--<img src=Curie.jpg align=right alt="seleccione aquí para visitar la página oficial del material" width=11% height=auto border=0>-->
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<h2 align=center>
+<font color=white size=5>
+CLASE 11: Clases para listas enlazadas
+</font>
+</h2>
+</header>
+
+<hr>
+
+<!--<article class="uno">-->
+<header class="a">
+<h2 align=center>MOTIVACIÓN DEL ESTUDIANTE PARA EL ESTUDIO</h2>
+</header>
+<br>
+<p align=center><strong>Se presentan las actividades para hacer sentir al estudiante los valores que le apoyarán para ser buen estudiante y buen ciudaddano.</strong></p>
+<br>
+<p class="p2">
+<table CELLSPACING="16">
+<tr><th>Pensamientos</th><th>Lecturas</th><th>Moral</th><th>Poemas</th><th>Política y Económia</th></tr>
+
+<tr><td><p><a href=ProgramasAgo2019 style="float:center">
+Enlace a pensamientos
+</a></p></td><td><p><a href=ProgramasAgo2019 style="float:center">
+Enlace a lecturas
+</a></p></td><td><p><a href=ProgramasAgo2019 style="float:center">
+Enlace a escritos de moral
+</a></p></td><td><p><a href=ProgramasAgo2019 style="float:center">
+Enlaces a poemas
+</a></p></td><td><p><a href=HumanismoTeoriaPolitica.html style="float:center">
+Enlace a escritos político económicos
+</a></p></td></tr>
+</table>
+</p>
+
+<header class="a">
+<h2 align=center>PIZARRÓN</h2>
+</header>
+<br>
+<p align=center><strong>
+Se presentan las definiciones, formas de código, ejemplos y ejercicios para la presentación de la clase.</strong>
+</p>
+<br>
+
+<p align=center><font color=yellow size=5>El objetivo: El Estudiante construirá programas utilizando indistintamente los tipos de clases.</font></p>
+<br>
+<p class="p4">
+<table CELLSPACING="16">
+<tr><th>DEFINICIONES</th><th>EJEMPLO</th><th>EJERCICIO</th></tr>
+<tr><td><p>
+
+<button onclick="document.getElementById('nodo').style.display='block'">
+¿Que es un nodo?
+</button>
+
+</p></td><td><p><a href=ProgramasAgo2019 style="float:center">
+Ejemplo de nodo
+</a></p></td><td><p><a href=ProgramasAgo2019 style="float:center">
+Ejercicio de nodo
+</a></p></td></tr>
+
+<tr><td><p>
+<button onclick="document.getElementById('listEnlazada').style.display='block'">
+¿Que es una lista enlazada?
+</button>
+</p></td><td><p>
+
+<button onclick="document.getElementById('listEnlazada').style.display='block'">
+¿Que es una lista enlazada?
+</button>
+
+</p></td><td><p><a href=ProgramasAgo2019 style="float:center">
+Ejercicio de lista enlazada
+</a></p></td></tr>
+
+<tr><td><p><a href=ProgramasAgo2019 style="float:center">
+¿Que es la construcción de nodos?
+</a></p></td><td><p><a href=ProgramasAgo2019 style="float:center">
+Ejemplo construcción de nodos
+</a></p></td><td><p><a href=ProgramasAgo2019 style="float:center">
+Ejercicio de construcción de nodos
+</a></p></td></tr>
+
+<tr><td><p><a href=ProgramasAgo2019 style="float:center">
+¿Que es la gestión de memoria?
+</a></p></td><td><p><a href=ProgramasAgo2019 style="float:center">
+Ejemplo de gestión de memoria
+</a></p></td><td><p><a href=ProgramasAgo2019 style="float:center">
+Ejercicio de gestión de memoria
+</a></p></td></tr>
+
+<tr><td><p><a href=ProgramasAgo2019 style="float:center">
+¿Como usar la Interface?
+</a></p></td><td><p><a href=ProgramasAgo2019 style="float:center">
+Ejemplo de interface en una lista enlazada
+</a></p></td><td><p><a href=ProgramasAgo2019 style="float:center">
+Ejercicio de interface en una lista enlazada
+</a></p></td></tr>
+</table>
+</p>
+
+<br>
+
+
+<div id=listEnlazada class="ventanaD">
+ <div class="ventana-titulo"><h2 align=center>¿Qué es una lista enlazada?</h2></div>
+ <div class="ventana-cuerpo"><p class="par1">
+DEFINICIÓN 3 (Constructor.) Un constructor es parecido a un
+método en el que se puede tener un especificador de acceso (público o privado), un nombre, parámetros y código ejecutable.
+Sin embargo, los constructores tienen las siguientes diferencias o
+caracterı́sticas especiales:</p>
+
+<pre><font size=4>
+public class TestList {
+   public static void main(String[] args) {
+   // Crear una lista
+      MyList<String> list = new MyArrayList<String>();
+
+   // Agregar un elemento a la lista
+   list.add("America"); // Agregar a la lista
+   System.out.println("(1) " + list);
+
+   list.add(0, "Canada"); // Agregar al comienzo de la 
+   lista
+   System.out.println("(2) " + list);
+
+   list.add("Russia"); // Agregar al final de la lista
+   System.out.println("(3) " + list);
+
+   list.add("France"); // Agregar al final de la lista
+   System.out.println("(4) " + list);
+
+   list.add(2, "Germany"); // Agregar a la lista en el 
+   indice 2
+   System.out.println("(5) " + list);
+
+   list.add(5, "Norway"); // Agregar a la lista en el 
+   indice 5
+   System.out.println("(6) " + list);
+
+   // Remove elements from the list
+   list.remove("Canada"); // Igual como la list.remove(0)
+   System.out.println("(7) " + list);
+
+   list.remove(2); // Remover el elemento del indice 2
+   System.out.println("(8) " + list);
+
+   list.remove(list.size() - 1); // Remover el ultimo 
+   elemento
+   System.out.println("(9) " + list);
+   }
+}</font>
+</p>
+<button onclick="document.getElementById('listEnlazada').style.display='none'">
+Ocultar
+</button>
+</div>
+</div>
+
+
+<div id=nodo class="ventanaF">
+ <div class="ventana-titulo"><h2 align=center>¿Qué es un nodo?</h2></div>
+ <div class="ventana-cuerpo">
+<pre><font size=4>
+class Node<E> {
+   E element;
+   Node<E> next;
+
+   public Node(E e) {
+      element = e;
+   }
+}
+<br>
+Node current = head;
+   while (current != null ) {
+      System.out.println(current.element);
+      current = current.next;
+   }
+</p></font>
+<button onclick="document.getElementById('nodo').style.display='none'">
+Ocultar
+</button>
+</div>
+</div>
+
+
+<div class="ventanaT">
+ <div class="ventana-titulo"><h2 align=center>¿Clase principal Lista enlazada?</h2></div>
+ <div class="ventana-cuerpo"><font color=black size=6>Tabla:</font>
+
+<pre><font size=3>
+public class TestLinkedList {
+   /** Metodo main*/
+   public static void main(String[] args) {
+   // Crear una lista para cadenas
+   MyLinkedList<String> list = new MyLinkedList<String>();
+
+   // Agregar elementos a la lista
+   list.add("America"); // Aagregar a la lista
+   System.out.println("(1) " + list);
+
+   list.add(0, "Canada"); // Agregar para comenzar el inicio
+   de la lista
+   System.out.println("(2) " + list);
+
+   list.add("Russia"); // Agregar al final de la lista
+   System.out.println("(3) " + list);
+
+   list.addLast("France"); // Agregar al final de la lista
+   System.out.println("(4) " + list);
+
+   list.add(2, "Germany"); // Agregar a la lista en el indice 2
+   System.out.println("(5) " + list);
+
+   list.add(5, "Norway"); // Agregar a la lista en el indice 5
+   System.out.println("(6) " + list);
+
+   list.add(0, "Poland"); // Igual como en list.addFirst("Poland")
+   System.out.println("(7) " + list);
+
+   // Remove elements from the list
+   list.remove(0); // Igual como en list.remove("Australia") 
+   en este caso
+   System.out.println("(8) " + list);
+
+   list.remove(2); // Remover el elemento del indice
+   System.out.println("(9) " + list);
+
+   list.remove(list.size() - 1); // Remover el ultimo elemento
+   System.out.println("(10) " + list);
+   }
+}</font>
+</pre>
+</div>
+</div>
+
+
+<div class="ventanaC">
+ <div class="ventana-titulo"><h2 align=center>¿Qué es una clase abstracta?</h2></div>
+ <div class="ventana-cuerpo"><pre class="p1">
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class person {
+
+	char name[30];
+	int age;
+public:
+	void getdata(void);
+	void display(void);
+};
+
+void person :: getdata(void) {
+
+	cout << "Agregar Nombre:" ;
+	cin >> name;
+	cout << "Agregar Edad:";
+	cin >> age;
+}
+
+void person :: display(void) {
+
+	cout << "\nNombre:" << name;
+	cout << "\nEdad:" << age;
+}
+
+int main() {
+
+	person p;
+
+	p.getdata();
+	p.display();
+
+	return 0;
+}
+</pre></div>
+</div>
+
+<div class="ventanaD5">
+ <div class="ventana-titulo"><h2 align=center>¿Qué es una Interface?</h2></div>
+ <div class="ventana-cuerpo"><font color=black size=6>Tabla:</font></div>
+</div>
+
+<div class="ventanaD">
+ <div class="ventana-titulo"><h2 align=center>Clase principal de una lista enlazada</h2></div>
+ <div class="ventana-cuerpo">
+<pre>
+public class MyLinkedList<E> extends MyAbstractList<E> {
+   private Node<E> head, tail;
+   /** Crea una lista por default */
+   public MyLinkedList() {
+   }
+   /** Crea una lista de un arreglo de objetos */
+   public MyLinkedList(E[] objects) {
+      super(objects);
+   }
+   /** Regresa el element encabezado de la lista */
+   public E getFirst() {
+      if (size == 0) {
+         return null;
+      }
+      else {
+         return head.element;
+      }
+   }
+   /** Regresa el ultimo elemento de la lista */
+   public E getLast() {
+      if (size == 0) {
+         return null;
+      }
+      else {
+         return tail.element;
+      }
+   }
+   /** Agrega un elemento al principio de la lista */
+   public void addFirst(E e) {
+
+   // Se omite
+   }
+   /** Agrega un elemento al final de la lista */
+   public void addLast(E e) {
+     // Se omite
+   }
+   /** Agrega un nuevo elemento en el indice especificado de la lista
+   * El indice del elemento encabezado es 0 */
+   public void add(int index, E e) {
+   //Se omite su implementacion
+   }
+   /** Remover el nodo encabezado y
+   * regresa el objeto contenido en el nodo reovido. */
+   public E removeFirst() {
+   //Se omite 
+   }
+   /** Remover el ultimo nodo
+   * regresa el objecto contenido el nodo removido. */
+   public E removeLast() {
+   // Se omite
+   }
+   /** Remover el elemento en la posicion especificada de la lista.
+   * Regresa el elemento que fue remivido de la lista. */
+   public E remove( int index) {
+   // Se omite
+   }
+   /** Override toString() para regresar elementos en la lista */
+   public String toString() {
+   StringBuilder result = new StringBuilder("[");
+   Node<E> current = head;
+   for (int i = 0; i < size; i++) {
+      result.append(current.element);
+      current = current.next;
+      if (current != null) {
+         result.append(", "); // Separa dos elementos con una coma
+      } else {
+        result.append("]"); // Inserta el ] en la cadena
+      }
+   }
+   return result.toString();
+   }
+   /** Borra la lista */
+      public void clear() {
+         head = tail = null;
+    }
+    /** Regresa true si esta lista contiene el elemento o */
+    public boolean contains(E e) {
+       System.out.println("Implementacion izquierda como ejercicio");
+       return true;
+    }
+    /** Regresa los elementos de la lista en el indice especificado*/
+    public E get(int index) {
+       System.out.println("Implementacion izquierda como ejercicio");
+    }
+       return null;
+    }
+    /** Regresa el indice del elemento encabezado de la lista.
+    * Regresa -1 si no acopla. */
+    public int indexOf(E e) {
+       System.out.println("Implementacion izquierda como ejercicio");
+       return 0;
+    }
+    /** Regresa el indice del ultimo elemento de la lista
+    * Regresa -1 si no acopla. */
+    public int lastIndexOf(E e) {
+       System.out.println("Implementacion izquierda como ejercicio");
+       return 0;
+    }
+    /** Reemplaza el elemento en la posicion especificad de la lista
+    * con el elemento especificado. */
+    public E set(int index, E e) {
+       System.out.println("Implementacion izquierda como ejercicio");
+       return null;
+    }
+    private static class Node<E> {
+       E element;
+       Node<E> next;
+
+       public Node(E element) {
+       this.element = element;
+       }
+    }
+}
+</pre>
+ </div>
+</div>
+
+<div class="ventanaD">
+ <div class="ventana-titulo"><h2 align=center>Implementando el primero</h2></div>
+ <div class="ventana-cuerpo">
+<pre>
+public void addFirst(E e) {
+   Node<E> newNode = new Node<E>(e); // Create a new node
+   newNode.next = head; // link the new node with the head
+   head = newNode; // head points to the new node
+   size++; // Increase list size
+
+   if ( tail == null ) // the new node is the only node in list
+      tail = head;
+}
+</pre>
+ </div>
+</div>
+
+
+<div class="ventanaD">
+ <div class="ventana-titulo"><h2 align=center>Agregar el ultimo a la lista</h2></div>
+ <div class="ventana-cuerpo">
+<pre>
+public void addLast(E e) {
+   Node<E> newNode = new Node<E>(e); // Create a new node for e
+
+   if (tail == null) {
+      head = tail = newNode; // The only node in list
+   }
+   else {
+      tail.next = newNode; // Link the new with the last node
+      tail = tail.next; // tail now points to the last node
+   }
+
+   size++; // Increase size
+}
+</pre>
+ </div>
+</div>
+
+
+<div class="ventanaD">
+ <div class="ventana-titulo"><h2 align=center>Agregar en el indice</h2></div>
+ <div class="ventana-cuerpo">
+<pre>
+public void add(int index, E e) {
+   if (index == 0) addFirst(e); // Insert first
+   else if (index >= size) addLast(e); // Insert last
+   else { // Insert in the middle
+      Node<E> current = head;
+      for (int i = 1; i < index; i++)
+         current = current.next;
+      Node<E> temp = current.next;
+      current.next = new Node<E>(e);
+      (current.next).next = temp;
+      size++;
+   }
+}
+</pre>
+ </div>
+</div>
+
+
+<div class="ventanaD">
+ <div class="ventana-titulo"><h2 align=center>Remover el primero</h2></div>
+ <div class="ventana-cuerpo">
+<pre>
+public E removeFirst() {
+   if (size == 0) return null; // Nothing to delete
+   else {
+      Node<E> temp = head; // Keep the first node temporarily
+      head = head.next; // Move head to point to the next node
+      size--; // Reduce size by 1
+      if (head == null) tail = null; // List becomes empty
+      return temp.element; // Return the deleted element
+   }
+}
+</pre>
+ </div>
+</div>
+
+
+<div class="ventanaD">
+ <div class="ventana-titulo"><h2 align=center>Remover el último</h2></div>
+ <div class="ventana-cuerpo">
+<pre>
+public E removeLast() {
+   if (size == 0) return null; // Nothing to remove
+   else if (size == 1) // Only one element in the list
+   {
+      Node<E> temp = head;
+      head = tail = null; // list becomes empty
+      size = 0;
+      return temp.element;
+   }
+   else
+   {
+      Node<E> current = head;
+
+      for (int i = 0; i < size - 2; i++)
+         current = current.next;
+
+      Node<E> temp = tail;
+      tail = current;
+      tail.next = null;
+      size--;
+      return temp.element;
+    }
+}
+</pre>
+ </div>
+</div>
+
+
+<div class="ventanaD">
+ <div class="ventana-titulo"><h2 align=center>Remover del índice de la lista</h2></div>
+ <div class="ventana-cuerpo">
+<pre>
+public E remove(int index) {
+   if (index < 0 || index >= size) return null; // Out of range
+   else if (index == 0) return removeFirst(); // Remove first
+   else if (index == size - 1) return removeLast(); // Remove last
+   else {
+      Node<E> previous = head;
+
+      for (int i = 1; i < index; i++) {
+         previous = previous.next;
+      }
+
+      Node<E> current = previous.next;
+      previous.next = current.next;
+      size--;
+      return current.element;
+   }
+}
+</pre>
+ </div>
+</div>
+
+
+<div class="ventanaD">
+ <div class="ventana-titulo"><h2 align=center>Clase principal de una lista enlazada</h2></div>
+ <div class="ventana-cuerpo">
+<pre>
+
+</pre>
+ </div>
+</div>
+
+
+<!--
+<table CELLSPACING="16">
+<tr><th>Compiladores</th><th>Estructuras de datos</th><th>Programación orientada a objetos</th><th>Electrónica</th></tr>
+
+<tr><td>Clase TemaC1</td><td>Clase TemaED1</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO1
+</a></p></td><td>Clase TemaE1</td></tr>
+
+<tr><td>Clase TemaC2</td><td>Clase TemaED2</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO2
+</a></p></td><td>Clase TemaE2</td></tr>
+
+<tr><td>Clase TemaC3</td><td>Clase TemaED3</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO3
+</a></p></td><td>Clase TemaE3</td></tr>
+
+<tr><td>Clase TemaC4</td><td>Clase TemaED4</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO4
+</a></p></td><td>Clase TemaE4</td></tr>
+
+<tr><td>Clase TemaC5</td><td>Clase TemaED5</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO5
+</a></p></td><td>Clase TemaE5</td></tr>
+
+<tr><td>Clase TemaC6</td><td>Clase TemaED6</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO6
+</a></p></td><td>Clase TemaE6</td></tr>
+
+<tr><td>Clase TemaC7</td><td>Clase TemaED7</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO7
+</a></p></td><td>Clase TemaE7</td></tr>
+
+<tr><td>Clase TemaC8</td><td>Clase TemaED8</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO8
+</a></p></td><td>Clase TemaE8</td></tr>
+
+<tr><td>Clase TemaC9</td><td>Clase TemaED9</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO9
+</a></p></td><td>Clase TemaE9</td></tr>
+
+<tr><td>Clase TemaC10</td><td>Clase TemaED10</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO10
+</a></p></td><td>Clase TemaE10</td></tr>
+</table>
+<br>
+<br>
+<!--
+<p align=center>
+Para comenzar a eseñar, el estudiante debe estar acondicionado anímicamente para recibir los conocimientos como: la comprensión de las definiciones, ejercicios y ejemplos de las asignaturas presentadas.
+<br>
+<br>
+El ideologo <strong>Juan Jacobo Rousseau</strong> plantea en su obra <i><font size=5>Emilio o de la educación</font></i>: 
+<br>
+<font size=5>La educación debe ser integral</font>
+<br>
+<br>
+Por lo que se considera la &nbsp; &nbsp;  <a href=Humanismo.html><i><font color=blue size=5>potenciación del Humanismo</font></i></a> &nbsp; &nbsp;  para poder intensificar la motivación en el estudio de las asignaturas y la formación del estudiante para la vida.
+<br>
+<br>-->
+
+
+<!--
+<p align=center>
+Para saber la forma de estudiar, se recomienda contestar el cuestionario de características, con la finalidad de hacer la recomendación para seleccionar el estilo del estudio en la siguiente liga: <a href=Cuestionario.html><font color=blue size=4>ORIENTADOR</font></a>.
+</p>
+
+<table CELLSPACING="15">
+<font color=maroon size=5><h3 align="center">Formas de enseñanza recomendadas</h3></font>
+
+<tr><td><p align=center>
+ <a href=indice.html><img src="Curie.svg" width=25%></a></td><td><p align=center><a href=indice.html><img src="EstudiarPracticandoIzq.svg" width=25%></a></td><td><p align=center><a href=indice.html><img src="EstudiarHaciendo.svg" width=25% ></a></td></tr>
+
+<tr><td><p align=center>
+ <i><font color=maroon size=5>Enseñanza clásica</i></font>. Esta forma de se caracteríza ya que el estudiante estudia por su cuenta si no entiende lo expuesto por el profesor.
+</p></td><td><p align=center>
+ <i><font color=maroon size=5>Enseñanza práctica</i></font>. Esta forma de estudio es característica del estudiante que esta acostumbrado a estudiar consultando apuntes y haciendo prácticas.
+</p> </td><td><p align=center>
+ <i><font color=maroon size=5>Enseñar haciendo</i></font>. Esta forma de estudio es característica del estudiante que esta acostumbrado a estudiar realizando proyectos.
+</p> </td></tr>
+</table>
+
+
+<header>
+<h1 align=center>CLASES</h1>
+</header>
+<br>
+<p align=center>Se presenta un espacio para proyectar el material de acuerdo al tema que se desarrolla.</p>
+<br>
+
+
+<p align=center>
+Las asignaturas disponibles estan clasificadas por escuelas, por lo que accesarse a las materias debes hacer click en el nombre de la asignatura que está en el escudo correspondiente .</p>
+</p>
+
+
+<div class="contenedor">
+  <img src="logoEscom.svg" width=30% height=20%/>
+  <div class="texto-encima" style="color: black"></div>
+  <div class="centrado" style="color: black">
+
+<p><a href=Material1.html style="float:center">
+Compiladores.
+</a></p>
+&nbsp; &nbsp;
+<p>
+<a href=MaterialED.html style="float:center">
+Estructuras de datos.
+</a></p>
+&nbsp; &nbsp; 
+<p>
+<a href=MaterialPoo.html style="float:center">
+Programación orientada a objetos.
+</a></p>
+</div>
+</div>
+
+<p><a href=GpoCompAgo2019.xlsx style="float:center">
+Lista del grupo COMPILADORES.
+</a></p>
+
+<p><a href=GpoPooAgo2019.xlsx style="float:right">
+Lista del grupo POO.
+</a></p>
+
+</article>
+<!--
+<hr>
+
+<article>
+<img src="MMCPagina1A.svg" align=left width="150" height="290">
+
+
+<header>
+<h1 align=center>
+<font color=white>
+FORMAS DE ESEÑANZA
+</font>
+</h1>
+</header>
+
+<p>
+ <i><font color=maroon size=4>Estudio clásico</i></font>. Esta forma de estudio es característica del estudiante que esta acostumbrado a estudiar por su cuenta.
+</p>
+
+<p>
+ <i><font color=maroon size=4>Estudio práctico</i></font>. Esta forma de estudio es característica del estudiante que esta acostumbrado a estudiar consultando apuntes y haciendo prácticas.
+</p>
+
+<p>
+ <i><font color=maroon size=4>Estudiar haciendo</i></font>. Esta forma de estudio es característica del estudiante que esta acostumbrado a estudiar realizando proyectos.
+</p>
+
+</article>
+
+<hr>
+
+<article>
+<img src="MMCPagina1B.svg" align=left width="150" height="290">
+
+<header>
+<h1 align=center>ORIENTACIÓN DE ESTUDIANTES PARA ADECUAR SU APREDIZAJE</h1>
+</header>
+
+<br>
+<br>
+
+<p>
+Para saber la forma de estudiar, se recomienda contestar el cuestionario de características, con la finalidad de hacer la recomendación para seleccionar el estilo del estudio en la siguiente liga: <a href=Cuestionario.html><font color=blue size=4>ORIENTADOR</font></a>.</p>
+</article>
+
+<hr>
+
+<article>
+<img src="Fa.svg" align=right width="150" height="290">
+  
+<img src="Mdisponible.svg" align=left width="150" height="290">
+
+
+<header>
+<h1 align=center>ASIGNATURAS EN ESCOM</h1>
+</header>
+
+<br>
+
+<p>
+Las asignaturas disponibles son las que se enlistan por medio de íconos que se presentan como enlaces en el siguente link.</p>
+<br>
+<br>
+<!--<ul>-->
+
+
+
+<!--
+<p>
+<a href=MaterialED.html style="float:right">
+Estructuras de datos.
+</a></p>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<p>
+<a href=MaterialPoo.html style="float:right">
+Programación orientada a objetos.
+</a></p>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<p>
+<a href=Material1.html style="float:right">
+Compiladores.
+</a></p>
+
+</ul>
+
+
+
+</article>-->
+
+<hr>
+
+<p align=right>
+<a href=http://www.un.org/instraw>
+<img src=BenitoJuarez.jpeg align=right alt="seleccione aquí para visitar la página oficial de Instraw" border=0>
+</a>
+<font color=lime size=-2>
+José Sánchez Juárez<br>
+IPN-ESCOM<br>
+(809)685-211 - fax (809)685-2117<br>
+correo-e: jsanchezj60@gmail.com
+</font>
+</body>
+</html>
+
+
+

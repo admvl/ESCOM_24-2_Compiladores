@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Práctica 5 Compiladores</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Práctica 5</header>
+ <nav>
+    
+     <p><img src="temario-icono.png" width=95% border=5></image></p>
+     
+     <p class="derecha"><a href="TemarioCompiladores.html">Temario<img src="iconoPoo.png" width=65% border=5></image></a></p>
+     
+     <p><a href="MaterialPoo.html"><img src="iconoPoo.png" width=90% border=5></image></a></p>
+         
+ </nav>
+
+  <section class="envoltura">
+    <h1 class="titulo">DESARROLLO DE UN ANALIZADOR SINTÁCTICO POR DESCENSO RECURSIVO</h1>
+
+    <section class="interna">
+      
+      <article>
+       
+       <h1>Objetivo</h1>
+       <hr>
+       <br>
+       <p>Construir las fuciones de todos los símbolos no terminales de una gramática libre de contexto.</p>
+      <br>
+      <br>
+      <hr>
+      <h1>Actividades</h1>
+      <hr>
+       <br>
+       <p>Se tiene la siguiente gramática libre de contexto:</p>
+       <br>
+       <p><strong>Gramática libre de contexto:</strong></p>
+       <br>
+       <br>
+       <font color=lime size=6><h3 align="center"> S &rarr; M(P)C <br> M &rarr; p s v m | s v m | v m <br> P &rarr; Str [ ] args <br> C &rarr; { D } <br> D &rarr; t id ; </h3></font>
+       <br>
+       <p><strong>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Actividad 1.</strong> Acondicionar la gramática libre de contexto. (Presentar todo el proceso de acondicionamiento).</strong></p>
+       <br>
+       <p><strong>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Actividad 2.</strong> Presentar la tabla de producciones ya lista para comenzar a construir las funciones.</strong></p>
+       <br>
+       <p><strong>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Actividad 3.</strong> Presentar todas las funciones de los símbolos no terminales.</strong></p>
+       <br>
+       <hr>
+      <h1>Cuestionario</h1>
+      <hr>
+      <br>
+      <p><strong>Pregunta 1.</strong> Presentar un proceso para obtener las funciones de los no terminales de cualquier gramática libre de contexto.</p>
+      <br>
+      <p><strong>Pregunta 2.</strong> Aplicando las funciones obtenidas de la <strong>Actividad 3</strong>, analizar la siguiente cadena:</p>
+      <br>
+      <font color=yellow size=6><h3 align="center"> psvm(Str[] args){int c;} </h3></font>
+      <br>
+      </article>
+       <br>
+       <hr>
+       <br> 
+          
+    </section>
+
+       <aside>
+        <h1>Sugerencias</h1>
+        <hr>
+        <br>
+        <p><strong>Sugerencia 1. </strong> Para la <strong>Actividad 1 </strong> aplicar las reglas de las gramáticas LL(1) y si presentan problemas estas producciones, corregirlas eliminandoles el problema que se presente.</p>
+        <br>
+        <p><strong>Sugerencia 2.</strong> Para la <strong>Actividad 2 </strong> explicar cómo se presentan la tabla de producciones, si es necesario aumentar la gramática.</p>
+        <br>
+        <p><strong>Sugerencia 3.</strong> Para la <strong>Actividad 3 </strong> se debe declarar la función de lectura de los tokens de entrada. También se deben usar la tabla de primeros y siguientes.</p>
+        <br>
+       </aside>
+      <footer><p>Práctica 5</p><p class="derecha">Prof. José Sánchez Juárez</p></footer>
+   </section>
+</body>
+</html>

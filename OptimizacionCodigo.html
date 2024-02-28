@@ -1,0 +1,780 @@
+<html>
+<style>
+header {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height:16%;
+width:50%;
+margin-left:25%;
+border: solid;
+border-color:#FFFF00;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+article {
+background-color: #8ba987;
+display: block;
+margin-left: 25%;
+margin-top: 0.5%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width:50%;	
+height:25%;	
+}
+
+article header {
+background-color: #009F80;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#800000;
+padding: 2px;
+height:36%;
+width:44%;
+text-align: center;
+font-size: 20px;
+margin-left:26%;
+margin-bottom: 5%;
+margin-top: 5%;
+}
+
+article h1 {
+font-size: 20px;
+
+}
+
+article div{
+background-color: #8ba987;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#0000FF;
+padding: 5px;
+width:40%;
+text-align: center;
+margin-left:0%;
+}
+
+	.modalDialog {
+		position: fixed;
+		font-family: Arial, Helvetica, sans-serif;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.2);
+		z-index: 99999;
+		opacity:0;
+		-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+		pointer-events: none;
+	}
+	.modalDialog:target {
+		opacity:1;
+		pointer-events: auto;
+	}
+	.modalDialog > div {
+		width: 30%;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+	  	-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+	}
+	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+	.close:hover { background: #00d9ff; }
+</style>
+
+<head>
+<title>Optimización de Código</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<a>
+<img src="LibCompiladores.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=24% border=0>
+</a>
+
+<a>
+<img src=CapOptimizacionCodigo.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=24.5% height=45% border=0>
+</a>
+
+<header>
+<img src=Estudiante.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=16% height=97% border=0>
+
+<img src=CapOptimizacionCodigo.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=16% height=97% border=0>
+
+<h1 align=center>
+<font color=maroon size=8>
+CAPÍTULO 5
+</font>
+</h1>
+
+<h2 align=center>
+<font color=white size=6>
+Optimización de código
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<nav>
+<h3 align=center><font size=6>Índice</font></h3>
+
+<p align=center><font size=5>
+El material de estudio para el estudiante que se presenta en esta página, esta dividido de acuerdo al temario de la asignatura.</font></p>
+
+
+
+<a href=#arq>
+Introducción de código.
+</a>
+&nbsp; &nbsp;
+<a href=#def>
+Análisis de flujo de datos.
+</a>
+&nbsp; &nbsp;
+<a href=http://www.civila.com/instraw/ejemplo/recursos.html>
+Propagación de constantes.
+</a>
+&nbsp; &nbsp;
+<a href=Material1.html>
+Eliminación de redundancia parcial.
+</a>
+&nbsp; &nbsp;
+<a href=Material1.html>
+Ciclos en grafos de flujos.
+</a>
+&nbsp; &nbsp;
+<a href=Material1.html>
+Análisis basados en regiones.
+</a>
+&nbsp; &nbsp;
+<a href=Material1.html>
+Ejercicios.
+</a>
+
+</nav>
+
+
+<hr>
+
+
+<article>
+<div class="section-content" style="width:900px;">
+<p style="text-align: center; ">El código generado por la traducción dirigida por sintaxis tiende a contener
+una gran cantidad de código muerto. Cuando un analizador produce C3D como:</p>
+
+<font color=red><h4 align="center">T := a + b</h4></font>
+<font color=red><h4 align="center">x := T</h4></font>
+
+<p>que claramente se puede simplificar a</p>
+
+<font color=red><h4 align="center">x := a + b</h4></font>
+
+<p>Pero hay instrucciones redundantes de todo tipo, y con frecuencia las opera-
+ciones son implementadas de manera torpe que ningún programador en lenguaje
+ensamblador experimentado usarı́a. De hecho, el mejor código serı́a el produ-
+cido por una asamblea experta: programador de idiomas trabajando con una
+máquina familiar en un problema bien entendido. Este es un ideal que ningún
+compilador puede lograr. La optimización es el intento de alcanzar este ideal, el
+problema del optimizador es eliminar la mayor parte de este código muerto como
+sea posible sin cambiar el significado del programa. Probablemente serı́a mejor
+llamarlo “mejorar el código”, ya que la palabra “optimización” sugiere que el
+código resultante será óptimo, es decir, ideal. Sin embargo, la optimización es
+el término aceptado y es el que se usará.
+Hay lı́mites en cuanto a lo que la optimización puede hacer, porque lo que
+hace sin sentido a un programa, es que no puede ejercer ningún juicio y que
+no debe hacer nada, lo que cambia el significado del programa. De hecho, la
+optimización puede en raras ocasiones hacer que un programa sea más grande
+o más lento de lo que era antes. Además, algunos de los compiladores omiten
+la optimización por completo. Un compilador para usarse en la enseñanza de la
+programación no necesita producir código eficiente. Esto se debe a que la mayor
+parte del tiempo de un estudiante se gastará en la depuración; el programa
+normalmente se volverá a compilar cada vez que es ejecutado. Una vez que el
+programa sea correcto, el alumno lo entregará y nunca más volverá a ejecutarlo.
+En tal compilador, el manejo de errores es útil y muy deseable, por lo que la
+optimización se hace innecesaria. Una función del sistema operativo o una utilidad del subprograma como un
+género, por otro lado, se ejecutarán decenas o cientos de miles de veces durante
+su vida útil, probablemente por muchas personas y probablemente como repite
+parte de los programas largos y lentos, y en este caso la optimización es esencial.
+Por otra parte, la optimización no es un sustituto para un buen diseño del
+programa o especialmente para seleccionar el algoritmo inteligente. Ninguna
+cantidad de optimización tendrá un efecto significativo o aceleración de un or-
+den O(n 2 ); la solución aquı́ es ir a un algoritmo O(n lg n) como ordenación
+rápida. A pesar de estas advertencias, la optimización fue un problema desde el
+principio, porque los primeros compiladores tuvieron que demostrar su valı́a con
+los programadores que ya eran adeptos a la programación en lenguaje ensambla-
+dor, y con el empleo de este, los programadores hicieron una gran cantidad de
+mejoras que se pueden hacer en la salida de la generación de código intermedio.
+Por esta razón, y porque la optimización se ha estudiado durante tanto tiempo,
+ahora hay un enorme cuerpo de técnicas de optimización.
+Las técnicas conocidas, y los métodos para implementarlas.
+La mayor parte de la optimización consiste en identificar cálculos innecesa-
+rios. Un cálculo es innecesario si calcula algo que ya se conoce; por lo tanto,
+la necesidad de encontrar una forma de identificar los valores de las variables o
+subexpresiones que son conocidas. Se ha visto que los GDA se pueden usar para
+este propósito, en pocas palabras para encontrar las secuencias de instrucciones.
+Para un análisis a mayor escala, debemos tener una forma de rastreo del modo
+en que la información sobre los elementos de datos se mueven a través del pro-
+grama; esto es conocido como análisis de flujo de datos, y es una herramienta
+principal en la optimización [1].</p>
+
+<header>
+<h3 align="center" id=#arq>Introducción de código</h3>
+</header>
+
+<p>La finalidad de la optimización de código es producir un código objeto lo
+más eficiente posible. En algunos casos también se realiza una optimización del
+código intermedio. Algunas optimizaciones que se pueden realizar son la evalua-
+ción de expresiones constantes, el uso de ciertas propiedades de los operadores,
+tales como la asociativa, conmutativa, y distributiva; ası́ como la reducción de
+expresiones comunes [?].
+Considerando que el código que entra no es optimo, el GDA se aplica para
+encontrar las secuencias de instrucciones y el rastreo del modo en que la infor-
+mación sobre los elementos de datos se mueven a través del programa por medio
+del análisis del flujo de datos. Todo esto con la finalidad de mejorar el código
+de entrada. Ası́ que para definir el GDA se define primero el Árbol de Sintaxis
+Abstracta (ASA):</p>
+
+Definición 5.
+
+Definición 6.
+
+<p>El árbol de sintaxis abstracta (ASA) conserva la estructura esencial del árbol
+de análisis sintáctico pero elimina los nodos extraños. La precedencia y el signi-
+ficado de la la expresión permanece, pero los nodos extraños han desaparecido.
+Aquı́ está el ASA para a × 2 + a × 2 × b:</p>
+
+EJEMPLO 1.
+
+<p>Mientras que el ASA es más conciso que un árbol de sintaxis, conserva
+fielmente el estructura del código fuente original. Por ejemplo, el ASA para
+a × 2 + a × 2 × b contiene dos copias distintas de la expresión a × 2. Un gráfico
+dirigido acı́clico (GDA) es una contracción del ASA que evita esta duplicación.
+En un GDA, los nodos pueden tener múltiples padres e idénticos subárboles
+que son reutilizados. Tal intercambio hace que el GDA sea más compacto que
+el ASA correspondiente.
+Para las expresiones sin asignación, expresiones textualmente idénticas deben
+producir valores idénticos. El GDA para a × 2 + a × 2 × b, se muestra en el
+EJEMPLO 2, que refleja el hecho de compartir una sola copia de un × 2. El GDA
+codifica una sugerencia explı́cita para evaluar la expresión. Si el valor no se puede
+cambiar entre los dos usos de a, entonces el compilador debe generar código para
+evaluar a × 2 una vez y debe usar el resultado dos veces. Esta estrategia puede
+reducir el costo de la evaluación, sin embargo, el compilador debe probar que el
+valor puede ser: que la expresión no contiene ninguna asignación ni llamadas a
+otra procedimientos, la prueba es fácil. Dado que una asignación o una llamada
+de procedimiento puede cambiar el valor asociado con un nombre, el algoritmo
+de construcción GDA debe invalidar los subárboles a medida que cambian los
+valores de sus operandos.</p>
+
+EJEMPLO 2.
+
+
+<header>
+<h3 align="center" id=#arq>Análisis de flujo de datos</h3>
+</header>
+
+<p>Tan pronto como se expanda el alcance de la optimización más allá del bloque
+básico, debemos ser capaz de rastrear cómo los valores se abren paso a través
+de un programa. Este proceso se llama análisis de flujo de datos [1].</p>
+
+Definición 7.
+
+<p>Los compiladores también usan gráficos para codificar el flujo de valores des-
+de el punto donde se crea un valor, una definición, en cualquier punto donde se
+usa. Un grafo de dependencia encarna esta relación. Los nodos en un grafo de
+dependencia de datos representan operaciones. La mayorı́a de las operaciones
+contienen definiciones y usos. Un borde en un grafo de dependencia de datos
+conecta dos nodos, uno que define un valor y otro que lo usa. Dibujamos grafos
+de dependencia con bordes que se ejecutan desde la definición hasta el uso [5] .
+Considere el fragmento de código que se muestra en el listado 13 . Las res-
+puestas a a[i] se muestran derivando sus valores de un nodo que representa
+definiciones de a. Esto conecta todos los usos de un conjunto a través de un solo
+nodo. Sin un sofisticado análisis de las expresiones de subı́ndices, el compilador
+no puede diferenciar entre referencias a elementos de las matrices individuales.
+Los nodos 5 y 6 ambos dependen de sı́ mismos; usan valores que pueden ser de-
+finidos en una iteración anterior. El nodo 6, por ejemplo, puede tomar el valor
+de 2 (en la iteración inicial) o de sı́ mismo (en cualquier iteración). Los nodos 4
+y 5 también tienen dos fuentes distintas para el valor de i: nodos 2 y 6.
+Los grafos de dependencias de datos a menudo se usan como derivados de la
+construcción a partir de una tarea especı́fica, usada y luego descartada. Juegan un papel central en la programación de instrucciones. Encuentran aplicación
+en una variedad de optimizaciones, particularmente transformaciones que reor-
+denan bucles para exponer el paralelismo y mejorar el comportamiento de la
+memoria; estos tı́picamente requieren un análisis sofisticado de subı́ndices de la
+matriz para determinar con mayor precisión los patrones de acceso a las ma-
+trices. En aplicaciones más sofisticadas de los datos del grafo de dependencia,
+el compilador puede realizar un análisis exhaustivo de la matriz de valores de
+subı́ndice para determinar cuándo las referencias a la misma matriz pueden
+superponerse [5] .</p>
+
+Listing 13.
+
+Figura 3.
+
+Definición 8.
+
+Listing 14.
+
+Algoritmo 1.
+
+<p>Las optimizaciones locales se realizan sobre el bloque básico. Un bloque
+básico es un fragmento de código que tiene una única entrada y salida, y cu-
+yas instrucciones se ejecutan secuencialmente. Implicaciones: si se ejecuta una
+instrucción del bloque se ejecutan todas en un orden conocido en tiempo de
+compilación. La idea del bloque básico es encontrar partes del programa cuyo
+análisis es necesario para que la optimización sea lo más simple posible [?].</p>
+
+Definición 9.
+
+EJEMPLO 3.
+
+Listing 15
+
+Listing 16.
+
+Figura 4.
+
+Definición 10.
+
+<p>Un GFD se denomina árbol de flujo de datos (AFD) si ningún nodo tiene
+más de una transición saliente, es decir, no hay subexpresiones comunes. Por lo
+general, las AFD construyen los datos de entrada de acuerdo a muchas técnicas
+populares de selección de código. En la práctica, los compiladores realizan un
+AFD para una función completa, llamada AFD global, dado que un AFD local
+dificulta muchas oportunidades de optimización. Supongamos, un bloque básico
+que tiene varias transiciones salientes de flujo de control, es decir, una definición
+de una variable (por ejemplo, una constante) puede alcanzar múltiples usos,
+posiblemente en diferentes bloques básicos. Por lo tanto, para explotar todo el
+potencial de la propagación constante, se requieren todos los usos alcanzados
+por esas definiciones, que solo pueden ser proporcionados por un AFD. Por lo
+general, AFD local está integrado como una subrutina en el AFD global que
+iterativamente resuelve las ecuaciones de flujo de datos para un procedimiento
+completo. El análisis puede extenderse incluso más allá de los lı́mites de la
+función. La idea general detrás de un llamado análisis interprocedimental es
+recoger la información que fluye en una función y luego usarla, para actualizar
+la información local. Esto requiere información acerca de [?] :</p>
+
+1. que función f t a cualquier función particular f llama,
+2. Los valores de retorno de la función f,
+3. qué funciones f c llaman a cualquier función particular g, y
+4. qué argumentos de f c pasan a la función g.
+
+Definición 11.
+
+<p>El GFC proporciona una representación gráfica de la posible trayectoria del
+control de flujo en tiempo de ejecución. El GFC difiere de las representaciones
+intermedias orientadas a la sintaxis, como un ASA, en que los arcos muestran
+la estructura gramatical. Considere el código del listado 17 , en el EJEMPLO
+4 se representa el GFC para el ciclo while [5] :</p>
+
+Listing 17.
+
+EJEMPLO 4.
+
+<p>El arco de la sentencia1 regresa hacia el encabezado del bucle para crear
+un ciclo; el ASA para este fragmento serı́a acı́clico.</p>
+
+<header>
+<h3 align="center" id=#arq>Propagación de constantes</h3>
+</header>
+
+<p>Para un programador relativamente novato, puede parecer algo paradójico
+tener la capacidad de declarar una constante; una constante es constante (es de-
+cir, no cambia), entonces, ¿por qué declararla? Si bien es cierto que las constantes
+no pueden ser modificadas durante una ejecución particular de un programa,
+es un activo importante el ser capaz de definir una constante como symbsize
+(significado del tamaño de la tabla de sı́mbolos) una vez y usarlo varias veces en
+el programa. Haciendo un cambio a una constante solamente implica cambiar
+la declaración. Este cambio se reflejará en cualquier lugar donde la constante
+declarada se usa; por ejemplo, un cambio en symbsize puede tener el efecto
+de cambiar el tamaño de la tabla de sı́mbolos y alterar todos los controles que
+están hechos para el desbordamiento de la tabla de sı́mbolos en un compilador.
+En la mayorı́a de los lenguajes de programación con declaraciones constantes,
+estas pueden ser solo declaradas una vez en cualquier módulo separadamente
+compilable. Las constantes son vistas como son definidas en el nivel global y,
+por lo tanto, se almacenan en la (a veces llamada la parte “constante”) tabla
+de sı́mbolos [7] .</p>
+
+Definición 12.
+
+<p>La propagación de constante es simplemente el ensamblamiento aplicado de
+tal manera que los valores conocidos en tiempo de compilación se asocian con
+las variables que se utilizan para reemplazar ciertos usos de estas variables en el
+texto del programa traducido. Por lo tanto, el fragmento del programa escrito
+(tal vez para mejorar la claridad) como:
+Desde que se asigna a una variable un valor constante hasta la siguiente
+asignación, se considera a la variable constante.</p>
+
+EJEMPLO 5.
+
+<p>PI y G2R se consideran constantes hasta la próxima asignación. Estas op-
+timizaciones permiten que el programador utilice variables como constantes sin
+introducir ineficiencias. Por ejemplo en C no hay constantes y será lo mismo
+utilizarlas como se muestra en el listado 18 :</p>
+
+Listing 18.
+
+<p>Con la ventaja de que la variable puede ser local. Actualmente en C la
+constante se puede definir como const int a=10 [?] .</p>
+
+<header>
+<h3 align="center" id=#arq>Eliminación de redundancia parcial</h3>
+</header>
+
+<p>Un cálculo x + y es redundante en algún punto p del código si, a lo largo
+de cada camino que alcanza p, x + y ya ha sido evaluado y x y y no han si-
+do modificados desde la evaluación. Normalmente surgen cálculos redundantes
+como artefactos de traducción u optimización. Hay tres técnicas efectivas para
+eliminar la redundancia: numeración del valor local (nvl), numeración del valor
+superlocal (nvs) y movimiento de código perezoso (mcp). Estos algoritmos cu-
+bren el rango de simple y rápido (nvl) a complejo y comprensivo (mcp). Si bien
+los tres métodos difieren en el alcance que cubren, la principal distinción entre
+ellos radica en el método que utilizan para establecer que dos valores son idénti-
+cos. Existe otra técnica para eliminar la redundancia, llamada técnica basada
+en dominantes [5] .</p>
+
+<font color=yellow><h4 align="center">Numeración del valor local</h4></font>
+
+<p>Considere el bloque básico de cuatro instrucciones que se muestra en el
+listado 19 . Nos referiremos al bloque B. Donde la expresión, b + c o a - d,
+es redundante en B si y solo si se ha calculado previamente en B y ninguna
+operación intermedia redefine uno de sus argumentos constituyentes. En B, la
+ocurrencia de b + c en la quinta operación no es redundante porque la tercera
+operación redefine b. La aparición de a - d en la cuarta operación es redundante
+porque B no redefine a o d entre la cuarta y la sexta operación.</p>
+
+Listing 19.
+
+<p>El compilador puede reescribir el bloque B para que calcule a - d una vez,
+como se muestra en el listado 19 . La segunda evaluación de a - d se reemplaza
+con una copia de b. Una estrategia alternativa reemplazarı́a los usos posteriores
+de d con usos de b. Sin embargo, ese enfoque requiere un análisis para deter-
+minar si b es redefinido antes de algún uso de d. En la práctica, es más simple
+tener al optimizador para que inserte una copia y deje que un pase posterior de-
+termine qué operaciones de copia se hacen, de hecho, necesarias y cuáles pueden
+tener su origen y destino nombres combinados.</p>
+
+Defibición 13,
+
+<font color=yellow><h4 align="center">Numeración del valor superlocal</h4></font>
+
+<p>Para mejorar los resultados de la numeración de valores locales, el compilador
+puede extender su alcance de un solo bloque básico a un bloque básico extendido,
+o reflujo. A procesar un reflujo, el algoritmo debe valorar el número de cada
+camino a través del reflujo. Considere, por ejemplo, el código que se muestra en
+el listado 20 . Su GFC, se muestra en la figura 5 , contiene un reflujo no trivial,
+(B 0 , B 1 , B 2 , B 3 , B 4 ) y dos triviales BBEs, (B 5 ) y (B 6 ). Llamamos al algoritmo
+resultante numeración de valor superlocal (nvs).</p>
+
+Listing 20.
+
+Figura 5.
+
+Definición 14.
+
+Definición 15.
+
+<font color=yellow><h4 align="center">Movimiento de código perezoso</h4></font>
+
+<p>El movimiento de código perezoso (mcp) utiliza el análisis de flujo de datos
+para descubrir ambas operaciones que son candidatos para el movimiento del
+código y las ubicaciones donde puede colocar las operaciones. El algoritmo ope-
+ra de forma tal que va del programa y su GFC, en lugar de la forma ASE. El
+algoritmo utiliza tres conjuntos diferentes de datos ecuaciones de flujo y deriva
+conjuntos adicionales de esos resultados. Produce, por cada borde en el GFC,
+un conjunto de expresiones que deberı́an evaluarse a lo largo de ese arco y, para
+cada nodo en el GFC, un conjunto de expresiones cuyas evaluaciones expuestas
+arriba deben eliminarse del bloque correspondiente. Una estrategia de reescri-
+tura simple interpreta estos conjuntos y modifica el código.
+El mcp combina el movimiento del código con la eliminación de redundantes
+y de cálculos parcialmente redundantes. La redundancia se habló en el contexto
+de la numeración de valores superlocales. Un cálculo es parcialmente redundante
+en el punto p si ocurre en algunos, pero no en todos, los caminos que alcanzan p y
+ninguno de sus operandos constituyentes cambia entre esas evaluaciones y p. Los
+EMPLOS 6 y EJEMPLO 7 muestran dos formas de que una expresión puede
+ser parcialmente redundante. En el EMPLOS 6, a ← b × c ocurre en una ruta
+que conduce al punto de fusión, pero no en el otro para que el segundo cálculo sea
+redundante, las inserciones del mcp en una evaluación de una expresión ← b × c
+en el otro camino como se muestra en el EJEMPLO 6. En el EJEMPLO 7,
+a ← b × c es redundante a lo largo del borde posterior del bucle pero no a lo
+largo del borde que ingresa al bucle. Insertar una evaluación de un ← b × c antes
+de que el bucle haga que la ocurrencia dentro del bucle sea redundante, como
+se muestra en el EJEMPLO 7. Al hacer que el cálculo invariante de bucle sea
+redundante y eliminándolo, mcp lo mueve fuera del ciclo, una optimización se
+llama ciclo del movimiento de código invariante cuando se realiza por sı́ misma
+[5] .</p>
+
+EJEMPLO 6.
+
+EJEMPLO 7.
+
+<header>
+<h3 align="center" id=#arq>Ciclos en grafos de flujos</h3>
+</header>
+
+<p>Antes de considerar la optimización de ciclos, hay que definir lo que consti-
+tuye un ciclo en un grafo de flujo. Se utilizará la noción de que un nodo domina a otro para definir los ciclos naturales y la clase especial importante de grafos
+de flujo reducibles [3].
+En un grafo de flujo, ¿que es un ciclo, y como se pueden encontrar todos los
+ciclos? Considerando el GFC de la figura 4 hay un ciclo, formado por el bloque
+B 2 . Un ciclo es una serie de nodos en un grafo de flujo tales que:</p>
+
+1. Todos los nodos en la serie están fuertemente conectados; es decir, desde
+cualquier nodo dentro del ciclo a cualquier otro, hay un camino de longitud
+uno o más, siempre dentro del ciclo, y
+2. La serie de nodos tiene una entrada única, es decir un nodo dentro del
+ciclo tal que la única forma de alcanzar un nodo del ciclo desde un nodo
+fuera del ciclo es atravesar primero la entrada.
+
+<p>Un ciclo que no contiene otros ciclos se denomina ciclo interno [3] .</p>
+
+Definición 16.
+
+Algoritmo 2.
+
+Figura 6.
+
+EJEMPLO 8.
+
+<font color=yellow><h4 align="center">Grafos de flujo</h4></font>
+
+<p>Para mostrar la transferencia de control entre bloques básicos, usamos un
+diagrama de flujo. Un grafo de flujo en la Sección 6.1.1; es un grafo dirigido en
+el que cada nodo es un bloque básico y los arcos muestran las transferencias
+de control entre los bloques. Cuando se aı́slan los bloques básicos, se utilizan
+las ramas en el programa para determinar sus lı́mites; en el grafo de flujo,
+estas ramas se usan para unir los bloques. Por ejemplo, el tipo de selección que
+utilizamos en la Sección 6.1.1 tenı́a el grafo de flujo mostrado en la Figura 6.1,
+que se repite aquı́ por conveniencia: [1]</p>
+
+<header>
+<h3 align="center" id=#arq>Análisis basados en regiones</h3>
+</header>
+
+Definición 17.
+
+<p>Una propiedad importante de los intervalos es que tienen nodos encabeza-
+miento que dominan todos los nodos en el intervalo; es decir, cada intervalo es
+una región. Formalmente, dado un grafo de flujo G con nodo inicial n, y un
+nodo n de G, el intervalo con encabezamiento n, indicado como I(n), se define
+como sigue:</p>
+
+
+1. n esta en I(n).
+2. Si todos los predecesores de algún nodo m 6 = n 0 están en I(n), entonces
+m está en I(n).
+3. No hay nada más en I(n).
+
+<p>Por tanto se puede construir I(n) comenzando con n y añadiendo nodos m
+mediante la regla 2. No importa en qué orden se añadan dos candidatos m por-
+que una vez que los predecesores de un nodo estén todos en I(n), permanecen
+en I(n), y se añadirá finalmente cada candidato por la regla 2. Llegará un mo-
+mento, en que no se puedan añadir más nodos a I(n), y el conjunto resultante
+de nodos será el intervalo con encabezamiento n.
+La división de un grafo de flujo en intervalos sirve para imponer una estruc-
+tura jerárquica en el grafo de flujo. Esta estructura ayuda a su vez a aplicar las
+reglas para el análisis de flujo de datos dirigido por la sintaxis [3].</p>
+
+Algoritmo 3.
+
+<p>Un intervalo se define como sigue: un intervalo con el encabezado h, denotado
+como I(h), en una grafo de flujo G = (N, E, i) es un conjunto de nodos de G
+que se obtiene usando el siguiente algoritmo:</p>
+
+Algoritmo 4.
+
+Figura 7.
+
+EJEMPLO 9.
+
+<p>Ahora que se han construido todos los mecanismos para realizar el análisis
+de flujo de datos estructurales, realizar un análisis de intervalo es trivial: es
+idéntico al análisis estructural, excepto que solo aparecen tres tipos de regiones,
+a saber, acı́clica general, apropiada e impropia. Como ejemplo, considere el grafo
+de flujo original de la Figura 7.4, que se reproduce en la figura 8.16, junto con
+su reducción a intervalos. El primer paso gira sobre el bucle que comprende B4
+y B6 en el nodo B4a, y el segundo paso reduce la estructura acı́clica resultante
+para el nodo único que entra. El reenvı́o correspondiente de las funciones de
+flujo de datos son las siguientes [?] : La propagación de constantes intenta para cada punto de programa v deter-
+minar los valores de las variables que tienen cada vez que la ejecución alcanza
+v. A menudo, una variable tiene valores diferentes en un punto del programa
+v cuando la ejecución alcanza v varias veces. El análisis de intervalos saca lo
+mejor de esta situación al calcular un intervalo que encierra todos los valores
+posibles que la variable puede tener cuando la ejecución llegue a v [?] .</p>
+
+Definición 18.
+
+Algoritmo 5.
+
+Procedimiento.
+
+EJEMPLO 10.
+
+<header>
+<h3 align="center" id=#arq>Ejercicios</h3>
+</header>
+
+<p>E1.- Considérese el programa para la multiplicación de matrices:</p>
+
+Código.
+
+1. Genérese código de tres direcciones.
+2. Construyase un grafo de flujo a partir de las proposiciones de tres direc-
+ciones.
+3. Encuéntrense los ciclos en el grafo de flujo.
+
+<p>E2.- Considérese el siguiente programa que cuenta los números primos desde
+2 a n utilizando el método de la criba sobre una matriz debidamente grande:</p>
+
+Código.
+
+1. Genérese código de tres direcciones.
+2. Construyase un grafo de flujo a partir de las proposiciones de tres direc-
+ciones.
+3. Encuéntrense los ciclos en el grafo de flujo.
+
+</div>
+</article>
+
+
+
+<!--Ventana 1-->
+
+<a href="#openModal">FIGURA 1</a>
+
+<div id="openModal" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 1</font></h3>
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+	<font color=black>Características de las figuras</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques del programa objeto.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig1.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 2-->
+
+<a href="#openModal1">FIGURA 2</a>
+
+<div id="openModal1" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 2</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la arquitectura del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig2.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 3-->
+
+<a href="#openModal2">INTÉRPRETE</a>
+
+<div id="openModal2" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 3</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de definiciones</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Definición de intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<p><font color=black>Otro tipo de traductor, llamado intérprete, procesa en forma 			interna el programa fuente y los datos al mismo tiempo. Es decir, la interpretación 				del formulario de origen interno se produce en tiempo de ejecución y no se 				genera ningún programa objeto.</font></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+</body>
+</html>

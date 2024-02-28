@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Cuestionario de compiladores del 18 de marzo del 2022</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 2</header>
+ <nav>
+    <!--<div class="contenedor">-->
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+
+      <p class="derecha"><a href="TemarioPOO.html">Classroom</a></p>
+      <p><a href="TemarioCompiladores.html">Temario</a></p>
+      <p><a href="41EnlacesPrac.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="41EnlacesHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">CUESTIONARIO DEL 18 DE MARZO DEL 2022</h1>
+    <section class="interna">
+      
+      <article>
+       <h1>Cuestionario del primer parcial</h1>
+       <hr>
+       <br>
+       <p><strong>Instrucciones.</strong> Lea con cuidado cada una de las preguntas. Contestar en una hoja de word cada una de las preguntas. Para después subir el archivo de word o puede estar en formato PDF, en el repositorio de classroom para Compiladores. <br> <br> <strong>No comprimir los archivos, por favor.</strong></p>
+       <br>
+       <hr>
+       <h3>Pregunta 1 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2 puntos</h3>
+       <hr>
+       <br>
+       <p><strong>Proyecto.</strong> Obtener la expresión regular, de: <strong> &nbsp &nbsp &nbsp &nbsp <font color=yellow>public int getEdad() {}</font> </strong>.</p>
+       <br>
+       <br>
+       
+       <hr>
+       <h3>Pregunta 2 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2 puntos</h3>
+       <hr>
+       <br>
+       <p><strong>Proyecto.</strong> Obtener el AFN de la expresión regular, de: <strong> &nbsp &nbsp &nbsp &nbsp <font color=yellow> b*(a|b)*(c|b) </font> </strong></p>
+       <br>
+       <br>
+      <hr>
+       <h3>Pregunta 3 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 3 puntos</h3>
+       <hr>
+       <br>
+       <p><strong>Proyecto.</strong> Obtener el AFD del siguiente AFN:</p>
+        <br>
+        <p align="center">
+<img src="Pregunta3C18marzo22.svg" align=center width=80% border=0></p>
+     <br>
+      <p></strong> </p>
+      <br>
+      <br>
+      <br>
+       <hr>
+       <h3>Pregunta 4 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 3 puntos</h3>
+       <hr>
+       <br>
+       <p><strong>Proyecto.</strong> Aplique el algoritmo de subconjuntos para convertir el siguiente autómata:</p>
+        <br>
+        
+        <p align="center">
+<img src="ProyectoMinimizacion1.svg" align=center width=80% border=0></p>
+     <br>
+       
+       
+       </article>
+       <br>
+       <br>
+     
+      <article>
+       
+      <br>
+     </article>
+    </section>
+    
+    
+      <aside>
+      <h1>Pautas para solución de los proyectos</h1>
+      <hr>
+      <br>
+      <h3><strong>Procedimiento para la construcción de un analizador lexico:</strong> </h3>
+      <br>
+      <p>Se obtiene una expresión regular de los tokens de entrada. <br> Se clasifican usando las clases lexicas.</p>
+      <br>
+      <p>Se convierte la expresión regular en un AFN. <br> Se usan los modelos de Thompson de las operaciones básicas de las ER.</p>
+      <br>
+      <p>Se convierte el AFN en AFD. <br> Se usa el algoritmo de subconjuntos.</p>
+      <br>
+      <p>Se minimiza el AFD. <br> Se aplica la consistencia de los estados.</p>
+      <br>
+      <p>Se obtiene la tabla de transiciones &delta;[Estados, car].</p>
+      <br>
+      <p>Se aplica el siguiente pseudo código para programar la tabla de transiciones &delta;[Estados, car] :</p>
+      <br>
+      <pre>
+      car ← SiguienteCaracter();
+      Estados ← s 0 ;
+      while car <> EOF ∧ Estados <> s e do
+        Estados := δ[Estados, car];
+        car := SiguienteCaracter();
+      if Estados == s a then
+        EsEnPan(Aceptado);
+      else
+        EsEnPan(Error);
+
+      </pre>
+      <br>
+      
+      <hr>
+       
+      </aside>
+      
+      <footer><p>Cuestionario: Primer parcial.</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Analizadores sintácticos</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </he ad>
+<body>
+<header>Compiladores<br>Capítulo 3</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">ANALIZADORES SINTÁCTICOS</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Tipos de analizadores sintácticos</h1>
+       <hr>
+      <br>
+      <p>Para estudiar los analizadores sintácticos se usan los árboles de análisis sintáctico. El cuál es un grafo que tiene una raiz y hojas. Por lo que se puede hacer un recorrido de la raiz a las hojas o el recorrido de las hojas a la raiz. Entonces el análisis se practica de manera descendente o de manera ascendente.</p>
+      <br>
+      <p><strong>Definición de árbol sintáctico.</strong> Este árbol
+presenta en cada uno de sus nodos el sı́mbolo no terminal, de
+tal manera que se presenta la sintaxis de la gramática.</p>
+      <br>
+      <font color=red size=7><h3 align="center">E &rarr; E + E, E &rarr; E * E, E &rarr; id</h3></font>
+     <br>
+      <p align="center">
+<img src="ArbolExpresion1.svg" align=center width=80% border=0></p>
+     <br>
+      <p><strong>Descendentes.</strong> El análisis se hace de la raiz a las hojas.</p>
+      <br>
+      <p align="center">
+<img src="ArbolExp1Descendente.svg" align=center width=80% border=0></p>
+     <br>
+      <p><strong>Ascendentes.</strong> El análisis se hace de las hojas a la raiz.</p>
+     <br>
+     <p align="center">
+<img src="ArbolExp1Ascendente.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <br>
+      <p class="cita"><cite>Engineering a compiler, Keith D. Cooper and Linda Torczon, Pág. 1-3</cite></p>
+       <br>
+      
+      <hr>
+       <h1>Jerarquía de Chomsky</h1>
+       <hr>
+       <br>
+       <p><strong>Definición de gramática.</strong> Es una cuarteta que se forma de lo siguiente.</p>
+      
+      <br>
+     <font color=red size=7><h3 align="center">G(N, T, S, P)</h3></font>
+     <br>
+     <p>Dónde, los elementos de la gramática son los siguientes:</p>
+     <br>
+     <font color=yellow size=6><h3 align="center">N: representa a los no terminales.</h3></font>
+     <font color=yellow size=6><h3 align="center">T: representa a los terminales.</h3></font>
+     <font color=yellow size=6><h3 align="center">S: representa el símbolo inicial.</h3></font>
+     <font color=yellow size=6><h3 align="center">P: representa el conjunto de producciones, P &rarr; &alpha;</h3></font>
+     <br>
+       <p><strong>Gramáticas regulares.</strong> Se usan para reconocer tokens.</p>
+       <br>
+       <p> La gramática 3 o gramática regular tiene la forma:</p>
+<font color=red size=7><h3 align="center">A &rarr; a</h3></font>
+<p>o</p>
+<font color=red size=7><h3 align="center">A &rarr; aB</h3></font>
+<p>que es la forma lineal derecha o bien.</p>
+<font color=red size=7><h3 align="center">A &rarr; a</h3></font>
+<p>o</p>
+<font color=red size=7><h3 align="center">A &rarr; Ba</h3></font>
+<p>que es la forma lineal izquierda. Donde A, B ∈ N , a ∈ T ∗ . </p>
+       <p class="cita"><cite>Engineering a compiler, Keith D. Cooper and Linda Torczon, Pág. 3</cite></p>
+       <br>
+       
+       <p><strong>Gramáticas libres de contexto.</strong> Se usan para posicionar el orden de los tokens. La gramática 2 o gramática libre de contexto tiene la forma:</p>
+<font color=red size=7><h3 align="center">A &rarr; &alpha;</h3></font>
+<p>donde A ∈ N y α ∈ V ∗ .</p
+   
+   <br>
+       <p class="cita"><cite>Introduction
+to Compiler Design, Torben AEgidius Mogensen, Pág. 97</cite></p>
+       <br>
+       <br>
+       <p align="center">
+<img src="AnalisisiSintacticoTipos.svg" align=center width=80% border=0></p>
+       <br>
+    </article>
+    </section>
+
+
+      <aside>
+        <h1>Preguntas</h1>
+        <hr>
+        <br>
+       <p><strong>Pregunta 1.</strong> </p>
+     <br>
+     <p><strong>Pregunta 2.</strong> </p>
+       <br>
+       <hr>
+      <h1>Ejercicios</h1>
+        <hr>
+      <p><strong>Ejercicio 1.</strong> </p>
+      <br>
+      <p><strong>Ejercicio 2.</strong> </p>
+        <br>
+     <p><strong>Ejercicio 3.</strong> </p>
+        </aside>
+      <footer><p>Construcción de analizadores sintácticos: Tema 3.1</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

@@ -1,0 +1,596 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+}
+
+.a1 {
+	margin-left: 52%;
+	float: right;
+	position: absolute;
+	transform: translate(-15%, -110%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 18px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+APUNTES
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+APUNTES: Página 3
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<p align=center><font color=yellow>Sobre herencia en clases</font></p><p align=right><font color=yellow>Apuntes página 3</font></p>
+
+<p align=left><font color=yellow size=6>Estudiar los siguientes
+archivos para ejecutar 
+los programas presentados</font></p>
+
+Una gran ventaja de la herencia es que 
+una vez que ha creado una superclase 
+que define los atributos comunes a un 
+conjunto de objetos, se pueden usar 
+para crear cualquier número de subclases
+más específicos. Cada subclase puede 
+adaptar con precisión su propia 
+clasificación. Por ejemplo, 
+lo siguiente clase hereda de Box 
+y agrega un atributo de color:
+
+// Aqui, Box es extendido para incluir color.
+class ColorBox extends Box {
+  int color; // color de box
+
+  ColorBox(double w, double h, double d, int c) {
+    width = w;
+    height = h;
+    depth = d;
+    color = c;
+  }
+}
+
+A una variable de referencia de una 
+superclase se le puede asignar una 
+referencia a cualquier subclase 
+derivada de esa superclase. 
+Encontrará este aspecto de la 
+herencia bastante útil en una 
+variedad de situaciones.
+Por ejemplo, considere lo siguiente:
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/RefDemo.java style="float:center" target="_blank">RefDemo.java</a> es la 
+herencia de la clase base 
+[Manual Java, pág. 162].
+
+<p align=left><font color=yellow>Crear una jerarquía
+multinivel. Libro: Manual de java [pág. 167]</font></p>
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/DemoShipment.java style="float:center" target="_blank">DemoShipment.java</a> es sobre
+la herencia con jerarquía múltiple.
+
+<p align=left><font color=yellow>Clases abstractas
+Libro: Manual de java [pág. 178]</font></p>
+
+Si se escribe un método ficticio 
+que será anulado por los métodos definidos en 
+todas las clases descendientes instanciables, 
+deténgase y reconsidere. Hay una mejor manera. 
+<font color=black>Usar una clase abstracta para decirle al 
+compilador lo que está tratando de hacer con 
+anticipación</font>. En la clase abstracta, declare 
+aquellos métodos que no son 
+apropiados para la clase de la variable de 
+referencia, pero que se definirán mediante 
+contornos de la clase que se aplique en el 
+futuro. Clases de escenarios que crean 
+instancias de objetos. Para declarar un método, 
+simplemente escriba el encabezado del método 
+con el resumen del modificador adicional y termine 
+este  encabezado del método modificado con un 
+punto y coma. Por ejemplo, observe el 
+modificador <font color=black>abstract</font> en el encabezado de 
+la clase Employee2 en la Figura 13.13.
+Una declaración abstracta no contiene 
+suficiente información para definir el 
+método. <font color=black>Solo especifica su interfaz exterior 
+y las definiciones existirán en otro 
+lugar</font>. ¿Dónde? En toda clase descendiente
+instanciable! El uso de un método abstracto 
+evita la definición poco elegante del método 
+ficticio, y es una mejor forma de implementar 
+el <font color=black>polimorfismo</font> [Dean, pág. 531].
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/AbstractAreas.java style="float:center" target="_blank">AbstractAreas.java</a> es sobre
+el uso de clases abstractas 
+[Manual java, pág 179].
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Employee2Driver.java style="float:center" target="_blank">Employee2Driver.java</a> es sobre
+el uso de clases abstractas [Dean, pág. 531].
+
+<p align=left><font color=yellow>Sobreescritura de
+métodos Libro: Manual de java [pág. 176]</font></p>
+
+Veamos un ejemplo más práctico que utiliza 
+la anulación de métodos. El siguiente 
+programa crea una superclase llamada <font color=black>Figura</font>
+que almacena las dimensiones de un objeto 
+bidimensional. Eso también define un método 
+llamado <font color=black>area()</font> que calcula el área de un 
+objeto. El programa deriva dos subclases de 
+la figura. El primero es Rectángulo y el 
+segundo es Triángulo. Cada uno de estas 
+subclases anulan <font color=black>area()</font> para que devuelva 
+el área de un rectángulo y un triángulo,
+respectivamente.
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/FindAreas.java style="float:center" target="_blank">FindAreas.java</a> es sobre
+la sobreescritura de los métodos.
+
+<p align=left><font color=yellow>Operador casting.
+Libro: Liasing [pág. 387]</font></p>
+
+Ya ha utilizado el operador de conversión 
+para convertir variables de un tipo primitivo 
+a otro. La conversión también se puede usar 
+para convertir un objeto de un tipo de clase 
+a otro dentro de un jerarquía de herencia. 
+En la sección anterior, la declaración
+
+m(new Student());
+
+
+La declaración Object o = new Student(), 
+conocida como conversión implícita, es 
+legal porque un La instancia de Student 
+es automáticamente una instancia de Object.
+Suponga que desea asignar la referencia de 
+objeto o a una variable del tipo Estudiante 
+usando la siguiente declaración:
+
+Student b = o;
+
+
+En este caso, se produciría un error de 
+compilación. ¿Por qué funciona la 
+instrucción Object o = new Student() 
+pero Student b = o no? La razón es que 
+un objeto Estudiante siempre es un
+instancia de objeto, pero un objeto 
+no es necesariamente una instancia 
+de estudiante. Aunque puedes ver que o 
+es realmente un objeto Student, el 
+compilador no es lo suficientemente 
+inteligente como para saberlo. A
+dígale al compilador que o es un objeto 
+Student, use un casting explícito. La 
+sintaxis es similar a el utilizado para 
+la conversión entre tipos de datos 
+primitivos. Encierre el tipo de objeto 
+de destino entre paréntesis y colóquelo 
+antes del objeto a lanzar, de la 
+siguiente manera:
+
+Student b = (Student)o; // Explicit casting
+
+Siempre es posible convertir una instancia 
+de una subclase a una variable de una 
+superclase (conocida como upcasting), 
+porque una instancia de una subclase 
+siempre es una instancia de su superclase. 
+Cuando lanzar una instancia de una 
+superclase a una variable de su subclase 
+(conocida como downcasting), se debe usar 
+una conversión explícita para confirmar su 
+intención al compilador con el (SubclassName) 
+notación de conversión. Para que el 
+lanzamiento sea exitoso, debes asegurarte 
+de que El objeto a lanzar es una instancia 
+de la subclase. Si el objeto de superclase 
+no es una instancia de subclase, se produce 
+una clase ClassCastException en tiempo de 
+ejecución. Por ejemplo, si un objeto no es 
+un instancia de Student, no se puede 
+convertir en una variable de Student. 
+Por lo tanto, es una buena práctica asegurarse 
+de que el objeto sea una instancia de otro 
+objeto antes de intentar un lanzamiento. Esta
+se puede lograr utilizando el operador 
+instanceof. Considere el siguiente código:
+
+Object myObject = new Circle();
+... // Some lines of code
+
+  /** Perform casting if myObject is an 
+    instance of Circle */
+  if (myObject instanceof Circle) {
+    System.out.println("The circle diameter 
+      is " +
+      ((Circle)myObject) .getDiameter());
+  ...
+  }
+
+Tal vez se pregunte por qué es necesario 
+lanzar. La variable myObject se declara 
+Object. El tipo declarado decide qué método 
+debe coincidir en el momento de la compilación. 
+Utilizando myObject.getDiameter() causaría 
+un error de compilación, porque la clase Object
+no tiene el método getDiameter. El compilador 
+no puede encontrar una coincidencia para
+myObject.getDiameter(). Es necesario 
+convertir myObject en el tipo de círculo para 
+contar el compilador de que myObject también 
+es una instancia de Circle. ¿Por qué no definir 
+myObject como un tipo de círculo en primer lugar? 
+Para habilitar la programación genérica,
+Es una buena práctica definir una variable con 
+un supertipo, que puede aceptar un valor de 
+cualquier subtipo.
+
+El listado 11.7 demuestra polimorfismo y conversión. 
+El programa crea dos objetos. (líneas 5–6), un 
+círculo y un rectángulo, e invoca el método 
+displayObject para mostrarlos (líneas 9-10). El 
+método displayObject muestra el área y el diámetro 
+si el objeto es un círculo (línea 15) y el área 
+si el objeto es un rectángulo (línea 21).
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/CastinDemo.java style="float:center" target="_blank">CastinDemo.java</a> es sobre
+la conversión de tipos en métodos 
+[Liasing, pág. 388].
+
+<p align=left><font color=yellow>El método
+toString. Libro: Dean [pág. 514]</font></p>
+
+Consideremos ahora otro método importante que 
+todas las clases heredan de la clase Object. 
+El método toString de la clase Object
+devuelve una cadena que es una concatenación 
+del nombre completo de la clase del objeto 
+que llama, un signo @, y una secuencia de 
+dígitos y letras. Por ejemplo, considere 
+el siguiente fragmento de código:
+
+Object obj = new Object();
+Car car = new Car();
+System.out.println(obj.toString());
+System.out.println(car.toString());
+
+El cual produce:
+
+java.lang.Object@601BB1
+Car@1BA34F2
+
+
+Observe cómo obj.toString() genera 
+java.lang.Object para el nombre 
+completo de la clase. La clase completa
+El nombre consiste en el nombre de 
+clase prefijado por el paquete del que 
+forma parte la clase. La clase de objeto 
+está en el paquete java.lang, por lo que 
+su nombre de clase completo es 
+java.lang.Object. Tenga en cuenta cómo 
+car.toString() genera Car para el nombre 
+completo de la clase. Dado que la clase 
+Car no es parte de un paquete, su nombre 
+de clase completo es simplemente coche.
+Observe cómo obj.toString () genera 601BB1 
+para su valor de código hash. Puedes 
+pensar en un objeto valor de código hash 
+como su ubicación en la memoria, pero en 
+realidad es un poco más complicado que eso. 
+La JVM traduce el valor de código hash de un 
+objeto a uno o más valores y el último valor 
+en la cadena de traducción especifica la 
+ubicación real del objeto en la memoria. 
+En Java, los valores de código hash, como 
+601BB1, se escriben como números hexadecimales. 
+Describimos el sistema de números hexadecimales 
+en la sección opcional Unicode al final
+del Capítulo 11. Lo que sigue es una revisión
+[Dean, pág. 514].
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Car2.java style="float:center" target="_blank">Car2.java</a> es sobre
+el método toString [Dean, pág. 516].
+
+</strong>
+</pre>
+
+<pre class="a1"><strong>
+
+<p align=left><font color=yellow>El polimorfismo.
+Libro: Dean [pág. 519]</font></p>
+
+Si le pide a un aficionado de programación 
+orientada a objetos (OOP) que nombre las 
+tres características más importantes de OOP, 
+él o ella probablemente responderá "encapsulación, 
+herencia y polimorfismo". El anterior capítulo se 
+discutió la encapsulación y la herencia. Ahora es 
+tiempo de discutir el polimorfismo. La palabra 
+polimorfismo proviene del griego para "tener 
+muchas formas". En química y mineralogía, 
+polimorfismo. es cuando una sustancia puede 
+cristalizar en dos o más formas alternativas. 
+En zoología, el polimorfismo es cuando un
+especie tiene dos o más formas diferentes, 
+como las diferentes castas de abejas engendradas 
+por la misma reina para realizar diferentes 
+funciones en una colmena. <font color=black>En informática, el 
+polimorfismo es cuando diferentes tipos de objetos
+responden de manera diferente a la misma llamada 
+al método</font>. Así es como funciona. Usted declara 
+un tipo general de variable de referencia que 
+puede referirse a objetos de diferentes tipos. 
+¿Cuál es el tipo más general de variable de 
+referencia? Es una variable de referencia de 
+Objeto, declarada, por ejemplo, así:
+
+Object obj;
+
+Una vez que haya declarado una variable de 
+referencia de tipo Objeto, puede usarla para 
+referirse a cualquier tipo de objeto. Por 
+ejemplo, suponga que define una clase llamada 
+Dog, como en la Figura 13.4, y otra clase 
+llamada Cat, como en la figura 13.5. Cada una 
+de las dos clases derivadas contiene un método 
+toString que anula el método toString en la 
+clase Object. Observe que los dos métodos 
+toString que se muestran anulan
+el método toString del objeto de diferentes 
+maneras. Uno devuelve lo que un perro dice: 
+"¡Guau! ¡Guau! ”, Y el otro devuelve lo que un 
+gato dice: "¡Miau! ¡Maullar!" Las diferentes 
+definiciones del método toString en las clases 
+Dog y Cat permiten que el método toString sea 
+polimórfico. Si llama a toString con una 
+referencia a un objeto Dog, responde de la 
+forma en que el perro respondería, pero si 
+llama a String con una referencia a un objeto 
+Cat, responde de la misma manera que un gato
+respondería. El controlador en la Figura 13.6 
+demuestra este efecto. Observe cómo la 
+variable de referencia obj puede contener una 
+referencia a un objeto Dog o un objeto Cat, 
+y ese objeto determina qué cadena llama 
+al método.
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Cat.java style="float:center" target="_blank">Cat.java</a> es sobre
+el método toString [Dean, pág. 520].
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Dog.java style="float:center" target="_blank">Dog.java</a> es sobre
+el método toString [Dean, pág. 519].
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Pets.java style="float:center" target="_blank">Pets.java</a> es sobre
+el método toString [Dean, pág. 521].
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Pets2.java style="float:center" target="_blank">Pets2.java</a> es sobre
+el método toString [Dean, pág. 521].
+
+<p align=left><font color=yellow>La clase
+Objects. Libro: Dean [pág. 509]</font></p>
+
+La clase <font color=black>Object</font> es el ancestro de todas 
+las otras clases. Es el ancestro primordial, 
+la raíz de la jerarquía de herencia. Cualquier 
+clase que extienda explícitamente una superclase 
+utiliza extiende en su definición. Cuando
+cualquiera crea una nueva clase que no extiende 
+explícitamente alguna otra clase, el compilador 
+automáticamente hace que extienda la clase 
+<font color=black>Object</font>. Por lo tanto, todas las clases 
+eventualmente descienden de la clase <font color=black>Object</font>. 
+los La clase de objeto no tiene muchos métodos, 
+pero los que tiene son significativos, ya que 
+siempre son heredados por todas las demás clases. 
+En las siguientes dos secciones, verá los dos 
+métodos más importantes de la clase <font color=black>Object</font>,
+igual y <font color=black>toString</font>. Como cualquier clase que 
+escriba incluye automáticamente estos dos 
+métodos, debe tenga en cuenta lo que sucede 
+cuando se llaman estos métodos. Sin embargo, 
+antes de sumergirnos en los detalles de estos 
+dos métodos, queremos informarle sobre un 
+programa Java proceso que es muy similar a la 
+promoción de tipo numérico que estudiaste en 
+el Capítulo 3 y el Capítulo 11. Ahí tienes
+vimos que en el curso de hacer una tarea o 
+copiar un argumento en un parámetro, el Java 
+Virtual Machine (JVM) promueve automáticamente 
+un tipo numérico, siempre que el cambio se 
+ajuste a una determinada jerarquía numérica. Por 
+ejemplo, cuando se asigna un valor <font color=black>int</font> a una 
+variable <font color=black>double</font>, la JVM auto-promueve 
+matemáticamente el valor int a un valor doble.
+Una promoción automática análoga también 
+ocurre con otros tipos. Cuando una tarea o 
+argumento la operación de paso implica 
+diferentes tipos de referencia, la JVM 
+promueve automáticamente la referencia de 
+origen escriba el tipo de referencia de 
+destino si el tipo de referencia de destino 
+está por encima del tipo de referencia de 
+origen en la herencia Tance Jerarquía. En 
+particular, dado que la clase <font color=black>Object</font> es un 
+antepasado de cualquier otra clase, cuando 
+la necesidad surge, Java automáticamente 
+promueve cualquier tipo de clase al tipo de 
+objeto. La siguiente sección describe una 
+situación que estimula este tipo de 
+promoción de tipo.
+
+<p align=left><font color=yellow>Despacho de método 
+dinámico. Libro: Manual de Java
+[pág. 174]</font></p>
+
+
+Mientras que los ejemplos en la sección 
+anterior demuestran la mecánica de 
+anulación de métodos, No muestran su poder. 
+De hecho, si no hubiera nada más para anular 
+el método que una convención de espacio de 
+nombres, entonces sería, en el mejor de los 
+casos, una curiosidad interesante, pero poco 
+real valor. Sin embargo, éste no es el caso. 
+La anulación de métodos forma la base de uno 
+de los más avanzados de Java conceptos poderosos: 
+despacho de método dinámico. Despacho de 
+método dinámico es el mecanismo mediante 
+el cual una llamada a un método anulado 
+se resuelve en tiempo de ejecución, en 
+lugar de tiempo de compilación. La distribución 
+dinámica de métodos es importante porque así 
+es como Java implementa el tiempo de ejecución
+polimorfismo. Comencemos reafirmando un 
+principio importante: una variable de 
+referencia de superclase puede referir
+a un objeto de subclase. Java utiliza 
+este hecho para resolver llamadas a 
+métodos anulados en tiempo de ejecución. 
+aquí es como. Cuando se llama a un método 
+anulado a través de una referencia de 
+superclase, Java determina qué versión 
+de ese método ejecutar según el tipo de 
+objeto que se refiere en el momento en 
+que se produce la llamada. Por lo tanto, 
+esta determinación se realiza en tiempo 
+de ejecución. Cuando diferente se hace 
+referencia a tipos de objetos, se 
+llamarán diferentes versiones de un 
+método anulado. En otras palabras, es 
+el tipo de objeto al que se hace 
+referencia (no el tipo de la variable 
+de referencia) eso determina qué 
+versión de un método anulado se 
+ejecutará. Por lo tanto, si un
+La superclase contiene un método 
+que es anulado por una subclase, 
+luego cuando diferentes tipos
+de objetos se hace referencia a 
+través de una variable de referencia 
+de superclase, diferentes versiones 
+de la Se ejecutan los métodos.
+Aquí hay un ejemplo que ilustra el 
+envío de métodos dinámicos:
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Dispatch.java style="float:center" target="_blank">Dispatch.java</a> es sobre
+despacho de métodos dinámicos.
+
+<p align=left><font color=yellow>Unión dinámica
+Libro: Liasing [pág. 385]</font></p>
+
+Un método puede definirse en una 
+superclase y anularse en su subclase. 
+Por ejemplo, el método <font color=black>toString()</font>
+se define en la clase <font color=black>Object</font> y se 
+reemplaza en <font color=black>GeometricObject1</font>.
+Considere el siguiente código:
+
+Object o = new GeometricObject();
+System.out.println(o.toString());
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/UnionDinamicaDemo.java style="float:center" target="_blank">UnionDinamicaDemo.java</a> es sobre
+unión dinámica.
+
+¿Qué método <font color=black>toString()</font> es invocado 
+por o? Para responder a esta pregunta, 
+primero presentamos dos términos: tipo 
+declarado y tipo real. Una variable 
+debe ser declarada como un tipo. El tipo de 
+una variable se llama su tipo declarado. 
+Aquí el tipo declarado es <font color=black>Object</font>. Una 
+variable de referencia type puede contener 
+un valor nulo o una referencia a una 
+instancia del tipo declarado. La instancia
+se puede crear utilizando el constructor 
+del tipo declarado o su subtipo. El tipo 
+real de variable es la clase real para el 
+objeto al que hace referencia la variable. 
+Aquí el tipo real de o es <font color=black>GeometricObject</font>, 
+ya que o referencia a un objeto creado 
+usando el nuevo <font color=black>GeometricObject()</font>. El 
+método <font color=black>toString()</font> invocado por o está 
+determinado por el tipo real de o. Esta
+se conoce como enlace dinámico.
+
+
+<p align=left><font color=yellow>Programa sobre 
+la herencia del Libro: Datan [pág. 212]</font></p>
+
+De nuevo, se podría esperar que se 
+invoque al método <font color=black>dibujar( )</font> de 
+Polígono porque se trata, des-
+pués de todo, de una referencia a 
+Polígono, por tanto, ¿cómo podría 
+el compilador saber que tiene
+que hacer otra cosa? Y sin embargo, 
+se invoca al <font color=black>Círculo.dibujar( )</font> 
+correcto debido a la ligadura 
+tardía (polimorfismo) .
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Poligonos.java style="float:center" target="_blank">Poligonos.java</a> es para
+estudiar herencia. Este no corre.
+
+
+
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

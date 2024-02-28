@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="61cm" height="121cm" viewBox="50 50 1218 2406" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="664" y="2001" width="504" height="251"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="664" y="2001" width="504" height="251"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="916" y="2131.3">
+      <tspan x="916" y="2131.3"></tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="879" y="1831" width="388" height="142"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="879" y="1831" width="388" height="142"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1073" y="1906.8">
+      <tspan x="1073" y="1906.8"></tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="126.9" y="50.8" width="515.95" height="40.9"/>
+    <text font-size="33.9118" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="126.9" y="84.7">
+      <tspan x="126.9" y="84.7">Clase 4 del 15 de febrero del 2022</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="104.9" y="156.45" width="687.3" height="69.4342"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="104.9" y="184.7">
+      <tspan x="104.9" y="184.7">La expresión regular: son operaciones que representan</tspan>
+      <tspan x="104.9" y="220.034">palabras.</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="141.8" y="242.25" width="701" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="141.8" y="270.5">
+      <tspan x="141.8" y="270.5">Se requiere representar un número : por ejemplo el 234</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="137.9" y="321.8" width="526.6" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="137.9" y="350.05">
+      <tspan x="137.9" y="350.05">El digito se representa por medio de una: </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="239.9" y="379.8" width="400.4" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="239.9" y="408.05">
+      <tspan x="239.9" y="408.05">d = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0} </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="595.8" y="436.6" width="266.3" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="595.8" y="464.85">
+      <tspan x="595.8" y="464.85">La ER de 234 es ddd </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="136.7" y="509.4" width="804.2" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="136.7" y="537.65">
+      <tspan x="136.7" y="537.65">Queremos representar un número entero por medio de una ER: </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="308.6" y="585.2" width="24.45" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="308.6" y="613.45">
+      <tspan x="308.6" y="613.45">d </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="325.9" y="563.8" width="29.4" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="325.9" y="592.05">
+      <tspan x="325.9" y="592.05">+ </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="135.9" y="672.8" width="533.75" height="40.9"/>
+    <text font-size="33.9118" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="135.9" y="706.7">
+      <tspan x="135.9" y="706.7">Clase 4a del 16 de febrero del 2022</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="302.9" y="784.2" width="24.45" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="302.9" y="812.45">
+      <tspan x="302.9" y="812.45">d </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="320.2" y="762.8" width="29.4" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="320.2" y="791.05">
+      <tspan x="320.2" y="791.05">+ </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="347.9" y="787.8" width="325.45" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="347.9" y="816.05">
+      <tspan x="347.9" y="816.05">= {d, dd, ddd, dddd, ... } </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="125.8" y="890.6" width="279.3" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="125.8" y="918.85">
+      <tspan x="125.8" y="918.85">La palabra clave:   int </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="175.9" y="941.8" width="671.4" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="175.9" y="970.05">
+      <tspan x="175.9" y="970.05">La ER de la palabra clave, es la misma palabra clave: </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="503.8" y="997.35" width="56.35" height="57.95"/>
+    <text font-size="45.2007" style="fill: #000000;text-anchor:start;font-family:Blackadder ITC;font-style:normal;font-weight:normal" x="503.8" y="1037.85">
+      <tspan x="503.8" y="1037.85"> int </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="127.9" y="1109.8" width="594.4" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="127.9" y="1138.05">
+      <tspan x="127.9" y="1138.05">Un sólo símbolo es una ER, como el siguiente:  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="442.8" y="1168.65" width="52.05" height="54.55"/>
+    <text font-size="45.2007" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="442.8" y="1213.85">
+      <tspan x="442.8" y="1213.85">a  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="119.7" y="1264.4" width="892.55" height="69.4342"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="119.7" y="1292.65">
+      <tspan x="119.7" y="1292.65">Las operaciones básicas de las ERs, son: Concatenación, la alternativa, </tspan>
+      <tspan x="119.7" y="1327.98">las cerraduras.  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="388.9" y="1417.8" width="514.9" height="54.55"/>
+    <text font-size="45.2007" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="388.9" y="1463">
+      <tspan x="388.9" y="1463">a = epsilon a = a epsilon </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="121.9" y="1520.8" width="534.7" height="40.9"/>
+    <text font-size="33.9118" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="121.9" y="1554.7">
+      <tspan x="121.9" y="1554.7">Clase 4b del 18 de febrero del 2022</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="99.9" y="1578.8" width="357.3" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="99.9" y="1607.05">
+      <tspan x="99.9" y="1607.05">Un sólo símbolo es una ER.  </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="89.8" y="1638.6" width="959.05" height="69.4342"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="89.8" y="1666.85">
+      <tspan x="89.8" y="1666.85">Las clases léxicas, son: Operadores, Delimitadores, Palabras clave, Numeros,</tspan>
+      <tspan x="89.8" y="1702.18">Identificadores.   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="97.7" y="1751.4" width="839.35" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="97.7" y="1779.65">
+      <tspan x="97.7" y="1779.65">Los símbolos delimitadores entre muchos, son: (, ), {, }, [, ], ;,  ,   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="307.05" y="1826" width="125.9" height="131"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="307.05" y="1826" width="125.9" height="131"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="370" y="1888.3">
+      <tspan x="370" y="1888.3">Código de entrada</tspan>
+      <tspan x="370" y="1904.3">CÓDIGO FUENTE</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="606.825" y="1839" width="116.35" height="120"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="606.825" y="1839" width="116.35" height="120"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="665" y="1903.8">
+      <tspan x="665" y="1903.8">Analizador léxico</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="432.95" y1="1891.5" x2="589.264" y2="1891.97"/>
+    <polygon style="fill: #0000ff" points="596.764,1891.99 586.749,1896.96 589.264,1891.97 586.779,1886.96 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="596.764,1891.99 586.749,1896.96 589.264,1891.97 586.779,1886.96 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="344,1994.63 636.738,2141 344,2287.37 51.2618,2141 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="344,1994.63 636.738,2141 344,2287.37 51.2618,2141 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="344" y="2073.8">
+      <tspan x="344" y="2073.8">public class NombreClase {</tspan>
+      <tspan x="344" y="2089.8">priivate int a;</tspan>
+      <tspan x="344" y="2105.8"></tspan>
+      <tspan x="344" y="2121.8">public static void main(String[] args) {</tspan>
+      <tspan x="344" y="2137.8">NombreClase ob1;</tspan>
+      <tspan x="344" y="2153.8"></tspan>
+      <tspan x="344" y="2169.8">}</tspan>
+      <tspan x="344" y="2185.8"></tspan>
+      <tspan x="344" y="2201.8"></tspan>
+      <tspan x="344" y="2217.8">}</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="728" y1="1896" x2="867.264" y2="1896"/>
+    <polygon style="fill: #0000ff" points="874.764,1896 864.764,1901 867.264,1896 864.764,1891 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="874.764,1896 864.764,1901 867.264,1896 864.764,1891 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1024.9" y="1834.8" width="100.5" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="1024.9" y="1863.05">
+      <tspan x="1024.9" y="1863.05">Salida   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="874.375" y="2062" width="103.25" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="874.375" y="2062" width="103.25" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="926" y="2085.8">
+      <tspan x="926" y="2085.8">Convertir a ER</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="758.9" y="1849.8" width="100.5" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="758.9" y="1878.05">
+      <tspan x="758.9" y="1878.05">Salida   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="208.8" y="2341.6" width="423.55" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="208.8" y="2369.85">
+      <tspan x="208.8" y="2369.85">Convertir al identificador en ER:   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="389.7" y="2386.4" width="568" height="69.4342"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="389.7" y="2414.65">
+      <tspan x="389.7" y="2414.65">Un identificador válido esta constituido con</tspan>
+      <tspan x="389.7" y="2449.98">una letra al principio y nunca con un digito.   </tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="801.9" y="2003.8" width="234.55" height="34.1"/>
+    <text font-size="28.2674" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="801.9" y="2032.05">
+      <tspan x="801.9" y="2032.05">Analizador léxico   </tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" d="M 650.789,2044.79 A 159.27,159.27 0 0 0 408,2020"/>
+    <polygon style="fill: #0000ff" points="654.86,2051.08 645.459,2045.02 651.035,2044.63 654.061,2039.92 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="654.86,2051.08 645.459,2045.02 651.035,2044.63 654.061,2039.92 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="674.85" y="2063" width="158.3" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="674.85" y="2063" width="158.3" height="38"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="754" y="2086.8">
+      <tspan x="754" y="2086.8">Identificar clases léxicas</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" x1="341" y1="1962" x2="341" y2="1983.26"/>
+    <polygon style="fill: #0000ff" points="341,1990.76 336,1980.76 341,1983.26 346,1980.76 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #0000ff" points="341,1990.76 336,1980.76 341,1983.26 346,1980.76 "/>
+  </g>
+</svg>

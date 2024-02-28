@@ -1,0 +1,116 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	font-size: 18px;
+}
+
+.a1 {
+	margin-left: 52%;
+	float: right;
+	position: absolute;
+	transform: translate(-15%, -110%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 18px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 8: Algunas palabras clave
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<p align=center><font color=yellow>Programa: java</font></p>
+<p align=right><font color=yellow>Programa: Weiss</font></p>
+
+<p align=left><font color=yellow>CLASE fecha</font></p>
+
+public class fecha {
+	public Fecha() {
+		dia = 1;
+		mes = 1;
+		anio = 2018;
+	}
+	public fecha(int elDia, int elMes, int elAnio) {
+		dia = elDia;
+		mes = elMes;
+		anio = elAnio;
+	}
+	public boolean equals (Object lder) {
+		if(!(lder instanceof fecha))
+			return false;
+		fecha lderFecha = (fecha) lder;
+		return lderFecha.dia == dia && lderFecha.mes == mes &&
+			lderFecha.anio == anio;
+	}
+	public String toString() {
+		return dia + "/" + mes + "/" + anio;
+	}
+	private int dia;
+	private int mes;
+	private int anio;
+}
+
+pubic fecha() {
+	this(1,1,2018);
+}
+
+
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>3.2.2Construcción de analizadores sintácticos LL(1)</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 3</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">CONSTRUCCIÓN DE ANALIZADORES SINTÁCTICOS LL(1)</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Proceso de construcción del analizador LL(1)</h1>
+       <hr>
+       <br>
+      <p><strong>Funcionamiento del analizador sintáctico descendente.</strong> La entrada de un anlizador sintáctico son los tokens entregados por el analizador léxico. La función del analizador sintactico es colocar los tokens en una posición que cumpla con las reglas de sintáxis, que son expresadas por medio de gramáticas libres de contexto.</p>
+      <br>
+      <h3>Proceso de adaptación de la gramática</h3>
+      <hr>
+      <br>
+      <p>Los problemas de las gramáticas: </p>
+      <br>
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Problemas de las gramáticas GLC</CAPTION>
+        <tr><th scope="row">Número </th> <th>Problema </th> </tr>
+        <tr><td>1 </td> <td><a href="312EliminacionRecursion.html">Recursión o recursividad izquierda.</a> </td> </tr>
+        <tr><td>2 </td> <td><a href="311GramaticasAmbiguas.html">Ambigüedad.</a> </td> </tr>
+        <tr><td>3 </td> <td><a href="21ClasObjPra.html">Retroceso (backtracking).</a> </td> </tr>
+      </table>
+      </CENTER>
+      <br>
+      <p>Si la gramática tiene problemas se debe acondicionar para que cumpla con las reglas siguientes:</p>
+      <br>
+      <dl>
+        <dt><strong>Primero</strong> </dt>
+        <dd>Regla UNO. Si las producciones tienen la forma A → σ<SUB>1</SUB> |σ<SUB>2</SUB> |σ<SUB>3</SUB> deben cumplir con la condición PRIMERO(σ<SUB>1</SUB> ) ∩ PRIMERO(σ<SUB>2</SUB> ) ∩ PRIMERO(σ<SUB>3</SUB> ) = &empty;.</dd>
+      
+        <dt><strong>Segundo</strong> </dt>
+        <dd>Regla DOS. Si las producciones tienen la forma X → σ|&epsilon; deben cumplir con la condición PRIMERO(X) ∩ SIGUIENTE(X) = &empty;.</dd>
+      </dl>
+      <br>
+      <h3>Ejemplo de construcción del analizador LL(1)</h3>
+      <hr>
+      <br>
+      <p>Tenemos la siguiente gramatica libre de contexto:</p>
+      <br>
+      <font color=red size=7><h3 align="center">S → uBDz <br> B → w|Bv <br> D → EF <br> E → y|&epsilon; <br> F → x|&epsilon;</h3></font>
+      <br>
+      <p>La gramática cumple con las reglas:</p>
+      <br>
+      <p>Se usa la siguiente tabla de primeros y siguientes:</p>
+      <br>
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de primeros y siguientes.</CAPTION>
+        <tr><th scope="row"> </th> <th> S </th> <th> B </th> <th> B' </th> <th> D </th> <th> E </th> <th> F </th> </tr>
+        <tr><td>PRIMEROS </td> <td> u </td> <td> w, PRIM(B) </td> <td> v, &epsilon; </td> <td> y, x </td> <td> y, &epsilon; </td> <td> x, &epsilon; </td></tr>
+        <tr><td>SIGUIENTES </td> <td> $ </td> <td> y, x, z </td> <td> y, x, z </td> <td> z </td> <td> x, z </td> <td> z </td></tr>
+      </table>
+      </CENTER>
+      <br>
+      
+      <p>La forma general de la recursividad izquierda en las producciones de la gramática, es:</p>
+       <font color=red size=5><h3 align="center">A &rarr; A &alpha; | &beta;</h3></font>
+       
+       <br>
+       
+       <p>La transformación que se utiliza para corregir la recursividad izquierda, es la siguiente:</p>
+       <font color=red size=5><h3 align="center">A &rarr; &beta; A' <br> A' &rarr; &alpha; A' | &epsilon;</h3></font>
+       
+       <br>
+         
+      <p>La gramática corregida es la siguiente:</p>
+      <br>
+      <font color=red size=7><h3 align="center">1.- S → uBDz <br> 2.- B → wB' <br> 3.- B' → vB' <br> 4.- B' → &epsilon; <br> 5.- D → EF <br> 6.- E → y
+<br> 7.- E → &epsilon; <br> 8.- F → x <br> 9.- F → &epsilon; </h3></font>
+      <br>
+      <p align="center">
+<img src="GramaticasObtencion.svg" align=center width=80% border=0></p>
+      <br>
+      <p>Cuando se corrige la gramática la tabla de primeros y siguientes es de la siguiente forma:</p>
+      <br>
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de primeros y siguientes.</CAPTION>
+        <tr><th scope="row"> </th> <th> S </th> <th> B </th> <th> B' </th> <th> D </th> <th> E </th> <th> F </th> </tr>
+        <tr><td>PRIMEROS </td> <td> u </td> <td> w </td> <td> v, &epsilon; </td> <td> y, x </td> <td> y, &epsilon; </td> <td> x, &epsilon; </td></tr>
+        <tr><td>SIGUIENTES </td> <td> $ </td> <td> y, x, z </td> <td> y, x, z </td> <td> z </td> <td> x, z </td> <td> z </td></tr>
+      </table>
+      </CENTER>
+      <br>
+      <p>La tabla LL(1) que se obtiene es la siguiente:</p>
+      <br>
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla LL(1).</CAPTION>
+        <tr><th scope="row"> NO TERMINALES </th> <th> u </th> <th> w </th> <th> v </th> <th> y </th> <th> x </th> <th> z </th> <th> $ </th></tr>
+        <tr> <td> S </td> <td> 1 </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td></tr>
+        <tr> <td> B </td> <td> e </td> <td> 2 </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td></tr>
+        <tr> <td> B' </td> <td> e </td> <td> e </td> <td> 3 </td> <td> 4 </td> <td> 4 </td> <td> 4 </td> <td> e </td></tr>
+        <tr> <td> D </td> <td> e </td> <td> e </td> <td> e </td> <td> 5 </td> <td> 5 </td> <td> e </td> <td> e </td></tr>
+        <tr> <td> E </td> <td> e </td> <td> e </td> <td> e </td> <td> 6 </td> <td> 7 </td> <td> 7 </td> <td> e </td></tr>
+        <tr> <td> F </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 8 </td> <td> 9 </td> <td> e </td></tr>
+      </table>
+      </CENTER>
+      
+      <br>
+      <p>El análisis de la cadena de tokens <strong>uwvyxz</strong>, se hace considerando una función de lectura de la cadena de tokens y una pila para guardar la parte izquierda de la producción, y por otro lado la función que guarda la tabla. A continuación se muestra la tabla de análisis de la cadena de tokens:</p>
+      <br>
+      
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Análisis de la cadena uwvyxz.</CAPTION>
+        <tr><th scope="row"> ENTRADA </th> <th> PILA </th> <th> NUM. PRODUCCIÓN </th> </tr>
+        <tr> <td> ↑ uwvyxz$ </td> <td> $S </td> <td> 1 </td> </tr>
+        <tr> <td> ↑ uwvyxz$ </td> <td> $zDBu </td> <td> ← </td> </tr>
+        <tr> <td>  u↑wvyxz$' </td> <td> $zDB </td> <td> 2 </td> </tr>
+        <tr> <td>u↑wvyxz$ </td> <td> $zDB'w </td> <td> ← </td> </tr>
+        <tr> <td>uw↑vyxz$ </td> <td> $zDB' </td> <td> 3 </td> </tr>
+        
+        <tr> <td>uw↑vyxz$ </td> <td> $zDB'v </td> <td> ← </td> </tr>
+        
+        <tr> <td>uwv↑yxz$ </td> <td> $zDB' </td> <td> 4 </td> </tr>
+        
+        <tr> <td>uwv↑yxz$ </td> <td> $zD </td> <td> 5 </td> </tr>
+        
+        <tr> <td>uwv↑yxz$ </td> <td> $zFE </td> <td> 6 </td> </tr>
+        
+        <tr> <td>uwv↑yxz$ </td> <td> $zFy </td> <td> ← </td> </tr>
+        
+        <tr> <td>uwvy↑xz$ </td> <td> $zF </td> <td> 8 </td> </tr>
+        
+        <tr> <td>uwvy↑xz$ </td> <td> $zx </td> <td> ← </td> </tr>
+        
+        <tr> <td>uwvyx↑z$ </td> <td> $z </td> <td> ← </td> </tr>
+        
+        <tr> <td>uwvyxz↑$ </td> <td> $ </td> <td> Acep </td> </tr>
+      </table>
+      </CENTER>
+      
+      <br>
+      <p align="center">
+<img src="PrimerosYsiguientes.svg" align=center width=80% border=0></p>
+      <br>
+      <p align="center">
+<img src="PrimerosYsiguientes1.svg" align=center width=80% border=0></p>
+      <br>
+      <hr>
+      <h1>Ejemplo de analizador sintáctico LL(1)</h1>
+        <hr>
+        <br>
+        <p>Se tiene la declaración de clase muy general:</p>
+        <br>
+      <font color=lime size=6><h3 align="center">public class {double radio;} </h3></font>
+      <br>
+      <p>La gramática que expresa la declaración de una clase.</p>
+      <br>
+      <font color=lime size=6><h3 align="center">S → public class {T LV ;} | private class {T LV ;} <br> T → int | double <br> LV → LV, V | V <br> V → id </h3></font>
+      <br>
+      <font color=red size=5><h3 align="center">A &rarr; A &alpha; | &beta;</h3></font>
+      <br>
+      <p><strong>Primero.</strong> Se aplican las reglas UNO y DOS:</p>
+      <br>
+      <p>La producción 3 tiene el problema de la recursividad izquierda. Por lo que se le aplica la transformación.</p>
+      <br>
+      <font color=red size=5><h3 align="center">A &rarr; &beta; A' <br> A' &rarr; &alpha; A' | &epsilon;</h3></font>
+       
+       <br>
+       <p>De la cual se obtienen las siguientes igualdades:</p>
+       <br>
+       <font color=yellow size=5><h3 align="center">A = LV <br> A' = LV' <br> &alpha; = ,V <br> &beta; = V </h3></font>
+       <br>
+       <p>Así que la producción 3 queda de la siguiente forma:</p>
+       <br>
+       <font color=lime size=6><h3 align="center"> LV → V LV' <br> LV' → , V LV' | &epsilon; </h3></font>
+      <br>
+      <p>La gramática queda de la siguiente forma:</p>
+      <br>
+      <font color=lime size=6><h3 align="center">S → public class {T LV ;} | private class {T LV ;} <br> T → int | double <br> LV → V LV' <br> LV' → , V LV' | &epsilon; <br> V → id </h3></font>
+      <br>
+      <p>Se calculan los primeros y siguientes.</p>
+      <br>
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de primeros y siguientes de la declaración de clase.</CAPTION>
+        <tr><th scope="row"> </th> <th> S </th> <th> T </th> <th> LV </th> <th> V </th> <th> LV' </th></tr>
+        <tr><td>PRIMEROS </td> <td> public, private </td> <td> int, double </td> <td> id </td> <td> id </td> <td> , , &epsilon; </td> </tr>
+        <tr><td>SIGUIENTES </td> <td> $ </td> <td> id </td> <td> ; </td> <td> , , ; </td> <td> ; </td> </tr>
+      </table>
+      </CENTER>
+      <br>
+      <p>La gramática expandida se muestra a continuación:</p>
+      <br>
+      <font color=lime size=6><h3 align="center">1.- S → public class {T LV ;} <br> 2.- S → private class {T LV ;} <br> 3.- T → int <br> 4.- T → double <br> 5.- LV → V LV' <br> 6.- LV' → , V LV' <br> 7.- LV' → &epsilon; <br> 8.- V → id </h3></font>
+      <br>
+      <p>La tabla LL(1), es la siguiente:</p>
+      <br>
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla LL(1) de la declaración de clase.</CAPTION>
+        <tr><th scope="row"> NO TERMINALES </th> <th> public </th> <th> private </th> <th> class </th> <th> int </th> <th> double </th> <th> id </th> <th> , </th> <th> ; </th> <th> $ </th> </tr>
+        <tr> <td> S </td> <td> 1 </td> <td> 2 </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        <tr> <td> T </td> <td> e </td> <td> e </td> <td> e </td> <td> 3 </td> <td> 4 </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        <tr> <td> LV </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 5 </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        <tr> <td> V </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 8 </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        <tr> <td> LV' </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 6 </td> <td> 7 </td> <td> e </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+      
+      <p>La tabla de análisis de la cade tokens:</p>
+      <br>
+      
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Análisis de la cadena declaración de una clase.</CAPTION>
+        <tr><th scope="row"> ENTRADA </th> <th> PILA </th> <th> NUM. PRODUCCIÓN </th> </tr>
+        <tr> <td> ↑ public class {double radio;}$ </td> <td> $ &#9679; S </td> <td> 1 </td> </tr>
+        <tr> <td>↑ public class {double radio;}$ </td> <td> $};LV T{ class &#9679; public </td> <td> ← </td> </tr>
+        <tr> <td>public ↑class {double radio;}$ </td> <td> $};LV T{ &#9679; class public </td> <td> ← </td> </tr>
+        <tr> <td>public class ↑{double radio;}$ </td> <td> $};LV T&#9679;{ class public </td> <td> ← </td> </tr>
+        <tr> <td>public class {↑double radio;}$ </td> <td> $};LV &#9679;T{ class public </td> <td> 4 </td> </tr>
+        
+        <tr> <td>public class {↑double radio;}$ </td> <td> $};LV &#9679;double{ class public </td> <td> ← </td> </tr>
+        
+        <tr> <td>public class {double ↑radio;}$ </td> <td>  $};&#9679;LV double{ class  public </td> <td> 5 </td> </tr>
+        
+        <tr> <td>public class {double ↑radio;}$ </td> <td> $};LV'&#9679; V double{ class public </td> <td> 8 </td> </tr>
+        
+        <tr> <td>public class {double ↑radio;}$ </td> <td> $};LV' &#9679; radio double{ class public </td> <td> ← </td> </tr>
+        
+        <tr> <td>public class {double radio↑;}$ </td> <td> $};&#9679;LV'  radio double{ class public </td> <td> 7 </td> </tr>
+        
+        <tr> <td>public class {double radio↑;}$ </td> <td> $}&#9679;; &epsilon;  radio double{ class public </td> <td> ← </td> </tr>
+        
+        <tr> <td>public class {double radio;↑}$ </td> <td> $&#9679;}; &epsilon;  radio double{ class public </td> <td> ← </td> </tr>
+        
+        <tr> <td>public class {double radio;}↑$ </td> <td> &#9679;$}; radio double{ class public </td> <td> Acep </td> </tr>
+      </table>
+      </CENTER>
+      <br>
+      
+    </article>
+    </section>
+
+
+      <aside>
+        <h1>Preguntas</h1>
+        <hr>
+        <br>
+       <p><strong>Pregunta 1.</strong> Describir los dos tipos de derivaciones.</p>
+     <br>
+     <p><strong>Pregunta 2.</strong> ¿Cuál tipo de derivación se usa para el análisis sintáctico descendente? Describir su respuesta.</p>
+       <br>
+       <hr>
+      <h1>Ejercicios</h1>
+        <hr>
+      <p><strong>Ejercicio 1.</strong> No hay.</p>
+      <br>
+      
+     
+        </aside>
+      <footer><p>Construcción de analizadores sintácticos: Tema 3.2.2</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

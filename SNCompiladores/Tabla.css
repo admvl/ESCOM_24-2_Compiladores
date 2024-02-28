@@ -1,0 +1,27 @@
+.Rtable {
+     display: flex;
+     flex-wrap: wrap;
+}
+
+.Rtable-cell {
+     box-sizing: border-box;
+     flex: 20%;
+     margin: -1px 0 0 -1px;
+     padding: 5px 10px;
+     border: solid 1px slategrey;
+}
+
+h3 { margin: 0; }
+
+@media all and (max-width: 500px) {
+     .Rtable {
+       display: block;
+     }
+}
+
+@media screen and (max-width: 320px) {
+     table {
+       display: block;
+       overflow-x: auto;
+     }
+}

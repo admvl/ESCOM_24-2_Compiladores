@@ -1,0 +1,941 @@
+<html>
+<style>
+header {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: 26%;
+width:50%;
+margin-left:25%;
+border: solid;
+border-color:#FFFF00;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+article {
+background-color: #aab885;
+display: block;
+margin-left: 25%;
+margin-top: 0.5%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: 50%;	
+height: 25%;	
+}
+
+article header {
+background-color: #009F80;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#800000;
+padding: 2px;
+height: auto;
+width:44%;
+text-align: center;
+font-size: 20px;
+margin-left:26%;
+margin-bottom: 5%;
+margin-top: 5%;
+}
+
+article h1 {
+font-size: 20px;
+
+}
+
+article div{
+background-color: #8ba987;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#0000FF;
+padding: 5px;
+width:40%;
+text-align: center;
+margin-left:0%;
+}
+
+p.p4  {
+ background-color: #808080;
+ font-size: 20px;
+ width: 230px;
+ margin: 10px 20px;
+ padding: 10px;
+ border: solid 6px #f60;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+	.modalDialog {
+		position: fixed;
+		font-family: Arial, Helvetica, sans-serif;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.2);
+		z-index: 99999;
+		opacity:0;
+		-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+		pointer-events: none;
+	}
+	.modalDialog:target {
+		opacity:1;
+		pointer-events: auto;
+	}
+	.modalDialog > div {
+		width: 30%;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+	  	-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+	}
+	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+	.close:hover { background: #00d9ff; }
+
+table {
+  margin-left: 15%;
+  padding: 15px;
+  
+}
+
+.lateralDer {
+	position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+	left: 0; /* Establecemos la barra en la izquierda */
+	top: 620px; /* Bajamos la barra 200px de arriba a abajo */
+	z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+}
+
+.lateralIzq {
+	position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+	right: 0; /* Establecemos la barra en la izquierda */
+	top: 620px; /* Bajamos la barra 200px de arriba a abajo */
+	z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+}
+
+.t {
+  margin-left: -5%;
+  margin-top: -10%;
+  padding: 10px;
+}
+</style>
+
+<head>
+<title>Programación orientada a objetos</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<a>
+<img src="LibCompiladores.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=24% height=44% border=0>
+</a>-->
+
+<a>
+<img src=ApuntesInt.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=23% height=42% border=0>
+</a>
+
+<header>
+<img src=Estudiante.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=16% height=auto border=0>
+
+<img src=ApuntesInt.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=16% height=auto border=0>
+
+<h1 align=center>
+<font color=maroon size=8>
+CAPÍTULO 1
+</font>
+</h1>
+
+<h2 align=center>
+<font color=white size=6>
+Fundamentos
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<nav>
+<h3 align=center><font size=6>Índice</font></h3>
+
+
+
+<p align=center><font size=5>
+El material de estudio para el estudiante que se presenta en esta página, esta dividido de acuerdo al temario de la asignatura.</font></p>
+
+<font color=yellow><h3 align="center">Temas:</h3></font>
+
+<p align="center">
+<a href=#que>
+¿Que es el desarrollo orientado a objetos?
+</a>
+&nbsp; &nbsp;
+<a href=#con>
+Conceptos clave para el diseño orientado a objetos.
+</a>
+&nbsp; &nbsp;
+<a href=#otr>
+Otros conceptos relacionados.
+</a>
+&nbsp; &nbsp;
+<a href=#ben>
+Beneficios y desventajas del paradigma.
+</a>
+&nbsp; &nbsp;
+<a href=#his>
+Historia del paradigma.
+</a>
+&nbsp; &nbsp;
+<a href=#dis>
+Discusión y lectura adicional.
+</a></p>
+
+<hr>
+
+<font color=yellow><h3 align="center">Material:</h3></font>
+
+<p align="center">
+<a href=ResumenPoo.html>
+Resumen de poo1.
+</a>
+
+&nbsp; &nbsp;
+<a href=PracticasPOO.html>
+Prácticas del capítulo 1.
+</a>
+
+
+&nbsp; &nbsp;
+<a href=#dis>
+Procedimientos del capítulo 1.
+</a>
+
+
+&nbsp; &nbsp;
+<a href=#dis>
+Definiciones del capítulo 1.
+</a>
+
+
+&nbsp; &nbsp;
+<a href=#dis>
+Código del capítulo 1.
+</a></p>
+</nav>
+
+
+
+
+<hr>
+
+<article>
+<div class="section-content" style="width:900px;">
+<p style="text-align: center; ">El paradigma orientado a objetos es la forma más común de analizar, diseñar,y desarrollar sistemas de aplicación, especialmente muy grandes. Para
+entender este paradigma, podrı́amos preguntarnos: ¿que exactamente significa
+la frase . orientado a objetos¿ Buscando en la literatura, etiquetar algo como
+orientado a objetos implica que el objeto juega un rol central, y elaboramos es-
+ta caracterı́stica como una perspectiva que ve el elemento de una situación dada
+por descomposición de objetos y relación de objetos. En un sentido amplio, esta
+idea podrı́a aplicarse a cualquier entorno y los ejemplos de su aplicación pueden
+aplicarse en negocios, quı́mica, ingenierı́a e incluso filosofı́a. Nuestro negocio es
+con la creación de software y, por lo tanto, este libro se concentra en el análisis
+orientado a objetos, diseño e implementación de sistemas de software. Nuestras
+situaciones son, por tanto, problemas que son susceptibles a las soluciones de
+software y los sistemas de software que se crean en respuesta a estos problemas.
+El diseño es una actividad complicada en cualquier contexto simple porque
+hay competencia de intereses, donde se tienen que hacer una selección de crite-
+rios en cada paso con información incompleta. Como un resultado, las decisiones
+son frecuentemente hechas de una combinación de reglas derivadas de experien-
+cias pasadas. El diseño de software no es una excepción de esto, y en el proceso
+de diseñar un sistema, hay muchos puntos donde tales decisiones tienen que
+ser hechas. Haciendo selecciones informadas en cualquier campo de actividad se
+requiere un entendimiento de la filosofı́a y de las fuerzas que se han formado. Es por ello apropiado comenzar nuestro estudio de análisis de software orientado
+a objetos y diseño aplicando la filosofı́a y el desarrollo en este campo hasta la
+actualidad. A través del caso de estudio usado en este texto, el lector encon-
+trará ejemplos de como esta guı́a filosófica nos auxilia para hacer selecciones en
+todos los pasos.
+Este capı́tulo, por lo tanto, pretende dar al lector una amplia introducción
+al complejo tema de desarrollo de software orientado a objetos. Comenzamos
+con una descripción general de la circunstancia que motivaron su desarrollo y
+por qué se convirtió en el enfoque deseado para desarrollo de software. En el
+curso de esta discusión, presentamos los conceptos centrales que caracterizan la
+metodologı́a, cómo este desarrollo ha influido en nuestra visión del software, y
+algunos de sus pros y contras. Concluimos presentando una breve historia de la
+evolución del enfoque orientado a objetos.</p>
+
+<header>
+<h3 id=que align="center" id=arq>¿Que es el desarrollo orientado a objetos?</h3>
+</header>
+
+<p>La visión tradicional de un programa de computadora es de un proceso que
+ha sido codificado en un formulario que se puede ejecutar en una computadora.
+Esta visión se originó del hecho de que Las computadoras se desarrollaron principalmente para automatizar un proceso bien definido (es decir,
+un algoritmo) para el cálculo numérico, y se remonta a las primeras computadoras del programa almacenado. Acuerdo ingly, el proceso de creación de
+software fue visto como una traducción de una descripción en algunos Lenguaje ”natural”para una secuencia de operaciones que podrı́an ejecutarse en una
+computadora. Como Muchos argumentarı́an que este paradigma sigue siendo la
+mejor manera de introducir la noción de programa. ming a un principiante, pero
+a medida que los sistemas se vuelven más complejos, su eficacia en el desarrollo
+Las soluciones se volvieron sospechosas. Este cambio de perspectiva por parte
+de los desarrolladores de software sucedió durante un perı́odo de tiempo y fue
+alimentado por varios factores, incluido el alto costo de desarrollo y los constantes esfuerzos para encontrar usos para el software en nuevos dominios. Uno
+podria argumenta con seguridad que las aplicaciones de software desarrolladas
+en años posteriores tuvieron dos diferencias caracterı́sticas:
+</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Comportamiento que fue difı́cil de caracterizar como un proceso.</td></tr>
+<tr><td>2</td><td>Requisitos de confiabilidad, rendimiento y costo que los desarrolladores
+originales no enfrentaron.</td></tr>
+</table>
+
+<p>
+El enfoque "centrado en el proceso” para el desarrollo de software utilizaba lo
+que se denomina funciones de arriba hacia abajo para descomponer. El
+primer paso en tal diseño fue reconocer lo que el proceso tenı́a para entregar (en
+términos de entrada y salida del programa), que fue seguido por descomposición
+del proceso en módulos funcionales. Se definieron estructuras para almacenar
+datos y el cómputo se realizó invocando los módulos, que realizaron algunos
+cálculos tanto en los elementos de datos almacenados. La vida de un diseño
+centrado en el proceso fue corta porque cambios en la especificación del proceso
+(algo relativamente poco común con algo numérico los ritmos en comparación
+con las aplicaciones comerciales) requirieron un cambio en todo el programa.
+Esto a su vez resultó en una incapacidad para reutilizar el código existente sin
+una sobrecarga considerable. Como resultado, los diseñadores de software co-
+menzaron a analizar sus propios enfoques y también a estudiar firmar procesos
+y principios que estaban siendo empleados por ingenieros en otras disciplinas.
+La polinización cruzada de ideas de otras disciplinas de ingenierı́a comenzó poco
+después, y surgieron disciplinas de ”diseño de software. e ingenierı́a de software”.
+A este respecto, es interesante observar el proceso utilizado para diseñar elementos eléctricos simples. sistemas electromecánicos. Durante varias décadas,
+ha sido bastante fácil para las personas con conocimiento limitado de los principios de ingenierı́a diseñar y armar sistemas simples en sus patios y garajes. Tanto
+es ası́, que se ha convertido en un pasatiempo que incluso un niño de diez años
+podrı́a perseguir. Las razones de este éxito son fáciles de ver: diseños fácilmente
+comprensibles, soluciones similares (estándar) para una serie de problemas, de
+fácil acceso y bien definidos ”Biblioteca”de ”bloques de construcción”, intercambiabilidad de componentes entre sistemas, etc. Algunos de los pioneros en el
+campo del diseño de software comenzaron a preguntarse si no podı́an también
+diseñe software que utilice dichos componentes ”listos para usar”. El paradigma
+orientado a objetos, se podrı́a argumentar que realmente ha evolucionado en
+respuesta a esta perspectiva. Hay, por supuesto, varias diferencias con el pro-
+ceso de diseño del hardware (inevitable, porque la naturaleza del software es
+fundamentalmente diferente del hardware), pero se pueden establecer paralelos
+entre muchas de las definiciones de las caracterı́sticas del diseño de hardware y
+lo que hoy defiende el buen software: Diseño recomendado. Esta metodologı́a,
+como veremos en los capı́tulos siguientes, nos proporciona con un proceso paso
+a paso para el diseño de software, un lenguaje para especificar el resultado de
+cada paso del proceso para que podamos pasar sin problemas de una etapa a
+la siguiente, la capacidad para reutilizar diseños anteriores, soluciones estándar
+que se adhieren a principios de diseño bien razonados e, incluso, la capacidad
+de corregir gradualmente un diseño deficiente sin romper el sistema. La filosofı́a
+general aquı́ es definir un sistema de software como una colección de objetos
+de varios tipos que interactúan entre sı́ a través de interfaces bien definidas.
+A diferencia de un duro componente de software, un objeto de software puede
+diseñarse para manejar múltiples funciones y puede por lo tanto, participe en varios procesos. Un componente de software también es capaz de almacenar datos,
+que agrega otra dimensión de complejidad al proceso. La manera en que todos
+de esto se ha alejado de la visión tradicional orientada al proceso es que en lugar
+de implementar al realizar un proceso completo de principio a fin y definir las
+estructuras de datos necesarias en el camino, primero analice todo el conjunto
+de procesos y, a partir de este, identifique el software necesario con ponentes de
+cada componente que representa una abstracción de datos y está diseñado para
+almacenar información junto con procedimientos para manipular lo mismo. La
+ejecución de los procesos originales es luego desglosado en varios pasos, cada uno
+de los cuales puede asignarse lógicamente a uno de los componentes de software,
+los componentes también pueden comunicarse entre sı́ según sea necesario para
+completar el proceso.
+</p>
+
+<header>
+<h4 align="center" id=con>Conceptos clave para el diseño orientado a
+objetos</h4>
+</header>
+
+<p>
+Durante el desarrollo de este paradigma, como cabrı́a esperar, varias ideas
+y los ensayos fueron juzgados y descartados. Con los años, el campo se ha estabilizado para que tengamos presente con seguridad las ideas clave cuya solidez
+ha resistido la prueba del tiempo.</p>
+
+<font color=yellow><h3 align="center">El rol central de los objetos</h3></font>
+
+
+<p>
+La orientación a objetos, como su nombre lo indica, convierte a los objetos
+en la pieza central del diseño de software. El diseño de los sistemas anteriores se
+centró en los procesos, que eran susceptibles de cambio, y cuando se produjo este
+cambio, muy poco del viejo sistema era reutilizable”. La noción de un objeto se
+centra en una pieza de datos y las operaciones (o métodos) podrı́an usarse para
+modificarlo. Esto hace posible la creación de una abstracción que es muy estable
+ya que no depende de los requisitos cambiantes de la aplicación. La ejecución de
+cada proceso depende en gran medida de los objetos para almacenar los datos
+y proporcionar operaciones necesarias; con algo de trabajo adicional, todo el
+sistema se ensambla a partir de objetos.
+</p>
+
+
+<font color=yellow><h3>La noción de clase</h3></font>
+
+<p>
+Las clases permiten que un diseñador de software vea los objetos como diferentes tipos de entidades. Visitar los objetos de esta manera nos permiten
+utilizar los mecanismos de clasificación para clasificar estos tipos, definir jerarquı́as y comprometerse con las ideas de especialización y generalización de
+objetos.
+</p>
+
+<font color=yellow><h3>Especificación abstracta de funcionalidad</h3></font>
+
+<p>
+En el curso del proceso de diseño, el ingeniero de software especifica las propiedades de los objetos. (y, por implicación, las clases) que necesita un sistema.
+Esta especificación es abstracta ya que no impone restricciones sobre cómo se
+logra la funcionalidad. Esta especificación, llamada interfaz o clase abstracta, es
+como un contrato para el implementador lo que también facilita la verificación
+formal de todo el sistema.
+</p>
+
+<font color=yellow><h3 align="center">Un lenguaje para definir el sistema</h3></font>
+
+<p>
+El lenguaje de modelado unificado (UML) ha sido elegido por consenso como
+herramienta estándar para describir los productos finales de las actividades de
+diseño. Los documentos generados en este lenguaje se puede entender universalmente y, por lo tanto, es análogo a los ”planosütilizados en otras disciplinas
+de ingenierı́a.
+</p>
+
+<font color=yellow><h3 align="center">Soluciones estándar</h3></font>
+
+<p>
+La existencia de una estructura de objetos facilita la documentación de soluciones estándar, llamadas patrones de diseño. Las soluciones estándares se
+encuentran en todas las etapas del desarrollo de software, pero los patrones de
+diseño son quizás la forma más común de reutilización de soluciones.
+</p>
+
+<font color=yellow><h3 align="center">Un proceso de análisis para modelar un sistema</h3></font>
+
+<p>
+La orientación a objetos nos proporciona una forma sistemática de traducir
+una especificación funcional a un diseño conceptual. Este diseño describe el
+sistema en términos de clases conceptuales de que los pasos posteriores del
+proceso de desarrollo generan las clases de implementación que constituyen el
+software terminado.
+</p>
+
+<font color=yellow><h3 align="center">La notación de extandabilidad y adaptabilidad</h3></font>
+
+<p>
+El software tiene una flexibilidad que normalmente no se encuentra en el
+hardware, y esto nos permite modificar las entidades existentes en pequeñas
+formas de crear otras nuevas. la herencia, que crea un nuevo clase descendiente
+que modifica las caracterı́sticas de una clase existente (ancestro) y su composición, que utiliza objetos que pertenecen a clases existentes como elementos para
+constituir una nueva clase, son mecanismos que permiten tales modificaciones
+con clases y objetos.
+</p>
+
+<header>
+<h3 align="center" id=otr>Otros conceptos relacionados</h3>
+</header>
+
+<p>
+A medida que se desarrolló la metodologı́a orientada a objetos, la ciencia
+del diseño de software progresó también, y se identificaron varias propiedades
+de software deseables. No es lo suficientemente central como para ser llamados
+conceptos orientados a objetos, estas ideas están estrechamente vinculadas a
+ellos y son quizás mejor entendidas debido a estos desarrollos.
+</p>
+
+<font color=yellow><h3 align="center">Diseño modular y encapsulamiento</h3></font>
+
+<p>
+La modularidad se refiere a la idea de armar un sistema grande desarrollando un número de componentes distintos de forma independiente y luego
+integrarlos para proporcionar la requerida funcionalidad, este enfoque, cuando
+se usa correctamente, generalmente hace que los módulos individuales relati-
+vamente simples y, por lo tanto, el sistema sea más fácil de entender que uno
+diseñado como estructura monolı́tica. En otras palabras, dicho diseño debe ser
+modular. La función del sistema debe ser proporcionada por una serie de módulos bien diseñados y cooperantes. Cada modulo obviamente, debe proporcionar
+cierta funcionalidad claramente especificada por una interfaz. La interfaz también define cómo otros componentes pueden interactuar o comunicarse con el
+módulo. Nos gustarı́a que un módulo especifique claramente lo que hace, pero
+no exponga su implementación. Esta separación de preocupaciones da lugar a
+la noción de encapsulación, lo que significa que el módulo oculta detalles de
+su implementación de agentes externos. Los tipos de datos abstractos (ADT), la generalización de tipos de datos primitivos como enteros y caracteres, es un
+ejemplo de aplicación de encapsulación. El programador especifica la colección
+de operaciones en el tipo de datos y las estructuras de datos que se necesitan
+para el almacenamiento de datos. Los usuarios del ADT realizan las operaciones
+sin preocuparse por la implementación.
+</p>
+
+<font color=yellow><h3 align="center">Cohesión y acoplamiento</h3></font>
+
+<p>
+Cada módulo proporciona cierta funcionalidad; la cohesión de un módulo
+nos dice qué tan bien están las entidades dentro de un módulo para trabajar
+juntas para proporcionar esta funcionalidad. La cohesión es una medida de cuán
+enfocadas están las responsabilidades de un módulo. Si las responsabilidades de
+un módulo son no relacionadas o variadas para utilizar diferentes conjuntos
+de datos, se reduce la cohesión. Los módulos altamente cohesivos tienden a
+ser más confiables, reutilizables y comprensibles que los menos cohesivos. Al
+aumentar la cohesión, nos gustarı́a que todos los componentes contribuyan a
+algunas bien definidas responsabilidades del módulo. Esta puede ser una tarea
+bastante desafiante. En contraste, el peor enfoque serı́a asignar arbitrariamente
+entidades a los módulos, lo que resulta en un módulo cuyos constituyentes no
+tienen una relación obvia.
+El acoplamiento se refiere a la dependencia de los módulos entre sı́. El hecho
+mismo de que nosotros al dividir un programa en múltiples módulos se intro-
+duce algún acoplamiento en el sistema. Podrı́a producirse pling debido a varios
+factores: un módulo puede referirse a variables definidas en otro módulo o un
+módulo puede llamar a métodos de otro módulo y usar el valor de retorno. La
+cantidad de acoplamiento entre módulos puede variar. En general, si los módulos
+no dependen de la implementación de los demás, es decir, los módulos dependen
+solo de la información publicada en las superficies de otros módulos y no en sus
+componentes internos, decimos que el acoplamiento es bajo. En En tales casos,
+los cambios en un módulo no requerirán cambios en otros módulos siempre y
+cuando ya que las interfaces en sı́ no cambian. El acoplamiento bajo nos permite modificar un modulo sin preocuparse por las ramificaciones de los cambios
+en el resto del sistema. Por el contrario, un alto acoplamiento significa que los
+cambios en un módulo requerirı́an cambios en otros módulos, que pueden tener
+un efecto dominó y también dificultar su comprensión del código.
+</p>
+
+<font color=yellow><h3 align="center">Modificabilidad y comprobabilidad</h3></font>
+
+<p>
+Un componente de software, a diferencia de su contraparte de hardware, pue-
+de modificarse fácilmente en pequeños formas. Esta modificación se puede hacer
+para cambiar tanto la funcionalidad como el diseño. La habilidad de cambiar la
+funcionalidad de un componente permite que los sistemas sean más adaptables;
+los avances en la orientación a objetos han establecido estándares más altos para la adaptabilidad. Mejorando el el diseño a través del cambio incremental se
+logra refactorizando, nuevamente un concepto que debe su origen al desarrollo
+del enfoque orientado a objetos. Hay algún riesgo asociado con actividades de
+ambos tipos; y en ambos casos, la organización del sistema en términos de objetos y clases ha ayudado a desarrollar procedimientos sistemáticos que mitigan
+el riesgo. La capacidad de prueba de un concepto, en general, se refiere tanto a la
+falsabilidad como a la facilidad con la que pueden encontrar contra ejemplos y
+la factibilidad práctica de reproducir dicho contra ejemplo. En el contexto de
+los sistemas de software, simplemente se puede expresar como la facilidad con
+la que se puede encontrar errores en un software y en qué medida la estructura
+del sistema facilita la detección de errores. Varios conceptos en las pruebas de
+software (por ejemplo, la idea de las pruebas unitarias) deben su importancia a
+los conceptos que surgieron del desarrollo del paradigma orientado a objetos.
+</p>
+
+<header>
+<h3 align="center" id=ben>Beneficios y desventajas del paradigma</h3>
+</header>
+
+<p>
+Desde un punto de vista práctico, es útil examinar cómo la metodologı́a
+orientada a objetos tiene modificado el panorama del desarrollo de software.
+Como con cualquier desarrollo, tenemos pros y contras. Las ventajas que se
+enumeran a continuación son en gran medida consecuencia de las ideas presentadas en las secciones anteriores.
+</p>
+
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Los objetos a menudo reflejan entidades en los sistemas de aplicación. Esto hace que sea más fácil para que un firmante para llegar a clases en el diseño. En un diseño orientado a procesos, es mucho más difı́cil encontrar una conexión que pueda simplificar el diseño inicial.</td></tr>
+
+<tr><td>2</td><td>La orientación a objetos ayuda a aumentar la productividad mediante la reutilización del software existente. La herencia hace que sea relativamente fácil ampliar y modificar la funcionalidad proporcionada por un clase. Los diseñadores de idiomas a menudo suministran bibliotecas extensas que los usuarios pueden ampliar.</td></tr>
+
+<tr><td>3</td><td>Es más fácil acomodar los cambios. Una de las dificultades con el desarrollo de aplicaciones está cambiando los requisitos. Con cierto cuidado durante
+el diseño, es posible para aislar las diferentes partes de un sistema en
+clases.</td></tr>
+
+<tr><td>4</td><td>La capacidad de aislar cambios, encapsular datos y emplear modularidad reduce los riesgos involucrados en el desarrollo del sistema.</td></tr>
+</table>
+
+<p>
+Las ventajas anteriores no vienen sin una etiqueta de precio. Quizás la vı́ctima número uno del paradigma es la eficiencia. El proceso de desarrollo orientado
+a objetos introduce muchos capas de software, y esto ciertamente aumenta los
+gastos generales. Además, la creación de objetos y la destrucción es cara. Las
+aplicaciones modernas tienden a presentar una gran cantidad de objetos que
+interactúan entre sı́ de manera compleja y al mismo tiempo admiten un usuario
+con interfaz visual. Esto es cierto si se trata de una aplicación bancaria con
+numerosos objetos de cuenta o un videojuego que a menudo tiene una gran
+cantidad de objetos. Los objetos tienden a tener complejos asociaciones, que
+pueden dar como resultado una no localidad, lo que lleva a tiempos de acceso
+de memoria deficientes. Programadores y diseñadores educados en otros para-
+digmas, generalmente en el paradigma imperativo, les resulta difı́cil aprender y
+utilizar principios orientados a objetos. En llegar a clases, los diseñadores inexpertos pueden confiar demasiado en las entidades de la aplicación del sistema, terminando con sistemas que no son adecuados para su reutilización. Los pro-
+gramadores también necesitan acclimatización de algunas personas que estiman
+que un programador tarda hasta un año en comenzar sentirse cómodo con estos
+conceptos. Algunos investigadores opinan que los entornos de gramática tampoco se han mantenido al dı́a con la investigación en capacidades lingüı́sticas.
+Ellos consideran que muchos de los editores y las instalaciones de prueba y depuración siguen siendo fundamentalmente orientado al paradigma imperativo y
+no respalda directamente muchos de los avances tales como patrones de diseño.
+</p>
+
+<header>
+<h3 align="center" id=his>Historia del paradigma</h3>
+</header>
+
+<p>
+La historia del enfoque de programación orientada a objetos se remonta a la
+idea de ADT y el concepto de objetos en el lenguaje de programación Simula 67,
+desarrollado en la década de 1960 para realizar simulaciones. El primer verdadero lenguaje de programación orientado a objetos. que apareció antes de que la
+comunidad de desarrollo de software más grande fuera Smalltalk en 1980, desarrollado en Xerox PARC. Smalltalk utilizaba objetos y mensajes como base para
+la comunicación. Las clases pueden ser creadas y modificadas dinámicamente.
+La mayor parte del vocabulario en el paradigma orientado a objetos se originó a
+partir de este lenguaje. A fines de la década de 1970, Bjarne Stroustrup, que
+realizaba un doctorado en Inglaterra. Necesitaba un lenguaje para hacer simulación de sistemas distribuidos. Desarrolló un lenguaje indicador basado en el
+concepto de clase en Simula, pero este lenguaje no fue particularmente eficaz.
+Sin embargo, él persiguió su intento y desarrolló un lenguaje orientado a objetos en los laboratorios Bell como un derivado de C, que se convertirı́a en uno
+de los más exitosos lenguajes de programación, C ++. El lenguaje fue estan-
+darizado en 1997 por el Instituto Nacional de Normas (ANSI) estadounidense.
+La década de 1980 vio el desarrollo de varios otros idiomas como ObjectLisp,
+CommonLisp, Common Lisp Object System (CLOS) y Eiffel. La creciente po-
+pularidad de la modelación orientado a objetos también impulsó cambios en el
+lenguaje Ada, originalmente patrocinado por el Departamento de Defensa de
+los Estados Unidos en 1983. Esto resultó en Ada 9x, una extensión de Ada 83,
+con conceptos orientados a objetos que incluyen herencia, polimorfismo y enlace
+dinámico. La década de 1990 vio dos grandes eventos. Uno fue el desarrollo de
+la programación Java, lenguaje de 1996. Java parecı́a ser un derivado de C ++,
+pero muchos de los controvertidos y los conceptos problemáticos en C ++ se eliminaron en él. Aunque era relativamente un lenguaje simple cuando se propuso
+originalmente, Java ha sufrido adiciones sustanciales, en el futuro las versiones
+que lo convertiran en un lenguaje moderadamente difı́cil. Java también viene con
+un impresionante colección de bibliotecas (llamadas paquetes) para soportar el
+desarrollo de aplicaciones. Un segundo evento principalmente fue la publicación
+del libro Design Patterns de Gamma et al. en 1994. El libro consideró preguntas
+de diseño especı́ficas (23 de ellas) y proporcionó enfoques generales para resolver
+usando construcciones orientadas a objetos. El libro (como también el enfoque
+que defendió) fue un gran éxito ya que tanto los profesionales como los académicos pronto reconocieron su importancia. Los últimos años vieron la aceptación
+de algunos lenguajes dinámicos orientados a objetos que fueron desarrollados en
+la década de 1990. Los lenguajes dinámicos permiten a los usuarios una mayor flexibilidad, por ejemplo la capacidad de agregar dinámicamente un método a
+un objeto en tiempo de ejecución. Uno de esos idiomas es Python, que se puede
+utilizar para resolver una variedad de aplicaciones, incluido el programa web
+ming, bases de datos, cómputos cientı́ficos y numéricos y redes. Otra lenguaje
+dinámico es el lenguaje, Ruby, que está aún más orientado a objetos, ya que
+todo en el lenguaje, incluso los números y los tipos primitivos, son un objeto.
+</p>
+
+<header>
+<h3 align="center" id=dis>Discusión y lectura adicional</h3>
+</header>
+
+<p>
+En este capı́tulo, hemos dado una introducción al paradigma orientado a
+objetos. Los conceptos centrales orientados a objetos como clases, objetos e
+interfaces serán abordados en los próximos tres capı́tulos. La cohesión y el acoplamiento, que son los principales problemas de diseño de software, ser temas
+recurrentes para la mayor parte del texto. Se aconseja al lector que aprenda
+o se actualice los conceptos no orientados a objetos. Del lenguaje Java lea el
+Apéndice A antes de pasar al siguiente capı́tulo. Vale la pena y es divertido leer
+una breve historial de los lenguajes de programación desde un texto estándar
+sobre el tema como Sebesta [33]. El lector también puede encontrar útil obtener
+las perspectivas de los diseñadores de los lenguajes orientados a objetos (como
+el dado en C ++ por Stroustrup [37]).
+</p>
+
+
+<font color=yellow><h3 align="center">Ejercicios</h3></font>
+
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Identifique a los jugadores que tendrı́an interés en el proceso de desarrollo de software. ¿Cuales son las preocupaciones de cada uno? ¿Cómo se beneficiarı́an del modelo orientado a objetos?</td></tr>
+
+<tr><td>2</td><td>Piense en algunas empresas comunes y en las actividades en las que participan los desarrolladores de software. ¿Cuáles son los conjuntos de procesos que les gustarı́a automatizar? ¿Hay alguno que necesite software solo para un proceso?</td></tr>
+
+<tr><td>3</td><td>¿Cómo apoya el modelo orientado a objetos la noción de ADT y encapsulación?</td></tr>
+
+<tr><td>4</td><td>Considere una aplicación con la que esté familiarizado, como un sistema universitario. Dividir las entidades de esta aplicación en grupos, identificando ası́ las clases.</td></tr>
+
+<tr><td>5</td><td>En la pregunta 4, supongamos que ponemos todo el código (correspondiente a todas las clases) en una sola clase. ¿Qué pasa con la cohesión y el acoplamiento?</td></tr>
+
+<tr><td>6</td><td>¿Cuáles son los beneficios de aprender patrones de diseño?<td></tr>
+</table>
+
+</div>
+</article>
+
+
+
+<!--Ventana 1-->
+
+<div id="openModal" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 2</font></h3>
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+	<font color=black>Características de las figuras</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la entrada y salida del Compilador.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig3.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 2-->
+
+<div id="openModal1" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 1</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la arquitectura del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig2.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 3-->
+
+<div id="openModal2" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 3</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de definiciones</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Definición de intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<p><font color=black>Otro tipo de traductor, llamado intérprete, procesa en forma 			interna el programa fuente y los datos al mismo tiempo. Es decir, la interpretación 				del formulario de origen interno se produce en tiempo de ejecución y no se 				genera ningún programa objeto.</font></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 4-->
+
+<div id="openModal3" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 4</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la entrada y salida del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>Figura 2
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig1.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 5-->
+
+<div id="openModal4" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 4</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama del concepto del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig4.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 6-->
+
+<div id="openModal5" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 5</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama del intérprete para ejemplificar con el compilador.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig5.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+
+<!--Ventana Cuadro-->
+
+<div id="openModalC1" class="modalDialog">
+	<div>
+		<h3><font color=black>CUADRO 1</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de cuadros</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Sugerencia sobre la tabla de sı́mbolos.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+                <table color=black CELLSPACING="20">
+                    <tr><td><font color=black>1</font></td><td><font color=black>Posición</font></td><td><font color=black>...</fony></td></tr>
+                    <tr><td><font color=black>2</font></td><td><font color=black>Inicial</font></td><td><font color=black>...</sont></td></tr>
+                    <tr><td><font color=black>3</font></td><td><font color=black>Velocidad</fony></td><td><font color=black>...</font></td></tr>
+                    <tr><td><font color=black>4</font>/td><td></td><td><font color=black>...</font></td></tr>
+                </table>
+			    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<aside class="lateralDer">
+
+<p class="p4">
+<table class="t" CELLSPACING="18">
+<tr><td><a href="#openModal1">FIGURA 1</a></a></td><td><a href="#openModal">FIGURA 2</a></td></tr>
+<tr><td><a href="#openModal2">INTÉRPRETE</a></td><td><a href="#openModal3">FIGURA 4</a></td></tr>
+
+<tr><td><a href="#openModal4">FIGURA 5</a></td><td><a href="#openModal5">FIGURA 6</a></td></tr>
+
+<tr><td><a href="#openModalC1">CUADRO</a></td><td> </td></tr>
+
+</table>
+</p>
+
+</aside>
+
+
+
+<aside class="lateralIzq">
+
+<p class="p4">
+<table class="t" CELLSPACING="18">
+<tr><td><a href="#openModal1">FIGURA 1</a></a></td><td><a href="#openModal">FIGURA 2</a></td></tr>
+<tr><td><a href="#openModal2">INTÉRPRETE</a></td><td><a href="#openModal3">FIGURA 4</a></td></tr>
+
+<tr><td><a href="#openModal4">FIGURA 5</a></td><td><a href="#openModal5">FIGURA 6</a></td></tr>
+
+<tr><td><a href="#openModalC1">CUADRO</a></td><td> </td></tr>
+
+</table>
+</p>
+
+</aside>
+
+
+
+</body>
+</html>

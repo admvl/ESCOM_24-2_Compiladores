@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Conversión de AFN a AFD</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 2</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">CONVERSIÓN DE AFN A AFD (ALGORITMO DE SUBCONJUNTOS)</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Diagrama a bloques del proceso de construcción de un analizador léxico</h1>
+       <hr>
+       <br>
+       
+      <p><strong>Estamos en la conversión de ER a AFN.</strong> Usando la construcción de Thompson:</p>
+      <br>
+    <p align="center">
+<img src="ProcedimientoAL1a.svg" align=center width=100% border=0></p>
+     <!-- <p>Este capítulo describe las herramientas matemáticas y técnicas de programación.
+que se utilizan comúnmente para construir escáneres, ambos generados
+y escáneres hechos a mano. El capítulo comienza, en la Sección 2.2, presentando un modelo para reconocedores, programas que identifican palabras en un flujo de
+caracteres. La sección 2.3 describe las expresiones regulares, una notación formal para
+especificando la sintaxis. En la sección 2.4, mostramos un conjunto de construcciones para convertir un
+expresión regular en un reconocedor. Finalmente, en la Sección 2.5 presentamos tres
+diferentes formas de implementar un escáner: un escáner de mesa, un escáner de codificación directa
+escáner y un enfoque codificado a mano.
+Tanto los escáneres generados como los hechos a mano se basan en las mismas técnicas subyacentes. Si bien la mayoría de los libros de texto y cursos abogan por el uso de
+los escáneres, la mayoría de los compiladores comerciales y los compiladores de código abierto utilizan escáneres hechos a mano. Un escáner hecho a mano puede ser más rápido que uno generado
+escáner porque la implementación puede optimizar una parte de la sobrecarga que no se puede evitar en un escáner generado. Porque los escáneres son
+simples y cambian con poca frecuencia, muchos escritores de compiladores consideran que la ganancia de rendimiento de un escáner hecho a mano supera la conveniencia
+de generación automática de escáneres. Exploraremos ambas alternativas. </p>-->
+     <br>
+      <br>
+     <hr>
+     <h1>Algoritmo de subconjuntos</h1>
+     <hr>
+     <br>
+      <p>Convertir el autómata AFN de la clase léxica identificador (<strong>ID</strong>). Se tiene el AFN del <strong>ID</strong> numerado, que a continuación se presenta:</p>
+      <br>
+      <p align="center">
+<img src="ALexAfnIDnum.svg" align=center width=100% border=0></p>
+      <br>
+      <p>Proceso de conversión de un AFN a un AFD con la aplicación del algoritmo de subconjuntos.</p>
+      <br>
+      <p align="center">
+<img src="MetodoAlgoritmoSubconjuntos.svg" align=center width=100% border=0></p>
+      <br>
+      <p><strong>Definición de la operación de cerradura-&epsilon;.</strong> La cerradura-&epsilon;({S}) es el
+conjunto de todos los estados que reciben una transición con el carácter vacı́o &epsilon;, incluido el conjunto de estados {S} de donde salen las transiciones &epsilon;.</p>
+      <br>
+      <p>Para obtener el primer estado del AFD, se aplica la operación de cerradura-&epsilon;({0}), de la siguiente forma, el conjunto de estados se etiqueta como q<sub>0:</p>
+      <br>
+       <font color=red size=7><h3 align="center">cerradura-&epsilon;({0}) = {0} = q<SUB>0</h3></font>
+     <br>
+     <p>Se debe consider el alfabeto &Sigma; = {Símbolos que acepta el autómata}, para este caso:</p>
+     <br>
+     <font color=red size=7><h3 align="center">&Sigma; = {l, d}</h3></font>
+     <br>
+     <p>Otra operación que se considera es mov(Estado, Símbolo), la cual se va aplicar al estado q0 
+con todos los símbolos del alfabeto &Sigma;:</p>
+     <br>
+     <font color=red size=7><h3 align="center">mov(q0, l) = {1}</h3></font>
+     <br>
+     <p>A este conjunto de estados se le aplica la operación de cerradura-&epsilon;(q0, l), por lo que queda:</p>
+     <br>
+     <br>
+      <p align="center">
+<img src="ALexAfnIDnum.svg" align=center width=100% border=0></p>
+      <br>
+     
+     <font color=red size=7><h3 align="center">cerr-&epsilon;(mov(q0, l)) = cerr-&epsilon;({1}) = {1, 2, 3, 4, 6, 9} = q<SUB>1</h3></font>
+     <br>
+     <p><strong>Ahora ase hace:</strong> De la siguiente forma:</p>
+      <br>
+      <font color=red size=7><h3 align="center">cerr-&epsilon;(mov(q0, d)) = cerr-&epsilon;{&Phi;} = &Phi;</h3></font>
+     <br>
+     <p>Ahora se aplica los movimientos y cerr-&epsilon; al estado q1:</p>
+      <br>
+      <br>
+      <p align="center">
+<img src="ALexAfnIDnum.svg" align=center width=100% border=0></p>
+      <br>
+      
+      <font color=red size=7><h3 align="center">cerr-&epsilon;(mov(q1, l)) = cerr-&epsilon;{5} = {5, 8, 3, 4, 6, 9} = q2</h3></font>
+     <br>
+     <p>Se hace con el símbolo d, por lo que queda:</p>
+     <br>
+      <font color=red size=7><h3 align="center">cerr-&epsilon;(mov(q1, d)) = cerr-&epsilon;({7}) = {7, 8, 3, 4, 6, 9} = q3</h3></font>
+     <br>
+     <p>Ahora lo hacemos para q2:</p>
+     <br>
+      <font color=red size=7><h3 align="center">cerr-&epsilon;(mov(q2, l)) = cerr-&epsilon;({5}) = {5, 8, 3, 4, 6, 9} = q2</h3></font>
+     <br>
+     <p>Para el símbolo d:</p>
+     <br>
+      <font color=red size=7><h3 align="center">cerr-&epsilon;(mov(q2, d)) = cerr-&epsilon;({7}) = {7, 8, 3, 4, 6, 9} = q3</h3></font>
+     <br>
+     <p>Ahora para el estado q3: </p>
+     <br>
+     <font color=red size=7><h3 align="center">cerr-&epsilon;(mov(q3, l)) = cerr-&epsilon;({5}) = {5, 8, 3, 4, 6, 9} = q2</h3></font>
+     <br>
+     
+     <br>
+      <p align="center">
+<img src="ALexAfnIDnum.svg" align=center width=100% border=0></p>
+      <br>
+     <p>Para el símbolo d:</p>
+      <br>
+      <font color=red size=7><h3 align="center">cerr-&epsilon;(mov(q3, d)) = cerr-&epsilon;({7}) = {7, 8, 3, 4, 6, 9} = q3</h3></font>
+     <br>
+     <p>Se transforma la ER para la clase léxica identificador. Lo que se muestra en el siguiente diagrama:</p>
+     <br>
+     
+     <p align="center">
+<img src="ClaseLexicaIdentificador.svg" align=center width=80% border=0></p>
+     <br>
+     <p>Ejemplo de aplicación del algoritmo de subconjuntos a la clase léxica identificador.</p>
+     <br>
+      <p align="center">
+<img src="Ejemplo1AlgoritmoSubconjuntos.svg" align=center width=100% border=0></p>
+      <br>
+     <p>El autómata AFD queda como sigue:</p>
+     <br>
+    <p align="center">
+<img src="ALexAfdID.svg" align=center width=80% border=0></p>
+     </article>
+    </section>
+      <aside>
+        <h1>Ejercicios</h1>
+        <hr>
+     <p><strong>Ejercicio 1.</strong> Obtener el AFN de la ER a(a|b)<SUPER>* a</p>
+     <br>
+     <p><a href="23EjemploConvAfnAfd.html">Solución al ejercicio 1.</a></p>
+     <br>
+    <p><strong>Ejercicio 2.</strong> Obtener el AFN de la ER (a|b)<SUPER>* a(a|b)(a|b)</p>
+     <br>
+     <p><a href="221EjemplosErAfn1.html">Solución al ejercicio 2.</a></p>
+     <br>
+     <p><strong>Ejercicio 3.</strong> Obtener el AFN de la ER a<SUPER>*ba<SUPER>*ba<SUPER>*ba<SUPER>*</p>
+     <br>
+     <hr>
+     <h1>Pregunta</h1>
+        <hr>
+     <p><strong>No hay.</strong> </p>
+    
+        </aside>
+      <footer><p>Construcción de analizadores léxicos: Tema 2.3</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

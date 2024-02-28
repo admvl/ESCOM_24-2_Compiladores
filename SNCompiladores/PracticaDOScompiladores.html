@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Práctica 2 Compiladores</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Práctica 2</header>
+ <nav>
+    
+     <p><img src="temario-icono.png" width=95% border=5></image></p>
+     
+     <p class="derecha"><a href="TemarioCompiladores.html">Temario<img src="iconoPoo.png" width=65% border=5></image></a></p>
+     
+     <p><a href="MaterialPoo.html"><img src="iconoPoo.png" width=90% border=5></image></a></p>
+         
+ </nav>
+
+  <section class="envoltura">
+    <h1 class="titulo">DISEÑO Y DESARROLLO DE UN SISTEMA PARA OBTENER EL AFN ASOCIADO A UNA EXPRESIÓN REGULAR POR CONSTRUCCIÓN DE THOMPSON</h1>
+
+    <section class="interna">
+      
+      <article>
+       
+       <h1>Objetivo</h1>
+       <hr>
+       <p>Se utilizarán los modelos de construcción de Thompson de la concatenación, la alternativa y la cerradura, para construir el AFN.</p>
+      <hr>
+      <br>
+      <h1>Actividades</h1>
+      <hr>
+      <br>
+       <p>Considerar los tres modelos de las expresiones regulares para transformar una ER a un AFN:</p>
+       <br>
+       <p><strong>Modelo de la construcción de Thompson de la concatenación.</strong><font color=red size=5><h3 align="left">ab</font></p>
+       <br>
+        <p align="center">
+<img src="ModeloThconca.svg" align=center width=100% border=0></p>
+       <br>
+       <p><strong>Modelo de la construcción de Thompson de la alternativa.</strong><font color=red size=5><h3 align="left">a|b</font></p>
+       <br>
+       <p align="center">
+<img src="ModeloTHAlt.svg" align=center width=100% border=0></p>
+       <br>
+       <p><strong>Modelo de la construcción de Thompson de la cerradura de Kleene.</strong><font color=red size=5><h3 align="left">a*</font></p>
+       <br>
+       <p align="center">
+<img src="ModeloThKleene.svg" align=center width=100% border=0></p>
+       <br>
+       <p><strong>Modelo de la construcción de Thompson de la cerradura positiva.</strong><font color=red size=5><h3 align="left">a+</font></p>
+       <br>
+       <p align="center">
+<img src="ModeloThPositiva.svg" align=center width=100% border=0></p>
+       <br>
+       <p><strong>Convertir la siguiente ER a un AFN:</strong> <font color=red size=5><h3 align="left">a*baab</font></p>
+       <br>
+       
+
+       <hr>
+      <h1>Cuestionario</h1>
+      <hr>
+      <br>
+      <p><strong>Pregunta 1.</strong> Describir el proceso para la transformación de una ER a un AFN con el uso de la construcción de Thompson.</p>
+      <br>
+      <p><strong>Pregunta 2.</strong> Desarrollar el ejercicio usando la expresión regular <font color=red>a*baab</font>. Subirlo al repositorio correspondiente que esta en el driver. Lo puedes hacer a mano y lo escanean.</p>
+      <br>
+      <p><strong>Pregunta 3.</strong> Desarrollar el ejercicio usando la expresión regular obtenida del siguiente código: <font color=red>if(a != b){a + b;}</font>. Subirlo al repositorio correspondiente que esta en el driver. Lo puedes hacer a mano y lo escanean.</p>
+      <br>
+      
+      </article>
+       <br>
+       <hr>
+       <br> 
+          
+    </section>
+
+       <aside>
+        <h1>Sugerencias</h1>
+        <hr>
+        <br>
+        <p><strong>Sugerencia 1. </strong> Usar los modelos de la construcción de Thompson de las operaciones básicas de las expresiones regulares, para obtener el AFN.</p>
+        <br>
+        
+       </aside>
+      <footer><p>Práctica 2</p><p class="derecha">Prof. José Sánchez Juárez</p></footer>
+   </section>
+</body>
+</html>

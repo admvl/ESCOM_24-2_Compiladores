@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Gramáticas ambiguas</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 3</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">GRAMÁTICAS AMBIGUAS</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Gramáticas</h1>
+       <hr>
+       <br>
+      <p><strong>La forma general de la gramática libre de contexto.</strong> El maestro Chomsky clasifica a las gramáticas por la forma de la producción. Por lo que la forma de la gramática libre de contexto es la siguiente:</p>
+      <font color=red size=7><h3 align="center">A &rarr; &alpha;</h3></font>
+      <br>
+      <p>donde A ∈ N y α ∈ V ∗ .</p>
+      <br>
+      <p><strong>Ejemplo de gramática libre de contexto:</strong> </p>
+     <br>
+     <p>La gramática formal:</p>
+     <font color=yellow size=7><h3 align="center">G1 = ({S}, {a, b}, P1 , S)</h3></font>
+     <br>
+     <p>Donde:</p>
+     <br>
+     <font color=yellow size=7><h3 align="center">N = {S}</h3></font>
+     <font color=yellow size=7><h3 align="center">T = {a, b}</h3></font>
+     <font color=yellow size=7><h3 align="center">El símbolo inicial es S</h3></font>
+     <font color=red size=7><h3 align="center">P1 = {S → aSa,
+S → bSb,
+S → &epsilon;}</h3></font>
+     <br>
+      <p class="cita"><cite>Engineering a compiler, Keith D. Cooper and Linda Torczon, Pág. 1-3</cite></p>
+       <br>
+      
+      <hr>
+       <h1>Derivaciones</h1>
+       <hr>
+       <br>
+       <p>Para hacer las derivaciones se utilizan las definiciones de forma sentencial y desde luego la definición de derivación.</p>
+       <br>
+       <p><strong>Definición de forma sentencial.</strong> La forma sentencial es una cadena de sı́mbolos que ocurre como un paso en una derivación válida.</p>
+       <br>
+       <p><strong>Definición de derivación.</strong> Derivación es una secuencia de reescribir los pasos que comienzan con el sı́mbolo inicial de la gramática y que finaliza con la sentencia en el lenguaje</p>
+       <br>
+      <p><strong>Tipos de derivaciones.</strong> Existen dos formas de derivar las cadenas de caracteres, la derivación por la derecha y la derivación por la izquierda.</p>
+       <br>
+       <p><strong>Ejemplo de derivaciones.</strong> Derivar por la izquierda la siguiente cadena de la gramática:</p>
+       <br>
+        <font color=yellow size=7><h3 align="center">G2 = (N2 , T2 , P2 , S2 )</h3></font>
+     <br>
+      <p>Donde:</p>
+      <font color=yellow size=7><h3 align="center">N2 = {E}</h3></font>
+     <font color=yellow size=7><h3 align="center">T2 = {+, *, id}</h3></font>
+     <font color=yellow size=7><h3 align="center">El símbolo inicial es E</h3></font>
+     <font color=red size=7><h3 align="center">P2 = {E → E + E,
+E → E * E,
+E → (E), E &rarr; id}</h3></font>
+     <br>
+     
+       <p class="cita"><cite>Engineering a compiler, Keith D. Cooper and Linda Torczon, Pág. 3</cite></p>
+       <br>
+       <p>Derivación por la izquierda:</p>
+       <font color=lime size=6><h3 align="center">E &rArr; E * E &rArr; E + E * E &rArr; id + E * E &rArr; id + id * E &rArr; id + id * id</h3></font>
+       <br>
+       <p>El árbol sintáctico es el siguiente:</p>
+      <br>
+       <p align="center">
+<img src="ArbolExpAmb2.svg" align=center width=80% border=0></p>
+       <br>
+       <p class="cita"><cite>Introduction
+to Compiler Design, Torben AEgidius Mogensen, Pág. 97</cite></p>
+       <br>
+       <p><strong>Gramáticas libres de contexto.</strong> </p>
+      <br>
+     <hr>
+       <h1>Ambiguedad</h1>
+       <hr>
+       <br>
+       <p><strong>Definición de ambiguo del diccionario de la real academia española</strong> 1. adj. Dicho especialmente del lenguaje: Que puede entenderse de varios modos o admitir distintas interpretaciones y dar, por consiguiente, motivo a dudas, incertidumbre o confusión.
+
+2. adj. Dicho de una persona: Que, con sus palabras o comportamiento, vela o no define claramente sus actitudes u opiniones.
+
+3. adj. Incierto, dudoso.</p>
+      <br>
+      <p><strong>Definición de gramática ambigua.</strong> Si aplicando las producciones de una gramática se obtienen para una cadena por derivación dos árboles sintácticos diferentes.</p>
+      <font color=lime size=6><h3 align="center">E &rArr; E + E &rArr; id + E &rArr; id + E * E &rArr; id + id * E &rArr; id + id * id</h3></font>
+      <br>
+      <p>El árbol sintáctico es el siguiente:</p>
+      <br>
+      <p align="center">
+<img src="ArbolExpAmb1.svg" align=center width=80% border=0></p>
+       <br>
+    </article>
+    </section>
+
+
+      <aside>
+        <h1>Preguntas</h1>
+        <hr>
+        <br>
+       <p><strong>Pregunta 1.</strong> Explicar que son las derivaciones.</p>
+     <br>
+     <p><strong>Pregunta 2.</strong> Explicar que es la ambugüedad.</p>
+       <br>
+       <hr>
+      <h1>Ejercicios</h1>
+        <hr>
+      <p><strong>Ejercicio 1.</strong> Obtener la cadena <strong>abba</strong> de la gramática G1, explicar si es ambigua.</p>
+      <br>
+      <p><strong>Ejercicio2.</strong> Obtener la cadena <strong>aabaa</strong> de la gramática que tiene como conjunto de producciones P = {S → aCa,
+C → aCa,
+C → b}, explicar si es ambigua.</p>
+        <br>
+     <p><strong>Ejercicio 3.</strong> </p>
+        </aside>
+      <footer><p>Construcción de analizadores sintácticos: Tema 3.1.1</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

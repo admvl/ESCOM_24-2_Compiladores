@@ -1,0 +1,456 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Creación de un AFD de una ER</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+  <style>
+  pre {
+        overflow-x: auto;
+  }
+  </style>
+<body>
+<header>Compiladores<br>Capítulo 2</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">CREACIÓN DE UN AFD A PARTIR DE UNA ER</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Diagrama a bloques del proceso de construcción de un analizador léxico</h1>
+       <hr>
+       <br>
+      <p><strong>La conversión de ER a AFD.</strong> Se aplica un algoritmo diferente al algoritmo de subconjuntos. La aplicación de este algoritmo usa un árbol de análisis sintáctico:</p>
+      <br>
+    <p align="center">
+<img src="ProcedimientoAL1a.svg" align=center width=100% border=0></p>
+     <!-- <p>Este capítulo describe las herramientas matemáticas y técnicas de programación.
+que se utilizan comúnmente para construir escáneres, ambos generados
+y escáneres hechos a mano. El capítulo comienza, en la Sección 2.2, presentando un modelo para reconocedores, programas que identifican palabras en un flujo de
+caracteres. La sección 2.3 describe las expresiones regulares, una notación formal para
+especificando la sintaxis. En la sección 2.4, mostramos un conjunto de construcciones para convertir un
+expresión regular en un reconocedor. Finalmente, en la Sección 2.5 presentamos tres
+diferentes formas de implementar un escáner: un escáner de mesa, un escáner de codificación directa
+escáner y un enfoque codificado a mano.
+Tanto los escáneres generados como los hechos a mano se basan en las mismas técnicas subyacentes. Si bien la mayoría de los libros de texto y cursos abogan por el uso de
+los escáneres, la mayoría de los compiladores comerciales y los compiladores de código abierto utilizan escáneres hechos a mano. Un escáner hecho a mano puede ser más rápido que uno generado
+escáner porque la implementación puede optimizar una parte de la sobrecarga que no se puede evitar en un escáner generado. Porque los escáneres son
+simples y cambian con poca frecuencia, muchos escritores de compiladores consideran que la ganancia de rendimiento de un escáner hecho a mano supera la conveniencia
+de generación automática de escáneres. Exploraremos ambas alternativas. </p>-->
+     <br>
+      <br>
+     <hr>
+     <h1>Conversión de ER a AFD</h1>
+     <hr>
+     <br>
+      <p><strong>Definiciones.</strong> Para poder hacer la conversión se requieren las siguientes funciones: anulable(), primerapos(), siguientepos(), ultimapos(). Y también el árbol de análisis sintáctico.</p>
+      <br>
+      <p>Las funciones anulable(n), primerapos() y ultimapos(). Sirven para obtener la función siguientepos(). La función siguientepos() es la que nos va a servir para construir el AFD. </p>
+      <br>
+      
+      <br>
+     <p align="center">
+<img src="ProcedimientoConErAFD.svg" align=center width=80% border=0></p>
+     <br>
+      
+      <h3>Reglas para la aplicación de las funciones</h3>
+     <hr>
+     <br>
+      <p><strong>Función anulable().</strong> Es <strong>true</strong> para un nodo <strong>n</strong> de un árbol de análisis sintáctico y si y solamente si la subexpresión representada por <strong>n</strong> tiene &epsilon; en su lenguaje. Esto es, la subexpresión se puede hacer nula o cadena vacia, aunque hay muchas otras cadenas que pueden representarse también. 
+
+Es necesario conocer qué nodos son las raı́ces de las subexpresiones que generan
+lenguajes que incluyen la cadena vacı́a. A dichos nodos se les denomina anulables, y la función anulable(n) se define como <strong>true</strong> si el nodo <strong>n</strong> es anulable, y <strong>false</strong> en caso contrario.</p>
+      <br>
+      <p><strong>Etiquetación de las hojas n.</strong> Si la hoja <strong>n</strong> esta etiquetada con el caracter vacio &epsilon;, la función <strong>anulable(n)</strong> es <strong>true</strong>. O si la hoja <strong>n</strong> esta etiquetada con la posición <strong>i</strong> entonces la función <strong>anulable(n)</strong> es <strong>false</strong>. La función anulable también se aplica a las operaciones de: Concatenación, Alternativa y cerradura.</p>
+      <br>
+      <p><strong>La función anulable(n) para la concatenación (nodo-cat).</strong> Se aplica a cada una de las alternativas la función anulable(a) y anulable(b). <strong>La función primerapos().</strong> Es <strong>if</strong> anulable(n) <strong>then</strong> primerapos(n1) U primerapos(n2) <strong>else</strong> primerapos(n1). <strong>La función ultimapos().</strong> Es <strong>if</strong> anulable(n) <strong>then</strong> ultimapos(n1) U ultimapos(n2) <strong>else</strong> ultimapospos(n1).</p>
+      <br>
+      <p><strong>La función anulable(n) para la alternativa (nodo-o).</strong> Se aplica a cada una de las alternativas la función anulable(). Y se aplica anulable(a) or anulable(b). <strong>La función primerapos().</strong> Es primerapos(a) U primerapos(b). <strong>La fución ultimapos().</strong> Es ultimapos(a) U ultimapos(b).</p>
+      <br>
+      <p><strong>La función anulable(n) para la cerradura de Kleene (nodo-ast).</strong> Se aplica de manera directa ya que para la cerradura es <strong>true</strong>. <strong>La función primerapos().</strong> Es primerapos(n). <strong>La función ultimapos().</strong> Es ultimapos(n).</p>
+      <br>
+      <p><strong>La función anulable(n) para la cerradura positiva (nodo-posi).</strong> Se aplica de manera directa a su hijo que puede ser <strong>true</strong> o <strong>false</strong>. <strong>La función primerapos().</strong> Es primerapos(n). <strong>La función ultimapos().</strong> Es ultimapos(n).</p>
+      <br>
+      <p><strong>La función anulable(n) para la interrogación (nodo-inte).</strong> Se aplica de manera directa es <strong>true</strong>. <strong>La función primerapos().</strong> Es primerapos(n). <strong>La función ultimapos().</strong> Es ultimapos(n).</p>
+      <br>
+      <p><strong>Función primerapos().</strong> La que proporciona el conjunto de posiciones que pueden concordar con el primer sı́mbolo de una cadena generada por la subexpresión con raı́z en n.</p>
+      <br>
+      <p><strong>Función siguientepos().</strong> Es el conjunto de posiciones j tales que hay alguna cadena de entrada cd tal que i corresponde a la aparición de c y j a la aparición de d.</p>
+      <br>
+      <p><strong>Función últimapos().</strong> La que proporciona el conjunto de posiciones que pueden concordar con el último sı́mbolo en esa cadena.</p>
+      <br>
+     <p><strong>Árbol de análisis sintáctico.</strong> Este árbol presenta en cada uno de sus nodos el sı́mbolo no terminal, de tal manera que se presenta la sintaxis de la gramática.</p>
+      <br>
+      <hr>
+      <h1>Procedimiento de obtencion de un ADF de una ER</h1>
+      <hr>
+      <br>
+      <p>Se debe obtener el árbol de análisis sintáctico de la ER. Para después se aplica a cada una de las hojas del árbol la función anulable. Por lo que se presenta la siguiente expresión regular:</p>
+      <br>
+      
+       <br>
+     <p align="center">
+<img src="Ejercicio1ConErAfd.svg" align=center width=80% border=0></p>
+     <br>
+      
+      <br>
+       <font color=red size=7><h3 align="center">(a|b)* abb</h3></font>
+     <br>
+     <p><strong>Método de conversión de ER a AFD</strong></p>
+     <br>
+     <pre>
+     Entrada:
+     Una expresión regular r.
+
+     Salida:
+     Un AFD D que reconoce a L(r).
+ 
+     Método:
+     1. Constrúyase un árbol sintáctico para la expresión regular aumentada (r)#,
+     dónde # es un marcador de final único que se añade a (r).
+     2. Constrúyanse las funciones anulable(), primerapos(), útimapos() y siguientepos() 
+     haciendo recorridos en profundidad en el árbol T.
+     3. Contrúyanse los estadosD, el conjunto de estados D, y tranD, la tabla de 
+     transiciones para D. Los estados dentro de estadosD son 
+     conjuntos de posiciones; al principio, cada estado esta “no marcado”, y un estado se 
+     convierte en “marcado” justo antes de considerar sus transiciones de salida.
+     El estado de inicio de D es primerapos(raı́z), y los estados de aceptación
+     son todos los que contienen la posición asociada con el marcador de final #.
+     </pre>
+     <br>
+     <p>Se aumenta la expresión regular:</p>
+     <br>
+     <font color=red size=7><h3 align="center">(a|b)* abb#</h3></font>
+     <br>
+     <p>Su árbol de análisis es el siguiente, donde se enumeran los nodos hoja de izquierda a derecha como también se muestra en el árbol:</p>
+     <br>
+     <p align="center">
+<img src="ArbolSinER1.svg" align=center width=80% border=0></p>
+     <br>
+     <hr>
+      <h1>Procedimiento para obtener las funciones anulable(), primerapos() y ultimapos()</h1>
+      <hr>
+      <br>
+     <p>Se calcula la función anulable() para los nodos del árbol.</p>
+      <br>
+      <p align="center">
+<img src="ArbolSinER1anulabe.svg" align=center width=80% border=0></p>
+      <br>
+      <p>Se utiliza la siguiente tabla para calcular las funciones:</p>
+      <br>
+      <div class="Rtable">
+
+     <div style="order:1;" class="Rtable-cell"><h3>Nodo</h3></div>
+     <div style="order:2;" class="Rtable-cell">n es un nodo hoja etiquetado con &epsilon;</div>
+     <div style="order:3;" class="Rtable-cell">n es un nodo hoja etiquetado con la posición i</div>
+     <div style="order:4;" class="Rtable-cell">nodo-o con hijos hI y hD</div>
+     <div style="order:5;" class="Rtable-cell">nodo-cat con hijos hI y hD</div>
+     <div style="order:6;" class="Rtable-cell">nodo-ast con hijo h</div>
+     <div style="order:7;" class="Rtable-cell">nodo-posi con hijo h</div>
+     <div style="order:8;" class="Rtable-cell"><strong>nodo-int con hijo h</strong></div>
+
+     <div style="order:1;" class="Rtable-cell"><h3>anulable()</h3></div>
+     <div style="order:2;" class="Rtable-cell">true</div>
+     <div style="order:3;" class="Rtable-cell">false</div>
+     <div style="order:4;" class="Rtable-cell">anulable(hI) OR anulable(hD)</div>
+     <div style="order:5;" class="Rtable-cell">anulable(hI) AND anulable(hD)</div>
+     <div style="order:6;" class="Rtable-cell">true</div>
+     <div style="order:7;" class="Rtable-cell">anulable(hI)</div>
+     <div style="order:8;" class="Rtable-cell"><strong>true</strong></div>
+
+     <div style="order:1;" class="Rtable-cell"><h3>primerapos()</h3></div>
+     <div style="order:2;" class="Rtable-cell">&Phi;</div>
+     <div style="order:3;" class="Rtable-cell">{i}</div>
+     <div style="order:4;" class="Rtable-cell">primerapos(hI) U primerapos(hD)</div>
+     <div style="order:5;" class="Rtable-cell"><strong>if</strong> anulable(hI) <strong>then</strong> primerapos(hI) U primerapos(hD) <strong>else</strong> primerapos(hI)</div>
+     <div style="order:6;" class="Rtable-cell">primerapos(hI)</div>
+     <div style="order:7;" class="Rtable-cell">primerapos(hI)</div>
+     <div style="order:8;" class="Rtable-cell"><strong>primerapos(hI)</strong></div>
+     
+     <div style="order:1;" class="Rtable-cell"><h3>ultimapos()</h3></div>
+     <div style="order:2;" class="Rtable-cell">&Phi;</div>
+     <div style="order:3;" class="Rtable-cell">{i}</div>
+     <div style="order:4;" class="Rtable-cell">ultimapos(hI) U ultimapos(hD)</div>
+     <div style="order:5;" class="Rtable-cell"><strong>if</strong> anulable(hD) <strong>then</strong> ultimapos(hI) U ultimapos(hD) <strong>else</strong> ultimapos(hD)</div>
+     <div style="order:6;" class="Rtable-cell">ultimapos(hI)</div>
+     <div style="order:7;" class="Rtable-cell">ultimapos(hI)</div>
+     <div style="order:8;" class="Rtable-cell"><strong>ultimapos(hI)</strong></div>
+
+    </div>
+      <br>
+     <p>Se calculan las funciones primerapos() y ultimapos() para los nodos del árbol. Los conjuntos obtenidos de primerapos() se escriben a la izquierda del nodo. Los conjuntos de ultimapos() se escriben a la derecha del nodo.</p>
+      <br>
+      <p align="center">
+<img src="ArbolSinER1anulablePu.svg" align=center width=80% border=0></p>
+      <br>
+      <hr>
+      <h1>Procedimiento de obtención de la función siguientepos()</h1>
+      <hr>
+      <br>
+      <p>Se calculan las funciones <strong>siguientepos()</strong>, únicamente de los <strong>nodos-cat</strong> y <strong>nodos-ast</strong>. Se aplican las siguientes reglas:</p>
+     <br>
+     <p><font color=yellow><strong>Regla para un nodo-cat n.</strong></font> Con hijo izquierdo <strong>hI</strong> e hijo derecho <strong>hD</strong>, e <strong>i</strong> es una posición dentro de la función <strong>ultimapos(hI)</strong>, entonces todas las posiciones de <strong>primerapos(hD)</strong> están en <strong>siguientepos(i)</strong>.</p>
+     <br>
+     
+     <p><font color=yellow><strong>Regla para un nodo-ast n.</strong></font> Con una posición <strong>i</strong> dentro de <strong>ultimapos(n)</strong>, entonces todas las posiciones de <strong>primerapos(n)</strong> están en <strong>siguientepos(i)</strong>.</p>
+     <br>
+     <p>La función <strong>siguientepos(i)</strong>, sólo se calcula para los nodos <strong>cat</strong> y <strong>ast</strong>.</p>
+     <br>
+     <p>Del vocabulario se obtienen los símbolos de entrada.</p>
+     
+     <br>
+     <p align="center">
+<img src="MetArbolSiguientePos.svg" align=center width=80% border=0></p>
+     
+     <br>
+     
+     <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Obtención de las funciones siguientepos(i)</CAPTION>
+        <tr><th scope="row">Nodo i</th> <th>Función siguientepos(i)</th> </tr>
+        <tr><td>1 </td> <td>{1, 2, 3} </td> </tr>
+        <tr><td>2 </td> <td>{1, 2, 3} </td> </tr>
+        <tr><td>3 </td> <td>{4} </td> </tr>
+        <tr><td>4 </td> <td>{5} </td> </tr>
+        <tr><td>5 </td> <td>{6} </td> </tr>
+        <tr><td>6 </td> <td>- </td> </tr>
+      </table>
+      </CENTER>
+      <br>
+     <hr>
+     
+      <h1>Procedimiento para la obtención de los estados</h1>
+      <hr>
+      <br>
+     <font color=red size=7><h3 align="center">&Sigma; = {a, b}</h3></font>
+     <br>
+     <p><strong>Algoritmo</strong></p>
+     <pre>
+    al principio, el único estado no marcado en estadosD
+    es primerapos(raiz), donde raiz es la raiz del
+    árbol de sintaxis para (r)#;
+    
+    while hay un estado sin marcar T en estadosD 
+      do begin marcar T;
+        for cada símbolo de entrada &isin; vocabulario do begin
+          sea U el conjunto de posiciones que estan en
+            siguientepos(p) para alguna posición p en T,
+            tal que el símbolo en la posición p es uno que 
+            &isin; al vocabulario;
+          if U no esta vacio y no esta en estadosD then
+            añadir U como estado no marcado a estadosD;
+          tranD[T, símbolo del vocabulario] := U
+      end
+    end
+    </pre>
+     <br>
+     <font color=red size=6><h3 align="center">primerapos(raiz) = {1, 2, 3}</h3></font>
+     <br>
+     <p>Y se nombra como q0:</p>
+     <br>
+     <font color=red size=6><h3 align="center">q0 = {1, 2, 3}</h3></font>
+     <br>
+     <p>Se debe aplicar la transición con todo el vocabulario. Ahora se aplica la transición de q0 con a:</p>
+     <br>
+     <font color=red size=6><h3 align="center">tran[q0, a] = {1, 3}</h3></font>
+     <br>
+     <p align="center">
+<img src="ArbolSinER1anulablePu.svg" align=center width=80% border=0></p>
+      <br>
+     <p>Se obtiene tranD[q0,a] aplicando el algoritmo: que dice. </p>
+     <br>
+     <font color=red size=5><h3 align="center">tranD[q0, a] = siguientepos(1) &cup; siguientepos(3) = {1, 2, 3} &cup; {4} = {1, 2, 3, 4,} = q1</h3></font>
+     <br>
+     <p>Se obtiene la transición de q0 con b:</p>
+     <br>
+     <font color=red size=6><h3 align="center">tran[q0, b] = {2}</h3></font>
+     <br>
+     <p>Se obtiene tranD[q0,b] aplicando el algoritmo: que dice. </p>
+     <br>
+     <font color=red size=5><h3 align="center">tranD[q0, b] = siguientepos(2) = {1, 2, 3} = q0</h3></font>
+     <br>
+     <p>Se obtiene la transición de q1 con a:</p>
+     <br>
+     <p align="center">
+<img src="ArbolSinER1anulablePu.svg" align=center width=80% border=0></p>
+      <br>
+     <font color=red size=6><h3 align="center">tran[q1, a] = {1, 3}</h3></font>
+     <br>
+     <p>Se obtiene tranD[q1,a] aplicando el algoritmo: que dice. </p>
+     <br>
+     <font color=red size=5><h3 align="center">tranD[q1, a] = siguientepos(1) &cup; siguientepos(3) = {1, 2, 3} &cup; {4} = {1, 2, 3, 4} = q1</h3></font>
+     <br>
+     <p>Se obtiene la transición de q1 con b:</p>
+     <br>
+     <font color=red size=6><h3 align="center">tran[q1, b] = {2, 4}</h3></font>
+     <br>
+     <p>Se obtiene tranD[q1,b] aplicando el algoritmo: que dice. </p>
+     <br>
+     <p align="center">
+<img src="ArbolSinER1anulablePu.svg" align=center width=80% border=0></p>
+      <br>
+     <font color=red size=5><h3 align="center">tranD[q1, b] = siguientepos(2) &cup; siguientepos(4) = {1, 2, 3} &cup; {5} = {1, 2, 3, 5} = q2</h3></font>
+     <br>
+     <p>Se obtiene la transición de q2 con a:</p>
+     <br>
+     <font color=red size=6><h3 align="center">tran[q2, a] = {1, 3}</h3></font>
+     <br>
+     <p>Se obtiene tranD[q2,a] aplicando el algoritmo: que dice. </p>
+     <br>
+     <font color=red size=5><h3 align="center">tranD[q2, a] = siguientepos(1) &cup; siguientepos(3) = {1, 2, 3} &cup; {4} = {1, 2, 3, 4} = q1</h3></font>
+     <br>
+     <p>Se obtiene la transición de q2 con b:</p>
+     <br>
+     <font color=red size=6><h3 align="center">tran[q2, b] = {2, 5}</h3></font>
+     <br>
+     <p>Se obtiene tranD[q2,b] aplicando el algoritmo: que dice. </p>
+     <br>
+     <font color=red size=5><h3 align="center">tranD[q2, b] = siguientepos(2) &cup; siguientepos(5) = {1, 2, 3} &cup; {6} = {1, 2, 3, 6} = q3</h3></font>
+     <br>
+     <p>Se obtiene la transición de q3 con a:</p>
+     <br>
+     <font color=red size=6><h3 align="center">tran[q3, a] = {1, 3}</h3></font>
+     <br>
+     <p>Se obtiene tranD[q3,a] aplicando el algoritmo: que dice. </p>
+     <br>
+     <font color=red size=5><h3 align="center">tranD[q3, a] = siguientepos(1) &cup; siguientepos(3) = {1, 2, 3} &cup; {4} = {1, 2, 3, 4} = q1</h3></font>
+     <br>
+     <p>Se obtiene la transición de q3 con b:</p>
+     <br>
+     <font color=red size=6><h3 align="center">tran[q3, b] = {2}</h3></font>
+     <br>
+     <p>Se obtiene tranD[q3,b] aplicando el algoritmo: que dice. </p>
+     <br>
+     <p align="center">
+<img src="ArbolSinER1anulablePu.svg" align=center width=80% border=0></p>
+      <br>
+     <font color=red size=5><h3 align="center">tranD[q3, b] = siguientepos(2) = {1, 2, 3} = {1, 2, 3} = q0</h3></font>
+     <br>
+
+
+
+     <div class="Rtable">
+
+     <div style="order:1;" class="Rtable-elemento"><h3>Nodo</h3></div>
+     <div style="order:2;" class="Rtable-elemento"></div>
+     <div style="order:3;" class="Rtable-elemento">1</div>
+     <div style="order:4;" class="Rtable-elemento">2</div>
+     <div style="order:5;" class="Rtable-elemento">3</div>
+     <div style="order:6;" class="Rtable-elemento">4</div>
+     <div style="order:7;" class="Rtable-elemento">5</div>
+     <div style="order:8;" class="Rtable-elemento">6</div>
+     <div style="order:9;" class="Rtable-elemento">-</div>
+
+     <div style="order:1;" class="Rtable-elemento"><h3>siguiente pos()</h3></div>
+     <div style="order:2;" class="Rtable-elemento"></div>
+     <div style="order:3;" class="Rtable-elemento">{1, 2, 3}</div>
+     <div style="order:4;" class="Rtable-elemento">{1, 2, 3}</div>
+     <div style="order:5;" class="Rtable-elemento">{4}</div>
+     <div style="order:6;" class="Rtable-elemento">{5}</div>
+     <div style="order:7;" class="Rtable-elemento">{6}</div>
+     <div style="order:8;" class="Rtable-elemento">-</div>
+     <div style="order:9;" class="Rtable-elemento">-</div>
+     
+     <div style="order:1;" class="Rtable-elemento"><h3>Conjunto</h3></div>
+     <div style="order:2;" class="Rtable-elemento"></div>
+     <div style="order:3;" class="Rtable-elemento">q0</div>
+     <div style="order:4;" class="Rtable-elemento">q1</div>
+     <div style="order:5;" class="Rtable-elemento">q2</div>
+     <div style="order:6;" class="Rtable-elemento">q3</div>
+     <div style="order:7;" class="Rtable-elemento"></div>
+     <div style="order:8;" class="Rtable-elemento"></div>
+     <div style="order:9;" class="Rtable-elemento"></div>
+
+     <div style="order:1;" class="Rtable-elemento"><h3>EstadosD</h3></div>
+     <div style="order:2;" class="Rtable-elemento"></div>
+     <div style="order:3;" class="Rtable-elemento">{1, 2, 3}</div>
+     <div style="order:4;" class="Rtable-elemento">{1, 2, 3, 4,}</div>
+     <div style="order:5;" class="Rtable-elemento">{1, 2, 3, 5}</div>
+     <div style="order:6;" class="Rtable-elemento">{1, 2, 3, 6}</div>
+     <div style="order:7;" class="Rtable-elemento"></div>
+     <div style="order:8;" class="Rtable-elemento"></div>
+     <div style="order:9;" class="Rtable-elemento"></div>
+
+<div style="order:1;" class="Rtable-elemento"><h3>TranD</h3></div>
+     <div style="order:2;" class="Rtable-elemento">TranD[q0,a] = q1</div>
+     <div style="order:3;" class="Rtable-elemento">TranD[q0,b] = q0</div>
+     <div style="order:4;" class="Rtable-elemento">TranD[q1,a] = q1</div>
+     <div style="order:5;" class="Rtable-elemento">TranD[q1,b] = q2</div>
+     <div style="order:6;" class="Rtable-elemento">TranD[q2,a] = q1</div>
+     <div style="order:7;" class="Rtable-elemento">TranD[q2,b] = q3</div>
+     <div style="order:8;" class="Rtable-elemento">TranD[q3,a] = q1</div>
+     <div style="order:9;" class="Rtable-elemento">TranD[q3,b] = q0</div>
+
+<div style="order:1;" class="Rtable-elemento"><h3>Estado</h3></div>
+     <div style="order:2;" class="Rtable-elemento">q0</div>
+     <div style="order:3;" class="Rtable-elemento">q1</div>
+     <div style="order:4;" class="Rtable-elemento">q2</div>
+     <div style="order:5;" class="Rtable-elemento">q3</div>
+     <div style="order:6;" class="Rtable-elemento"></div>
+     <div style="order:7;" class="Rtable-elemento"></div>
+     <div style="order:8;" class="Rtable-elemento"></div>
+     <div style="order:9;" class="Rtable-elemento"></div>
+
+<div style="order:1;" class="Rtable-elemento"><h3>a</h3></div>
+     <div style="order:2;" class="Rtable-elemento">q1</div>
+     <div style="order:3;" class="Rtable-elemento">q1</div>
+     <div style="order:4;" class="Rtable-elemento">q1</div>
+     <div style="order:5;" class="Rtable-elemento">q1</div>
+     <div style="order:6;" class="Rtable-elemento"></div>
+     <div style="order:7;" class="Rtable-elemento"></div>
+     <div style="order:8;" class="Rtable-elemento"></div>
+     <div style="order:9;" class="Rtable-elemento"></div>
+
+<div style="order:1;" class="Rtable-elemento"><h3>b</h3></div>
+     <div style="order:2;" class="Rtable-elemento">q0</div>
+     <div style="order:3;" class="Rtable-elemento">q2</div>
+     <div style="order:4;" class="Rtable-elemento">q3</div>
+     <div style="order:5;" class="Rtable-elemento">q0</div>
+     <div style="order:6;" class="Rtable-elemento"></div>
+     <div style="order:7;" class="Rtable-elemento"></div>
+     <div style="order:8;" class="Rtable-elemento"></div>
+     <div style="order:9;" class="Rtable-elemento"></div>
+
+</div>
+     <br>
+     <p>Se tiene que el AFD resultante que se obtiene de la tabla de transiciones. Así que el AFD es el siguiente:</p>
+     <br>
+     
+     <p align="center">
+<img src="ConErAfd1.svg" align=center width=80% border=0></p>
+     <br>
+     </article>
+    </section>
+      <aside>
+        <h1>Resumen</h1>
+        <hr>
+        <br>
+     <p><strong>Ejercicio 1.</strong> Obtener el AFD de la ER (a|b)* abb, aplicando el algoritmo de subconjuntos.</p>
+     <br>
+     <p><a href="SubconjuntoEjem1.html">Solución al ejercicio 1.</a></p>
+     <br>
+    <p><strong>Ejercicio 2.</strong> Obtener el AFN de la ER (a|b)<SUPER>* a(a|b)(a|b)</p>
+     <br>
+     <p><a href="221EjemplosErAfn1.html">Solución al ejercicio 2.</a></p>
+     <br>
+     <p><strong>Ejercicio 3.</strong> Obtener el AFN de la ER a<SUPER>*ba<SUPER>*ba<SUPER>*ba<SUPER>*</p>
+     <br>
+     <p><strong>Ejercicio 4.</strong> Aplicar el método del árbol para obtener el AFD de la siguiente ER (a|b)<SUPER>* a(a|b)(a|b)</p>
+     <br>
+     <p><a href="Ejercicio1MetodoArbol.html">Solución al ejercicio 4.</a></p>
+     <br>    
+        </aside>
+      <footer><p>Construcción de analizadores léxicos: Tema 2.4</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

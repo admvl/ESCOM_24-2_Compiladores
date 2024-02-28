@@ -1,0 +1,7 @@
+Ámbito
+
+Comparemos ahora variables de clase, variables de instancia y variables locales en términos de sus alcances. Usted puede
+acceder a una variable de clase desde cualquier lugar dentro de su clase. Más específicamente, eso significa que puede acceder a clases
+variables de métodos de instancia así como de métodos de clase. Eso contrasta con las variables de instancia,
+al que puede acceder solo desde métodos de instancia. Por lo tanto, las variables de clase tienen un alcance más amplio que la instancia.
+variables. Las variables locales, por otro lado, tienen un alcance más limitado que las variables de instancia. Solo se puede acceder a ellos mediante un método en particular. Aquí está el continuo del alcance:

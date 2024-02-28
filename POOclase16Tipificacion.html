@@ -1,0 +1,147 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	font-size: 18px;
+}
+
+.a1 {
+	margin-left: 58%;
+	float: right;
+	position: absolute;
+	transform: translate(-18%, -160%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 18px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 16: Principio de tipificación
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<p align=center><font color=yellow>¿Qué es el principio de tipificación?</font></p>
+
+<p align=left><font color=blue>DEFINICIÓN DE TIPIFICACIÓN</font></p>
+
+<p align=left><font color=yellow>Enlace: https://compilandoconocimiento.com/
+2017/01/02/fundamentos-de-poo/</font></p>
+
+Todo lenguaje en POO esta tipificado, es decir tenemos 
+diferentes TIPOS de datos.
+
+<p align=left><font color=yellow>Diccionario: 
+Real Académia de la lengua</font></p>
+
+1. f. Acción y efecto de tipificar.
+
+<p align=left><font color=blue>DEFINICIÓN DE TIPIFICAR</font></p>
+
+1. tr. Ajustar varias cosas semejantes a un tipo 
+o norma común.
+
+2. tr. Dicho de una persona o de una cosa: Representar 
+el tipo de la especie o clase a que pertenece.
+
+3. tr. Der. En la legislación penal o sancionatoria, 
+definir una acción u omisión concretas, a las que se 
+asigna una pena o sanción.
+
+<p align=left><font color=orange>EJEMPLO DE PROGRAMA</font></p>
+
+<p align=left><font color=yellow>Las variables que se
+presentan en la clase estan tipificadas</font></p>
+
+class Student {
+  String name; // name has default value null
+  int age; // age has default value 0
+  boolean isScienceMajor; // isScienceMajor has default value false
+  char gender; // c has default value '\u0000'
+}
+
+
+</strong>
+</pre>
+
+<pre class="a1"><strong>
+
+<p align=left><font color=red>EJERCICIO</font></p>
+
+<p align=center><font color=yellow>Tipificar el programa 
+para hacer operaciones con expresiones.
+Usando el siguiente código.</font></p>
+
+class Test {
+public static void main(String[] args) {
+  int x; // x has no default value
+  String y; // y has no default value
+  System.out.println("x is " + x );
+  System.out.println("y is " + y );
+  }
+}
+
+
+public class CalcularExpresion {
+	public static void main(String[] args) {
+		System.out.println((10.5 + 2 * 3)
+		 / (45 – 3.5));
+	}
+}
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

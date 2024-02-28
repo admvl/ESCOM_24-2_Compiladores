@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Analizadores sintácticos descendentes</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </he ad>
+<body>
+<header>Compiladores<br>Capítulo 3</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">ANALIZADORES SINTÁCTICOS ASCENDENTES</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Analizadores sintácticos ascendentes</h1>
+       <hr>
+      <br>
+      <p>Este analizador también se conoce como analizador por desplazamiento y reducción. Este analizador intenta construir un árbol de análisis sintáctico para una cadena de entrada que comienza por las hojas (el fondo) y avanza hacia la raı́z (la cima).</p>
+      <br>
+      <p><strong>Derivación por la derecha.</strong> Esta derivación se hace considerando el símbolo no terminal que esta en la extrema derecha.</p>
+      <br>
+      <p>Consideremos la siguiente gramática:</p>
+      <br>
+      <font color=red size=7><h3 align="center">E &rarr; E + T | T <br> T &rarr; T * F | F <br> F &rarr; (E) | id</h3></font>
+      <br>
+      <p>Se considera la siguiente cadena de tokens <strong>id + id * id</strong>, por lo que esta se obtiene por medio de las derivaciones derechas:</p>
+      <br>
+      <font color=lime size=7><h3 align="center">E &rArr; E + T &rArr; E + T * F &rArr; E + T * id &rArr; <br> E + F * id &rArr; E + id * id &rArr; T + id * id &rArr; <br> F + id * id &rArr; id + id * id </h3></font>
+     <br>
+     <p>Esta derivación colocada en un árbol de análisis sintáctico:</p>
+     <br>
+      <p align="center">
+<img src="ArbolExpresion1.svg" align=center width=80% border=0></p>
+     <br>
+      <p><strong>Descendentes.</strong> El análisis se hace de la raiz a las hojas.</p>
+      <br>
+      <p align="center">
+<img src="ArbolExp1Descendente.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <p>Se muestra en la tabla cómo el análisis se hace de la raiz a las hojas.</p>
+     <br>   
+     
+     <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Análisis de la cadena declaración de una clase.</CAPTION>
+        <tr><th scope="row"> ENTRADA </th> <th> PILA </th> <th> NUM. PRODUCCIÓN </th> </tr>
+        <tr> <td> ↑ public class {double radio;}$ </td> <td> $S </td> <td> 1 </td> </tr>
+        <tr> <td>↑ public class {double radio;}$ </td> <td> $};LV T{ class &#9679; public </td> <td> ← </td> </tr>
+        <tr> <td>public ↑class {double radio;}$ </td> <td> $};LV T{ &#9679; class public </td> <td> ← </td> </tr>
+        <tr> <td>public class ↑{double radio;}$ </td> <td> $};LV T&#9679;{ class public </td> <td> ← </td> </tr>
+        <tr> <td>public class {↑double radio;}$ </td> <td> $};LV &#9679;T{ class public </td> <td> 4 </td> </tr>
+        
+        <tr> <td>public class {↑double radio;}$ </td> <td> $};LV &#9679;double{ class public </td> <td> ← </td> </tr>
+        
+        <tr> <td>public class {double ↑radio;}$ </td> <td>  $};&#9679;LV double{ class  public </td> <td> 5 </td> </tr>
+        
+        <tr> <td>public class {double ↑radio;}$ </td> <td> $};LV'&#9679; V double{ class public </td> <td> 8 </td> </tr>
+        
+        <tr> <td>public class {double ↑radio;}$ </td> <td> $};LV' &#9679; radio double{ class public </td> <td> ← </td> </tr>
+        
+        <tr> <td>public class {double radio↑;}$ </td> <td> $};&#9679;LV'  radio double{ class public </td> <td> 7 </td> </tr>
+        
+        <tr> <td>public class {double radio↑;}$ </td> <td> $}&#9679;; &epsilon;  radio double{ class public </td> <td> ← </td> </tr>
+        
+        <tr> <td>public class {double radio;↑}$ </td> <td> $&#9679;}; &epsilon;  radio double{ class public </td> <td> ← </td> </tr>
+        
+        <tr> <td>public class {double radio;}↑$ </td> <td> &#9679;$}; radio double{ class public </td> <td> Acep </td> </tr>
+      </table>
+      </CENTER>
+      <br>
+     
+      <p><strong>Ascendentes.</strong> El análisis se hace de las hojas a la raiz.</p>
+     <br>
+     <p align="center">
+<img src="ArbolExp1Ascendente.svg" align=center width=80% border=0></p>
+     <br>
+     <p>Se muestra en la tabla cómo el análisis se hace de las hojas a la raiz.</p>
+     <br>
+     
+     <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Análisis de la cadena de operaciones de suma y multiplicación.</CAPTION>
+        <tr><th scope="row"> ENTRADA </th> <th> PILA </th> <th> ACCIÓN </th> </tr>
+        <tr> <td>&uarr;id ∗ id + id$ </td> <td> $I0 </td> <td> - </td> </tr>
+        <tr> <td>↑id ∗ id + id$ </td> <td> $I0 </td> <td> d5 </td> </tr>
+        
+        <tr> <td>id ↑∗ id + id$ </td> <td> $I0 id I5 </td> <td> r6 </td> </tr>
+        
+        <tr> <td>id ↑∗ id + id$ </td> <td> $I0 F I3 </td> <td> r4 </td> </tr>
+        
+        <tr> <td>id ↑∗ id + id$ </td> <td> $I0 T I2 </td> <td> d7 </td> </tr>
+        
+        <tr> <td>id ∗ ↑id + id$ </td> <td> $I0 T I2 * I7 </td> <td> d5 </td> </tr>
+        
+        <tr> <td>id ∗ id ↑+ id$ </td> <td> $I0 T I2 * I7 id I5 </td> <td> r6 </td> </tr>
+        
+        <tr> <td>id ∗ id ↑+ id$ </td> <td> $I0 T I2 * I7 F I10 </td> <td> IR_A 10 </td> </tr>
+        
+        <tr> <td>id ∗ id ↑+ id$ </td> <td> $I0 T I2 </td> <td> r3 </td> </tr>
+        
+        <tr> <td>id ∗ id ↑+ id$ </td> <td> $I0 E I1 </td> <td> r2 </td> </tr>
+        
+        <tr> <td>id ∗ id + ↑id$ </td> <td> $I0 E I1 + I6 </td> <td> d6 </td> </tr>
+        
+        <tr> <td>id ∗ id + id↑$ </td> <td> $I0 E I1 + I6 id I5 </td> <td> d5 </td> </tr>
+        
+        <tr> <td>id ∗ id + id↑$ </td> <td> $I0 E I1 + I6 F I3 </td> <td> r6 </td> </tr>
+        
+        <tr> <td>id ∗ id + id↑$ </td> <td> $I0 E I1 + I6 T I9 </td> <td> r4 </td> </tr>
+        
+        <tr> <td>id ∗ id + id↑$ </td> <td> $I0 E I1 </td> <td> r1 </td> </tr>
+        
+        <tr> <td>id ∗ id + id↑$ </td> <td> $I0 E I1 </td> <td> acep </td> </tr>
+      </table>
+      </CENTER>
+      <br>
+       
+     <br>
+      <p class="cita"><cite>Engineering a compiler, Keith D. Cooper and Linda Torczon, Pág. 1-3</cite></p>
+       <br>
+      
+      <hr>
+       <h1>Jerarquía de Chomsky</h1>
+       <hr>
+       <br>
+       <p><strong>Definición de gramática.</strong> Es una cuarteta que se forma de lo siguiente.</p>
+      
+      <br>
+     <font color=red size=7><h3 align="center">G(N, T, S, P)</h3></font>
+     <br>
+     <p>Dónde, los elementos de la gramática son los siguientes:</p>
+     <br>
+     <font color=yellow size=6><h3 align="center">N: representa a los no terminales.</h3></font>
+     <font color=yellow size=6><h3 align="center">T: representa a los terminales.</h3></font>
+     <font color=yellow size=6><h3 align="center">S: representa el símbolo inicial.</h3></font>
+     <font color=yellow size=6><h3 align="center">P: representa el conjunto de producciones, P &rarr; &alpha;</h3></font>
+     <br>
+       <p><strong>Gramáticas regulares.</strong> Se usan para reconocer tokens.</p>
+       <br>
+       <p> La gramática 3 o gramática regular tiene la forma:</p>
+<font color=red size=7><h3 align="center">A &rarr; a</h3></font>
+<p>o</p>
+<font color=red size=7><h3 align="center">A &rarr; aB</h3></font>
+<p>que es la forma lineal derecha o bien.</p>
+<font color=red size=7><h3 align="center">A &rarr; a</h3></font>
+<p>o</p>
+<font color=red size=7><h3 align="center">A &rarr; Ba</h3></font>
+<p>que es la forma lineal izquierda. Donde A, B ∈ N , a ∈ T ∗ . </p>
+       <p class="cita"><cite>Engineering a compiler, Keith D. Cooper and Linda Torczon, Pág. 3</cite></p>
+       <br>
+       
+       <p><strong>Gramáticas libres de contexto.</strong> Se usan para posicionar el orden de los tokens. La gramática 2 o gramática libre de contexto tiene la forma:</p>
+<font color=red size=7><h3 align="center">A &rarr; &alpha;</h3></font>
+<p>donde A ∈ N y α ∈ V ∗ .</p
+   
+   <br>
+       <p class="cita"><cite>Introduction
+to Compiler Design, Torben AEgidius Mogensen, Pág. 97</cite></p>
+       <br>
+    </article>
+    </section>
+
+
+      <aside>
+        <h1>Preguntas</h1>
+        <hr>
+        <br>
+       <p><strong>Pregunta 1.</strong> </p>
+     <br>
+     <p><strong>Pregunta 2.</strong> </p>
+       <br>
+       <hr>
+      <h1>Ejercicios</h1>
+        <hr>
+      <p><strong>Ejercicio 1.</strong> </p>
+      <br>
+      <p><strong>Ejercicio 2.</strong> </p>
+        <br>
+     <p><strong>Ejercicio 3.</strong> </p>
+        </aside>
+      <footer><p>Construcción de analizadores sintácticos: Tema 3.3</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

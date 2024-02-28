@@ -1,0 +1,796 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 1;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 0%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+header.a {
+
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 70%;
+margin-right: 2%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+header h2 {  font-size: 18px;
+      margin: 0px;
+}
+
+h1 {  font-size: 30px;
+      margin: 0px;
+}
+
+h2 {  font-size: 15px;
+      margin: 0px;
+}
+
+article {
+background-color: rgba(98,98,98,0.5);
+background-repeat: no-repeat;
+background-size: cover;
+opacity: 1;
+display: block;
+margin-left: 0%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: auto;	
+height: auto;
+margin-left: 70%;
+margin-right: 2%;	
+}
+
+article.uno {
+background-color: #8ba987;
+opacity: 0.8;
+display: block;
+margin-left: 0%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: auto;	
+height: auto;	
+}
+
+article header {
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding: 5px;
+width:40%;
+text-align: center;
+margin-left: 70%;
+margin-right: auto;
+}
+
+article.uno header {
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding: 5px;
+width: 30%;
+height: auto;
+text-align: center;
+margin-left: 70%;
+margin-right: auto;
+}
+
+article h1 {
+font-size: 18px;
+}
+
+.contenedor{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    
+    
+}
+ 
+.texto-encima{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+     
+}
+.centrado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+table.a1 {
+  margin-left: 70%;
+  margin-right: auto;
+  width: 30%;
+  padding: 10px;
+  position: relative;
+}
+
+p.p2  {
+ background-color: #808080;
+ font-size: 28px;
+ width: auto;
+ margin: 20px auto;
+ padding: 5px;
+ border: solid 6px #c9e3ec;
+ font: normal 15px arial, helvetica, sans-serif;
+ margin-left: 70%;
+ margin-right: auto;
+ }
+
+p.p3  {
+ background-color: #808080;
+ font-size: 28px;
+ width: 800px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px orange;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+p.p4  {
+ background-color: rgba(98,98,98,0.5);
+ font-size: 28px;
+ width: auto;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px white;
+ font: normal 15px arial, helvetica, sans-serif;
+ margin-left: 70%;
+ margin-right: auto;
+ }
+
+p.p5  {
+ background-color: rgba(98,98,98,0.5);
+ font-size: 28px;
+ width: auto;
+ border-radius: 20px;
+ padding: 5px;
+ border: solid 6px white;
+ font: normal 15px arial, helvetica, sans-serif;
+ margin-left: 0%;
+ margin-right: 0%;
+ }
+
+.ventanaD {
+ background-color: #808080;
+ width: 400px;
+ height: auto;
+ margin-left: 0%;
+ /*transform: translate(0%,0%);*/
+ float: left;
+ display: none;
+ 
+}
+
+.ventanaD5 {
+ background-color: #808080;
+ width: 600px;
+ height: 400px;
+ margin-left: 0%;
+ /*transform: translate(0%,-340%);
+ position: left;*/
+ overflow: hidden;
+}
+
+.ventanaF {
+ background-color: #808080;
+ width: 400px;
+ height: auto;
+ margin-left: 410px;
+ /*transform: translate(0%,-70%);*/
+ display: none;
+
+}
+
+.ventanaT {
+ background-color: #808080;
+ width: 400px;
+ height: auto;
+ margin-left: 820px;
+ margin-top: -250px;
+ /*transform: translate(0%,-130%);*/
+ float: right;
+ display: none;
+}
+
+.ventanaC {
+ background-color: #808080;
+ width: 600px;
+ height: 750px;
+ margin-left: 0%;
+ /*transform: translate(0%,-100%);*/
+}
+
+.ventana-titulo {
+ background: green;
+ width: 400px;
+ height: 80px;
+ 
+}
+
+.ventana-cuerpo {
+ 
+ width: 388px;
+ height: auto;
+ opacity: 1;
+ border: solid 6px #80aab7;
+}
+
+pre.p1  {
+ background-color: #808080;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #80A93E;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+p.par1  {
+ background-color: #808080;
+ width: 280px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px yellow;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+div.contenedor {
+	background-color: #888;
+	width: 50%;
+	height: auto;
+	margin-top: 0%;
+	float: left;
+	
+}
+
+section.izquierda {
+	width: 68%;
+	float: left;
+	margin-top: -1000px;	
+
+}
+
+</style>
+
+<head>
+<title>Pizarrón 4 poo</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<!--
+<a>
+<img src="MMCPagina1.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=24.5% border=0>
+</a>
+
+<a>
+<img src=socrates.jpeg align=right alt="seleccione aquí para visitar la página oficial del material" width=24.5% height=102% border=0>
+</a>
+
+
+<img src=MaestroViejo.jpg align=left alt="seleccione aquí para visitar la página oficial del material" width=9% height=auto border=0>
+
+<!--<img src=Curie.jpg align=right alt="seleccione aquí para visitar la página oficial del material" width=11% height=auto border=0>-->
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPOO.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNPoo/11Antecedentes.html style="float:center">
+ANTECEDENTES
+</a></p>
+
+<p align=right><a href=SNPoo/12ModeloOO.html style="float:center">
+MODELO ORIENTADO A OBJETOS
+</a></p>
+
+<p align=right><a href=SNPoo/21ClasObj.html style="float:center">
+CLASES Y OBJETOS
+</a></p>
+
+<h2 align=center>
+<font color=white size=5>
+PIZARRÓN DE LA CLASE 4: los tipos de métodos
+</font>
+</h2>
+</header>
+
+<hr>
+
+<div class="envoltura">
+
+<section>
+
+<!--<p class="p5"><a href=COMclase12LR0.html target="_blank" style="float:center">
+Pizarrón
+</a></p>-->
+
+<br>
+<br>
+
+<p align="center" class="p5"><a href=SNPoo/POOpizarronClase4 target="_blank" style="float:center">
+Pizarrón POOpizarronClase4.dia
+</a></p>
+
+<p align="center">
+<img src="SNPoo/POOpizarronClase4.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0></p>
+
+</section>
+
+<section class="derecha">
+<!--<article class="uno">-->
+<header class="a">
+<h2 align=center>MOTIVACIÓN DEL ESTUDIANTE PARA EL ESTUDIO</h2>
+</header>
+<br>
+<article>
+<p align=center><strong>Se presentan las actividades para hacer sentir al estudiante los valores que le apoyarán para ser buen estudiante y buen ciudaddano.</strong></p></article>
+<br>
+<p align=right>
+<table CELLSPACING="16"  class="a1">
+<tr><th>Pensamientos</th><th>Lecturas</th><th>Moral</th><th>Poemas</th><th>Política Económica</th></tr>
+
+<tr><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Enlace a pensamientos
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Enlace a lecturas
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Enlace a escritos de moral
+</a></p></td><td><p class="p5"><a href=HumanismoPatria.html style="float:center" >
+Enlaces a poemas
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Enlace a escritos político económicos
+</a></p></td></tr>
+</table>
+</p>
+
+<header class="a">
+<h2 align=center>ACTIVIDADES</h2>
+</header>
+
+<br>
+
+<article>
+<p align=center><strong>
+Se exponen las partes que forman una clase, y los tipos de métodos que se pueden crear
+dentro de una clase.</strong>
+</p>
+<br>
+
+<p align=center><font color=yellow size=5>El objetivo: El Estudiante sabrá contruir los diferentes tipos de métodos.</p>
+<br></article>
+
+<p>
+<table CELLSPACING="16" class="a1">
+<tr><th>DEFINICIÓN</th><th>EJEMPLO</th><th>EJERCICIO</th></tr>
+
+<tr><td><p class="p5"><a href=COMclase12LR0.html target="_blank" style="float:center">
+¿Qué es una clase?
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+¿Cómo se declara una clase?
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Plantea un programa que utilice una clase.
+</a></p></td></tr>
+
+
+<tr><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+¿Qué es un método?
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+¿Cómo se declara un método?
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Plantea un programa que cree una clase que incluya métodos.
+</a></p></td></tr>
+
+<!--
+<tr><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+¿Cómo se construye el grafo?
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Implementación de una clase nodo
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Crear una nodo
+</a></p></td></tr>
+
+<tr><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+¿Cómo se construyen las tablas?
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Implementación de una clase nodo
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Crear una nodo
+</a></p></td></tr>
+
+<tr><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+¿Cómo se analizan las sentencias?
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Implementación de una clase nodo
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Crear una nodo
+</a></p></td></tr>-->
+
+</table>
+</p>
+
+<header class="a">
+<h2 align=center>PREGUNTAS</h2>
+</header>
+
+<p>
+<table CELLSPACING="16" class="a1">
+<tr><th>PREGUNTA</th><th>DESARROLLO</th><th>RESPUESTA</th></tr>
+
+<tr><td><p class="p5"><a href=COMclase12LR0.html target="_blank" style="float:center">
+¿Cuáles son los prefijos?
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Aplicación de los prefijos.
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Plantea un programa.
+</a></p></td></tr>
+
+
+<tr><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+¿Dónde se incluye la formación del programa?
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Aplicar el método.
+</a></p></td><td><p class="p5"><a href=ProgramasAgo2019 style="float:center">
+Describir el uso del método main.
+</a></p></td></tr>
+</table>
+</p>
+
+</section>
+
+<br>
+
+<section class="izquierda">
+
+<!--<div class="contenedor">-->
+<div class="ventanaD">
+ <div class="ventana-titulo"><h2 align=center>¿Qué es un nodo?</h2></div>
+ <div class="ventana-cuerpo"><p class="par1">
+DEFINICIÓN (Nodo.) Un constructor es parecido a un
+método en el que se puede tener un especificador de acceso (público o privado), un nombre, parámetros y código ejecutable.
+Sin embargo, los constructores tienen las siguientes diferencias o
+caracterı́sticas especiales:</p></div>
+</div>
+
+
+<div class="ventanaF">
+ <div class="ventana-titulo"><h2 align=center>Implmentación de la clase nodo</h2></div>
+ <div class="ventana-cuerpo"><font color=black size=6>Figura:</font></div>
+</div>
+
+
+<div class="ventanaT">
+ <div class="ventana-titulo"><h2 align=center>Crear un nodo</h2></div>
+ <div class="ventana-cuerpo"><font color=black size=6>Tabla:</font></div>
+</div>
+<!--</div>-->
+</section>
+</div>
+<!--
+<div class="ventanaC">
+ <div class="ventana-titulo"><h2 align=center>¿Qué es una clase abstracta?</h2></div>
+ <div class="ventana-cuerpo"><pre class="p1">
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class person {
+
+	char name[30];
+	int age;
+public:
+	void getdata(void);
+	void display(void);
+};
+
+void person :: getdata(void) {
+
+	cout << "Agregar Nombre:" ;
+	cin >> name;
+	cout << "Agregar Edad:";
+	cin >> age;
+}
+
+void person :: display(void) {
+
+	cout << "\nNombre:" << name;
+	cout << "\nEdad:" << age;
+}
+
+int main() {
+
+	person p;
+
+	p.getdata();
+	p.display();
+
+	return 0;
+}
+</pre></div>
+</div>
+
+<div class="ventanaD5">
+ <div class="ventana-titulo"><h2 align=center>¿Qué es una Interface?</h2></div>
+ <div class="ventana-cuerpo"><font color=black size=6>Tabla:</font></div>
+</div>
+
+
+
+<table CELLSPACING="16">
+<tr><th>Compiladores</th><th>Estructuras de datos</th><th>Programación orientada a objetos</th><th>Electrónica</th></tr>
+
+<tr><td>Clase TemaC1</td><td>Clase TemaED1</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO1
+</a></p></td><td>Clase TemaE1</td></tr>
+
+<tr><td>Clase TemaC2</td><td>Clase TemaED2</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO2
+</a></p></td><td>Clase TemaE2</td></tr>
+
+<tr><td>Clase TemaC3</td><td>Clase TemaED3</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO3
+</a></p></td><td>Clase TemaE3</td></tr>
+
+<tr><td>Clase TemaC4</td><td>Clase TemaED4</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO4
+</a></p></td><td>Clase TemaE4</td></tr>
+
+<tr><td>Clase TemaC5</td><td>Clase TemaED5</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO5
+</a></p></td><td>Clase TemaE5</td></tr>
+
+<tr><td>Clase TemaC6</td><td>Clase TemaED6</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO6
+</a></p></td><td>Clase TemaE6</td></tr>
+
+<tr><td>Clase TemaC7</td><td>Clase TemaED7</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO7
+</a></p></td><td>Clase TemaE7</td></tr>
+
+<tr><td>Clase TemaC8</td><td>Clase TemaED8</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO8
+</a></p></td><td>Clase TemaE8</td></tr>
+
+<tr><td>Clase TemaC9</td><td>Clase TemaED9</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO9
+</a></p></td><td>Clase TemaE9</td></tr>
+
+<tr><td>Clase TemaC10</td><td>Clase TemaED10</td><td><p><a href=ProgramasAgo2019 style="float:center">
+Clase TemaPOO10
+</a></p></td><td>Clase TemaE10</td></tr>
+</table>
+<br>
+<br>
+<!--
+<p align=center>
+Para comenzar a eseñar, el estudiante debe estar acondicionado anímicamente para recibir los conocimientos como: la comprensión de las definiciones, ejercicios y ejemplos de las asignaturas presentadas.
+<br>
+<br>
+El ideologo <strong>Juan Jacobo Rousseau</strong> plantea en su obra <i><font size=5>Emilio o de la educación</font></i>: 
+<br>
+<font size=5>La educación debe ser integral</font>
+<br>
+<br>
+Por lo que se considera la &nbsp; &nbsp;  <a href=Humanismo.html><i><font color=blue size=5>potenciación del Humanismo</font></i></a> &nbsp; &nbsp;  para poder intensificar la motivación en el estudio de las asignaturas y la formación del estudiante para la vida.
+<br>
+<br>-->
+
+
+<!--
+<p align=center>
+Para saber la forma de estudiar, se recomienda contestar el cuestionario de características, con la finalidad de hacer la recomendación para seleccionar el estilo del estudio en la siguiente liga: <a href=Cuestionario.html><font color=blue size=4>ORIENTADOR</font></a>.
+</p>
+
+<table CELLSPACING="15">
+<font color=maroon size=5><h3 align="center">Formas de enseñanza recomendadas</h3></font>
+
+<tr><td><p align=center>
+ <a href=indice.html><img src="Curie.svg" width=25%></a></td><td><p align=center><a href=indice.html><img src="EstudiarPracticandoIzq.svg" width=25%></a></td><td><p align=center><a href=indice.html><img src="EstudiarHaciendo.svg" width=25% ></a></td></tr>
+
+<tr><td><p align=center>
+ <i><font color=maroon size=5>Enseñanza clásica</i></font>. Esta forma de se caracteríza ya que el estudiante estudia por su cuenta si no entiende lo expuesto por el profesor.
+</p></td><td><p align=center>
+ <i><font color=maroon size=5>Enseñanza práctica</i></font>. Esta forma de estudio es característica del estudiante que esta acostumbrado a estudiar consultando apuntes y haciendo prácticas.
+</p> </td><td><p align=center>
+ <i><font color=maroon size=5>Enseñar haciendo</i></font>. Esta forma de estudio es característica del estudiante que esta acostumbrado a estudiar realizando proyectos.
+</p> </td></tr>
+</table>
+
+
+<header>
+<h1 align=center>CLASES</h1>
+</header>
+<br>
+<p align=center>Se presenta un espacio para proyectar el material de acuerdo al tema que se desarrolla.</p>
+<br>
+
+
+<p align=center>
+Las asignaturas disponibles estan clasificadas por escuelas, por lo que accesarse a las materias debes hacer click en el nombre de la asignatura que está en el escudo correspondiente .</p>
+</p>
+
+
+<div class="contenedor">
+  <img src="logoEscom.svg" width=30% height=20%/>
+  <div class="texto-encima" style="color: black"></div>
+  <div class="centrado" style="color: black">
+
+<p><a href=Material1.html style="float:center">
+Compiladores.
+</a></p>
+&nbsp; &nbsp;
+<p>
+<a href=MaterialED.html style="float:center">
+Estructuras de datos.
+</a></p>
+&nbsp; &nbsp; 
+<p>
+<a href=MaterialPoo.html style="float:center">
+Programación orientada a objetos.
+</a></p>
+</div>
+</div>
+
+<p><a href=GpoCompAgo2019.xlsx style="float:center">
+Lista del grupo COMPILADORES.
+</a></p>
+
+<p><a href=GpoPooAgo2019.xlsx style="float:right">
+Lista del grupo POO.
+</a></p>
+
+</article>
+<!--
+<hr>
+
+<article>
+<img src="MMCPagina1A.svg" align=left width="150" height="290">
+
+
+<header>
+<h1 align=center>
+<font color=white>
+FORMAS DE ESEÑANZA
+</font>
+</h1>
+</header>
+
+<p>
+ <i><font color=maroon size=4>Estudio clásico</i></font>. Esta forma de estudio es característica del estudiante que esta acostumbrado a estudiar por su cuenta.
+</p>
+
+<p>
+ <i><font color=maroon size=4>Estudio práctico</i></font>. Esta forma de estudio es característica del estudiante que esta acostumbrado a estudiar consultando apuntes y haciendo prácticas.
+</p>
+
+<p>
+ <i><font color=maroon size=4>Estudiar haciendo</i></font>. Esta forma de estudio es característica del estudiante que esta acostumbrado a estudiar realizando proyectos.
+</p>
+
+</article>
+
+<hr>
+
+<article>
+<img src="MMCPagina1B.svg" align=left width="150" height="290">
+
+<header>
+<h1 align=center>ORIENTACIÓN DE ESTUDIANTES PARA ADECUAR SU APREDIZAJE</h1>
+</header>
+
+<br>
+<br>
+
+<p>
+Para saber la forma de estudiar, se recomienda contestar el cuestionario de características, con la finalidad de hacer la recomendación para seleccionar el estilo del estudio en la siguiente liga: <a href=Cuestionario.html><font color=blue size=4>ORIENTADOR</font></a>.</p>
+</article>
+
+<hr>
+
+<article>
+<img src="Fa.svg" align=right width="150" height="290">
+  
+<img src="Mdisponible.svg" align=left width="150" height="290">
+
+
+<header>
+<h1 align=center>ASIGNATURAS EN ESCOM</h1>
+</header>
+
+<br>
+
+<p>
+Las asignaturas disponibles son las que se enlistan por medio de íconos que se presentan como enlaces en el siguente link.</p>
+<br>
+<br>
+<!--<ul>-->
+
+
+
+<!--
+<p>
+<a href=MaterialED.html style="float:right">
+Estructuras de datos.
+</a></p>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<p>
+<a href=MaterialPoo.html style="float:right">
+Programación orientada a objetos.
+</a></p>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<p>
+<a href=Material1.html style="float:right">
+Compiladores.
+</a></p>
+
+</ul>
+
+
+
+</article>-->
+
+<hr>
+
+<p align=right>
+<a href=http://www.un.org/instraw>
+<img src=BenitoJuarez.jpeg align=right alt="seleccione aquí para visitar la página oficial de Instraw" border=0>
+</a>
+<font color=lime size=-2>
+José Sánchez Juárez<br>
+IPN-ESCOM<br>
+correo-e: jsanchezj60@gmail.com
+</font>
+</body>
+</html>
+
+
+

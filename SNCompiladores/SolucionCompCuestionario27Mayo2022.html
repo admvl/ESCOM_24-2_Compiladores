@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Solución del cuestionario de compiladores del 27 de mayo del 2022</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 3</header>
+ <nav>
+    <!--<div class="contenedor">-->
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+
+      <p class="derecha"><a href="TemarioPOO.html">Classroom</a></p>
+      <p><a href="TemarioCompiladores.html">Temario</a></p>
+      <p><a href="41EnlacesPrac.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="41EnlacesHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">SOLUCIÓN DEL CUESTIONARIO DEL 27 DE MAYO DEL 2022</h1>
+    <section class="interna">
+      
+      <article>
+       <h1>Solución del cuestionario del segundo parcial</h1>
+       <hr>
+       <br>
+       <p><strong>Instrucciones.</strong> Lea con cuidado cada una de las preguntas. Contestar en una hoja de word cada una de las preguntas. Para después subir el archivo de word o puede estar en formato PDF, en el repositorio de classroom para Compiladores. <br> <br> <strong>No comprimir los archivos, por favor.</strong></p>
+       <br>
+       <hr>
+       <h3>Pregunta 1 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 punto</h3>
+       <hr>
+       <br>
+       <p>¿Que tipo de gramática se usa para hacer el análisis sintático?</p>
+       <br>
+       <br>
+
+       <p><font color=orange>Respuesta. </font> Las gramáticas libres de contexto.</p>
+       <br>
+       
+       <hr>
+       <h3>Pregunta 2 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 punto</h3>
+       <hr>
+       <br>
+       <p>¿Cuál es la entrada del analizador sintáctico?</p>
+       <br>
+
+       <p><font color=orange>Respuesta. </font> Las cadenas de tokens.</p>
+       <br>
+      
+      <hr>
+       <h3>Pregunta 3 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 punto</h3>
+       <hr>
+       <br>
+       <p>¿Cómo se representa una gramática formal? Describa su simbología.</p>
+      <br>
+
+      <p><font color=orange>Respuesta. </font> La GLC se representa como: G(S, N, T, P). Dónde, S representa el símbolo inicial, N representa los símbolos no terminales, T representa los símbolos terminales, y P representa el conjunto de producciones.</p>
+       <br>
+      
+       <hr>
+       <h3>Pregunta 4 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 punto</h3>
+       <hr>
+       <br>
+       <p>¿Cómo se representa una derivación?</p>
+       <br>
+
+       <p><font color=orange>Respuesta. </font> Las derivaciones son de dos tipos: derivación izquierda y derivación derecha. Se comienza la derivación con el símbolo inicial. Y esta se representa, como:</p>
+       <br>
+       <font color=lime size=7><h3 align="center">E &rArr; E + T &rArr; E + T * F &rArr; E + T * id &rArr; <br> E + F * id &rArr; E + id * id &rArr; T + id * id &rArr; <br> F + id * id &rArr; id + id * id </h3></font>
+       <br>
+       
+       <hr>
+       <h3>Pregunta 5 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 punto</h3>
+       <hr>
+       <br>
+       <p>Defina una gramática ambigua.</p>
+       <br>
+
+       <p><font color=orange>Respuesta. </font> Cuando se obtienen dos árboles de análisis sintáctico diferentes.</p>
+       <br>
+      
+       <hr>
+       <h3>Pregunta 6 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 punto</h3>
+       <hr>
+       <br>
+       <p>¿En que tipo de análisis sintáctico tiene efectos negativos la recursividad izquierda?</p>
+       <br>
+
+       <p><font color=orange>Respuesta. </font> En los analizadores del tipo descendentes.</p>
+       <br>
+      
+       <hr>
+       <h3>Pregunta 7 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 punto</h3>
+       <hr>
+       <br>
+       <p>¿Los nodos hojas que tipo de símbolo representan?</p>
+       <br>
+
+       <p><font color=orange>Respuesta. </font> Los símbolos que se ubican en los nodos hoja son los símbolos terminales.</p>
+       <br>
+      
+       <hr>
+       <h3>Pregunta 8 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 punto</h3>
+       <hr>
+       <br>
+       <p>¿Que significa LL(1)?</p>
+       <br>
+
+       <p><font color=orange>Respuesta. </font> La primera L significa lectura de izquierda a derecha y la segunda L representa derivaciones a la izquierda y el 1 entre paréntesis significa un símbolo de análisis.</p>
+       <br>
+      
+       <hr>
+       <h3>Pregunta 9 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 punto</h3>
+       <hr>
+       <br>
+       <p>¿Cuales son las condiciones para definir que una gramática es LL(1)?</p>
+       <br>
+
+       <p><font color=orange>Respuesta. </font> La gramática debe cumplir con dos reglas, las cuales se aplican a producciones que tienen alternativas. Donde la regla UNO es, que la intersección de los primeros de cada una de las alternativas debe ser conjunto vacio. La regla DOS, se aplica cuando una de las alternativas es el caracter vacio, la cual, es que el primero del no terminal intersectado con el siguiente del mismo no terminal es un conjunto vacio.</p>
+       <br>
+      
+       <hr>
+       <h3>Pregunta 10 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 punto</h3>
+       <hr>
+       <br>
+       <p>¿Que es un elemento LR(0)?</p>
+       <br>
+
+       <p><font color=orange>Respuesta. </font> Son las producciones de una gramática GLC que contienen un punto de análisis.</p>
+       <br> 
+        
+       </article>
+       <br>
+       <br>
+     
+      <article>
+       
+      <br>
+     </article>
+    </section>
+    
+    
+      <aside>
+      <h1>Pautas para la solución de los ejercicios</h1>
+      <hr>
+      <br>
+      <h3><strong>Procedimiento para la construcción de un analizador sintáctico:</strong> </h3>
+      <br>
+      <p>Se obtiene una gramática libre de contexto de una cadena de tokens dada. <br> Se ajusta la gramática de acuerdo al tipo de analizador sintáctico que se va a construir.</p>
+      <br>
+      <p>Existen dos tipos de analizadores sintácticos, que son: analizadores sintácticos descendentes y los analizadores sintácticos ascendentes.</p>
+      <br>
+      <p>Los analizadores sintácticos descendentes usan gramáticas libres de contexto que deben ser del tipo LL(1).</p>
+      <br>
+      <p>Una gramática LL(1) debe cumplir con dos reglas.</p>
+      <br>
+      <p>Los analizadores sintácticos ascendentes tienen gramáticas del tipo LR().</p>
+      <br>
+      
+      <hr>
+       
+      </aside>
+      
+      <footer><p>Solución del cuestionario: Segundo parcial.</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

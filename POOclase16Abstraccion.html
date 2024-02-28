@@ -1,0 +1,361 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	font-size: 18px;
+}
+
+.a1 {
+	margin-left: 58%;
+	float: right;
+	position: absolute;
+	transform: translate(-18%, -132%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 18px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 16: Principio de abstracción
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<p align=center><font color=yellow>¿Qué es el principio de abstracción?</font></p>
+
+<p align=left><font color=yellow>Enlace: https://compilandoconocimiento.com/
+2017/01/02/fundamentos-de-poo/</font></p>
+<p align=left><font color=blue>DEFINICIÓN DE ABSTRACCIÓN</font></p>
+
+
+Este principio de POO busca modelar los 
+objetos, busca abstraer y simplificar un objeto de la 
+vida real a solo un par de atributos. En otras palabras, 
+se busca transformar un objeto de la vida real en 
+atributos (características) y sus acciones (métodos). 
+Consiste en encontrar las partes fundamentales de un 
+sistema para describirlas de manera simple y precisa.
+
+<p align=left><font color=yellow>Diccionario: 
+Real Académia de la lengua</font></p>
+
+Acción y efecto de abstraer o abstraerse.
+
+<p align=left><font color=blue>DEFINICIÓN DE ABSTRAER</font></p>
+
+1. tr. Abstraer.- Separar por medio de una operación 
+intelectual un rasgo o una cualidad de algo para analizarlos 
+aisladamente o considerarlos en su pura esencia o noción. 
+U. t. c. intr. Pensar es olvidar diferencias, es 
+generalizar, abstraer.
+
+2. intr. Hacer caso omiso de algo, o dejarlo a un lado. 
+Centremos la atención en lo esencial abstrayendo DE 
+consideraciones marginales. U. t. c. prnl.
+
+3. prnl. Concentrarse en los propios pensamientos 
+apartando los sentidos o la mente de la realidad 
+inmediata. Aspirando suavemente su cigarro, se 
+abstrajo DEL ruido de la disputa.
+
+4. prnl. Retirarse o recogerse, apartándose del 
+trato social. Abstraerse DE los negocios mundanos.
+
+<p align=left><font color=orange>EJEMPLO DE PROGRAMA</font></p>
+
+<p align=left><font color=yellow>La característica principal es la clase.
+La clase tiene características que son 
+representadas por las variables, métodos, y constructores.</font></p>
+
+public class Student {
+  // fields to store the classes the student has registered for.
+  private String name;
+  private double gpa;
+  public void setName(String studentName) {
+  name = studentName;
+}
+
+public void addCourse(Course newCourse) {
+  // code to store a ref to newCourse in the Student object.
+}
+
+private void computeGPA() {
+  // code to access the stored courses, compute and set the gpa
+}
+
+public double getGPA() {
+  return gpa;
+
+public class Bienvenido {
+	public static void main(String[] args) {
+		// Despliega el mensaje Bienvenido
+		 a Java! en la consola
+	System.out.println("Bienvenido a Java!");
+	}
+}
+
+
+<p align=left><font color=red>EJERCICIO</font></p>
+
+<p align=left><font color=yellow>Representar en forma
+abstracta las característica de una expresión
+que calcula sumas, restas y multiplicaciones.</font></p>
+
+public class CalcularExpresion {
+	public static void main(String[] args) {
+		System.out.println((10.5 + 2 * 3)
+		 / (45 – 3.5));
+	}
+}
+
+<p align=left><font color=blue>DEFINICIÓN DE OBJETO</font></p>
+
+Un objeto representa una entidad en el mundo real
+que se identifica con facilidad. Ejemplos de
+ objeto: un estudiante, un escritorio, un círculo,
+ un botón, etc.
+
+Un objeto tiene una única identidad, estado, y
+ comportamiento.
+
+<p align=left><font color=blue>DEFINICIÓN DE ESTADO DE OBJETO</font></p>
+
+El estado de un objeto es conocido como su propiedad
+o atributo y que es representado por un campo de
+datos con su valor actual.
+
+Ejemplo: el objeto circulo, tiene un campo de datos
+radio, el cuál es una propiedad que caracteriza
+al círculo.
+
+En el caso del rectángulo, el estado del objeto es
+el ancho y la altura, lo que caracteriza al
+rectángulo.
+
+<p align=left><font color=yellow>Comportamiento del
+objeto</font></p>
+
+También llamado su acción y es definido por un
+método. Para invocar un método sobre un objeto
+se le pregunta al objeto para que desempeñe su
+acción.
+
+Ejemplo: para un círculo getArea() se invoca
+para regresar el área.
+
+<p align=left><font color=yellow>Denotación de objeto</font></p>
+
+claseNombre objetoRefVar;
+
+claseNombre objetoRefVar = new claseNombre();
+
+<p align=left><font color=yellow>Clases</font></p>
+
+Los objetos del mismo tipo son definidos usando
+una clase común. Una clase es una plantilla, plano o 
+contrato que define que el campo de datos de un
+ objeto y métodos se realicen. Un objeto es una
+ instancia de un clase.
+
+Crear una instancia se refiere como
+instanciación. El termino objeto e instancia
+puede ser intercambiable.
+
+<p align=left><font color=orange>EJEMPLO DE CLASE</font></p>
+
+class Circle {
+  /** El radio del circulo */
+  double radius = 1.0;
+
+  /** Constructor del objeto circulo */
+  Circle() {
+  }
+
+  /** Constructor del objeto circulo */
+  Circle(double newRadius) {
+   radius = newRadius;
+  }
+
+  /** Regresa el area del circulo */
+  double getArea() {
+    return radius * radius * Math.PI;
+  }
+}
+</strong>
+</pre>
+
+<pre class="a1"><strong>
+
+<p align=right><font color=yellow>Diccionario: 
+Real Académia de la lengua</font></p>
+
+<p align=center><font color=blue>DEFINICIÓN DE PARADIGMA</font></p>
+
+1. Ejemplo o ejemplar.
+
+2. Teoría o conjunto de teorías cuyo núcleo central
+ se acepta sin cuestionar y que suministra la base y
+ modelo para resolver problemas y avanzar en el
+ conocimiento.
+ El paradigma newtoniano.
+
+3. Relación de elementos que comparten un mismo
+ contexto fonológico, morfológico o sintáctico
+ en función de sus propiedades lingüísticas.
+
+4. Esquema formal en el que se organizan las
+ palabras que admiten modificaciones flexivas
+ o derivativas.
+
+paradigma derivativo
+
+1. Gram. Conjunto de palabras que comparten la
+ misma raíz.
+
+paradigma flexivo
+
+1. Gram. Conjunto de formas que se obtiene con las
+ variantes flexivas de una palabra; p. ej., alto,
+ alta, altos, altas.
+
+<p align=center><font color=orange>EJEMPLOS DE PARADIGMAS</font></p>
+
+Todo programa consiste de dos elementos: código y
+ datos. Un  programa se puede organizar con
+ respecto al código o con  respecto a los datos.
+ Paradigma orientado a objetos y  paradigma de
+ proceso lineal.
+
+<p align=right><font color=yellow>Libro: 
+Introducción a la programación 
+con Java: una solución aproximada</font></p>
+
+<p align=center><font color=yellow>Paradigma orientado a objetos</font></p>
+
+En la escritura de un programa orientado a objetos, 
+se deben definir los objetos, crearlos y hacer
+ la interacción entre ellos.
+
+<p align=center><font color=yellow>Los objetos</font></p>
+
+Un objeto es: un conjunto de datos relacionados los
+ cuales identifican el estado actual del objeto más
+ un conjunto de comportamientos.
+
+
+<p align=center><font color=orange>EJEMPLO DE PROGRAMA</font></p>
+
+public class TestCircle1 {
+  /** Metodo principal */
+  public static void main(String[] args) {
+    // Crea un circulo con radio 1.0
+    Circle1 circle1 = new Circle1();
+    System.out.println("El area del circulo de raio "
+	+ circle1.radius + " es " + circle1.getArea() );
+    // Crea un circulo con radio 25
+    Circle1 circle2 = new Circle1(25);
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea());
+    // Crea un circulo de radio 125
+    Circle1 circle3 = new Circle1(125);
+    System.out.println("El area del circulo de raio "
+	+ circle3.radius + " es " + circle3.getArea());
+    // Modifica el radio del circulo
+    circle2.radius = 100;
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea() );
+    }
+  }
+// Define la clase circulo con dos constructores
+class Circle1 {
+  double radius ;
+  /** Construir del circulo con radio 1 */
+  Circle1() {
+    radius = 1.0;
+  }
+  /** Construir un circulo con radio especificado */
+  Circle1(double newRadius) {
+    radius = newRadius;
+  }
+  /** Regresa el area del circulo */
+  double getArea() {
+    return radius * radius * Math.PI;
+  }
+}
+
+<p align=center><font color=yellow>Partes de una clase</font></p>
+
+Nombre de la clase: Circulo
+
+Campo de datos: radio: double
+
+Constructores y métodos: Circulo()
+			 Circulo(newRadio : double)
+			 getArea() : double
+
+<p align=center><font color=yellow>Partes de un objeto</font></p>
+
+Nombre del objeto: circulo1 : Circulo
+
+Estado del objeto o Atributo: radio = 10
+
+<p align=center><font color=yellow>Denotación del método</font></p>
+
+metodoNombre(parametroNombre:parametroTipo):retornarTipo
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

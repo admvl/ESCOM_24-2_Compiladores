@@ -1,0 +1,172 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	font-size: 18px;
+}
+
+.a1 {
+	margin-left: 52%;
+	float: right;
+	position: absolute;
+	transform: translate(-15%, -110%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 18px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 10: Implementación del constructor
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<p align=center><font color=yellow>Programas: En C++ y java</font></p>
+<p align=right><font color=yellow>Programa: Weiss</font></p>
+
+<p align=left><font color=yellow>Definición de constructor</font></p>
+
+
+Un constructor es una función miembro especial cuya tarea es inicializar
+los objetos de su clase. Es especial por que el nombre es el mismo que el
+nombre de la clase. El constructor es invocado dentro de un objeto de su
+clase asociada cuando es creada. Es llamado constructor por que construye
+los valores de los miembros de la clase.
+
+Correr el programa elem.cpp
+<!--
+public class fecha {
+	public Fecha() {
+		dia = 1;
+		mes = 1;
+		anio = 2018;
+	}
+	public fecha(int elDia, int elMes, int elAnio) {
+		dia = elDia;
+		mes = elMes;
+		anio = elAnio;
+	}
+	public boolean equals (Object lder) {
+		if(!(lder instanceof fecha))
+			return false;
+		fecha lderFecha = (fecha) lder;
+		return lderFecha.dia == dia && lderFecha.mes == mes &&
+			lderFecha.anio == anio;
+	}
+	public String toString() {
+		return dia + "/" + mes + "/" + anio;
+	}
+	private int dia;
+	private int mes;
+	private int anio;
+}
+
+pubic fecha() {
+	this(1,1,2018);
+}
+-->
+<p align=left><font color=yellow>Definición de miembro static</font></p>
+
+Las características de un miembro static:
+
+Es inicializar a cero cuando el primer objeto de su clase es creado. Ninguna
+otra inicialización se permite.
+
+Solamente una copia de que el miembro es creado para la clase entera y es
+compartida para todos los objetos de la clase, no importa cuantos objetos
+son creados.
+
+Es visible solamente dentro de la clase, pero su tiempo de vida es el
+programa entero.
+
+Correr el programa FunStatic.cpp
+
+<p align=left><font color=yellow>EJEMPLO</font></p>
+
+Correr el programa complex.cpp
+
+<p align=left><font color=yellow>Objetos constantes</font></p>
+
+Un objeto constante puede llamar solamente funciones miembro
+ constantes. También sabemos que un miembro constante es una función prototipo.
+
+Se hace usando la palabra clave const, forma de hacerlo:
+
+const matrix X(m, n);
+
+<p align=left><font color=yellow>destructores</font></p>
+
+Se usa para destruir los objetos
+
+~entero(){
+}
+
+matrix :: ~matrix() {
+  for(int i= 0; i < d; i++)
+  delete p[i];
+  delete p;
+}
+
+Correr el programa destructor.cpp
+
+<p align=left><font color=yellow>EJERCICIO</font></p>
+
+Crear el constructor de un Estudiante:
+
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

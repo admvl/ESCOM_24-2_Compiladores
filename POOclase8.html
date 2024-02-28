@@ -1,0 +1,764 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+    	margin-right: 10%;
+	font-size: 20px;
+}
+
+.a1 {
+	margin-left: 58%;
+	float: right;
+	position: absolute;
+	transform: translate(-14%, -75%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 20px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPOO.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNPoo/211AtributosYmetodos.html style="float:center">
+TEMA 2.1.1 Atributos y métodos
+</a></p>
+
+<p align=right><a href=SNPoo/212ConstructoresYdestructores.html style="float:center">
+TEMA 2.1.2 Constructores
+</a></p>
+
+<p align=right><a href=Pizarron8POO.html style="float:center">
+Pizarrón 8
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 8: Programas
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<p align=center><font color=yellow>LOS TIPOS DE MÉTODOS</font></p>
+<!--<p align=left><font color=yellow>Libro: Introducción a la
+ programación de Java</font></p> -->
+
+<p align=left><font color=yellow>El método equals() de la clase Object</font></p>
+
+<p>La sintaxis para declarar al método equals(), es la siguiente:</p>
+
+<pre>
+public boolean equals(Object o1) {
+
+}
+</pre>
+
+
+<p>Debido a que todas las clases heredan automáticamente 
+este método, a menos que un método definido de manera similar
+tenga prioridad, cualquier objeto, o1, puede invocar este 
+método para compararse con cualquier otro objeto, o2, con un 
+llamada de método como esta:</p>
+
+<pre>
+o1.equals(o2);
+</pre>
+
+<pre>
+Gato g = new Gato();
+Perro p = new Perro();
+
+System.out.println(g.equals(p));
+</pre>
+
+<pre>
+Auto c1 = new Auto("Honda", 2008, "rojo");
+Auto c2 = c1;
+Auto c3 = new Auto("Honda", 2008, "rojo");
+
+System.out.println(c2 == c1);
+System.out.println(c2.equals(c1));
+System.out.println(c3 == c1);
+System.out.println(c3.equals(c1));
+</pre>
+
+<p align=left><font color=yellow>El uso del método toString()</font></p>
+
+
+
+<pre>
+System.out.println(o1.toString());
+</pre>
+
+
+<p align=left><font color=yellow>Campos de datos tipo cadena (String)</font></p>
+
+<pre>
+String mensaje = " Hola, bienvenidos a la clase";
+
+System.out.println(mensaje);
+</pre>
+
+<p align=left><font color=yellow>El programa Estudiante.java</font></p>
+
+
+
+<p align=left><font color=yellow>El método main</font></p>
+<p align=left><font color=marroon>Para nombrar al método principal se usa <i>main</i>. Uso de la consola
+<br>
+ para desplegar la salida :
+</font></p>
+
+
+<pre>
+public class Estudiante {
+   private String nombre;
+   private int calificacion;
+   
+   public void setCalificacion(int calificacion) {
+      this.calificacion = calificacion;
+   }
+   
+   public int getCalificacion() {
+      return calificacion;
+   }
+   
+   public void setNombre(String nombre) {
+      this.nombre = nombre;
+   }
+   
+   public String getNombre() {
+      return nombre;
+   }
+
+   public static void main(String[] args) {
+      Estudiante e1 = new Estudiante();
+      
+      e1.setNombre(" ");
+      e1.setCalificacion();
+      
+      System.out.println("El nombre del estudiante, es: " +
+      e1.getNombre() + " el que tiene por calificación: " + 
+      e1.getCalificacion());
+      
+   
+   }
+}
+</pre>
+
+<p align=left><font color=marroon>El objeto creado en main, es e1. Se presenta la salida en 
+la pantalla
+<br>
+ utilizando Syste.out.println()</font></p>
+ 
+ <p align=left><font color=yellow>El programa "Suma.java"</font></p>
+ 
+
+ <pre>
+public class Suma {
+    private int a;
+    private int b;
+    private int suma;
+
+    public int suma(int i1, int i2) {
+       int suma = 0;
+   
+       for (int i = i1; i <= i2; i++)
+        suma += i;
+     
+       return suma;
+    }
+
+    public static void main(String[] args) {
+       Suma sum = new Suma();
+
+       System.out.println("La suma de 1 a 10 es " + sum.suma(1, 10));
+       System.out.println("La suma de 20 a 30 es " + sum.suma(20, 30));
+       System.out.println("La suma de 35 a 45 es " + sum.suma(35, 45));
+    }
+}
+</pre>
+
+
+<p align=left><font color=marroon>Ahora se presenta la salida por medio de un método 
+System.out.println().</font></p>
+
+<!--
+<p align=left><font color=yellow>EJEMPLO DE PROGRAMA EN C++</font></p>
+
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class elemento {
+
+	int numero;
+	float costo;
+public:
+	void getdata(int a, float b);
+	void setdata(void) {
+
+		cout << "Numero:" << numero << "\n";
+		cout << "Costo:" << costo << "\n";
+	}
+
+};
+
+void elemento :: getdata(int a, float b) {
+
+	numero = a;
+	costo = b;
+	}
+
+int main() {
+
+	elemento x;
+
+	cout << "\nobjeto x" << "\n";
+
+	x.getdata(100, 299.95);
+	x.setdata();
+
+	elemento y;
+
+	cout << "\nobjeto y" << "\n";
+
+	y.getdata(200, 175.50);
+	y.setdata();
+
+	return 0;
+
+}
+
+<p align=left><font color=yellow>EJERCICIO DE PROGRAMA EN C++</font></p>
+
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class elemento {
+
+	int numero;
+	float costo;
+public:
+	void getdata(int a, float b);
+	void setdata(void) {
+
+		cout << "Numero:" << numero << "\n";
+		cout << "Costo:" << costo << "\n";
+	}
+
+};
+
+void elemento :: getdata(int a, float b) {
+
+	numero = a;
+	costo = b;
+	}
+
+int main() {
+
+	elemento x;
+
+	cout << "\nobjeto x" << "\n";
+
+	x.getdata(100, 299.95);
+	x.setdata();
+
+	elemento y;
+
+	cout << "\nobjeto y" << "\n";
+
+	y.getdata(200, 175.50);
+	y.setdata();
+
+	return 0;
+
+}
+
+<p align=left><font color=yellow>OTRO EJERCICIO DE PROGRAMA EN C++</font></p>
+
+#include &lt;iostream&gt;
+
+using namespace std;
+
+class Estudiante {
+
+	String nombre;
+	int cal;
+public:
+	void getdata(String a, int b);
+	void setdata(void) {
+
+		cout << "Nombre:" << nombre << "\n";
+		cout << "Calificacion:" << cal << "\n";
+	}
+
+};
+
+void elemento :: getdata(String a, int b) {
+
+	nombre = a;
+	cal = b;
+	}
+
+int main() {
+
+	Estudiante x;
+
+	cout << "\nobjeto x" << "\n";
+
+	x.getdata(Carlos, 7);
+	x.setdata();
+
+	elemento y;
+
+	cout << "\nobjeto y" << "\n";
+
+	y.getdata(Jorge, 8);
+	y.setdata();
+
+	return 0;
+
+}-->
+
+</strong>
+</pre>
+
+<pre class="a1"><strong>
+
+<p align=right><font color=yellow>Uso de la consola: 
+Aunque linux</font></p>
+
+<p align=left><font color=yellow>USO DEL OPERADOR DE ACCESO EN JAVA</font></p>
+
+<p align=left><font color=marroon>Compilar desde consola en Java:</font></p>
+
+<p align=center>javac nombre_archivo.java</p>
+
+<p align=left><font color=marroon>Ejecutar desde consola en Java:</font></p>
+
+<p align=center>java nombre_archivo</p>
+
+<p align=left><font color=marroon>Las partes que componen a un programa: Los
+
+ campos de datos, los objetos, los métodos.</font></p>
+
+
+<p align=left><font color=yellow>Uso del método toString() en el programa "Estudiante.java"</font></p>
+
+
+<pre>
+public class Estudiante {
+   private String nombre;
+   private int calificacion;
+   
+   public void setCalificacion(int calificacion) {
+      this.calificacion = calificacion;
+   }
+   
+   public int getCalificacion() {
+      return calificacion;
+   }
+   
+   public void setNombre(String nombre) {
+      this.nombre = nombre;
+   }
+   
+   public String getNombre() {
+      return nombre;
+   }
+
+   public String toString() {
+      return "El nombre del estudiante, es: " ;
+   }
+
+   public static void main(String[] args) {
+      Estudiante e1 = new Estudiante();
+      
+      e1.setNombre(" ");
+      e1.setCalificacion();
+      
+      System.out.println(e1.toString() + e1.getNombre() + 
+      "con calificación " + e1.getCalificacion());   
+   }
+}
+</pre>
+
+<p align=left><font color=yellow>Uso del método toString() en el programa "Suma.java"</font></p>
+
+
+<pre>
+public class Suma {
+    private int a;
+    private int b;
+    private int suma;
+
+    public int suma(int i1, int i2) {
+       int suma = 0;
+   
+       for (int i = i1; i <= i2; i++)
+        suma += i;
+     
+       return suma;
+    }
+
+   public String toString() {
+      return "Para el intervalo 1 a 10 " ;
+   }
+
+    public static void main(String[] args) {
+       Suma sum = new Suma();
+       
+       System.out.println(sum.toString() + sum.suma(1,10));
+       
+    }
+}
+</pre>
+
+<p align=left><font color=yellow>El programa "Fecha.java"</font></p>
+
+
+<pre>
+public class Fecha {
+   private int dia;
+   private int mes;
+   private int anio;
+
+   public Fecha() {
+      dia = 1;
+      mes = 1;
+      anio = 1998;
+   }
+
+   public Fecha(int d1, int m1, int a1) {
+      dia = d1;
+      mes = m1;
+      anio = a1;
+   }
+
+   public boolean equals(Object ob1) {
+      if(!(ob1 instanceof Fecha))
+         return false;
+      Fecha ob2 = (Fecha) ob1;
+      return ob2.dia == dia && ob2.mes == mes && ob2.anio == anio;
+   }
+
+   public String toString() {
+      return dia + "/" + mes + "/" + anio;
+   }
+   
+   public static void main(String[] args) {
+      Fecha f1 = new Fecha(28,2,2022);
+
+      System.out.println(f1.toString());
+     
+   
+   }
+}
+</pre>
+
+
+<p align=left><font color=yellow>CÓMO SE NOMBRA UN PROGRAMA EN JAVA</font></p>
+
+<p align=left><font color=marroon>El nombre del programa en Java se forma de la clase
+principal seguido de la extensión java.</font></p>
+
+<pre>
+public class Estudiante {
+   private String nombre;
+   private int calificacion;
+
+   public int getCalificacion() {
+      return calificacion;
+   }
+   
+   public void setNonbre(Strig nombre) {
+      this.nombre = nombre;
+   }
+   
+   public void setCalificacion(int calificacion) {
+      this.calificacion = calificacion;
+   }
+
+   public static void main(String[] args) {
+      Estudiante e1 = new Estudiante();
+
+      e1.setEstudiante("Aurelio");
+      e1.setCalificacion(6);
+   
+   }
+}
+</pre>
+
+<p align=left><font color=marroon>El nombre del programa en Java es el siguiente:</font></p>
+
+
+<p align=left><font color=yellow>El programa "Animal.java"</font></p>
+
+<pre>
+class Animal {
+  static String a1;
+  
+  void comer() {
+    System.out.println("EL " + a1 + " come croquetas");
+  }
+  
+  public static void main(String args[]) {
+    Animal perro = new Animal();
+    a1 = "perro";
+    
+    perro.comer();
+  }
+}
+</pre>
+
+<!--
+class Test {
+public static void main(String[] args) {
+  Student student = new Student();
+  System.out.println("name? " + student.name );
+  System.out.println("age? " + student.age );
+  System.out.println("isScienceMajor? " + student.isScienceMajor );
+  System.out.println("gender? " + student.gender );
+  }
+}
+
+class Student {
+  String name; // name has default value null
+  int age; // age has default value 0
+  boolean isScienceMajor; // isScienceMajor has default value false
+  char gender; // c has default value '\u0000'
+}
+
+<p align=center><font color=yellow>EJEMPLO DE PROGRAMA EN JAVA</font></p>
+
+class Test2 {
+public static void main(String[] args) {
+  Student student = new Student();
+  student.setNombre("Julio");
+  System.out.println("name? " + student.name );
+  System.out.println("age? " + student.age );
+  System.out.println("isScienceMajor? " + student.isScienceMajor );
+  System.out.println("genero? " + student.genero );
+
+  System.out.println("El nombre del estudiante es:" + student.getNombre() );
+  }
+}
+
+class Student {
+  String name; // name has default value null
+  int age; // age has default value 0
+  boolean isScienceMajor; // isScienceMajor has default value false
+  char genero; // c has default value '\u0000'
+  
+  public void setNombre(String name) {
+    this.name = name;
+  }
+
+  public String getNombre() {
+    return this.name;
+  }
+
+  public void setGenero(char genero) {
+    this.genero = genero;
+  }
+}
+
+<p align=center><font color=yellow>OTRO EJEMPLO DE PROGRAMA EN JAVA</font></p>
+
+
+
+<p align=center><font color=yellow>EJERCICIO DE PROGRAMA EN JAVA</font></p>
+
+class Test1 {
+public static void main(String[] args) {
+  Student student = new Student();
+  System.out.println("name? " + student.name );
+  System.out.println("age? " + student.age );
+  System.out.println("isScienceMajor? " + student.isScienceMajor );
+  System.out.println("genero? " + student.genero );
+  }
+}
+
+class Student {
+  String name; // name has default value null
+  int age; // age has default value 0
+  boolean isScienceMajor; // isScienceMajor has default value false
+  char genero; // c has default value '\u0000'
+  
+  public void setNombre(String name) {
+    this.name = name;
+  }
+
+  public void setGenero(char genero) {
+    this.genero = genero;
+  }
+}
+
+
+
+public class TestCircle1 {
+  /** Metodo principal */
+  public static void main(String[] args) {
+    // Crea un circulo con radio 1.0
+    Circle1 circle1 = new Circle1();
+    System.out.println("El area del circulo de raio "
+	+ circle1.radius + " es " + circle1.getArea() );
+    // Crea un circulo con radio 25
+    Circle1 circle2 = new Circle1(25);
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea());
+    // Crea un circulo de radio 125
+    Circle1 circle3 = new Circle1(125);
+    System.out.println("El area del circulo de raio "
+	+ circle3.radius + " es " + circle3.getArea());
+    // Modifica el radio del circulo
+    circle2.radius = 100;
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea() );
+    }
+  }
+// Define la clase circulo con dos constructores
+class Circle1 {
+  double radius ;
+  /** Construir del circulo con radio 1 */
+  Circle1() {
+    radius = 1.0;
+  }
+  /** Construir un circulo con radio especificado */
+  Circle1(double newRadius) {
+    radius = newRadius;
+  }
+  /** Regresa el area del circulo */
+  double getArea() {
+    return radius * radius * Math.PI;
+  }
+}
+
+<p align=center><font color=yellow>OTRO EJERCICIO EN JAVA</font></p>
+
+Nombre de la clase: Circulo
+
+Campo de datos: radio: double
+
+Constructores y métodos: Circulo()
+			 Circulo(newRadio : double)
+			 getArea() : double
+
+public class Circle1 {
+  double radio;
+  double getArea() {
+    return Math.PI * radio * radio;
+  }
+  /** Metodo principal */
+  public static void main(String[] args) {
+    // Crea un circulo con radio 1.0
+    Circle1 circle1 = new Circle1();
+    circle1.radio = 1;
+    System.out.println("El area del circulo de raio "
+	+ circle1.radio + " es " + circle1.getArea() );
+    // Crea un circulo con radio 25
+    Circle1 circle2 = new Circle1();
+    circle2.radio = 25;
+    System.out.println("El area del circulo de radio "
+	+ circle2.radio + " es " + circle2.getArea());
+    // Crea un circulo de radio 125
+    Circle1 circle3 = new Circle1();
+    circle3.radio = 125;
+    System.out.println("El area del circulo de raio "
+	+ circle3.radiio + " es " + circle3.getArea());
+    // Modifica el radio del circulo
+    circle2.radio = 100;
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea() );
+    }
+  }
+
+<p align=center><font color=yellow>MÁS EJERCICIOS EN JAVA</font></p>
+
+public class Estudiante {
+  
+  private String nombre;
+  private int cal;
+  
+  public String getNombre() {
+  return this.nombre;
+  }
+
+  public int getCal() {
+  return this.cal;
+  }
+
+  public void setNombre(String nombre) {
+  this.nombre = nombre;
+  }
+
+  public void setCal(int cal) {
+  this.cal = cal;
+  }
+
+  public static void main(String[] args) {
+  Estudiante est1 = new Estudiante();
+  Estudiante est2 = new Estudiante();
+  est1.setNombre("Juan");
+  est1.setCal(6);
+
+  est2.setNombre("Benjamin");
+  est2.setCal(8);
+  System.out.println(est1.getNombre() + ", " +
+    est2.getNombre());
+  }
+}-->
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

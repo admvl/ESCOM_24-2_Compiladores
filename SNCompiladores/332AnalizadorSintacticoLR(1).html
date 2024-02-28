@@ -1,0 +1,1020 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Analizadores sintácticos descendentes LR(1)</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </he ad>
+<body>
+<header>Compiladores<br>Capítulo 3</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">ANALIZADOR SINTÁCTICO LR(1)</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Analizadores sintácticos ascendentes</h1>
+       <hr>
+      <br>
+      <p>Este analizador también se conoce como analizador por desplazamiento y reducción. Este analizador intenta construir un árbol de análisis sintáctico para una cadena de entrada que comienza por las hojas (el fondo) y avanza hacia la raı́z (la cima).</p>
+      <br>
+      <p><strong>Derivación por la derecha.</strong> Esta derivación se hace considerando el símbolo no terminal que esta en la extrema derecha.</p>
+      <br>
+      <p>Consideremos la siguiente gramática:</p>
+      <br>
+      <font color=red size=7><h3 align="center">E &rarr; E + T | T <br> T &rarr; T * F | F <br> F &rarr; (E) | id</h3></font>
+      <br>
+      <p>Se considera la siguiente cadena de tokens <strong>id + id * id</strong>, por lo que esta se obtiene por medio de las derivaciones derechas:</p>
+      <br>
+      <font color=lime size=7><h3 align="center">E &rArr; E + T &rArr; E + T * F &rArr; E + T * id &rArr; <br> E + F * id &rArr; E + id * id &rArr; T + id * id &rArr; <br> F + id * id &rArr; id + id * id </h3></font>
+     <br>
+     <p>Esta derivación colocada en un árbol de análisis sintáctico:</p>
+     <br>
+      <p align="center">
+<img src="ArbolExpresion1.svg" align=center width=80% border=0></p>
+     <br>
+      <p><strong>Descendentes.</strong> El análisis se hace de la raiz a las hojas.</p>
+      <br>
+      <p align="center">
+<img src="ArbolExp1Descendente.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <p>Se muestra en la tabla cómo el análisis se hace de la raiz a las hojas.</p>
+     <br>   
+     
+     <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Análisis de la cadena declaración de una clase.</CAPTION>
+        <tr><th scope="row"> ENTRADA </th> <th> PILA </th> <th> NUM. PRODUCCIÓN </th> </tr>
+        <tr> <td> ↑ public class {double radio;}$ </td> <td> $S </td> <td> 1 </td> </tr>
+        <tr> <td>↑ public class {double radio;}$ </td> <td> $};LV T{ class &#9679; public </td> <td> ← </td> </tr>
+        <tr> <td>public ↑class {double radio;}$ </td> <td> $};LV T{ &#9679; class public </td> <td> ← </td> </tr>
+        <tr> <td>public class ↑{double radio;}$ </td> <td> $};LV T&#9679;{ class public </td> <td> ← </td> </tr>
+        <tr> <td>public class {↑double radio;}$ </td> <td> $};LV &#9679;T{ class public </td> <td> 4 </td> </tr>
+        
+        <tr> <td>public class {↑double radio;}$ </td> <td> $};LV &#9679;double{ class public </td> <td> ← </td> </tr>
+        
+        <tr> <td>public class {double ↑radio;}$ </td> <td>  $};&#9679;LV double{ class  public </td> <td> 5 </td> </tr>
+        
+        <tr> <td>public class {double ↑radio;}$ </td> <td> $};LV'&#9679; V double{ class public </td> <td> 8 </td> </tr>
+        
+        <tr> <td>public class {double ↑radio;}$ </td> <td> $};LV' &#9679; radio double{ class public </td> <td> ← </td> </tr>
+        
+        <tr> <td>public class {double radio↑;}$ </td> <td> $};&#9679;LV'  radio double{ class public </td> <td> 7 </td> </tr>
+        
+        <tr> <td>public class {double radio↑;}$ </td> <td> $}&#9679;; &epsilon;  radio double{ class public </td> <td> ← </td> </tr>
+        
+        <tr> <td>public class {double radio;↑}$ </td> <td> $&#9679;}; &epsilon;  radio double{ class public </td> <td> ← </td> </tr>
+        
+        <tr> <td>public class {double radio;}↑$ </td> <td> &#9679;$}; radio double{ class public </td> <td> Acep </td> </tr>
+      </table>
+      </CENTER>
+      <br>
+     
+      <p><strong>Ascendentes.</strong> El análisis se hace de las hojas a la raiz.</p>
+     <br>
+     <p align="center">
+<img src="ArbolExp1Ascendente.svg" align=center width=80% border=0></p>
+     <br>
+     <p>Se muestra en la tabla cómo el análisis se hace de las hojas a la raiz.</p>
+     <br>
+     
+     <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Análisis de la cadena de operaciones de suma y multiplicación.</CAPTION>
+        <tr><th scope="row"> ENTRADA </th> <th> PILA </th> <th> ACCIÓN </th> </tr>
+        <tr> <td>&uarr;id ∗ id + id$ </td> <td> $I0 </td> <td> - </td> </tr>
+        <tr> <td>↑id ∗ id + id$ </td> <td> $I0 </td> <td> d5 </td> </tr>
+        
+        <tr> <td>id ↑∗ id + id$ </td> <td> $I0 id I5 </td> <td> r6 </td> </tr>
+        
+        <tr> <td>id ↑∗ id + id$ </td> <td> $I0 F I3 </td> <td> r4 </td> </tr>
+        
+        <tr> <td>id ↑∗ id + id$ </td> <td> $I0 T I2 </td> <td> d7 </td> </tr>
+        
+        <tr> <td>id ∗ ↑id + id$ </td> <td> $I0 T I2 * I7 </td> <td> d5 </td> </tr>
+        
+        <tr> <td>id ∗ id ↑+ id$ </td> <td> $I0 T I2 * I7 id I5 </td> <td> r6 </td> </tr>
+        
+        <tr> <td>id ∗ id ↑+ id$ </td> <td> $I0 T I2 * I7 F I10 </td> <td> IR_A 10 </td> </tr>
+        
+        <tr> <td>id ∗ id ↑+ id$ </td> <td> $I0 T I2 </td> <td> r3 </td> </tr>
+        
+        <tr> <td>id ∗ id ↑+ id$ </td> <td> $I0 E I1 </td> <td> r2 </td> </tr>
+        
+        <tr> <td>id ∗ id + ↑id$ </td> <td> $I0 E I1 + I6 </td> <td> d6 </td> </tr>
+        
+        <tr> <td>id ∗ id + id↑$ </td> <td> $I0 E I1 + I6 id I5 </td> <td> d5 </td> </tr>
+        
+        <tr> <td>id ∗ id + id↑$ </td> <td> $I0 E I1 + I6 F I3 </td> <td> r6 </td> </tr>
+        
+        <tr> <td>id ∗ id + id↑$ </td> <td> $I0 E I1 + I6 T I9 </td> <td> r4 </td> </tr>
+        
+        <tr> <td>id ∗ id + id↑$ </td> <td> $I0 E I1 </td> <td> r1 </td> </tr>
+        
+        <tr> <td>id ∗ id + id↑$ </td> <td> $I0 E I1 </td> <td> acep </td> </tr>
+      </table>
+      </CENTER>
+      <br>
+       
+     <br>
+      <p class="cita"><cite>Engineering a compiler, Keith D. Cooper and Linda Torczon, Pág. 1-3</cite></p>
+       <br>
+       <hr>
+       <h1>Elementos LR(1)</h1>
+       <hr>
+       <br>
+       <p>Los elementos LR(0) se muestran a continuación:</p>
+       <br>
+       <font color=red size=7><h3 align="center"> E &rarr; &#8226; E + T <br> E &rarr; E &#8226; + T <br> E &rarr; E  + &#8226; T <br> E &rarr; E  + T &#8226; <br> E &rarr; &#8226; T <br> E &rarr; T &#8226; </h3></font>
+      <br>
+      <p align="center">
+<img src="Elementos.svg" align=center width=80% border=0></p>
+      <br>
+      <p>Los elementos LR(1) estan formados de un núcleo y símbolos de análisis, lo que se muestra a continuación:</p>
+       <br>
+       <font color=orange size=7><h3 align="center"> E' &rarr; &#8226; E ; $ <br> E &rarr; &#8226; E + T ; $ <br> E &rarr; &#8226; E + T ; + </h3></font>
+      <br>
+      <p>Los dos últimos dos elementos LR(1), se pueden escribir de la siguiente manera:</p>
+      <br>
+      <font color=orange size=7><h3 align="center"> E &rarr; &#8226; E + T ; $, + </h3></font>
+      <br>
+      <p align="center">
+<img src="ElementoInicial.svg" align=center width=80% border=0></p>
+      <br>
+      <font color=orange size=7><h3 align="center"> E' &rarr; &#8226; T ; $ </h3></font>
+      <br>
+       <p>Otro elemento LR(1):</p>
+       <br>
+       <font color=orange size=7><h3 align="center"> E &rarr; &#8226; E + T ; + </h3></font>
+      <br>
+      <p align="center">
+<img src="ElementoDesplazamientoUNO.svg" align=center width=80% border=0></p>
+      <br>
+       <p>Donde los símbolos terminales son: </p>
+       <br>
+       <font color=orange size=7><h3 align="center"> $, +, id, (, ), *. </h3></font>
+       <br>
+       <p>Los elementos LR(1) se presentan a continuación:</p>
+       <br>
+       <font color=red size=7><h3 align="center"> E &rarr; &#8226; E + T ; + <br> E &rarr; E &#8226; + T ; + <br> E &rarr; E  + &#8226; T ; + <br> E &rarr; E  + T &#8226; ; + <br> E &rarr; &#8226; T ; + <br> E &rarr; T &#8226; ; + </h3></font>
+      <br>
+      
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de producciones para la gramática de expresiones.</CAPTION>
+        <tr><th scope="row"> NÚMERO </th> <th> PRODUCCIÓN </th> <th> C1 </th> <th> C2 </th> <th> C3 </th> </tr>
+        <tr> <td> 0 </td> <td> E' &rarr; </td> <td> E </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 1 </td> <td> E &rarr; </td> <td> E </td>  <td> + </td> <td> T </td> </tr>
+        
+        <tr> <td> 2 </td> <td> E &rarr; </td> <td> T </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 3 </td> <td> T &rarr; </td> <td> T </td>  <td> * </td> <td> F </td> </tr>
+        
+        <tr> <td> 4 </td> <td> T &rarr;  </td> <td> F </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 5 </td> <td> F &rarr;  </td> <td> ( </td>  <td> E </td>  <td> ) </td> </tr>
+        
+        <tr> <td> 6 </td> <td> F &rarr;  </td> <td> id </td>  <td>  </td> <td>  </td> </tr>
+        
+      </table>
+      </CENTER>
+      
+      <br>
+      <p align="center">
+<img src="ElementosLR(1).svg" align=center width=80% border=0></p>
+     <br>
+     <p>Para la gramática de expresiones se obtienen los elementos LR(1)</p>
+     <hr>
+     <br>
+     <p>Se obtiene el estado I<SUB>0</SUB> aplicando la operación cerradura al elemento LR(1) de la producción aumentada:</p>
+     <br>
+     <p align="center">
+<img src="DiagramaCompletoLR(1).svg" align=center width=80% border=0></p>
+     <br>
+     <font color=yellow size=4><h3 align="center"> I<SUB>0</SUB> = cerradura( E' → • E ; $ ) = { E' → • E ; $ , E → • E + T ; $ : + , E → • T ; $ : + , T → • T * F ; $ : + : * , T → • F ; $ : * : + , F → • ( E ) ; $ : + : * , F → • id ; $ : + : * }</h3></font>
+     <br>
+     <p align="center">
+<img src="LR(1)ExpresionesI0.svg" align=center width=80% border=0></p>
+      <br>
+      <p>Se obtiene el estado I<SUB>1</SUB> aplicando la función de movimiento Ir_a para el símbolo E y la operación de cerradura para obtener los elementos LR(1):</p>
+     <br>
+     <p align="center">
+<img src="DiagramaIRA(I0,E).svg" align=center width=80% border=0></p>
+     <br>
+     <font color=yellow size=4><h3 align="center"> I<SUB>1</SUB> = cerradura(Ir_a(I<SUB>0</SUB>, E)) = cerradura( E' → E • ; $ , E → E • + T ; $ : + ) = { E' → E • ; $ , E → E • + T ; $ : + }</h3></font>
+     <br>
+     <p align="center">
+<img src="LR(1)ExpresionesI1.svg" align=center width=80% border=0></p>
+     <br>
+     <p>Se obtiene el estado I<SUB>2</SUB> aplicando la función de movimiento Ir_a para el símbolo T y la operación de cerradura para obtener los elementos LR(1):</p>
+     <br>
+     <p align="center">
+<img src="DiagramaIRA(I0,T).svg" align=center width=80% border=0></p>
+     <br>
+     <font color=yellow size=4><h3 align="center"> I<SUB>2</SUB> = cerradura(Ir_a(I<SUB>0</SUB>, T)) = cerradura( E → T • ; $ : + , T → T • * F ; $ : + : * ) = { E → T • ; $ : + , T → T • * F ; $ : + : *}</h3></font>
+     <br>
+     <p align="center">
+<img src="LR(1)ExpresionesI2.svg" align=center width=80% border=0></p>
+     <br>
+     <p>Se obtiene el estado I<SUB>3</SUB> aplicando la función de movimiento Ir_a para el símbolo F y la operación de cerradura para obtener los elementos LR(1):</p>
+     <br>
+     <p align="center">
+<img src="DiagramaIRA(I0,F).svg" align=center width=80% border=0></p>
+     <br>
+     <font color=yellow size=4><h3 align="center"> I<SUB>3</SUB> = cerradura(Ir_a(I<SUB>0</SUB>, F)) = cerradura( T → F • ; $ : * : + ) = { T → F • ; $ : * : + }</h3></font>
+     <br>
+     <p align="center">
+<img src="LR(1)ExpresionesI3.svg" align=center width=80% border=0></p>
+     <br>
+     <p>Se obtiene el estado I<SUB>4</SUB> aplicando la función de movimiento Ir_a para el símbolo ( y la operación de cerradura para obtener los elementos LR(1):</p>
+     <br>
+     <p align="center">
+<img src="DiagramaIRA(I0,().svg" align=center width=80% border=0></p>
+     <br>
+     <font color=yellow size=4><h3 align="center"> I<SUB>4</SUB> = cerradura(Ir_a(I<SUB>0</SUB>, ()) = cerradura( F → ( • E ) ; $ : * : + ) = { F → ( • E ) ; $ : * : + , E →  • E + T ; $ : + : ) ,  E &rarr; &#8226; T ; $ : + : ) ; * , T &rarr;  &#8226; T * F ; $ : + : ) : * , T &rarr;  &#8226; F ; $ ; + : ) : * , F &rarr;  &#8226; ( E ) ; $ ; + : ) : * , F &rarr;  &#8226; id ; $ ; + : ) : * }</h3></font>
+     <br>
+     <p align="center">
+<img src="LR(1)ExpresionesI4.svg" align=center width=80% border=0></p>
+     <br>
+     <p>Se obtiene el estado I<SUB>5</SUB> aplicando la función de movimiento Ir_a para el símbolo id y la operación de cerradura para obtener los elementos LR(1):</p>
+     <br>
+     <font color=yellow size=4><h3 align="center"> I<SUB>5</SUB> = cerradura(Ir_a(I<SUB>0</SUB>, id)) = cerradura( F → id • ; $ : * : + ) = { F &rarr; id &#8226; ; $ : * : + }</h3></font>
+     <br>
+     <p align="center">
+<img src="LR(1)ExpresionesI5.svg" align=center width=80% border=0></p>
+     <br>
+     <p>Se obtiene el estado I<SUB>6</SUB> aplicando la función de movimiento Ir_a para el símbolo + y la operación de cerradura para obtener los elementos LR(1):</p>
+     <br>
+     <font color=yellow size=4><h3 align="center"> I<SUB>6</SUB> = cerradura(Ir_a(I<SUB>1</SUB>, +)) = cerradura( E → E + &#8226; T ; $ : + ) = { E → E + &#8226; T ; $ : + }</h3></font>
+     <br>
+     <p align="center">
+<img src="LR(1)ExpresionesI6.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <font color=yellow size=4><h3 align="center"> I<SUB>7</SUB> = cerradura(Ir_a(I<SUB>2</SUB>, *)) = cerradura( T → T * &#8226; F ; $ : + : * ) = { T → T * &#8226; F ; $ : + : * }</h3></font>
+     <br>
+     <p align="center">
+<img src="LR(1)ExpresionesI7.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <font color=yellow size=4><h3 align="center"> I<SUB>8</SUB> = cerradura(Ir_a(I<SUB>4</SUB>, E)) = cerradura( F &rarr; ( &#8226; E ) ; $ : + , E →  • E + T ; $ : + : ) ) = { F &rarr; ( &#8226; E ) ; $ : + , E →  • E + T ; $ : + : ) }</h3></font>
+     <br>
+     <p align="center">
+<img src="LR(1)ExpresionesI8.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <font color=yellow size=4><h3 align="center"> I<SUB>9</SUB> = cerradura(Ir_a(I<SUB>4</SUB>, T)) = cerradura( E &rarr; &#8226; T ; $ : + : ) , T &rarr;  &#8226; T * F ; $ : + : ) : * ) = { T → T &#8226; * F ; $ : + : * }</h3></font>
+     <br>
+     <p align="center">
+<img src="LR(1)ExpresionesI9.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <font color=yellow size=4><h3 align="center"> I<SUB>10</SUB> = cerradura(Ir_a(I<SUB>1</SUB>, F)) = cerradura( T → T &#8226; * F ; $ : + : * ) = { T → T &#8226; * F ; $ : + : * }</h3></font>
+     <br>
+     <p align="center">
+<img src="LR(1)ExpresionesI10.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <font color=yellow size=4><h3 align="center"> I<SUB>11</SUB> = cerradura(Ir_a(I<SUB>1</SUB>, ))) = cerradura( T → T &#8226; * F ; $ : + : * ) = { T → T &#8226; * F ; $ : + : * }</h3></font>
+     <br>
+     <p align="center">
+<img src="LR(1)ExpresionesI11.svg" align=center width=80% border=0></p>
+     <br>
+
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=top>Tabla que muestra la construcción de los conjuntos cerradura.</CAPTION>
+        <tr><th scope="row"> ESTADO </th> <th> CERRADURA </th> <th> CONJUNTO CERRADURA </th> <th>DIAGRAMA </th> </tr>
+        <tr> <td> I<sub>0</sub> </td> <td> cerr (E' → &#8226; E ; $) = </td> <td> { E' → &#8226; E ; $ , E → &#8226; E + T ; $ : + , E → • T ; $ : + , T → • T * F ; $ : + : * , T → • F ; $ : * : + , F &rarr; • ( E ) ; $ : + : &#8226; , F → • id ; $ : + : * } </td>  <td><p align="center">
+<img src="LR(1)ExpresionesI0.svg" align=center width=90% border=0></p> </td> </tr>
+        
+        <tr> <td> I<sub>1</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, E)) = cerr ( E' → E • ; $ , E → E • + T ; $ : + ) = </td> <td> { E' &rarr; E &#8226; ; $ , E → E • + T ; $ : + } </td> <td><p align="center">
+<img src="LR(1)ExpresionesI1.svg" align=center width=90% border=0></p> </td> </tr>
+        
+        <tr> <td> I<sub>2</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, T)) = cerr ( E → T • ; $ : + , T → T • * F ; $ : + : * ) = </td> <td> { E → T • ; $ : + , T → T • * F ; $ : + : * } </td> <td><p align="center">
+<img src="LR(1)ExpresionesI2.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>3</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, F)) = cerr ( T → F • ; $ : * : + ) = </td> <td> { T → F • ; $ : * : + } </td> <td><p align="center">
+<img src="LR(1)ExpresionesI3.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>4</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, T)) = cerr ( F &rarr; ( &#8226; E ) ; $ : + ) = </td> <td> { F → ( • E ) ; $ : +, E →  • E + T ; $ : + : ) ,  E &rarr; &#8226; T ; $ : + : ) , T &rarr;  &#8226; T * F ; $ : + : ) : * , T &rarr;  &#8226; F ; $ ; + : ) : * , F &rarr;  &#8226; ( E ) ; $ ; + : ) : * , F &rarr;  &#8226; id ; $ ; + : ) : * } </td> <td><p align="center">
+<img src="LR(1)ExpresionesI4.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>5</sub> </td> <td> cerr (Ir a(I<sub>2</sub>, =)) = cerr ( F &rarr; id &#8226; ; $ : + ) =  </td> <td> { F &rarr; id &#8226; ; $ : + } </td> <td><p align="center">
+<img src="LR(1)ExpresionesI5.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>6</sub> </td> <td> cerr (Ir a(I<sub>2</sub>, +)) = cerr ( E → E &#8226; + T ; $ : + ) =  </td> <td> { E → E &#8226; + T ; $ : + } </td> <td><p align="center">
+<img src="LR(1)ExpresionesI6.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>7</sub> </td> <td> cerr (Ir a(I<sub>2</sub>, * )) = cerr ( T → T &#8226; * F ; $ : + : * ) =  </td> <td> { T → T &#8226; * F ; $ : + : * } </td> <td><p align="center">
+<img src="LR(1)ExpresionesI7.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>8</sub> </td> <td> cerr (Ir a(I<SUB>4</SUB> , E)) = cerr ( F → ( • E ) ; $ : +, E →  • E + T ; $ : + : ) ) =  </td> <td> { F → ( • E ) ; $ : +, E →  • E + T ; $ : + : ) } </td> <td><p align="center">
+<img src="LR(1)ExpresionesI8.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>9</sub> </td> <td> cerr (Ir a(I<SUB>4</SUB> , T)) = cerr ( E &rarr; &#8226; T ; $ : + : ) , T &rarr;  &#8226; T * F ; $ : + : ) : * ) =  </td> <td> { E &rarr; &#8226; T ; $ : + : ) , T &rarr;  &#8226; T * F ; $ : + : ) : * } </td> <td><p align="center">
+<img src="LR(1)ExpresionesI9.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>10</sub> </td> <td> cerr (Ir a(I<SUB>7</SUB> , F)) = cerr ( T &rarr;  &#8226; F ; $ ; + : ) : * ) =  </td> <td> { T &rarr;  &#8226; F ; $ ; + : ) : * } </td> <td><p align="center">
+<img src="LR(1)ExpresionesI10.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>11</sub> </td> <td> cerr (Ir a(I<SUB>5</SUB> , ))) = cerr ( E → T • ; $ : + , T &rarr; T &#8226; * f ; $ : + : * ) =  </td> <td> { E → T • ; $ : + , T &rarr; T &#8226; * f ; $ : + : * } </td> <td><p align="center">
+<img src="LR(1)ExpresionesI11.svg" align=center width=90% border=0></p></td> </tr>
+        
+      </table>
+      </CENTER>
+
+
+      <br>
+      <br>
+      
+      <font color=yellow size=4><h3 align="center"> Construcción del grafo</h3></font>
+     <br>
+     <p align="center">
+<img src="GraAsignacionLR(1).svg" align=center width=80% border=0></p>
+     <br>
+     
+      <hr>
+       <h1>Analizador sintáctico LR(1)</h1>
+       <hr>
+       <br>
+       <p><strong>Definición de gramática LR(1).</strong> La L significa lectura de izquierda a derecha y la R significa derivación por la derecha. El número que está en el paréntesis es el número de símbolos que se van analizar por anticipado.</p>
+      
+      <br>
+      <p>Consideremos la siguiente gramática:</p>
+      <br>
+      <font color=red size=7><h3 align="center"> S &rarr; E = E | f <br> E &rarr; E + T | T <br> T &rarr; T * f | f </h3></font>
+      <br>
+      <p>La gramática se aumenta, se expande y se divide en capas:</p>
+      <br>
+      
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Gramática aumentada, expandida y dividida en capas.</CAPTION>
+        <tr><th scope="row"> NÚMERO </th> <th> PRODUCCIÓN </th> <th> C1 </th> <th> C2 </th> <th> C3 </th> </tr>
+        <tr> <td> 0 </td> <td> G &rarr; </td> <td> S </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 1 </td> <td> S &rarr; </td> <td> E </td>  <td> = </td> <td> E </td> </tr>
+        
+        <tr> <td> 2 </td> <td> S &rarr; </td> <td> f </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 3 </td> <td> E &rarr; </td> <td> T </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 4 </td> <td> E &rarr;  </td> <td> E </td>  <td> + </td> <td> T </td> </tr>
+        
+        <tr> <td> 5 </td> <td> T &rarr;  </td> <td> f </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 6 </td> <td> T &rarr;  </td> <td> T </td>  <td> * </td> <td> f </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+      
+      <p><strong>DEFINICIÓN (Cerradura.)</strong> La cerradura. Donde I es un
+conjunto de elementos para una gramática G, entonces cerradura(I) es el conjunto de elementos construido a partir de I por las
+dos reglas:
+1. Todo elemento de I se añade a cerradura(I).
+2. Si A → α • Bβ está en cerradura(I) y B → γ es una producción, entonces añádase el elemento B → •γ a cerradura(I),
+si todavı́a no esta ahı́. Se aplica esta regla hasta que no se
+puedan añadir más elementos a cerradura(I).</p>
+     <br>
+      <p><strong>DEFINICIÓN (Función Ir a.)</strong> La función Ir a (I, β) se
+define como: Ir a(I, β) = cerraduta(I 0 ) donde I 0 = {N →
+αβ • γ|(N → α • βγ) ∈ I}.</p>
+     <br>
+     <p><strong>Se obtienen los estados:</strong></p>
+     <br>
+     <p align="center">
+<img src="ElementosLR(1)2.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <font color=yellow size=4><h3 align="center"> I<SUB>0</SUB> = cerradura( G → • S ; $ ) = { G → • S ; $ , S → • E = E ; $ , S → • f ; $ ,
+E → • T ; = : + , E → • E + T ; = : + , T → • f ; = : + : * , T → • T * f ; = : + : * }</h3></font>
+     <br>
+     
+     <p align="center">
+<img src="Ejem2cerrI0.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <p>Se obtiene el estado I<SUB>1</SUB> aplicando la función de movimiento Ir a de I<SUB>0</SUB> con S:</p>
+     <br>
+     <font color=yellow size=4><h3 align="center">I<SUB>1</SUB> = cerradura(Ir a(I<SUB>0</SUB> , S )) = cerradura(G → S • ; $ ) = { G → S • ; $ }</h3></font>
+     <br>
+     
+     <p align="center">
+<img src="Ejem2cerrI1.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <p>Se obtiene el estado I<SUB>2</SUB> aplicando la función de movimiento Ir a de I<SUB>0</SUB> con E:</p>
+     
+     <br>
+        
+     <font color=yellow size=4><h3 align="center">I<SUB>2</SUB> = cerradura(Ir a(I<SUB>0</SUB> , E )) = cerradura(S → E • = E ; $ , E → E • + T ; = : + ) = { E → E • = E ; $, E → E • + T ; = : + }</h3></font>
+     <br>
+     
+     <p align="center">
+<img src="Ejem2cerrI2.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <p>Se obtiene el estado I<SUB>3</SUB> aplicando la función de movimiento Ir a de I<SUB>0</SUB> con f:</p>
+     <br>
+     <font color=yellow size=4><h3 align="center">I<SUB>3</SUB> = cerradura(Ir a(I<SUB>0</SUB> , f )) = cerradura( S → f • ; $ , T &rarr; f &#8226; ; = : + : * ) = { S → f • ; $ , T &rarr; f &#8226; ; = : + : * }</h3></font>
+     <br>
+     
+     <p align="center">
+<img src="Ejem2cerrI3.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <p>Se obtiene el estado I<SUB>4</SUB> aplicando la función de movimiento Ir a de I<SUB>0</SUB> con T:</p>
+     <br>
+     <font color=yellow size=4><h3 align="center">I<SUB>4</SUB> = cerradura(Ir a(I<SUB>0</SUB> , T )) = cerradura( E → T • ; = : + , T &rarr; T &#8226; * f ; = : + : * ) = { E → T • ; = : + , T &rarr; T &#8226; * f ; = : + : * }</h3></font>
+       <br>
+       <p>Se obtiene el estado I<SUB>5</SUB> aplicando la función de movimiento de Ir a de I<SUB>2</SUB> con =:</p>
+       <br>
+       
+       <p align="center">
+<img src="Ejem2cerrI4.svg" align=center width=80% border=0></p>
+     <br>
+       
+       <font color=yellow size=4><h3 align="center">I<SUB>5</SUB> = cerradura(Ir a(I<SUB>2</SUB> , = )) = cerradura( S → E = • E ; $ ) = { S → E = • E ; $ , E → • T ; $ : + , T &rarr; &#8226; f ; $ : + :* , T &rarr; &#8226; T * f ; $ : + : * , E &rarr; &#8226; E + T ; $ : + }</h3></font>
+       <br>
+       <p align="center">
+<img src="Ejem2cerrI5.svg" align=center width=80% border=0></p>
+       <br>
+       <p>Se obtiene el estado I<SUB>6</SUB> aplicando la función de movimiento de Ir a de I<SUB>2</SUB> con +:</p>
+       <br>
+       <font color=yellow size=4><h3 align="center">I<SUB>6</SUB> = cerradura(Ir a(I<SUB>2</SUB> , +)) = cerradura( E → E + • T ; = : $ ) = { E → E + • T ; = : $ , T → &#8226; f ; = : + : * , T → • T ∗ &#8226; f ; = : + : * }</h3></font>
+      <br>
+
+      <p align="center">
+<img src="Ejem2cerrI6.svg" align=center width=80% border=0></p>
+       <br>
+
+      <p>Se obtiene el estado I<SUB>7</SUB> aplicando la función de movimiento de Ir a de I<SUB>4</SUB> con *:</p>
+       <br>
+       <font color=yellow size=4><h3 align="center">I<SUB>7</SUB> = cerradura(Ir a(I<SUB>4</SUB> , ∗)) = cerradura( T → T ∗ • f ; = : + : * ) = { T → T ∗ • f ; = : + : * }</h3></font>
+       <br>
+
+       <p align="center">
+<img src="Ejem2cerrI7.svg" align=center width=80% border=0></p>
+       <br>
+
+       <p>Se obtiene el estado I<SUB>8</SUB> aplicando la función de movimiento de Ir a de I<SUB>5</SUB> con E:</p>
+       <br>
+       <font color=yellow size=4><h3 align="center">I<SUB>8</SUB> = cerradura(Ir a (I<SUB>5</SUB> , E)) = cerradura( S → E = E • ; $ , E → E • + T ; $ : + ) = { S → E = E • ; $ , E → E • + T ; $ : + }</h3></font>
+       <br>
+
+       <p align="center">
+<img src="Ejem2cerrI8.svg" align=center width=80% border=0></p>
+       <br>
+
+       <p>Se obtiene el estado I<SUB>9</SUB> aplicando la función de movimiento de Ir a de I<SUB>6</SUB> con T:</p>
+       <br>
+       <font color=yellow size=4><h3 align="center">I<SUB>9</SUB> = cerradura(Ir a(I<SUB>6</SUB> , T )) = cerradura( E → E + T • ; = : + , T → T • ∗ f ; = : + : * ) = { E → E + T • ; = : + , T → T • ∗ f ; = : + : * }</h3></font>
+       <br>
+
+       <p align="center">
+<img src="Ejem2cerrI9.svg" align=center width=80% border=0></p>
+       <br>
+
+       <p>Se obtiene el estado I<SUB>10</SUB> aplicando la función de movimiento de Ir a de I<SUB>7</SUB> con f:</p>
+       <br>
+       <font color=yellow size=4><h3 align="center">I<SUB>10</SUB> = cerradura(Ir a(I<SUB>7</SUB> , f )) = cerradura( T → T ∗ F • ; = : + : * ) = { T → T ∗ F • ; = : + : * }</h3></font>
+       <br>
+
+       <p align="center">
+<img src="Ejem2cerrI10.svg" align=center width=80% border=0></p>
+       <br>
+
+       <p>Se obtiene el estado I<SUB>11</SUB> aplicando la función de movimiento de Ir a de I<SUB>5</SUB> con T:</p>
+       <br>
+       <font color=yellow size=4><h3 align="center">I<SUB>11</SUB> = cerradura(Ir a(I<SUB>5</SUB> , T)) = cerradura( E → T • ; $ : + , T &rarr; T &#8226; * f ; $ : + : * ) = { E → T • ; $ : + , T &rarr; T &#8226; * f ; $ : + : * }</h3></font>
+       <br>
+
+       <p align="center">
+<img src="Ejem2cerrI11.svg" align=center width=80% border=0></p>
+       <br>
+
+       <p>Se obtiene el estado I<SUB>12</SUB> aplicando la función de movimiento de Ir a de I<SUB>5</SUB> con f:</p>
+       <br>
+       <font color=yellow size=4><h3 align="center">I<SUB>12</SUB> = cerradura(Ir a(I<SUB>5</SUB> , f)) = cerradura( T → f • ; $ : + : * ) = { T → f • ; $ : + : * }</h3></font>
+       <br>
+
+       <p align="center">
+<img src="Ejem2cerrI12.svg" align=center width=80% border=0></p>
+       <br>
+
+        <p>Se obtiene el estado I<SUB>13</SUB> aplicando la función de movimiento de Ir a de I<SUB>11</SUB> con *:</p>
+       <br>
+       <font color=yellow size=4><h3 align="center">I<SUB>13</SUB> = cerradura(Ir a(I<SUB>11</SUB> , *)) = cerradura( T → T * &#8226; f ; $ : + : * ) = { T → T * &#8226; f ; $ : + : * }</h3></font>
+       <br>
+
+       <p align="center">
+<img src="Ejem2cerrI13.svg" align=center width=80% border=0></p>
+       <br>
+
+        <p>Se obtiene el estado I<SUB>14</SUB> aplicando la función de movimiento de Ir a de I<SUB>13</SUB> con f:</p>
+       <br>
+       <font color=yellow size=4><h3 align="center">I<SUB>14</SUB> = cerradura(Ir a(I<SUB>13</SUB> , f)) = cerradura( T → T * f &#8226; ; $ : + : * ) = { T → T * f &#8226; ; $ : + : * }</h3></font>
+       <br>
+
+       <p align="center">
+<img src="Ejem2cerrI14.svg" align=center width=80% border=0></p>
+       <br>
+
+       <p>Se obtiene el estado I<SUB>15</SUB> aplicando la función de movimiento de Ir a de I<SUB>8</SUB> con +:</p>
+       <br>
+       <font color=yellow size=4><h3 align="center">I<SUB>15</SUB> = cerradura(Ir a(I<SUB>8</SUB> , +)) = cerradura( E → E + &#8226; T ; $ : + ) = { E → E + &#8226; T ; $ : + , T &rarr; &#8226; f ; $ : + : * , T &rarr; &#8226; T * f ; $ : + : * }</h3></font>
+       <br>
+
+       <p align="center">
+<img src="Ejem2cerrI15.svg" align=center width=80% border=0></p>
+       <br>
+
+       <p>Se obtiene el estado I<SUB>16</SUB> aplicando la función de movimiento de Ir a de I<SUB>15</SUB> con T:</p>
+       <br>
+       <font color=yellow size=4><h3 align="center">I<SUB>16</SUB> = cerradura(Ir a(I<SUB>15</SUB> , T)) = cerradura( E → E + T &#8226; ; $ : + , T &rarr; T &#8226; * f ; $ : + : * ) = { E → E + T &#8226; ; $ : + , T &rarr; T &#8226; * f ; $ : + : * }</h3></font>
+       <br>
+
+       <p align="center">
+<img src="Ejem2cerrI16.svg" align=center width=80% border=0></p>
+       <br>
+
+       <h3>Se calculan los primeros y siguientes:</h3>
+       <br>
+       
+       <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de primeros y siguientes de la gramática de igualdad.</CAPTION>
+        <tr><th scope="row"> </th> <th> G </th> <th> S </th> <th> E </th> <th> T </th> </tr>
+        <tr> <td> PRIMEROS </td> <td> f </td> <td> f </td>  <td> f </td> <td> f </td> </tr>
+        
+        <tr> <td> SIGUIENTES </td> <td> $ </td> <td> $ </td>  <td> $, =, + </td> <td> $, = , +, * </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+      
+      <p align="center">
+<img src="ElementosLR(1)2.svg" align=center width=80% border=0></p>
+     <br>
+      
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla que muestra la construcción de los conjuntos cerradura.</CAPTION>
+        <tr><th scope="row"> ESTADO </th> <th> CERRADURA </th> <th> CONJUNTO CERRADURA </th> <th>DIAGRAMA </th> </tr>
+        <tr> <td> I<sub>0</sub> </td> <td> cerr (G → • S ; $) = </td> <td> { G → • S ; $ , S → • E = E ; $ , S → &#8226; f ; $ , E &rarr; &#8226; T ; = : + , <br> E &rarr; &#8226; E + T ; = : + , T &rarr; &#8226; f; = : + : * , T &rarr; &#8226; T * f ; = : + : *} </td> <td><p align="center">
+<img src="Ejem2cerrI0.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>1</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, S)) = cerr ( G &rarr; S • ; $ ) = </td> <td> { G &rarr; S • ; $ } </td> <td><p align="center">
+<img src="Ejem2cerrI1.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>2</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, E)) = cerr ( E &rarr; E • = E; $ , E &rarr; E &#8226; + T ; = : +) = </td> <td> { E &rarr; E • = E; $ , E &rarr; E &#8226; + T ; = : + } </td> <td><p align="center">
+<img src="Ejem2cerrI2.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>3</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, f)) = cerr ( S &rarr; f • ; $ , T &rarr; f &#8226; ; = ; + : *) = </td> <td> { S &rarr; f • ; $ , T &rarr; f &#8226; ; = : + : *} </td> <td><p align="center">
+<img src="Ejem2cerrI3.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>4</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, T)) = cerr ( E &rarr; T &#8226; ; = : + , T &rarr; T &#8226; * f ; = : + : * ) = </td> <td> { E &rarr; T &#8226; ; = : + , T &rarr; T &#8226; * f ; = : + : * } </td> <td><p align="center">
+<img src="Ejem2cerrI4.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>5</sub> </td> <td> cerr (Ir a(I<sub>2</sub>, =)) = cerr ( S &rarr; E = &#8226; E ; $ ) =  </td> <td> { S &rarr; E = &#8226; E ; $ , E &rarr; &#8226; T ; $ : + , T &rarr; &#8226; f ; $ : + : * , <br> T &rarr; &#8226; T * f ; $ : + : * , E &rarr; &#8226; E + T ; $ : + } </td> <td><p align="center">
+<img src="Ejem2cerrI5.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>6</sub> </td> <td> cerr (Ir a(I<sub>2</sub>, +)) = cerr ( E &rarr; E + &#8226; T ; = : $ ) =  </td> <td> { E &rarr; E + &#8226; T ; = : $ , T &rarr; &#8226; f ; = : + : * , T &rarr; &#8226; T * f ; = : + : * } </td> <td><p align="center">
+<img src="Ejem2cerrI6.svg" align=center width=90% border=0></p></td>  </tr>
+        
+        <tr> <td> I<sub>7</sub> </td> <td> cerr (Ir a(I<sub>4</sub>, * )) = cerr ( T &rarr; T * &#8226; f ; = : + : * ) =  </td> <td> { T &rarr; T * &#8226; f ; = : + : * } </td> <td><p align="center">
+<img src="Ejem2cerrI7.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>8</sub> </td> <td> cerr (Ir a(I<SUB>5</SUB> , E)) = cerr ( S → E = E • ; $ , E → E • + T ; $ : + ) =  </td> <td> { S → E = E • ; $ , E → E • + T ; $ : + } </td> <td><p align="center">
+<img src="Ejem2cerrI8.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>9</sub> </td> <td> cerr (Ir a(I<SUB>6</SUB> , T)) = cerr ( E → E + T • ; = : + , T → T • ∗ f ; = : + : * ) =  </td> <td> { E → E + T • ; = : + , T → T • ∗ f ; = : + : * } </td> <td><p align="center">
+<img src="Ejem2cerrI9.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>10</sub> </td> <td> cerr (Ir a(I<SUB>7</SUB> , f)) = cerr ( T → T ∗ F • ; = : + : * ) =  </td> <td> { T → T ∗ F • ; = : + : * } </td> <td><p align="center">
+<img src="Ejem2cerrI10.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>11</sub> </td> <td> cerr (Ir a(I<SUB>5</SUB> , T)) = cerr ( E → T • ; $ : + , T &rarr; T &#8226; * f ; $ : + : * ) =  </td> <td> { E → T • ; $ : + , T &rarr; T &#8226; * f ; $ : + : * } </td> <td><p align="center">
+<img src="Ejem2cerrI11.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>12</sub> </td> <td> cerr (Ir a(I<SUB>5</SUB> , f)) = cerr ( T → f • ; $ : + : * ) =  </td> <td> { T → f • ; $ : + : * } </td> <td><p align="center">
+<img src="Ejem2cerrI12.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>13</sub> </td> <td> cerr (Ir a(I<SUB>11</SUB> , *)) = cerr ( T → T * &#8226; f ; $ : + : * ) =  </td> <td> { T → T * &#8226; f ; $ : + : * } </td> <td><p align="center">
+<img src="Ejem2cerrI13.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>14</sub> </td> <td> cerr (Ir a(I<SUB>13</SUB> , f)) = cerr ( T → T * f &#8226; ; $ : + : * ) =  </td> <td> { T → T * f &#8226; ; $ : + : * } </td> <td><p align="center">
+<img src="Ejem2cerrI14.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>15</sub> </td> <td> cerr (Ir a(I<SUB>8</SUB> , +)) = cerr ( E → E + &#8226; T ; $ : + ) =  </td> <td> { E → E + &#8226; T ; $ : + , T &rarr; &#8226; f ; $ : + : * , T &rarr; &#8226; T * f ; $ : + : * } </td> <td><p align="center">
+<img src="Ejem2cerrI15.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>16</sub> </td> <td> cerr (Ir a(I<SUB>15</SUB> , T)) = cerr ( E → E + T &#8226; ; $ : + , T &rarr; T &#8226; * f ; $ : + : * ) =  </td> <td> { E → E + T &#8226; ; $ : + , T &rarr; T &#8226; * f ; $ : + : * } </td> <td><p align="center">
+<img src="Ejem2cerrI16.svg" align=center width=90% border=0></p></td> </tr>
+      </table>
+      </CENTER>
+      <br>
+       
+       <h3>Se construye el grafo:</h3>
+       <br>
+       <p>DEFINICIÓN (Continuidad.) Continuidad es que todos
+los elementos LR(0) en todos los estados, deben tener transición
+dentro del grafo. De no haber esa transición dentro del grafo, se
+debe crear.</p>
+       <br>
+       
+       <p align="center">
+<img src="GraAsignacionLR(1).svg" align=center width=80% border=0></p>
+     <br>
+     <p>Del grafo se obtienen las tablas de Acción y de Ir a.</p>
+     <br>
+        
+     <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de Acciones y de Ir a.</CAPTION>
+        
+        <tr> <th colspan=6>Acciones </th> <th colspan=3>Ir a </th> </tr>
+        
+        <tr><th scope="row"> ESTADOS </th> <th> f </th> <th> + </th> <th> * </th> <th> = </th> <th> $ </th> <th> S </th> <th> E </th> <th> T </th> </tr>
+        
+        <tr> <td> I<SUB>0</SUB> </td> <td> d<SUB>3</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 1 </td> <td> 2 </td> <td> 4 </td> </tr>
+        
+        <tr> <td> I<SUB>1</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> acp </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>2</SUB> </td> <td> e </td> <td> d<SUB>6</SUB> </td> <td> e </td> <td> d<SUB>5</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>3</SUB> </td> <td> e </td> <td> r<SUB>5</SUB> </td> <td> r<SUB>5</SUB> </td> <td> r<SUB>5</SUB> </td> <td> r<SUB>2</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>4</SUB> </td> <td> e </td> <td> r<SUB>3</SUB> </td> <td> d<SUB>7</SUB> </td> <td> r<SUB>3</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>5</SUB> </td> <td> d<SUB>12</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 8 </td> <td> 11 </td> </tr>
+        
+        <tr> <td> I<SUB>6</SUB> </td> <td> d<SUB>3</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 9 </td> </tr>
+        
+        <tr> <td> I<SUB>7</SUB> </td> <td> d<SUB>10</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>8</SUB> </td> <td> e </td> <td> d<SUB>15</SUB> </td> <td> e </td> <td> e </td> <td> r<SUB>1</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>9</SUB> </td> <td> e </td> <td> r<SUB>4</SUB> </td> <td> d<SUB>7</SUB> </td> <td> r<SUB>4</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>10</SUB> </td> <td> e </td> <td> r<SUB>6</SUB> </td> <td> r<SUB>6</SUB> </td> <td> r<SUB>6</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>11</SUB> </td> <td> e </td> <td> r<SUB>3</SUB> </td> <td> d<SUB>13</SUB> </td> <td> r<SUB>3</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>12</SUB> </td> <td> e </td> <td> r<SUB>5</SUB> </td> <td> r<SUB>5</SUB> </td> <td> e </td> <td> r<SUB>5</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>13</SUB> </td> <td> d<SUB>14</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>14</SUB> </td> <td> e </td> <td> r<SUB>6</SUB> </td> <td> r<SUB>6</SUB> </td> <td> e </td> <td> r<SUB>6</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>15</SUB> </td> <td> d<SUB>12</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 16 </td> </tr>
+        
+        <tr> <td> I<SUB>16</SUB> </td> <td> e </td> <td> r<SUB>4</SUB> </td> <td> d<SUB>13</SUB> </td> <td> e </td> <td> r<SUB>4</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+      
+      <p>Se analiza la cadena de tokens <strong>f = f * f + f</strong>, usando las tablas de Acción y de Ir a.</p>
+      <br>    
+       
+     <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de análisis de una cadena de tokens.</CAPTION>
+        <tr><th scope="row"> ESTADOS </th> <th> PILA </th> <th> ACCIÓN </th> <th> ENTRADA </th> </tr>
+        
+        <tr> <td> - </td> <td> $ I<SUB>0</SUB> </td> <td> - </td> <td> &uarr; f = f * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>0</SUB> </td> <td> $ I<SUB>0</SUB> f I<SUB>3</SUB> </td> <td> d<SUB>3</SUB> </td> <td> &uarr; f = f * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>3</SUB> </td> <td> $ I<SUB>0</SUB> T I<SUB>4</SUB> </td> <td> r<SUB>5</SUB> </td> <td>   f &uarr; = f * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>4</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> </td> <td> r<SUB>3</SUB> </td> <td>  f &uarr; = f * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>5</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> </td> <td> d<SUB>5</SUB> </td> <td>  f = &uarr; f * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>12</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> f I<SUB>12</SUB> </td> <td> d<SUB>12</SUB> </td> <td>  f = f &uarr; * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>11</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> T I<SUB>11</SUB> </td> <td> r<SUB>5</SUB> </td> <td>  f = f &uarr; * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>13</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> T I<SUB>11</SUB> * I<SUB>13</SUB> </td> <td> d<SUB>13</SUB> </td> <td>  f = f * &uarr; f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>14</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> * I<SUB>13</SUB> f I<SUB>14</SUB> </td> <td> d<SUB>14</SUB> </td> <td>  f = f * f &uarr; + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>11</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> T I<SUB>11</SUB> </td> <td> r<SUB>6</SUB> </td> <td>  f = f * f &uarr; + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>8</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> E I<SUB>8</SUB> </td> <td> r<SUB>3</SUB> </td> <td>  f = f * f &uarr; + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>15</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> E I<SUB>8</SUB> + I<SUB>15</SUB> </td> <td> d<SUB>15</SUB> </td> <td>  f = f * f + &uarr; f $ </td> </tr>
+        
+        <tr> <td> I<SUB>12</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> E I<SUB>8</SUB> + I<SUB>15</SUB> f I<SUB>12</SUB> </td> <td> d<SUB>12</SUB> </td> <td>  f = f * f + f &uarr; $ </td> </tr>
+        
+        <tr> <td> I<SUB>16</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> E I<SUB>8</SUB> + I<SUB>15</SUB> T I<SUB>16</SUB> </td> <td> r<SUB>5</SUB> </td> <td>  f = f * f + f &uarr; $ </td> </tr>
+        
+        <tr> <td> I<SUB>8</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> E I<SUB>8</SUB> </td> <td> r<SUB>4</SUB> </td> <td>  f = f * f + f &uarr; $ </td> </tr>
+        
+        <tr> <td> I<SUB>1</SUB> </td> <td> $ I<SUB>0</SUB> S I<SUB>1</SUB> </td> <td> r<SUB>1</SUB> </td> <td>  f = f * f + f &uarr; $ </td> </tr>
+        
+        <tr> <td> I<SUB>1</SUB> </td> <td> $ I<SUB>0</SUB> S I<SUB>1</SUB> </td> <td> acp </td> <td>  f = f * f + f &uarr; $ </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+      
+      <br>
+      <hr>
+      <h3>Otro ejemplo</h3>
+      <hr>
+      <br>
+      <p>Se tiene el código para declarar el método principal de una clase:</p>
+      <br>
+      <font color=lime size=6><h3 align="center"> public static void main(String[] args) { int a ; } </h3></font>
+     <br>
+      <p>La declaración del método principal se puede abreviar como sigue:</p>
+       <br>
+       <font color=lime size=6><h3 align="center"> p s v m ( Str [ ] args ) { i a ; } </h3></font>
+       <br>
+       <p>La gramática para la declaración del método principal es la siguiente:</p>
+       <br>
+       <font color=lime size=6><h3 align="center"> S &rarr; M(P)C <br> M &rarr; p s v m | s v m | v m <br> P &rarr; Str [ ] args <br> C &rarr; { D } <br> D &rarr; t id ; </h3></font>
+       <br><p>La gramática para la declaración del método principal que vamos a usar, es la siguiente:</p>
+       <br>
+       <font color=lime size=6><h3 align="center"> S &rarr; M(P)C <br> M &rarr; p s v m <br> P &rarr; Str [ ] args <br> C &rarr; { D } <br> D &rarr; t id ; </h3></font>
+       <br>
+       
+       <h3>Paso uno</h3>
+       <hr>
+       <br>
+       <p>Se presenta la gramática de manera aumentada, expandida y dividida en capas:</p>
+       <br>
+       
+       <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Análisis de la cadena de operaciones de suma y multiplicación.</CAPTION>
+        <tr><th scope="row"> NÚMERO </th> <th> PRODUCCIÓN </th> <th> C1 </th> <th> C2 </th> <th> C3 </th> <th> C4 </th> <th> C5 </th> </tr>
+        <tr> <td> 0 </td> <td> S' &rarr; </td> <td> S </td>  <td>  </td> <td>  </td> <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 1 </td> <td> S &rarr; </td> <td> M </td>  <td> ( </td> <td> P </td> <td> ) </td> <td> C </td> </tr>
+        
+        <tr> <td> 2 </td> <td> M &rarr; </td> <td> p </td>  <td> s </td> <td> v </td> <td> m </td> <td>  </td> </tr>
+        
+        <tr> <td> 3 </td> <td> P &rarr;  </td> <td> Str </td>  <td> [ </td> <td> ] </td> <td> args </td> <td>  </td> </tr>
+        
+        <tr> <td> 4 </td> <td> C &rarr;  </td> <td> { </td>  <td> D </td> <td> } </td> <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 5 </td> <td> D &rarr;  </td> <td> t </td>  <td> id </td> <td> ; </td> <td>  </td> <td>  </td> </tr>
+                     
+      </table>
+      </CENTER>
+
+      <br>
+       
+       <h3>Paso dos</h3>
+       <hr>
+       <br>
+       <p>Para obtener los elementos LR(1), se aplican las operaciones cerradura e Ir a apoyándonos en las capas en la que dividimos la gramática, para obtener los conjuntos cerradura de los elementos de análisis, como sigue:</p>
+       <br>
+       
+       <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla que muestra la construcción de los conjuntos cerradura.</CAPTION>
+        <tr><th scope="row"> ESTADO </th> <th> CERRADURA </th> <th> CONJUNTO CERRADURA </th> </tr>
+        <tr> <td> I<sub>0</sub> </td> <td> cerr (S' → •S;$) = </td> <td> { S' → •S;$ , S → •M ( P ) C;$ , M → &#8226;p s v m;$ } </td>  </tr>
+        
+        <tr> <td> I<sub>1</sub> </td> <td> cerr (Ir a(I0, S)) = cerr ( S' &rarr; S • ) = </td> <td> { S' &rarr; S &#8226; } </td>  </tr>
+        
+        <tr> <td> I<sub>2</sub> </td> <td> cerr (Ir a(I0, M)) = cerr (S &rarr; M &#8226; ( P ) C;$ ) = </td> <td> { S &rarr; M &#8226; ( P ) C;$ } </td>  </tr>
+        
+        <tr> <td> I<sub>3</sub> </td> <td> cerr (Ir a(I0, p)) =  ( M &rarr; p &#8226; s v m ) = </td> <td> { M &rarr; p &#8226; s v m } </td>  </tr>
+        
+        <tr> <td> I<sub>4</sub> </td> <td> cerr (Ir a(I2, ()) = cerr ( S &rarr; M ( &#8226; P ) C ) = </td> <td> { S &rarr; M ( &#8226; P ) C , P &rarr; &#8226; Str [ ] args } </td>  </tr>
+        
+        <tr> <td> I<sub>5</sub> </td> <td> cerr (Ir a(I4, Str)) = cerr ( P &rarr; Str &#8226; [ ] args ) =  </td> <td> { P &rarr; Str &#8226; [ ] args } </td>  </tr>
+        
+        <tr> <td> I<sub>6</sub> </td> <td> cerr (Ir a(I4, P)) = cerr ( S &rarr; M ( P &#8226; ) C ) =  </td> <td> { S &rarr; M ( P &#8226; ) C } </td>  </tr>
+        
+        <tr> <td> I<sub>7</sub> </td> <td> cerr (Ir a(I6, )) = cerr ( S &rarr; M ( P ) &#8226; C ) =  </td> <td> { S &rarr; M ( P ) &#8226; C , C &rarr; &#8226; { D } } </td>  </tr>
+        
+        <tr> <td> I<sub>8</sub> </td> <td> cerr (Ir a(I7, {)) = cerr ( C &rarr; { &#8226; D } ) =  </td> <td> { C &rarr; { &#8226; D } , D &rarr; &#8226; t id ; } </td>  </tr>
+        
+        <tr> <td> I<sub>9</sub> </td> <td> cerr (Ir a(I8, t)) = cerr ( D &rarr; t &#8226; id ; ) =  </td> <td> { D &rarr; t &#8226; id ; } </td>  </tr>
+        
+        <tr> <td> I<sub>10</sub> </td> <td> cerr (Ir a(I3, s)) = cerr ( M &rarr; p s &#8226; v m ) =  </td> <td> { M &rarr; p s &#8226; v m } </td>  </tr>
+        
+        <tr> <td> I<sub>11</sub> </td> <td> cerr (Ir a(I5, [)) = cerr ( P &rarr; Str [ &#8226; ] args ) =  </td> <td> { P &rarr; Str [ &#8226; ] args } </td>  </tr>
+        
+        <tr> <td> I<sub>12</sub> </td> <td> cerr (Ir a(I8, D)) = cerr ( C &rarr; { D &#8226; } ) =  </td> <td> { C &rarr; { D &#8226; } } </td>  </tr>
+        
+        <tr> <td> I<sub>13</sub> </td> <td> cerr (Ir a(I9, id)) = cerr ( D &rarr; t id &#8226; ; ) =  </td> <td> { D &rarr; t id &#8226; ; } </td>  </tr>
+        
+        <tr> <td> I<sub>14</sub> </td> <td> cerr (Ir a(I10, v)) = cerr ( M &rarr; p s v &#8226; m ) =  </td> <td> { M &rarr; p s v &#8226; m } </td>  </tr>
+        
+        <tr> <td> I<sub>15</sub> </td> <td> cerr (Ir a(I11, ])) = cerr ( P &rarr; Str [ ] &#8226; args ) =  </td> <td> { P &rarr; Str [ ] &#8226; args } </td>  </tr>
+        
+        <tr> <td> I<sub>16</sub> </td> <td> cerr (Ir a(I12, })) = cerr ( C &rarr; { D } &#8226; ) =  </td> <td> { C &rarr; { D } &#8226; } </td>  </tr>
+        
+        <tr> <td> I<sub>17</sub> </td> <td> cerr (Ir a(I13, ;)) = cerr ( D &rarr; t id ; &#8226; ) =  </td> <td> { D &rarr; t id ; &#8226; } </td>  </tr>
+        
+        <tr> <td> I<sub>18</sub> </td> <td> cerr (Ir a(I14, m)) = cerr ( M &rarr; p s v m &#8226; ) =  </td> <td> { M &rarr; p s v m &#8226; } </td>  </tr>
+        
+        <tr> <td> I<sub>19</sub> </td> <td> cerr (Ir a(I15, args)) = cerr ( P &rarr; Str [ ] args &#8226; ) =  </td> <td> { P &rarr; Str [ ] args &#8226; } </td>  </tr>
+        
+        <tr> <td> I<sub>20</sub> </td> <td> cerr (Ir a(I7, C)) = cerr ( S &rarr; M ( P ) C &#8226; ) =  </td> <td> { S &rarr; M ( P ) C &#8226; } </td>  </tr>
+        
+                
+      </table>
+      </CENTER>
+      <br>
+      
+      <h3>Paso tres</h3>
+       <hr>
+       <br>
+       <p>Se construye la tabla de primeros y siguientes:</p>
+       <br>
+       
+       <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de primeros y siguientes de la gramática de declaración del método principal.</CAPTION>
+        <tr><th scope="row"> </th> <th> S' </th> <th> S </th> <th> M </th> <th> P </th> <th> C </th> <th> D </th> </tr>
+        
+        <tr> <td> PRIMEROS </td> <td> p </td> <td> p </td>  <td> p </td> <td> Str </td> <td> { </td> <td> t </td> </tr>
+        
+        <tr> <td> SIGUIENTES </td> <td> $ </td> <td> $ </td>  <td> ( </td> <td> ) </td> <td> $ </td> <td> } </td> </tr>
+        
+                
+      </table>
+      </CENTER>
+      <br>
+       
+       <h3>Paso cuatro</h3>
+       <hr>
+       <br>
+       <p>Se construye el grafo basado en el conjunto cerradura y aplicando la continuidad a los elementos de análisis de todos los estados:</p>
+       <br>
+       
+       <p align="center">
+<img src="GraMetodoLR0.svg" align=center width=80% border=0></p>
+     <br>
+       <br>
+       <h3>Paso quinto</h3>
+       <hr>
+       <br>
+       <p>Se construyen las tablas de acciones y de Ir a del gráfo:</p>
+       <br>
+       <br>
+     
+     <br>     
+     <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de Acciones y de Ir a.</CAPTION>
+        
+        <tr> <th colspan=17>Acciones </th> <th colspan=5>Ir a </th> </tr>
+        
+        <tr><th scope="row"> ESTADOS </th> <th> p </th> <th> s </th> <th> v </th> <th> m </th> <th> ( </th> <th> ) </th> <th> Str </th> <th> [ </th> <th> ] </th> <th> args </th> <th> { </th> <th> } </th> <th> t </th> <th> id </th> <th> ; </th> <th> $ </th> <th> S </th> <th> M </th> <th> C </th> <th> D </th> <th> P </th> </tr>
+        
+        <tr> <td> I<sub>0</sub> </td> <td> d<sub>3</sub> </td> <td> e </td> <td>e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 1 </td> <td> 2 </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>1</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> acp </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>2</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>4</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td>e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>3</sub> </td> <td> e </td> <td> d<sub>10</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>4</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>5</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 6 </td> </tr>
+        
+        <tr> <td> I<sub>5</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>11</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>6</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>7</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td><td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td></tr>
+        
+        <tr> <td> I<sub>7</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>8</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 20 </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>8</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>9</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 12 </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>9</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>13</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>10</sub> </td> <td> e </td> <td> e </td> <td> d<sub>14</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>11</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>15</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>12</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>16</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>13</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>17</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>14</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>18</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>15</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> d<sub>19</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>16</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> r<sub>4</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>17</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> r<sub>5</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>18</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> r<sub>2</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>19</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> r<sub>3</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<sub>20</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> r<sub>1</sub> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+      </table>
+      </CENTER>
+       <br>
+       <br>
+       <br>
+       
+       <h3>Paso sexto</h3>
+       <hr>
+       <br>
+       <p>Se analizan las cadenas de tokens, lo que se muestra en la siguiente tabla:</p>
+       <br>
+       
+       <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de análisis de una cadena de tokens.</CAPTION>
+        <tr><th scope="row"> ESTADOS </th> <th> PILA </th> <th> ACCIÓN </th> <th> ENTRADA </th> </tr>
+        
+        <tr> <td> - </td> <td> $I<sub>0</sub> </td> <td> - </td> <td> &uarr; p s v m ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>0</sub> </td> <td> $I<sub>0</sub> </td> <td> d<SUB>3</SUB> </td> <td> &uarr; p s v m ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>3</sub> </td> <td> $I<sub>0</sub> p I<SUB>3</SUB> </td> <td> d<SUB>10</SUB> </td> <td>  p &uarr; s v m ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>10</sub> </td> <td> $I<sub>0</sub> p I<SUB>3</SUB> s I<SUB>10</SUB> </td> <td> d<SUB>14</SUB> </td> <td>  p s &uarr; v m ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>14</sub> </td> <td> $I<sub>0</sub> p I<SUB>3</SUB> s I<SUB>10</SUB> v I<SUB>14</SUB> </td> <td> d<SUB>18</SUB> </td> <td>  p s v &uarr; m ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>18</sub> </td> <td> $I<sub>0</sub> p I<SUB>3</SUB> s I<SUB>10</SUB> v I<SUB>14</SUB> m I<SUB>18</SUB> </td> <td> r<SUB>2</SUB> </td> <td>  p s v m &uarr; ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>2</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> </td> <td> d<SUB>4</SUB> </td> <td>  p s v m &uarr; ( Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>4</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> </td> <td> d<SUB>5</SUB> </td> <td>  p s v m ( &uarr; Str [ ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>5</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> Str I<sub>5</sub> [ I<sub>11</sub> </td> <td> d<SUB>11</SUB> </td> <td>  p s v m ( Str [ &uarr; ] args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>11</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> Str I<sub>5</sub> [ I<sub>11</sub> ] I<sub>15</sub> </td> <td> d<SUB>15</SUB> </td> <td>   p s v m ( Str [ ] &uarr; args ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>15</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> Str I<sub>5</sub> [ I<sub>11</sub> ] I<sub>15</sub> args I<sub>19</sub> </td> <td> r<SUB>3</SUB> </td> <td>  p s v m ( Str [ ] args &uarr; ) { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>19</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> </td> <td> d<SUB>7</SUB> </td> <td>  p s v m ( Str [ ] args ) &uarr; { i a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>7</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> { I<sub>8</sub> </td> <td> d<sub>8</sub> </td> <td>  p s v m ( Str [ ] args ) { i &uarr; a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>8</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> { I<sub>8</sub> i I<sub>9</sub> </td> <td> d<sub>13</sub> </td> <td>   p s v m ( Str [ ] args ) { i &uarr; a ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>9</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> { I<sub>8</sub> i I<sub>9</sub> a I<sub>13</sub> </td> <td> d<sub>17</sub> </td> <td>   p s v m ( Str [ ] args ) { i a &uarr; ; } $ </td> </tr>
+        
+        <tr> <td> I<sub>13</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> { I<sub>8</sub> i I<sub>9</sub> a I<sub>13</sub> ; I<sub>17</sub> </td> <td> r<sub>5</sub> </td> <td>  p s v m ( Str [ ] args ) { i a ; &uarr; } $ </td> </tr>
+        
+        <tr> <td> I<sub>12</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> { I<sub>8</sub> D I<sub>12</sub> </td> <td> d<sub>16</sub> </td> <td>  p s v m ( Str [ ] args ) { i a ; &uarr; } $ </td> </tr>
+        
+        <tr> <td> I<sub>16</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> { I<sub>8</sub> D I<sub>12</sub> } I<sub>16</sub> </td> <td> r<sub>4</sub> </td> <td>  p s v m ( Str [ ] args ) { i a ; } &uarr; $ </td> </tr>
+        
+        <tr> <td> I<sub>20</sub> </td> <td> $I<sub>0</sub> M I<SUB>2</SUB> ( I<sub>4</sub> P I<sub>6</sub> ) I<sub>7</sub> C I<sub>20</sub> </td> <td> r<sub>1</sub> </td> <td>  p s v m ( Str [ ] args ) { i a ; } &uarr; $ </td> </tr>
+        
+        <tr> <td> I<sub>1</sub> </td> <td> $I<sub>0</sub> S I<sub>1</sub> </td> <td> acp </td> <td>  p s v m ( Str [ ] args ) { i a ; } &uarr; $ </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+      <br>
+      
+       <p class="cita"><cite>Introduction
+to Compiler Design, Torben AEgidius Mogensen, Pág. 97</cite></p>
+       <br>
+    </article>
+    </section>
+
+
+      <aside>
+        <h1>Preguntas</h1>
+        <hr>
+        <br>
+       <p><strong>Pregunta 1.</strong> </p>
+     <br>
+     <p><strong>Pregunta 2.</strong> </p>
+       <br>
+       <hr>
+      <h1>Ejercicios</h1>
+        <hr>
+      <p><strong>Ejercicio 1.</strong> </p>
+      <br>
+      <p><strong>Ejercicio 2.</strong> </p>
+        <br>
+     <p><strong>Ejercicio 3.</strong> </p>
+        </aside>
+      <footer><p>Construcción de analizadores sintácticos: Tema 3.3</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

@@ -1,0 +1,581 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 55%;
+	float: right;
+	position: absolute;
+	transform: translate(-15%, -110%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 18px;
+    width: 45%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+APUNTES
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPoo.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=Estudiante.html style="float:center">
+LISTA DE CLASES
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+APUNTES: Página 6
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<p align=right><font color=yellow>Apuntes página 6</font></p>
+
+<p align=center><font color=yellow>Clases internas</font></p>
+
+<p>La clase interna agrupa clases, las hace visibles y es diferente a la composición. Al definir una clase interna, sólamente la clase externa es quien la puede usar.</p>
+
+<p>Características de la clase interna: una clase interna es compilada en 
+una clase que se llama NombreClaseExterna$NombreClaseInterna.class. 
+
+Una clase interna puede referenciar los datos y los métodos definidos en la
+clase externa, de tal manera no se necesita pasar la referncia de un objeto
+de la clase externa al constructor de la clase interna. 
+
+A una clase interna se le puede aplicar un modificador como si fuera un miembro de la clase externa. 
+
+Una clase interna puede ser definida como static. Una clase interna del tipo static puede ser accesada usando el nombre de la clase externa. Una
+clase interna del tipo static no puede ser accesada por un miembro del tipo
+no static de la clase externa. 
+
+Los objetos de la clase interna se crean frecuentemente en la clase externa. Pero se puede crear un objeto de una clase interna en otra clase. Si la clase es del tipo no static, se puede crear una instancia de la clase externa aplicando
+la siguiente sintaxis:</p>
+
+<pre>
+ClaseExterna.ClaseInterna objetoInterno = objetoExterno.new ClaseInterna();
+</pre>
+
+<p>Si la clase interna es del tipo static, entonces se aplica la siguiente
+sintaxis:</p>
+
+<pre>
+ClaseExterna.ClaseInterna objetoInterno = new ClaseExterna.ClaseInterna();
+</pre>
+
+<pre>
+public class Logistica {
+   class Contenido {
+      private int i = 11;
+      
+      public int valor() {
+         return i;
+      }
+   }
+
+   class Destino {
+      private String etiqueta;
+      
+      Destino(String aDonde) {
+         etiqueta = aDonde;
+      }
+
+      String leerEtiqueta() {
+         return etiqueta;
+      }
+   }
+
+   public void enviar(String dest) {
+      Contenido c = new Contenido();
+      Destino d = new Destino(dest);
+         
+      System.out.println(d.leerEtiqueta());
+   }
+
+   public static void main(String[] args) {
+      Logistica p = new Logistica();
+
+      p.enviar("Hermosillo");
+   }
+}
+</pre>
+
+<p>La clase interna se puede ocultar, en especial su implementación. </p>
+
+<pre>
+public interface Destino {
+   String leerEtiqueta();
+}
+
+public interface Contenido {
+   String valor();
+}
+</pre>
+
+<p>Una interfaz se trata como una clase
+especial en Java. Cada interfaz se
+compila en un archivo bytecode por
+separado, como una clase normal. Al 
+igual que con una clase 
+abstracta, no se puede crear un
+instancia desde una interfaz con el uso 
+del operador <font color=black>new</font>, pero en la mayoría 
+de los casos puede usar una interfaz
+más o menos de la misma manera que usa 
+una clase abstracta. Por ejemplo, 
+puede usar una interfaz como
+un tipo de datos para una 
+variable de referencia, como resultado 
+de la conversión, etc.
+Ahora puede usar la interfaz <font color=black>Edible</font>
+para especificar si un objeto es 
+comestible. Esto es
+logrado al permitir que la clase 
+para el objeto implemente esta 
+interfaz usando la palabra 
+clave <font color=black>implements</font>. Por ejemplo, las 
+clases <font color=black>Chicken</font> y <font color=black>Fruit</font> en el Listado 
+14.6 (líneas 14, 23) implementan la 
+interfaz <font color=black>Edible</font>. La relación entre la 
+clase y la interfaz se conoce como 
+herencia de interfaz. Dado que la 
+herencia de interfaz y la herencia de 
+clase son esencialmente las mismas, 
+simplemente nos referiremos a ambas 
+como herencia.</p>
+
+<pre>
+public class Logistica2 {
+   private class PaContenido implements Contenido {
+      private int i 11;
+      
+      public int valor() {
+         return i;
+      }
+   }
+
+   protected class PaDestino implements Destino {
+      private String etiqueta;
+      private Destino(String aDonde) {
+         etiqueta = aDonde;
+      }
+
+      public String leerEtiqueta() {
+         return etiqueta;
+      }
+   }
+
+   public Destino dest(String s) {
+      return new PaDestino(s);
+   }
+
+   public Contenido cont() {
+      return new PaContenido();
+   }
+}
+
+class PaqueteDriver {
+   public static void main(String[] args) {
+      Logistica2 p = new Logistica2();
+      Contenido c = p.cont();
+      Destino d = p.dest("Tulancingo");
+   }
+}
+</pre>
+
+<p align=left><font color=yellow>Programas que no me salen
+del libro: Datan [pág. 212]</font></p>
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Comer.java style="float:center" target="_blank">Comer.java</a> tiene
+problemas de herencia.
+
+<p align=left><font color=yellow>Programa sobre la interface
+relación. Libro: Datan [pág. 212]</font></p>
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/TestRationalClass.java style="float:center" target="_blank">TestRationalClass.java</a> es sobre
+clases abstractas.
+
+<p align=left><font color=yellow>Programa sobre la interface
+relación. Libro: Datan [pág. 212]</font></p>
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Rational.java style="float:center" target="_blank">Rational.java</a> es sobre
+la clase relación.
+
+<p align=left><font color=yellow>Programa sobre la interface
+relación. Libro: Datan [pág. 212]</font></p>
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/CalRel.java style="float:center" target="_blank">CalRel.java</a> es sobre
+la clase relación.
+
+<p align=left><font color=yellow>Programa sobre la interface
+relación. Libro: Datan [pág. 212]</font></p>
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/LargeFactorial.java style="float:center" target="_blank">LargeFactorial.java</a> es sobre
+la clase relación.
+
+<p align=left><font color=yellow>Programa sobre la clase
+superclase o clase padre. Libro: Datan [pág. 212]</font></p>
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Faculty.java style="float:center" target="_blank">Faculty.java</a> es sobre
+la clase padre. Este si corre.
+
+<p align=left><font color=yellow>Código para ver uso de
+interface. Libro: Liang [pág. 467]</font></p>
+
+
+<p>Supongamos que queremos diseñar un método 
+genérico para encontrar el mayor de 
+dos objetos del mismo
+tipo, como dos estudiantes, dos 
+fechas, dos círculos, dos rectángulos 
+o dos cuadrados. A fin de lograr 
+esto, los dos objetos 
+deben ser comparables. Entonces, el 
+comportamiento común de los objetos 
+es que deben ser comparables. Java 
+proporciona la interfaz <font color=black>Comparable</font> 
+para este propósito. La interface se 
+define de la siguiente manera:
+
+Como todos los campos de datos son <font color=black>public final
+static</font> y todos los métodos son <font color=black>public abstract</font>
+en un interfaz, Java permite que se omitan estos 
+modificadores. Por lo tanto, las siguientes 
+definiciones de interfaz son equivalentes:</p>
+
+<p>El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Comparable.java style="float:center" target="_blank">Comparable.java</a> es para
+estudiar interface. Este no corre.</p>
+
+<p align=left><font color=yellow>Programa ComparableRectangle.java.
+Libro: Liang [pág. 468]</font></p>
+
+
+<p>El valor de <font color=black>return</font> del método <font color=black>max</font> es 
+del tipo <font color=black>Comparable</font>. Entonces necesitas 
+convertir a <font color=black>String</font> o <font color=black>Date</font> explícitamente.
+No puede usar el método <font color=black>max</font> para encontrar 
+el mayor de dos instancias de <font color=black>Rectangle</font>, 
+porque <font color=black>Rectangle</font> no implementa <font color=black>Comparable</font>. 
+Sin embargo, puede definir una nueva 
+clase rectángulo que implementa <font color=black>Comparable</font>. 
+Las instancias de esta nueva clase son 
+comparables. Dejar que esta nueva clase 
+se llamará <font color=black>RectangleComparable</font>, como se 
+muestra en el Listado 14.7.</p>
+
+<p>El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Comparablerectangle.java style="float:center" target="_blank">ComparableRectangle.java</a> es para
+estudiar interface. Este no corre.</p>
+
+
+<p><font color=black>ComparableRectangle</font> extiende <font color=black>Rectangle</font> e 
+implementa <font color=black>Comparable</font>, como se muestra en
+Figura 14.4. La palabra clave <font color=black>implements</font>
+indica que <font color=black>ComparableRectangle</font> hereda todo
+las constantes de la interfaz <font color=black>Comparable</font>
+e implementa los métodos en la interfaz.
+El método <font color=black>compareTo</font> compara las áreas de 
+dos rectángulos. Una instancia de 
+<font color=black>ComparableRectangle</font> también es una 
+instancia de <font color=black>Rectangle, GeometricObject, Object,
+y Comparable</font>.</p>
+
+</strong>
+</pre>
+
+<!-------------------------------------------------------->
+
+<pre class="a1"><strong>
+
+
+<p align=center><font color=yellow>Clases internas</font></p>
+
+<p>La clase externa contendrá un método que devuelva una referencia a una clase interna. Si se requiere crear un objeto en la clase interna en un método que no sea estático de la clase externa, se hace con la siguiente sintaxis:</p>
+
+<pre>
+NombreClaseExterna.NombreClaseInterna nombreObjeto;
+</pre>
+
+<pre>
+public class Logistica1 {
+   class Contenido {
+      private int i = 11;
+      
+      public int valor() {
+         return i;
+      }
+   }
+
+   class Destino {
+      private String etiqueta;
+      
+      Destino(String aDonde) {
+         etiqueta = aDonde;
+      }
+
+      String leerEtiqueta() {
+         return etiqueta;
+      }
+   }
+
+   public Destino para(String s) {
+       return new Destino(s);
+   }
+
+   public Contenido cont() {
+      return new Contenido();
+   }
+
+   public void enviar(String dest) {
+      Contenido c = cont();
+      Destino d = para(dest);
+         
+      System.out.println(d.leerEtiqueta());
+   }
+
+   public static void main(String[] args) {
+      Logistica1 p = new Logistica1();
+      Logistica1 q = new Logistica1();
+
+      p.enviar("Mérida");
+
+      Logistica1.Contenido c = q.cont();
+      Logistica1.Destino d = q.para("Guadalajara");
+
+      System.out.println(c.valor());
+      System.out.println(d.leerEtiqueta());
+   }
+}
+</pre>
+
+
+
+
+<p align=left><font color=yellow>Programa sobre la interface
+relación. Libro: Datan [pág. 212]</font></p>
+
+<p>Con la palabra clave <font color=black>interface</font>, puede 
+abstraer completamente la interfaz de 
+una clase desde su implementación.
+Es decir, utilizando <font color=black>interface</font>, 
+puede especificar qué debe hacer una 
+clase, pero no cómo lo hace. Interfaces 
+son sintácticamente similares a las 
+clases, pero carecen de variables de 
+instancia y sus métodos son
+declarados sin ningún cuerpo. En la 
+práctica, esto significa que puede 
+definir interfaces que no hacen
+suposiciones sobre cómo se 
+implementan. Una vez que se define, 
+cualquier número de Las clases pueden 
+implementar una <font color=black>interface</font>. 
+Además, una  clase puede implementar 
+cualquier cantidad de interfaces.
+Para implementar una interfaz, una 
+clase debe crear el conjunto completo 
+de métodos definidos por
+la interfaz. Sin embargo, cada clase 
+es libre de determinar los detalles 
+de su propia implementación.
+Al proporcionar la palabra clave 
+<font color=black>interface</font>, Java permite utilizar 
+completamente la "interfaz única,
+métodos múltiples" aspectos del 
+polimorfismo.</p>
+
+<p>Una vez que se ha definido una <font color=black>interface</font>, 
+una o más clases pueden implementar esa 
+interfaz. Para implementar una interfaz, 
+incluir la cláusula <font color=black>implements</font> en 
+una definición de clase y luego crear
+los métodos definidos por la interfaz. 
+La forma general de una clase que incluye 
+<font color=black>implements</font>. La cláusula se ve 
+así [manual java, pág. 194]:</p>
+
+<p>Puede declarar variables como 
+referencias de objeto que usan 
+una interfaz en lugar de un tipo 
+de clase. Cualquier instancia de 
+cualquier clase que implemente la 
+interfaz declarada puede ser 
+referida por tal una variable. 
+Cuando llame a un método a través 
+de una de estas referencias, la 
+versión correcta se llamará en 
+función de la instancia real de 
+la interfaz a la que se hace 
+referencia. éste es uno de
+características clave de las 
+interfaces. El método a ejecutar 
+se busca dinámicamente en tiempo 
+de ejecución,
+permitiendo que las clases se creen 
+más tarde que el código que llama 
+métodos en ellas. La llamada
+el código puede enviarse a través 
+de una interfaz sin tener que saber 
+nada sobre el "destinatario".
+Este proceso es similar al uso de 
+una referencia de superclase para 
+acceder a un objeto de subclase, 
+como se describe en el Capítulo 8.</p>
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/TestIface.java style="float:center" target="_blank">TestIface.java</a> es sobre
+la modificación con interface.
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/TestIface2.java style="float:center" target="_blank">TestIface2.java</a> es sobre
+la modificación con interface.
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/TestIface3.java style="float:center" target="_blank">TestIface3.java</a> es para
+saber la diferencia entre
+interfaz y superclase.
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/TestComparable.java style="float:center" target="_blank">TestComparable.java</a> es sobre
+la clase relación.
+
+
+<p align=left><font color=yellow>Programa sobre la interface comestible.
+Libro: Datan [pág. 212]</font></p>
+
+<p>La clase <font color=black>Fruit</font> implementa <font color=black>Edible</font>. Como no 
+implementa el método <font color=black>howToEat</font>, <font color=black>Fruit</font> debe 
+denotarse <font color=black>abstract</font> (línea 23). Las subclases 
+concretas de <font color=black>Fruit</font> deben implementar el 
+método <font color=black>howToEat</font>. Las clases <font color=black>Apple</font> y <font color=black>Orange</font>
+implementan el método <font color=black>howToEat</font> (líneas 28, 34).</p>
+
+<p>El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/TestComestible.java style="float:center" target="_blank">TestComestible.java</a> es sobre
+la interface. Este si corre.</p>
+
+
+<p>Las clases abstractas son como clases regulares
+con datos y métodos, pero no puede crear
+instancias de clases abstractas utilizando el
+operador <font color=black>new</font>.</p>
+
+
+<p>Un método abstracto no puede estar contenido en
+una clase no abstracta. Si una subclase de un
+superclase abstracta no implementa todos los
+métodos abstractos heredados de la superclase,
+la subclase debe definirse <font color=black>abstract</font>.</p>
+
+
+<p>Una clase que contiene métodos abstractos debe
+ser <font color=black>abstract</font>. Sin embargo, es posible definir
+una clase abstracta que no contiene métodos
+abstractos.</p>
+
+<p>Una subclase puede ser abstracta incluso si su
+superclase es concreta.
+
+Una interfaz es una construcción de clase que
+contiene solo constantes y métodos abstractos.
+En muchos sentidos, una interfaz es similar a
+una clase abstracta, pero una clase abstracta
+puede contener constantes y métodos abstractos,
+así como variables y métodos concretos.</p>
+
+<p align=left><font color=yellow>Programa sobre la interface Listener.
+Libro: Liang [pág. 469]</font></p>
+
+<p>La interfaz <font color=black>ActionListener</font> contiene el 
+método <font color=black>actionPerformed</font> para procesar el
+evento. Su clase de escucha debe anular 
+este método para responder al evento. 
+El listado 14.8 da el código que procesa 
+el <font color=black>ActionEvent</font> en los dos botones. Cuando 
+haces clic en el botón Aceptar, se muestra 
+el mensaje "botón Aceptar hecho clic". 
+Cuando hace clic en el botón Cancelar, se 
+muestra el mensaje "Haga clic en el botón 
+Cancelar", como se muestra en la Figura 14.1.</p>
+
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/HandleEvent.java style="float:center" target="_blank">HandleEvent.java</a> es sobre
+la interface Listener. Este no corre.
+
+<p align=center><font color=yellow>Libro: Los de abajo,
+Mariano Azuela [pág. 68]</font></p>
+
+<p>"Yo pensé una florida pradera al
+remate de un camino... Y me 
+encontré un paramo." Amigo mío:
+hay hechos y hay hombres que no
+son sino pura hiel... Y esa hiel
+va cayendo gota a gota en el alma,
+y todo lo amarga, todo lo envenena.
+Entusiasmo, esperanzas, ideales,
+alegrías..., ¡nada! Luego no le 
+queda más: o se convierte usted
+en un bandido igual a ellos, o
+desaparece de la escena, 
+escondiéndose tras las murallas
+de un egoísmo impenetrable y
+feroz.</p>
+
+
+
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

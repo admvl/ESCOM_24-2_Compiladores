@@ -1,0 +1,486 @@
+<html>
+<style>
+header {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: 26%;
+width:55%;
+margin-left:22%;
+border: solid;
+border-color:#FFFF00;
+}
+
+#imp {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: auto;
+width: 20%;
+margin-left:40%;
+border: solid 5px;
+border-color:#FFFF00;
+border-radius: 10px;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+article {
+background-color: #aab885;
+display: block;
+margin-left: 25%;
+margin-top: 0.5%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: 50%;	
+height: auto;	
+}
+
+article header {
+background-color: #009F80;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#800000;
+	border: solid 6px #800;
+padding: 2px;
+height: auto;
+width: 44%;
+text-align: center;
+font-size: 20px;
+margin-left:26%;
+margin-bottom: 5%;
+margin-top: 5%;
+}
+
+article h1 {
+font-size: 20px;
+
+}
+
+article div{
+background-color: #8ba987;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#0000FF;
+padding: 5px;
+width:40%;
+text-align: center;
+margin-left:0%;
+}
+
+	.modalDialog {
+		position: fixed;
+		font-family: Arial, Helvetica, sans-serif;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.2);
+		z-index: 99999;
+		opacity:0;
+		-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+		pointer-events: none;
+	}
+	.modalDialog:target {
+		opacity:1;
+		pointer-events: auto;
+	}
+	.modalDialog > div {
+		width: 30%;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+	  	-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+	}
+	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+	.close:hover { background: #00d9ff; }
+
+table {
+  margin-left: 20%;
+  padding: 15px;
+  
+}
+
+table.v1 {
+  margin-left: 10%;
+  padding: 10px;
+}
+
+table.v2 {
+  margin-left: 40%;
+  padding: 10px;
+}
+
+p.par1  {
+ width: 200px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #00f;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.p1  {
+ background-color: #808080;
+ width: 300px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #80A93E;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.p2  {
+ background-color: #808080;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #80A93E;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.e1  {
+ background-color: #808080;
+ width: 300px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #f60;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+body{
+font-size: 20px;
+}
+
+#columna {
+float: left;
+width: 250px;
+margin: 20px 0px;
+padding: 20px;
+background: #aab885;
+border: solid 6px #f60;
+margin-top: -40px;
+margin-bottom: -100000px;
+position: absolute;
+}
+
+</style>
+
+<head>
+<title>Procedimientos de compiladores dos</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<a>
+<img src="MDisponible1.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=22% border=0>
+</a>
+
+<a>
+<img src=CapAnalisisLexico.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=22% height=45% border=0>
+</a>
+
+<header>
+<img src=Estudiante.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=15% height=97% border=0>
+
+<img src=IconoProcedimientos.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=15% height=97% border=0>
+
+<h1 align=center>
+<font color=maroon size=8>
+PROCEDIMIENTOS DEL CAPÍTULO 2
+</font>
+</h1>
+
+<h2 align=center>
+<font color=white size=6>
+Análisis Léxico
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<nav>
+<h3 align=center><font size=6>Índice</font></h3>
+
+<p align=center><font size=5>
+Este material dará al estudiante una secuencia de actividades para un aprendizaje de los temas que estan incluidos en el temario de la asignatura.
+</font></p>
+
+<h3 align=center><font size=6>Temas:</font></h3>
+
+<a href=#bas>
+Definiciones básicas.
+</a>
+&nbsp; &nbsp;
+<a href=#imp>
+Implementando clases.
+</a>
+&nbsp; &nbsp;
+<a href=#con>
+Constructores.
+</a>
+&nbsp; &nbsp;
+<a href=ResumenPoo2.html>
+Resumen de capítulo 2.
+</a>
+
+</nav>
+
+<hr>
+
+<header id=imp>
+<h3 align="center" id=bas>Procedimiento de construcción de un escaner</h3>
+</header>
+
+
+<p align="center">
+<img src="ProcedimientoAL1a.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0></p>
+
+<font color=yellow size=6><h3 align="center">El código fuente</h3></font>
+
+<p align=center>La entrada al escaner es el código fuente: en un lenguaje de alto nivel, representado en el cuadro siguiente:</p>
+
+<pre class="p2">
+public class Estudiante {
+	// code
+	private String nombre ;
+
+	public void setNombre( String estudianteNombre ) {
+	    nombre = estudianteNombre ;
+	}
+	public String getNombre( ) {
+	    return nombre ;
+	}
+	public static void main( String[ ] s ) {
+	    Estudiante estudiante1 = new Estudiante( ) ;
+	    Estudiante student2 = new Student( ) ;
+	    estudiante1 . setNombre( ” John ” ) ;
+	    estudiante2 . setNombre( ”Mary” ) ;
+	    System . out . println( estudiante1 . getNombre ( ) ) ;
+	    System . out . println( estudianet2 . getNombre ( ) ) ;
+	}
+}
+
+public static void main(String[] args) {
+    int a;
+}
+</pre>
+
+<font color=yellow size=6><h3 align="center">Extracción de los tokens del código fuente</h3></font>
+
+<p align=center>Se marcan los tokens en el código fuente de acuerdo a la tabla UNO.</p>
+
+<table class="v2" CELLSPACING="18">
+
+<tr><th>NÚMERO</th><th>TOKEN</th></tr>
+<tr><td bgcolor="red">1</td><td bgcolor="red">Números: 1, 2, 3, 4, 0.5, 0.6, 0.7, etc.</td></tr>
+<tr><td bgcolor="blue">2</td><td bgcolor="blue">Identificadores: a, b, c, d, a1, b2, A, A1, etc.</td></tr>
+<tr><td bgcolor="green">3</td><td bgcolor="green">Palabras clave: int, float, main, new, etc.</td></tr>
+<tr><td bgcolor="maroon">4</td><td bgcolor="maroon">Operadores: +, -, *, /, etc.</td></tr>
+<tr><td bgcolor="black">5</td><td bgcolor="black">Delimitadores: , , [, ], etc.</td></tr>
+</table>
+
+<p align=center>Los tokens reconocidos del código fuente son los siguientes que se muestran en la tabla DOS.</p>
+
+<p align=center>Se escogen las palabras <b>public</b> y <b>class</b>, las cuales son el token <b>palabra reservada</b>. Estas palabras reservadas se convierten en expresión regular. La expresión regular de la palabra reservada, es la misma palabra reservada. Tomando las palabras reservadas public y class, se procede como sigue:</p>
+
+
+<font color=green size=7><h3 align="center">public</h3></font>
+
+<font color=green size=7><h3 align="center">class</h3></font>
+
+
+<font color=yellow size=6><h3 align="center">Ejemplo: Transformar una expresión regular en un AFD</h3></font>
+
+<font color=red size=7><h3 align="center">a<SUP>*</SUP>(a|b)aa</h3></font>
+
+<font color=yellow size=6><h3 align="center">Se aplica la construcción de Thompson para transformar la ER a un AFN</h3></font>
+
+<p align=center>Para aplicar la construcción de Thompson se usan los patrones de Thompson. Para la concatenación, la alternativa y las cerraduras.</p>
+
+<font color=yellow size=4><h3 align="center">Patrón de Thompson para la concatenación</h3></font>
+
+<p align="center">
+<img src="PThomConcat.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0></p>
+
+
+<p align="center">
+<img src="ALexFig11b.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0></p>
+
+<font color=yellow size=6><h3 align="center">Algoritmo de subconjuntos</h3></font>
+
+<p>Para transformar el AFN de la figura 11b a AFD, se aplica el algoritmo de subconjuntos. Se comienza aplicando la operación de cerr-&epsilon; al estado 0, este primer
+subconjunto de estados será el primer estado del AFD, el que se etiquetará como
+S<SUB>0</SUB> :</p>
+
+
+
+
+<table class="v1" CELLSPACING="18">
+<tr><td><p>Se comienza aplicando la operación de cerr-&epsilon; al estado 0, este primer
+subconjunto de estados será el primer estado del AFD, el que se etiquetará como
+S<SUB>0</SUB> :</p></td><td><font color=red size=5><h4>cerr−&epsilon;({0}) = {0, 1, 3, 4, 5, 7} = S<SUB>0</SUB></h4></font></td></tr>
+
+<tr><td><p>Para obtener el estado S<SUB>1</SUB> se aplica la operación de movimiento para todos los símbolos del
+alfabeto <font color=black>Σ = {a, b}</font>, lo que se representa como <font color=black>mov(S<SUB>0</SUB>, a)</font>. También a cada movimiento se le aplica la operación de
+<font color=black>cerr-&epsilon;</font>, lo cual se representa como: <font color=black>cerr-&epsilon;(mov(S<SUB>0</SUB>, a))</font>.</p></td><td><font color=red size=5><h4>mov(S<SUB>0</SUB> , a) = {2, 6}</h4></font> </td></tr>
+
+<tr><td><p>Se le aplica la operación de cerr-&epsilon; al movimiento de S<SUB>0</SUB> con el sı́mbolo a, por
+lo que se obtiene:</p></td><td><font color=red size=5><h4>cerr − &epsilon;(mov(S<SUB>0</SUB> , a)) = {1, 2, 3, 4, 5, 6, 7, 9, 10} = S<SUB>1</SUB></h4></font> </td></tr>
+
+<tr><td><p>Se hacen las siguientes operaciones:</p></td><td><font color=red size=5><h4>mov(S<SUB>0</SUB> , b) = {8}</h4></font>
+<font color=red size=5><h4>cerr − &epsilon;(mov(S<SUB>0</SUB> , b)) = {8, 9, 10} = S<SUB>2</SUB></h4></font></td></tr>
+
+<tr><td><p>Se hacen las siguientes operaciones:</p></td><td><font color=red size=5><h4>mov(S<SUB>1</SUB> , a) = {2, 6, 11}</h4></font>
+<font color=red size=5><h4>cerr − &epsilon;(mov(S<SUB>1</SUB> , a)) = {1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12} = S<SUB>3</SUB></h4></font></td></tr>
+
+<tr><td><p>Se hacen las siguientes operaciones:</p></td><td><font color=red size=5><h4>mov(S<SUB>1</SUB> , b) = {8}</h4>
+cerr − &epsilon;(mov(S<SUB>1</SUB> , b)) = {8, 9, 10} = S<SUB>2</SUB></font></td></tr>
+
+<tr><td><p>Se hacen las siguientes operaciones:</p></td><td><font color=red size=5><h4>mov(S<SUB>2</SUB> , a) = {11}</h4>cerr − &epsilon;(mov(S<SUB>2</SUB> , a)) = {11, 12} = S<SUB>3</SUB></font></td></tr>
+
+<tr><td><p>Se hacen las siguientes operaciones:</p></td><td><font color=red size=5><h4>mov(S<SUB>2</SUB> , b) = {} = &phi;</h4></font>
+<font color=red size=5>
+cerr − &epsilon;(mov(S<SUB>2</SUB> , b)) = {} = &phi;</font></td></tr>
+
+<tr><td><p>Se hacen las siguientes operaciones:</p></td><td><font color=red size=5><h4>mov(S<SUB>3</SUB> , a) = {2, 6, 11, 13}</h4></font>
+<font color=red size=5><h4>cerr − &epsilon;(mov(S<SUB>3</SUB> , a)) = {1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13} = S<SUB>4</SUB></h4></font></td></tr>
+
+<tr><td><p>Se hacen las siguientes operaciones:</p></td><td><font color=red size=5><h4>mov(S<SUB>3</SUB> , b) = {8} </h4></font>
+<font color=red size=5><h4>cerr − &epsilon;(mov(S<SUB>3</SUB> , b)) = {8} = S<SUB>2</SUB></h4></font></td></tr>
+
+<tr><td><p>Se hacen las siguientes operaciones:</p></td><td><font color=red size=5><h4>mov(S<SUB>4</SUB> , a) = {2, 6, 11, 13}</h4></font>
+<font color=red size=5><h4>cerr − &epsilon;(mov(S<SUB>4</SUB> , a)) = {1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13} = S <SUB>4</SUB></h4></font></td></tr>
+
+<tr><td><p>Se hacen las siguientes operaciones:</p></td><td><font color=red size=5><h4>mov(S<SUB>4</SUB> , b) = {8} </h4></font>
+<font color=red size=5><h4>cerr − &epsilon;(mov(S<SUB>4</SUB> , b)) = {8, 9, 10} = S<SUB>2</SUB> </h4></font></td></tr>
+
+<tr><td><p>Se hacen las siguientes operaciones:</p></td><td><font color=red size=5><h4>mov(S<SUB>5</SUB> , a) = {2, 6, 11, 13} </h4></font>
+<font color=red size=5><h4>cerr − &epsilon;(mov(S<SUB>4</SUB> , a)) = {1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13} = S<SUB>4</SUB> </h4></font></td></tr>
+
+<tr><td><p>Se hacen las siguientes operaciones:</p></td><td><font color=red size=5><h4>mov(S<SUB>5</SUB> , b) = {8} </h4></font>
+<font color=red size=5><h4>cerr − &epsilon;(mov(S<SUB>4</SUB> , b)) = {8, 9, 10} = S<SUB>2</SUB> </h4></font></td></tr>
+
+<tr><td><p>El siguiente paso es obtener de las operaciones anteriores el AFD, como se
+muestra en la figura 12 .</p></td><td></td></tr>
+
+</table>
+
+<font color=yellow size=6><h3 align="center">Construcción del gráfo</h3></font>
+
+
+<p align="center">
+<img src="ALexFig11c.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=44% border=0></p>
+
+<font color=yellow size=6><h3 align="center">Aplicación del Algoritmo de minimización al AFD</h3></font>
+
+<p align=center>Se forman dos grupos de estados: un grupo de estados no finales; otro grupo de estados finales. </p>
+
+<font color=red size=5><h3 align="center">El grupo de estado no finales: {S<SUB>0</SUB>, S<SUB>1</SUB>, S<SUB>2</SUB>, S<SUB>3</SUB>}</h3></font>
+<p align=center></p>
+
+<font color=yellow size=5><h3 align="center">El grupo de estados finales: {S<SUB>4</SUB>}</h3></font>
+
+<font color=black size=4><h3 align="center">Apoyado en el AFD<SUB>No mínimo</SUB>, se hace una tabla donde en los renglones se escribe el alfabeto y en las columnas los estados de cada uno de los dos grupos.</h3></font>
+
+<table class="v2" CELLSPACING="18">
+
+<tr><th>ESTADOS</th><th>a</th><th>b</th></tr>
+<tr><td bgcolor="red">S<SUB>0</SUB></td><td bgcolor="red">S<SUB>1</SUB> </td><td>S<SUB>2</SUB> </td></tr>
+
+<tr><td bgcolor="blue">S<SUB>1</SUB></td><td bgcolor="blue">S<SUB>3</SUB> </td><td>S<SUB>2</SUB> </td></tr>
+
+<tr><td bgcolor="green">S<SUB>2</SUB></td><td bgcolor="green">S<SUB>3</SUB> </td><td>e</td></tr>
+
+<tr><td bgcolor="maroon">S<SUB>3</SUB></td><td bgcolor="maroon">S<SUB>4</SUB> </td><td>S<SUB>2</SUB> </td></tr>
+
+</table>
+
+<p class="par1">
+DEFINICIÓN 11 (Consistencia.) Es cuando un par o grupo de estados tienen las mismas transiciones.
+
+</p>
+
+<p align=center>Para comprobar la consistencia. Se hace de acuerdo al AFD<sub>No mínimo</SUB></p>
+
+<font color=yellow size=6><h3 align="center">Tabla de transiciones del AFD mínimo</h3></font>
+
+<table class="v2" CELLSPACING="18">
+
+<tr><th>&delta;[Estados,car]</th><th>a</th><th>b</th></tr>
+<tr><td bgcolor="red">S<SUB>0</SUB></td><td bgcolor="red">S<SUB>1</SUB> </td><td>S<SUB>2</SUB> </td></tr>
+
+<tr><td bgcolor="blue">S<SUB>1</SUB></td><td bgcolor="blue">S<SUB>3</SUB> </td><td>S<SUB>2</SUB> </td></tr>
+
+<tr><td bgcolor="green">S<SUB>2</SUB></td><td bgcolor="green">S<SUB>3</SUB> </td><td>e</td></tr>
+
+<tr><td bgcolor="maroon">S<SUB>3</SUB></td><td bgcolor="maroon">S<SUB>4</SUB> </td><td>S<SUB>2</SUB> </td></tr>
+
+<tr><td bgcolor="maroon">S<SUB>4</SUB></td><td bgcolor="maroon">S<SUB>4</SUB> </td><td>S<SUB>2</SUB> </td></tr>
+
+</table>
+
+<font color=yellow size=6><h3 align="center">Codificación de la tabla de transiciones</h3></font>
+
+<p align=center>La función <font color=yellow>SiguienteCaracter()</font>, se debe de implementar para hacer la lectura del código fuente.</p>
+
+<p align=center><img src="ALexAlg6.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=44% border=0></p>
+
+<p align=center>Si se lee la siguiente cadena: <font color=yellow size=6>abaa</font>. A continución se presenta el siguiente código:</p>
+
+<table class="v2" CELLSPACING="18">
+
+<tr><th>Estados</th><th>Lectura car</th><th>&delta;[Estados,car]</th></tr>
+<tr><td bgcolor="red">S<SUB>0</SUB></td><td bgcolor="red">S<SUB>1</SUB> </td><td>S<SUB>2</SUB> </td></tr>
+
+<tr><td bgcolor="blue">S<SUB>1</SUB></td><td bgcolor="blue">S<SUB>3</SUB> </td><td>S<SUB>2</SUB> </td></tr>
+
+<tr><td bgcolor="green">S<SUB>2</SUB></td><td bgcolor="green">S<SUB>3</SUB> </td><td>e</td></tr>
+
+<tr><td bgcolor="maroon">S<SUB>3</SUB></td><td bgcolor="maroon">S<SUB>4</SUB> </td><td>S<SUB>2</SUB> </td></tr>
+
+<tr><td bgcolor="orange">S<SUB>4</SUB></td><td bgcolor="orange">S<SUB>4</SUB> </td><td>S<SUB>2</SUB> </td></tr>
+
+</table>
+
+
+</body>
+</html>

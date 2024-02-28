@@ -1,0 +1,413 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Primer cuestionario compiladores solución</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 2</header>
+ <nav>
+    <!--<div class="contenedor">-->
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+
+      <p class="derecha"><a href="TemarioPOO.html">Classroom</a></p>
+      <p><a href="TemarioCompiladores.html">Temario</a></p>
+      <p><a href="41EnlacesPrac.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="41EnlacesHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">SOLUCIÓN DEL PRIMER CUESTIONARIO DE EVALUACIÓN</h1>
+    <section class="interna">
+      
+      <article>
+       <h1>Primer cuestionario que abarca los capítulos 1 y 2</h1>
+       <hr>
+       <br>
+       <p><strong>Instrucciones.</strong> Lea con cuidado cada una de las preguntas. Contestar en una hoja de word cada una de las preguntas. Para después subir el archivo de word, en el repositorio de classroom.</p>
+       <br>
+       <hr>
+       <h3>Pregunta 1 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 punto</h3>
+       <hr>
+       <br>
+       <p><strong>Proyecto.</strong> Obten la expresión regular, de: class.</p>
+       <br>
+       <h3>Solución.</h3>
+       <br>
+       <p> <i>class</i </p>
+       <br>
+       <br>
+       <hr>
+       <h3>Pregunta 2 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 1 punto</h3>
+       <hr>
+       <br>
+       <p><strong>Proyecto.</strong> Obten el AFN de la expresión regular, de: (a|b)c</p>
+       <br>
+       <h3>Solución.</h3>
+       <br>
+       <p align="center">
+<img src="SolAfn.svg" align=center width=50% border=0></p>
+     <br>
+       <br>
+      <hr>
+       <h3>Pregunta 3 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2 puntos</h3>
+       <hr>
+       <br>
+       <p><strong>Proyecto.</strong> Obten el AFD del siguiente AFN:</p>
+        <br>
+        <p align="center">
+<img src="ProyectoAfnAfd1.svg" align=center width=80% border=0></p>
+     <br>
+      <p></strong> </p>
+      <br>
+      <h3>Solución.</h3>
+      <br>
+      <font color=red size=5><h3 align="center">cerradura-&epsilon;({1}) = {1, 2, 4} = q<SUB>0</h3></font>
+      
+      <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q0, a)) = cerradura-&epsilon;({3}) = {3, 4} = q<SUB>1</h3></font>
+      
+      <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q0, b)) = cerradura-&epsilon;({5}) = {5} = q<SUB>2</h3></font>
+      
+      <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q1, a)) = cerradura-&epsilon;({}) = {} = &empty;</h3></font>
+      
+      <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q1, b)) = cerradura-&epsilon;({5}) = {5} = q<SUB>2</h3></font>
+      
+      <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q2, a)) = cerradura-&epsilon;({}) = {} = &empty;</h3></font>
+      
+      <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q2, b)) = cerradura-&epsilon;({}) = {} = &empty;</h3></font>
+      
+      <br>
+      <p>El AFD que se obtiene de los movimiento, es el siguiente:</p>
+      <br>
+      <p align="center">
+<img src="SolAfnAfd.svg" align=center width=30% border=0></p>
+     <br>
+       <hr>
+       <h3>Pregunta 4 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 3 puntos</h3>
+       <hr>
+       <br>
+       <p><strong>Proyecto.</strong> Aplique el algoritmo de minimizacion al siguiente AFD:</p>
+        <br>
+        <p>No consideren el arco curvo etiquetado con a.</p>
+        <br>
+        <p align="center">
+<img src="ProyectoMinimizacion1.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <h3>Solución.</h3>
+       <br>
+       <p>Se forman los grupos de estados no finales G1 y finales G2.</p>
+       <br>
+       <font color=red size=5><h3 align="center">G1 = {1, 2, 3, 4}</h3></font>
+       
+       <font color=red size=5><h3 align="center">G2 = {5}</h3></font>
+       <br>
+       <p>Solamente se le aplica continuidad al grupo G1. Se muestra en la tabla de transiciones siguiente:</p>
+       <br>
+       
+       <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de continuidad para minimizar.</CAPTION>
+        <tr><th scope="row"> </th> <th> a </th> <th> b </th> </tr>
+        
+        <tr> <td> 1 </td> <td> 2 </td> <td> - </td>  </tr>
+        
+        <tr> <td> 2 </td> <td> 3 </td> <td> 4 </td>  </tr>
+        
+        <tr> <td> 3 </td> <td> 4 </td> <td> - </td>  </tr>
+        
+        <tr> <td> 4 </td> <td> - </td> <td> 5 </td>  </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+      <p>De la tabla de continuidad se observa que ningún estado es continuo. Por lo que el AFD mínimo es el mismo.</p>
+       <br>
+       
+       <hr>
+       <h3>Pregunta 5 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 3 puntos</h3>
+       <hr>
+       <br>
+       <p><strong>Proyecto.</strong> Construir un analizador lexico que reconozca el siguiente código: a = 2;.</p>
+        <br>
+       <h3>Solución.</h3>
+       <br>
+       <p>La expresión regular, es la siguiente: <i> l(l|d)* = d+ ; </i> o puede ser la siguiente expresión regular <i>a = 2;</i>.</p>
+       <br>
+       <br>
+       <h3>Una forma de solución.</h3>
+       <br
+       <br>
+       <p>El AFN de la expresión regular <i> l(l|d)* = d+ ;</i> </p>
+       <p align="center">
+<img src="SolPregunta5.svg" align=center width=80% border=0></p>
+     <br>
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;({1}) = {1} = q<SUB>0</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q0, l)) = cerradura-&epsilon;({2}) = {2, 3, 4, 6, 9} = q<SUB>1</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q0, d)) = cerradura-&epsilon;({}) = {} = &empty;</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q0, =)) = cerradura-&epsilon;({}) = {} = &empty;</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q0, ;)) = cerradura-&epsilon;({}) = {} = &empty;</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q1, l)) = cerradura-&epsilon;({5}) = {5, 3, 4, 6, 8, 9} = q<SUB>2</h3></font>
+     <br>
+     
+     <p align="center">
+<img src="SolPregunta5.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q1, d)) = cerradura-&epsilon;({7}) = {7, 3, 4, 6, 8, 9} = q<SUB>3</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q1, =)) = cerradura-&epsilon;({10}) = {10, 11} = q<SUB>4</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q1, ;)) = cerradura-&epsilon;({}) = {} = &empty;</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q2, l)) = cerradura-&epsilon;({5}) = {5, 3, 4, 6, 8, 9} = q<SUB>2</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q2, d)) = cerradura-&epsilon;({7}) = {7, 3, 4, 6, 8, 9} = q<SUB>3</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q2, =)) = cerradura-&epsilon;({10}) = {10, 11} = q<SUB>4</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q2, ;)) = cerradura-&epsilon;({}) = {} = &empty;</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q3, l)) = cerradura-&epsilon;({5}) = {5, 3, 4, 6, 8, 9} = q<SUB>2</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q3, d)) = cerradura-&epsilon;({7}) = {7, 3, 4, 6, 8, 9} = q<SUB>3</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q3, =)) = cerradura-&epsilon;({10}) = {10, 11} = q<SUB>4</h3></font>
+     <br>
+     <p align="center">
+<img src="SolPregunta5.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q3, ;)) = cerradura-&epsilon;({}) = {} = &empty;</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q4, l)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q4, d)) = cerradura-&epsilon;({12}) = {12, 11, 13} = q<SUB>5 </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q4, =)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q4, ;)) = cerradura-&epsilon;({}) = {} = &empty;</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q5, l)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q5, d)) = cerradura-&epsilon;({12}) = {12, 11, 13} = q<SUB>5 </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q5, =)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q5, ;)) = cerradura-&epsilon;({14}) = {14} = q<SUB>6 </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q6, l)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q6, d)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q6, =)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q6, ;)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <br>
+     
+     <p align="center">
+<img src="SolPregunta5Afd.svg" align=center width=50% border=0></p>
+     <br>
+     <p>Se minimiza el AFD. Se forman dos grupos, G1 es el grupo de los estdados no terminales y G2 es el grupo de los estados finales:</p>
+     <br>
+     <font color=red size=5><h3 align="center">G1 = {q0, q1, q2, q3, q4, q5}</h3></font>
+       
+       <font color=red size=5><h3 align="center">G2 = {q6}</h3></font>
+       <br>
+       
+       <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de continuidad para minimizar la a = 2 ; .</CAPTION>
+        <tr><th scope="row"> </th> <th> l </th> <th> d </th> <th> = </th> <th> ; </th> </tr>
+        
+        <tr> <td> q0 </td> <td> q1 </td> <td> - </td> <td> - </td> <td> - </td> </tr>
+        
+        <tr> <td> q1 </td> <td> q2 </td> <td> q3 </td> <td> q4 </td> <td> - </td> </tr>
+        
+        <tr> <td> q2 </td> <td> q2 </td> <td> q3 </td> <td> q4 </td> <td> - </td> </tr>
+        
+        <tr> <td> q3 </td> <td> q2 </td> <td> q3 </td> <td> q4 </td> <td> - </td> </tr>
+        
+        <tr> <td> q4 </td> <td> - </td> <td> q5 </td> <td> - </td> <td> - </td> </tr>
+        
+        <tr> <td> q5 </td> <td> - </td> <td> q5 </td> <td> - </td> <td> q6 </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+      <p>De la tabla de minimización se observa que se pueden agrupar los estados q1, q2 y q3 en G3, por lo que ahora, quedan los grupos G2, G3, G4, G5 y G6 como se muestra a continuación:</p>
+      <br>
+      <font color=red size=5><h3 align="center">G2 = {q6} <br> G3 = {q1, q2, q3} <br> G4 = {q0} <br> G5 = {q4} <br> G6 = {q5} </h3></font>
+      <br>
+      <p>Los G2, G4, G5 y G6 que tienen un solo estado del AFD no mínimo ya son continuos, por lo que quedan igual. Y a G3 se le considera para obtener la tabla de transiciones del AFD mínimo, que a continuación se muestra:</p>
+      <br>
+      
+      <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de transiciones del AFD mínimo de <i>a = 2 ;<i> .</CAPTION>
+        <tr><th scope="row"> </th> <th> l </th> <th> d </th> <th> = </th> <th> ; </th> </tr>
+        
+        <tr> <td> G2 </td> <td> - </td> <td> - </td> <td> - </td> <td> - </td> </tr>
+        
+        <tr> <td> G3 </td> <td> G3 </td> <td> G3 </td> <td> G5 </td> <td> - </td> </tr>
+        
+        <tr> <td> G4 </td> <td> G3 </td> <td> - </td> <td> - </td> <td> - </td> </tr>
+        
+        <tr> <td> G5 </td> <td> - </td> <td> G6 </td> <td> - </td> <td> - </td> </tr>
+        
+        <tr> <td> G6 </td> <td> - </td> <td> G6 </td> <td> - </td> <td> G2 </td> </tr>
+        
+                
+      </table>
+      </CENTER>
+      
+      <br>
+      <p>El AFD mínimo se obtiene de la tabla de transiciones, y es el siguiente:</p>
+      <br>
+      <p align="center">
+<img src="SolPregunta5AfdMinimo.svg" align=center width=50% border=0></p>
+      <br>
+      <br>
+      <h3>Otra forma de solucionar la pregunta 5</h3>
+      <br>
+      <br>
+     <p>El AFN de la expresión regular <i> a = 2 ;</i> </p>
+     <br>
+     <p align="center">
+<img src="SolPregunta5a.svg" align=center width=80% border=0></p>
+     <br>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;({1}) = {1} = q<SUB>0</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q0, a)) = cerradura-&epsilon;({2}) = {2, 3} = q<SUB>1 </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q0, =)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q0, 2)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q0, ;)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+          
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q1, a)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q1, =)) = cerradura-&epsilon;({4) = {4, 5} = q<SUB>2 </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q1, 2)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q1, ;)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q2, a)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q2, =)) = cerradura-&epsilon;({) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q2, 2)) = cerradura-&epsilon;({6}) = {6, 7} = q<SUB>3 </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q2, ;)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q3, a)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q3, =)) = cerradura-&epsilon;({) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q3, 2)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q3, ;)) = cerradura-&epsilon;({8}) = {8} = q<SUB>4 </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q4, a)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q4, =)) = cerradura-&epsilon;({) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q4, 2)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q4, ;)) = cerradura-&epsilon;({}) = {} = &empty; </h3></font>
+     
+     <br>
+     <p>El AFD no mínimo se obtiene de los conjuntos cerradura:</p>
+     <p align="center">
+<img src="SolPregunta5aAfd.svg" align=center width=50% border=0></p>
+     <br>
+     
+     <p>Se minimiza el AFD. Se forman dos grupos, G1 es el grupo de los estdados no terminales y G2 es el grupo de los estados finales:</p>
+     <br>
+     <font color=red size=5><h3 align="center">G1 = {q0, q1, q2, q3}<br> G2 = {q4} </h3></font>
+     <br>
+     
+     <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de continuidad del AFD no mínimo de <i>a = 2 ;<i> .</CAPTION>
+        <tr><th scope="row"> </th> <th> a </th> <th> = </th> <th> 2 </th> <th> ; </th> </tr>
+        
+        <tr> <td> q0 </td> <td> q1 </td> <td> - </td> <td> - </td> <td> - </td> </tr>
+        
+        <tr> <td> q1 </td> <td> - </td> <td> q2 </td> <td> - </td> <td> - </td> </tr>
+        
+        <tr> <td> q2 </td> <td> - </td> <td> - </td> <td> q3 </td> <td> - </td> </tr>
+        
+        <tr> <td> q3 </td> <td> - </td> <td> - </td> <td> - </td> <td> q4 </td> </tr>
+        
+                        
+      </table>
+      </CENTER>
+     
+     
+     <br>
+     <p>El AFD no mínimo en este caso es igual al AFD mínimo.</p>
+     <br>
+       </article>
+       <br>
+       <br>
+     
+      <article>
+       
+      <br>
+     </article>
+    </section>
+    
+    
+      <aside>
+      <h1>Pautas para solución de los proyectos</h1>
+      <hr>
+      <br>
+      <p><strong>Procedimiento para la construcción de un analizador lexico:</strong> </p>
+      <br>
+      <p>Se obtiene una expresión regular de los tokens de entrada</p>
+      <br>
+      <p>Se convierte la expresión regular en un AFN</p>
+      <br>
+      <p>Se convierte el AFN en AFD</p>
+      <br>
+      <p>Se minimiza el AFD</p>
+      <br>
+      <p>Se obtiene la tabla de transiciones</p>
+      <br>
+      <p>Se aplica el siguiente código para programar la tabla de transiciones &delta;[Estados, car] :</p>
+      <br>
+      <pre>
+      car ← SiguienteCaracter();
+      Estados ← s 0 ;
+      while car <> EOF ∧ Estados <> s e do
+        Estados := δ[Estados, car];
+        car := SiguienteCaracter();
+      if Estados == s a then
+        EsEnPan(Aceptado);
+      else
+        EsEnPan(Error);
+
+      </pre>
+      <br>
+      
+      <hr>
+       
+      </aside>
+      
+      <footer><p>Solución del primer cuestionario: Capítulos 1 y 2</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

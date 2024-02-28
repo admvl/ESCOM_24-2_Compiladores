@@ -1,0 +1,966 @@
+<html>
+<style>
+header {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height:16%;
+width:50%;
+margin-left:25%;
+border: solid;
+border-color:#FFFF00;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+article {
+background-color: #8ba987;
+display: block;
+margin-left: 25%;
+margin-top: 0.5%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width:50%;	
+height:25%;	
+}
+
+article header {
+background-color: #009F80;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#800000;
+padding: 2px;
+height:40%;
+width:44%;
+text-align: center;
+font-size: 20px;
+margin-left:26%;
+margin-bottom: 5%;
+margin-top: 5%;
+}
+
+article h1 {
+font-size: 20px;
+
+}
+
+article div{
+background-color: #8ba987;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#0000FF;
+padding: 5px;
+width:40%;
+text-align: center;
+margin-left:0%;
+}
+
+	.modalDialog {
+		position: fixed;
+		font-family: Arial, Helvetica, sans-serif;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.2);
+		z-index: 99999;
+		opacity:0;
+		-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+		pointer-events: none;
+	}
+	.modalDialog:target {
+		opacity:1;
+		pointer-events: auto;
+	}
+	.modalDialog > div {
+		width: 30%;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+	  	-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+	}
+	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+	.close:hover { background: #00d9ff; }
+</style>
+
+<head>
+<title>Análisis Semántico</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<a>
+<img src="LibCompiladores.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=24% border=0>
+</a>
+
+<a>
+<img src=CapAnalisisSemantico.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=24.5% height=45% border=0>
+</a>
+
+<header>
+<img src=Estudiante.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=16% height=97% border=0>
+
+<img src=CapAnalisisSemantico.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=16% height=97% border=0>
+
+<h1 align=center>
+<font color=maroon size=8>
+CAPÍTULO 4
+</font>
+</h1>
+
+<h2 align=center>
+<font color=white size=6>
+Análisis Semántico
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<nav>
+<h3 align=center><font size=6>Índice</font></h3>
+
+<p align=center><font size=5>
+El material de estudio para el estudiante que se presenta en esta página, esta dividido de acuerdo al temario de la asignatura.</font></p>
+
+
+
+<a href=#arq>
+Atributos.
+</a>
+&nbsp; &nbsp;
+<a href=#def>
+Diseño de tablas de sı́mbolos para soportar llamadas a funciones y/o procedimientos y ámbito de variables.
+</a>
+&nbsp; &nbsp;
+<a href=http://www.civila.com/instraw/ejemplo/recursos.html>
+Generación de código de 3 y 4 direcciones.
+</a>
+&nbsp; &nbsp;
+<a href=Material1.html>
+Generación de código intermedio para estructuras iterativas y de control(for, while, if-else, switch).
+</a>
+&nbsp; &nbsp;
+<a href=Material1.html>
+Generación de código intermedio para llamado a funciones y procedimientos.
+</a>
+&nbsp; &nbsp;
+<a href=Material1.html>
+Manejo del polimorfismo en un compilador.
+</a>
+&nbsp; &nbsp;
+<a href=Material1.html>
+Ejercicios.
+</a>
+
+</nav>
+
+
+<hr>
+
+
+<article>
+<div class="section-content" style="width:900px;">
+<p style="text-align: center; ">La etapa de análisis semántico de un compilador es la que acopla las de-
+finiciones de las variables con su presencia en el programa, verifica que cada
+expresión tenga un tipo correcto y traduce la sintaxis abstracta en una repre-
+sentación más simple, adecuada para generar código máquina [?].
+Podemos decirlo de otra manera: como asignar un significado a cada produc-
+ción. Se hace uso de las asociaciones entre las producciones y sus significados que
+proporcionan el primer paso para la traducción del programa. Porque la secuen-
+cia de producciones guı́an la generación de código intermedio, al que llamamos
+traducción dirigida por la sintaxis [1].</p>
+
+<header>
+<h3 align="center" id=#arq>Atributos</h3>
+</header>
+
+<p>Un formalismo que ha sido propuesto para desempeñar análisis sensible al
+contexto es el atributo de las gramáticas, o gramáticas libre de contexto atri-
+buidas. Un atributo de gramática consiste de una gramática libre de contexto
+aumentada por un conjunto de reglas que especifican el cálculo.</p>
+
+Definición 1.
+
+<p>Cada regla define un valor, o atributo, en términos de los valores de otros
+atributos. Las reglas asocian el atributo con un sı́mbolo especifico de la gramáti-
+ca: cada instancia del sı́mbolo de la gramática que ocurre en un árbol de análisis sintáctico tiene una instancia correspondiente del atributo. Las reglas son fun-
+cionales; ellas no implican un orden de evaluación especifico y solamente definen
+cada valor del atributo.</p>
+
+<font color=yellow><h4 align="center">Atributos sintetizados</h4></font>
+
+Definición 2.
+
+<font color=yellow><h4 align="center">Ejemplo de la aplicación de atributos sintetizados</h4></font>
+
+<p>Como ejemplo preliminar de la asociación entre producciones y significados.
+Consideremos el análisis sintáctico ascendente. Si adjuntamos una interpretación
+apropiada para cada una de las producciones, tenemos:</p>
+
+Cuadro 1.
+
+<p>Por ejemplo, la interpretación de E → E 1 + T nos dice que para obtener E,
+debemos agregar los valores que E 1 y T evaluaron, como lo expresa la acción
+semántica correspondiente del cuadro 1 . Lo mismo se hace para la producción
+T → T 1 ∗ F .
+Supongamos que repetimos el análisis ascendente para la expresión 3∗5+4n,
+y cada vez que reducimos por una de las producciones del cuadro 1 , generamos
+código para llevar a cabo el cálculo correspondiente, utilizando las interpre-
+taciones enumeradas en el cuadro 1 . A fin de distinguir los identificadores,
+supongamos que los lexemas son 3, 5 y 4.</p>
+
+Figura 1.
+
+<p>Del árbol de la figura 1 las hojas representan la expresión 3 ∗ 5 + 4n, el cual
+se va generando de acuerdo al cuadro 2 , usando las acciones semánticas que
+se expresan en el cuadro 1 . El árbol sintáctico de la figura 1 indica la manera
+como se va haciendo la valoración de cada uno de los sı́mbolos de la gramática.
+Donde los valores obtenidos son los atributos que son del tipo de atributos
+sintetizados.</p>
+
+Cuadro 2.
+
+<font color=yellow><h4 align="center">Atributos heredados</h4></font>
+
+Definición 3.
+
+<font color=yellow><h4 align="center">Ejemplo de la aplicación de atributos heredados.</h4></font>
+
+<p>Se presenta la gramática con sus acciones semánticas en el cuadro 3 .</p>
+
+Cuadro 3.
+
+<p>Se analiza para la cadena real id 1 , id 2 , id 3 .</p>
+
+Figura 2.
+
+<p>Del árbol de la figura 2 las hojas representan la expresión real id 1 , id 2 , id 3 ,
+el cual se va generando de acuerdo al cuadro 4 , usando las acciones semánticas
+que se expresan en el cuadro 3 . El árbol sintáctico de la figura 2 indica la
+manera como se va haciendo la valoración de cada uno de los sı́mbolos de la
+gramática. Donde los valores obtenidos son los atributos que son del tipo de
+atributos heredados.</p>
+
+Cuadro 4.
+
+<header>
+<h4 align="center" id=#def>Diseño de tablas de sı́mbolos para soportar
+llamadas a funciones y/o procedimientos y
+ámbito de variables</h4>
+</header>
+
+<p>Un concepto importante en lenguajes de programación es la capacidad de
+nombrar objetos como variables, funciones y tipos. Cada uno de esos objetos
+nombrados tendrán una declaración, donde el nombre se define como
+un sinónimo del objeto. Esto es llamado enlace. Cada nombre también
+tendrá una serie de usos, donde el nombre es utilizado como referencia al objeto
+al que está vinculado. A menudo, la declaración de un nombre tiene un alcance
+limitado: una parte del programa donde el nombre será visible. Tales declaracio-
+nes se llaman declaraciones locales, mientras que una declaración que hace que
+el nombre declarado sea visible en todo el programa se llama declaración global.
+Puede suceder que el mismo nombre sea declarado en varios ámbitos anidados.
+En este caso, es normal que la declaración más cercana a un uso del nombre
+será la que defina el uso particular. El contexto más cercano está relacionado
+con el árbol de sintaxis del programa: el alcance de una declaración será un
+subárbol del árbol de sintaxis y las declaraciones anidadas darán lugar a ámbi-
+tos que son subárboles anidados. La declaración más cercana de un nombre es
+por lo tanto la declaración correspondiente al subárbol más pequeño que encie-
+rra el uso del nombre. El alcance basado de esta manera en la estructura del
+árbol de sintaxis se llama enlace estático o léxico y es la regla de alcance más
+común en los programas modernos lenguajes de gramática. Algunos idiomas
+tienen dinámica vinculante, cuando la declaración que se encontró más recien-
+temente durante la ejecución del programa define el uso actual del nombre. Por
+su naturaleza, el enlace dinámico no se puede resolver en tiempo de compilación.
+Un compilador necesitará hacer un seguimiento de los nombres y los objetos
+que son obligados a, que cualquier uso de un nombre se atribuirá correctamente
+a su declaración. Esto se hace tı́picamente usando una tabla de sı́mbolos (o
+entorno, como es llamado a veces) [4].</p>
+
+<font color=yellow><h4 align="center">Implementación de la tabla</h4></font>
+
+<p>Hay muchas formas de implementar las tablas de sı́mbolos, pero la más im-
+portante es la que distingue cómo se manejan los alcances. Esto se puede hacer
+usando una estructura de datos persistente (o funcional), o puede hacerse usan-
+do una estructura de datos imperativa (o actualizada de forma destructiva).
+Una estructura de datos persistente tiene la propiedad de que ninguna opera-
+ción en la estructura lo destruirá. Conceptualmente, se hace una nueva copia
+de la estructura de datos cada vez que una operación la actualice, preservando
+ası́ el cambio de la estructura anterior. Esto significa que es trivial restablecer la
+vieja tabla de sı́mbolos cuando se sale de un alcance, ya que ha sido preservada
+por la naturaleza persistente de la estructura de datos. En la práctica, solo se
+copia una pequeña porción de la estructura de datos, la mayorı́a se comparte
+con la versión anterior. En el enfoque imperativo, solo existe una copia de la
+tabla de sı́mbolos, por lo que se requieren acciones explı́citas para almacenar la información necesaria para restaurar la tabla de sı́mbolos a un estado anterior.
+Esto se puede hacer usando una pila. Cuando una actualización se hace, el en-
+lace anterior de un nombre que se sobrescribe se registra (se hace un push) en
+la pila. Cuando se ingresa un nuevo alcance, se inserta un marcador en la pila.
+Cuando se sale del alcance, se usan los enlaces en la pila (hasta el marcador)
+para restablecer la vieja tabla de sı́mbolos. Las ligaduras y el marcador se des-
+hacen fuera de la pila en el proceso, devolviendo la pila al estado en que estaba
+antes del alcance del que fue ingresado [4].
+Para implementar la tabla de sı́mbolos se requieren las siguientes operacio-
+nes:<</p>
+
+1. Crear una tabla de sı́mbolos vacı́a (crear tablaSimbolos).
+2. Registrar la apertura de un bloque nuevo (meter bloque).
+3. Reiniciar la tabla de sı́mbolos al estado anterior del último bloque
+(sacar bloque).
+4. Agregar la entrada de identificadores id a la tabla de sı́mbolos. Esto contie-
+ne el apuntador a la declaración pasada en el (meter identificador(id,
+apt declaración)).
+5. Buscar la definición presente del id y regresar el apuntador de la declara-
+ción, si es que existe (buscar id(id)).
+
+<p>Y se proponen los siguientes procedimientos y la función para construir las
+operaciones que se enlistaron arriba:</p>
+
+Listing 1.
+
+Listing 2.
+
+Listing 3.
+
+Listing 4.
+
+Listing 5.
+
+<font color=yellow><h4 align="center">Funciones y procedimientos</h4></font>
+
+<p>Un cuerpo de procedimiento único usa (en la mayorı́a de los lenguajes) un
+número finito de variables. Se puede mapear estas variables en un (posiblemente
+más pequeño) conjunto de registros. Un programa que usa procedimientos re-
+cursivos o funciones, pueden usar un número ilimitado de variables, ya que cada
+invocación de la función tiene su propio conjunto de variables, y no hay lı́mite
+en la profundidad de la recursión. No podemos esperar mantener todas estas
+variables en registros, entonces usaremos memoria para algunos de estos. La
+idea básica es que solo varı́an las funciones locales de la función activa (llamada
+más recientemente) se mantendrán en registros. Todas las demás variables se
+mantendrán en la memoria. Cuando se llama a una función, todas las variables
+activas de la función llamada (la persona que llama) se almacenará en la me-
+moria para que los registros se liberen para ser utilizado por la función llamada
+(el llamado).
+Cuando el destinatario regresa, las variables almacenadas se vuelven a cargar
+en los registros. Es conveniente usar un apilamiento para este almacenamiento y
+cargar, empujando los contenidos del registro en la pila cuando se deben guardar
+y volver a colocarlos en los registros cuando deben estar restaurados como una
+pila es (en principio) ilimitada, esto encaja bien con la idea de recursividad
+ilimitada. La pila también se puede usar para otros fines [4]:</p>
+
+1. Se puede reservar espacio en la pila para variables que deben ser despla-
+zadas a la memoria. Se usa una dirección constante (dirección x) para
+desplazar una variable x. Cuando se usa una pila, la dirección x es en
+realidad una compensación relativa a un puntero de pila. Esto hace que el
+código de desplazamiento sea un poco más complejo, pero tiene la ventaja
+de que los registros desplazados ya están guardados en la pila cuando se
+llame a la función, por lo que no necesitan almacenarse nuevamente.
+2. Los parámetros para llamadas de función se pueden pasar a la pila, es
+decir, escritos en la parte superior de la pila por la persona que llama y
+que leyó del destinatario.
+3. La dirección de la instrucción donde la ejecución debe reanudarse después
+de la llamada de retorno (la dirección de retorno) se puede almacenar en
+la pila.
+4. Se decide mantener solo las variables locales en los registros, variables que
+están dentro del alcance de una función pero no están declaradas local-
+mente en la función deben residir en la memoria. Es conveniente acceder
+a ellos a través de la pila.
+5. Las matrices y los registros asignados localmente en una función se pueden
+asignar en la pila.
+
+<font color=yellow><h4 align="center">Implementación de la tabla de procedimientos</h4></font>
+
+<p>Frente al código generado para un cuerpo de la función, se necesita escribir
+un código que lea los registros de los parámetros del registro de activación. Este
+código se llama el prólogo de la función. Del mismo modo, después de la función,
+se necesita escribir código para almacenar el valor de retorno calculado en la
+activación y que salte a la dirección de retorno que se almacenó al llamar el
+registro de activación. Para el diseño del registro de activación que se muestra
+en la figura 10.1, el prólogo y el epı́logo adecuados se muestran en la figura
+10.2. Se debe tomar en cuenta que, aunque se ha utilizado una notación similar
+al lenguaje intermedio, se ha ampliado esto un poco: utilizando M [] y GOTO
+como expresiones en general con argumentos [4].</p>
+
+<font color=yellow><h4 align="center">Variables</h4></font>
+
+<p>Hasta ahora se ha supuesto que todas las variables utilizadas en una función
+son locales a esa función, pero la mayorı́a de los lenguajes de alto nivel también
+permiten el acceso a las funciones de variables que no están declaradas local-
+mente en las funciones mismas.
+El código en C solo admite declaraciones de variables a nivel global. Todas
+las variables deben ser declaradas en los segmentos de datos o bss (bss significa
+“block staning with symbol”.), según se hayan inicializado o no. Hay cuatro
+clases de almacenamiento disponibles (representadas en lenguaje C, en el cuadro
+5 ):</p>
+
+Cuadro 5.
+
+<p>private Se asigna espacio para la variable, pero no se puede acceder a la
+variable desde fuera del archivo actual. En C, esta clase se usa para todas las
+variables estáticas, sean ellas locales o globales. Las variables inicializadas entran
+en el segmento de datos, otras variables entran en el segmento bss.</p>
+
+<p>public Se asigna espacio para la variable, y se puede acceder a la variable desde
+cualquier archivo en el programa actual. En C, esta clase se usa para todos los
+inicializados variables globales no estáticas Es ilegal para dos variables públicas
+en el mismo programa para tener el mismo nombre, incluso si están declarados
+en diferentes archivos. Dado que las variables públicas deben inicializarse cuando
+se declaran, deben estar en el segmento de datos.</p>
+
+<p>common El espacio para esta variable es asignado por el vinculador. Si una
+variable con un dado nombre es declarado común en un módulo y público en
+otro, luego el la definición pública tiene prioridad. Si no hay nada más que
+común definiciones para una variable, luego el enlazador asigna espacio para
+esa variable en el segmento bss. C usa esta clase de almacenamiento para todas
+las variables globales sin inicializarlas.</p>
+
+<p>external El espacio para esta variable se asigna en otro lugar. Si una etiqueta
+es externa, una etiqueta idéntica debe ser declarada common o public en algún
+otro módulo del programa. Esta clase de almacenamiento no se usa para las va-
+riables en la aplicación corriente, todas las cuales son common, public o private.
+Sin embargo, se utilizan para subrutinas [?].</p>
+
+<font color=yellow><h4 align="center">Implementación de la tabla de Variables</h4></font>
+
+<p>Se usarán las funciones hash para la capa de la base de datos de la tabla de
+sı́mbolos. El sistema tabla-hash utiliza dos estructuras de datos: la tabla hash
+en sı́ misma es una matriz de punteros a “cubos”, cada uno de los cubos es un
+único registro de base de datos. Los cubos están organizados como una lista
+enlazada. Cuando el hash de dos claves con el mismo valor, el nodo en conflicto
+se inserta al comienzo de la lista. Esta lista de cubos está doblemente enlazada:
+cada cubeta contiene un puntero a ambos, al predecesor y sucesor en la lista.
+Los nodos arbitrarios se pueden eliminar de la mitad dle de una cadena sin tener
+que atravesar toda la cadena. Debe revisar estas funciones ahora. Las funciones
+hash básicas están bien para aplicaciones simples de tablas de sı́mbolos. Ellos
+fueron usados para buenos efectos en occs y LLama, por ejemplo. La mayorı́a
+de los lenguajes requieren un poco más de complejidad, sin embargo. En primer
+lugar, muchas operaciones internas requieren el compilador para tratar todas las
+variables declaradas en un nivel de anidación común como un solo bloque. Por ejemplo, las variables locales en C se pueden declarar al comienzo de cualquier
+llave con llave declaración compuesta delimitada. El cuerpo de una función no es
+un caso especial, se trata de identidades de una declaración compuesta adjunta
+a una declaración while, por ejemplo. El alcance de cualquier variable local se
+define por los lı́mites de la declaración compuesta. Para todos los practicantes
+para fines prácticos, una variable deja de existir cuando el corsé se ha cerrado
+para terminar ese bloque en el cual es declarado ese proceso. La variable debe
+eliminarse de la tabla de sı́mbolos en ese tiempo. (No se confunda la compila-
+ción y el tiempo de ejecución. Una variable local estática sigue existiendo en el
+tiempo de ejecución, pero se puede eliminar de la tabla de sı́mbolos porque no
+se puede acceder en tiempo de compilación una vez que está fuera del alcance).
+El compilador también debe poder recorrer la lista de variables locales en el
+orden en que ellos fueron declarados, por ejemplo, cuando el compilador está con-
+figurando el marco de pila, tiene atravesar la lista de argumentos en el orden
+correcto para determinar los desplazamientos correctos de el puntero del marco,
+ambas situaciones se pueden manejar proporcionando un conjunto de cruz en-
+laces que conectan todas las variables en un nivel de anidación particular. Por
+ejemplo, hay tres niveles de anidación en el listado 6 [?]:</p>
+
+Listing 6.
+
+<header>
+<h4 align="center" id=#def>Generación de código de 3 y 4 direcciones</h4>
+</header>
+
+<p>Para que el análisis sintáctico sea útil cualquier cosa más allá de la mera
+verificación gramatical, debe producir una representación intermedia del pro-
+grama que encarne lo que se descubrió en el programa. Este puede ser el código
+intermedio en sı́ mismo, o puede estar en una forma que pueda usarse como base
+para la generación del código intermedio. Las representaciones más comunes son
+árboles sintácticos, grafos acı́clicos dirigidos (GAD), notación postfija y código
+de tres direcciones (C3D).</p>
+
+<font color=yellow><h4 align="center">Código de 3 direcciones</h4></font>
+
+<p>La cuarta forma de representación intermedia es el código de tres direcciones
+(C3D). Este formato divide el programa en declaraciones básicas que no tienen
+más que tres variables y no más de un operador. La declaración x = a + b ∗ b se traduce en las siguientes declaraciones C3D:</p>
+
+<font color=red><h4 align="center">T := b ∗ b
+x := a + T</h4></font>
+
+<p>donde T es una variable temporal asignada para guardar el producto. Esta
+notación representa un compromiso; que tiene la forma general de un lengua-
+je de nivel superior, pero las declaraciones individuales son lo suficientemente
+simples como para mapear en lenguaje ensamblador de una manera razonable-
+mente directa. Las dos declaraciones anteriores, en el lenguaje ensamblador de
+la familia de computadoras IBM System / 370,</p>
+
+<font color=red><h4 align="center">L 3, B
+M 2, B {T:= b * b }
+ST 3,T</h4></font>
+
+<font color=red><h4 align="center">L 3,A
+A 3, T {x:= a + T }
+ST 3,X</h4></font>
+
+<p>o, de manera más concisa, usando el Registro General 3 para obtener resul-
+tados temporales,</p>
+
+<font color=red><h4 align="center">L 3,B
+MR 2,3
+A 3,A
+ST 3,X</h4></font>
+
+<p>Observe que en el nivel de la máquina, A, B, T y X son direcciones. En la
+generación de código intermedio, se piensa en términos de direcciones. En este
+punto, son aptos para ser direcciones de tabla de sı́mbolos en lugar de direccio-
+nes de memoria, ya que generalmente no se sabe a dónde van a terminar en la
+memoria, pero las direcciones son, sin embargo, y esta es la razón por la cual
+esta notación se llama C3D. Puede ser útil pensar en C3D como el lenguaje en-
+samblador de tres direcciones máquina. Es decir, si se escribió nuestra segunda
+instrucción C3D como:</p>
+
+<font color=red><h4 align="center">ADD X, A, T</h4></font>
+
+<p>se podrı́a imaginar una computadora que ejecutó estas instrucciones para
+buscar el contenido de los registros A y T en la memoria y almacenar la suma
+en X. Cuando hablamos de C3D, usando la notación x := y op z, ignoremos
+el anuncio que se ve, pero si consideramos cómo se almacenan las variables
+en la memoria (o en la tabla de sı́mbolos), tenemos que tomar en cuenta las
+direcciones. Las instrucciones en C3D se representan en forma de cuádruples.
+Un cuádruple tiene la forma:</p>
+
+<font color=red><h4 align="center">| op | addr(y) | addr(z) | addr(x) |</h4></font>
+
+<p>donde los diversos campos están en ubicaciones de memoria contigua. Ya
+que es problemático dibujar todos estos cuadros, es más fácil escribir:</p>
+
+<font color=red><h4 align="center">(op, addr(y), addr(z), addr(x))</h4></font>
+
+<p>El código de tres direcciones se puede generar a partir de un recorrido de
+un árbol de sintaxis o GAD, o puede generarse como código intermedio direc-
+tamente en el transcurso del análisis. En el primer caso, el árbol de sintaxis o
+GAD es la representación intermedia y el código intermedio C3D; en este último
+caso, el C3D es a la vez la representación intermedia y el código intermedio [1].</p>
+
+<header>
+<h4 align="center" id=#def>Generación de código intermedio para
+estructuras iterativas y de control(for, while,
+if-else, switch)</h4>
+</header>
+
+<font color=red><h4 align="center">Estructuras iterativas y de control</h4></font>
+
+<p>Un bloque básico es solo una secuencia lineal de longitud máxima, de código
+impredecible. Cualquier declaración que no afecte el flujo de control puede apa-
+recer dentro de un bloque. Cualquier transferencia de flujo de control finaliza
+el bloqueo, al igual que la sentencia etiquetada ya que puede ser el objetivo de
+una rama. A medida que el compilador genera código, puede construir bloques
+básicos simplemente agregando consecutivos, no etiquetados, operaciones que
+no sean flujo de control. (Se supone que una declaración etiquetada no esta eti-
+quetada gratuitamente, es decir, cada declaración etiquetada es el objetivo de
+alguna rama.) La representación de un bloque básico no necesita ser compleja.
+Por ejemplo, si el compilador tiene una representación similar al ensamblador
+que se tiene en un arreglo lineal, luego un bloque puede describirse por un
+par,hf irst, lasti, que contiene los ı́ndices de la instrucción donde comienza el
+bloque y la instrucción que termina el bloque. (Si los ı́ndices de bloques se al-
+macenan en orden numérico ascendente, una serie de primeros bastará). Para
+unir un conjunto de bloques para que formen un procedimiento, el compilador
+debe insertar un código que implemente las operaciones de control de flujo del
+programa fuente. Para capturar las relaciones entre bloques, muchos compila-
+dores construyen un gráfico de control de flujo (GCF) y lo usa para analizar
+y ası́ realizar, la optimización y generación de código. En el GCF, los nodos
+representan bloques básicos y los bordes representan posibles transferencias de
+control entre bloques. Tı́picamente, el GCF es una representación derivada que
+contiene referencias a una representación más detallada de cada bloque. El códi-
+go para implementar la construcción del control de flujo que reside en los bloques
+básicos o cerca del final de cada bloque. (En ensamblador, no hay caso de caı́da
+en una rama, por lo que cada bloque termina con una rama o un salto. Si el
+modelo de representación intermedia retraza la ranura, entonces la operación de
+control de flujo puede no ser la última operación en el bloque). Si bien se han utilizado muchas convenciones sintácticas diferentes para expresar el control de
+flujo, la cantidad de conceptos subyacentes es pequeña [5].</p>
+
+<font color=yellow><h4 align="center">Ejecución condicional</h4></font>
+
+<p>La mayorı́a de los lenguajes de programación proporcionan alguna versión
+para construir un if-then-else. Dado el texto fuente del listado 7 .</p>
+
+Listing 7.
+
+<p>El compilador debe generar código que evalúe la expresión y las ramas para
+la sentencia 1 o sentencia 2, basado en el valor de expresión. El código
+ensamblador que implementa las dos declaraciones debe terminar con un sal-
+to a la sentencia 3. El compilador tiene muchas opciones para implementar
+construcciones if-then-else.
+Los programadores pueden colocar fragmentos de código arbitrariamente
+grandes dentro de otras partes. El tamaño de estos fragmentos de código tiene
+un impacto en la la estrategia de empilar para implementar la construcciones
+if-then-else. Con una parte trivial then y else, la consideración principal para
+el compilador es hacer coincidir la evaluación de la expresión con el hardware
+subyacente. Como then y else crecen, la importancia de una ejecución eficiente
+dentro de then y else entonces, comienza a superar el costo de ejecutar el
+control de la expresión.
+Como se muestra en el listado 8, en una máquina que admite la ejecución
+predicada, usando predicados en los bloques grandes de then y else pueden
+desperdiciar ciclos de ejecución. Dado que el procesador debe emitir cada ins-
+trucción predicada a una de sus unidades funcionales, cada operación con un
+predicado falso tiene un costo de oportunidad alta
+en un puesto de edición. Con grandes bloques de código tanto en then y
+else, el costo de las instrucciones no ejecutadas puede superar el costo general
+de usar una rama condicional.
+Se supone que tanto then y else contienen 10 operaciones iloc independien-
+tes y que la máquina objeto puede emitir dos operaciones por ciclo.
+El código que podrı́a generarse mediante predicado; eso asume que el valor
+de la expresión de control está en r 1 . El código emite dos instrucciones por ciclo.
+Uno de ellos se ejecuta en cada ciclo. Luego las operaciones de la parte then se
+envı́an a la Unidad 1, mientras que la operación de la parte then se envı́an a la
+Unidad 2. El código evita todas las ramificaciones. Si cada operación toma un
+solo ciclo, lleva 10 ciclos ejecutar las declaraciones controladas, independiente
+de qué rama se tome.
+El listado 9 muestra el código que podrı́a generarse usando ramas; se asume
+ese control y fluye a L 1 para la parte then o a L 2 para la parte else. Porque
+las instrucciones son independientes, el código emite dos instrucciones por ciclo.
+Siguiendo la ruta entonces toma cinco ciclos para ejecutar las operaciones para
+la ruta tomada, más el costo del salto terminal. El costo de la parte else es
+idéntico. La versión predicada evita la rama inicial requerida en la versión no programada del código (a L 1 o L 2 en la figura), ası́ como a los saltos terminales
+(a L 3 ). La versión de ramificación incurre en la sobrecarga de una rama y un
+salto, pero puede ejecutar más rápido. Cada ruta contiene una rama condicional,
+cinco ciclos de operaciones, y el salto terminal. (Algunas de las operaciones se
+pueden usar para llenar ranuras de retraso en los saltos). La diferencia radica en
+la tasa de emisión efectiva, la versión de ramificación emite aproximadamente
+la mitad de las instrucciones de la versión de predicado. A medida que el código
+se fragmenta en el else, esto hace que la diferencia se haga más grande. Elegir
+entre ramificación y predicación para implementar un if-then-else requiere un
+poco de cuidado. Varios problemas deben ser considerados, como sigue:</p>
+
+1. Frecuencia esperada de ejecución. Si se ejecuta un lado del condicional
+significativamente más a menudo, las técnicas que aceleran la ejecución
+de esa ruta puede producir código más rápido. Este sesgo puede tomar la
+forma de predecir una rama, al ejecutar algunas instrucciones especulati-
+vamente, o de reordenar la lógica.
+2. Cantidades desiguales de código si una ruta a través de la construcción
+contiene muchas más instrucciones que la otra, esto puede pesar contra
+predicación o para una combinación de predicación y ramificación.
+3. Control del flujo dentro de la construcción. Si cualquiera de las rutas
+contiene algún flujo de control no trivial, como un bucle if-then-else,
+declaración de caso, o llamar, entonces la predicación puede ser una mala
+elección. En particular, anidado si constructos crean predicados complejos
+y reducen la fracción de operaciones emitidos que son útiles.
+
+<p>Para tomar la mejor decisión, el compilador debe considerar todos estos
+factores, ası́ como el contexto circundante. Estos factores pueden ser difı́ciles
+de evaluar al principio de la compilación; por ejemplo, la optimización puede
+cambiarlos de manera significativa [5].</p>
+
+Listing 8.
+
+Listing 9.
+
+<font color=yellow><h4 align="center">Condicional for</h4></font>
+
+<p>Para mapear un bucle for en el código, el compilador sigue el esquema
+general del listado 10 . Para hacer esto considere el siguiente ejemplo. Pasos 1
+y 2 producen un solo bloque básico, como se muestra en la segunda parte del
+listado 10 :</p>
+
+Listing 10.
+
+<p>El código producido en los pasos 1, 2 y 4 es sencillo. Si el cuerpo del bucle
+(paso 3) consiste en un solo bloque básico o termina con un solo básico bloquear,
+entonces el compilador puede optimizar la actualización y la prueba producidas
+en el paso 4 con el cuerpo del bucle Esto puede conducir a mejoras en el código,
+por ejemplo, ple, el programador de instrucciones podrı́a usar operaciones desde
+el final del paso 3 hasta que llene las ranuras de retardo en la rama del paso 4.
+El compilador también puede dar forma al ciclo para que tenga solo una copia
+de la prueba del paso 2. De esta forma, el paso 4 evalúa e 3 y luego salta al paso
+2. El compilador reemplazarı́a cmp LE, secuencia cbr al final del ciclo con un
+salto I. Esta forma del ciclo es una operación más pequeña que las dos: forma
+de prueba. Sin embargo, crea un bucle de dos bloques incluso para los bucles
+más simples, y alarga la ruta a través del ciclo por al menos una operación.
+Cuando el tamaño del código es una consideración seria, el uso constante de
+este bucle más compacto la forma puede valer la pena. Siempre que el salto
+que termina en bucle sea inmediato saltar, el hardware puede tomar medidas
+para minimizar cualquier interrupción que pueda porque. La forma del bucle
+canónico del listado 11 también prepara el escenario para la optimización. Por
+ejemplo, si e 1 y e 2 contienen solo constantes conocidas, como en el listado 10 ,
+el compilador puede duplicar el valor del paso 1 en la prueba del paso 2 elimina
+la comparación y la bifurcación (si el control ingresa al loop) o elimina el cuerpo
+del loop (si el control nunca entra en el loop). En el bucle de prueba única,
+el compilador no puede hacer esto. En cambio, el compilador encuentra dos
+caminos que conducen a la prueba: uno desde el paso 1 y uno desde el paso 4.
+El valor utilizado en la prueba, r i , tiene un valor variable a lo largo del borde
+desde el paso 4, por lo que el resultado de la prueba no es predecible [5] .</p>
+
+<font color=yellow><h4 align="center">Condicional while</h4></font>
+
+<p>Un ciclo while también se puede implementar con el esquema de bucle del
+listado 11 . A diferencia del bucle en C para for o un do de fortran, un bucle
+while no tiene inicialización, por lo tanto, el código es aún más compacto como
+se muestra en el listado 11 .</p>
+
+Listing 11.
+
+<p>Replicar la prueba en el paso 4 crea la posibilidad de un ciclo con un solo
+bloque básico. Los mismos beneficios que se acumulan en un bucle for desde
+esta estructura también ocurren durante un ciclo while [5] .</p>
+
+Listing 12.
+
+<font color=yellow><h4 align="center">Condicional switch</h4></font>
+
+<p>Muchos lenguajes de programación incluyen alguna variante de una declara-
+ción de case. Fortran tiene su goto calculado. Algol-W presentó la declaración
+de caso en su forma moderna. bcpl y C tienen una construcción de interrup-
+tor, mientras que pl / i tiene una construcción generalizada que se correlaciona
+bien con un conjunto anidado de declaraciones if-then-else. Como lo insinuó la
+introducción a este capı́tulo, implementar un caso de declaración de manera
+eficiente es compleja. Considere la implementación de la sentencia switch de C.
+La estrategia básica es sencilla:</p>
+
+1. evaluar la expresión de control;
+2. rama al case seleccionado;
+3. ejecutar el código para ese case.
+
+<p>Los pasos 1 y 3 están bien entendidos, como se desprende de las discusiones
+en otro lugar de este capı́tulo. En C, los case’s individuales generalmente termi-
+nan con una declaración de break que sale de la declaración switch. La parte
+compleja de la implementación del enunciado case reside en elegir un método
+eficiente para localizar el case designado. Porque el case deseado es que no se
+conoce hasta el tiempo de ejecución, el compilador debe emitir código que utili-
+zará el valor de la expresión de control para ubicar el correspondiente case. No
+solo el método funciona bien para todas las declaraciones del case. Muchos com-
+piladores tienen una disposición para varios esquemas de búsqueda diferentes y
+eligen entre ellos en función de los detalles especı́ficos del conjunto de case’s.
+Esta sección examina tres estrategias: una búsqueda lineal, una búsqueda bina-
+ria y una dirección calculada de cada estrategia que es apropiada bajo diferentes
+circunstancias y posturas [5].</p>
+
+<header>
+<h4 align="center" id=#def>Generación de código intermedio para
+llamado a funciones y procedimientos</h4>
+</header>
+
+<p>La implementación de llamadas a procedimientos es, en su mayor parte, di-
+recta. Como se muestra en la figura 7.19, una llamada de procedimiento consiste
+en una secuencia previa a la llamada y una secuencia post return en la persona
+que llama, y un prólogo y un epı́logo en el llamado. Un único procedimiento pue-
+de contener múltiples sitios de llamadas, cada uno con sus propias secuencias
+previas y posteriores al cambio. En la mayorı́a de los idiomas, un procedimiento
+tiene un punto de entrada, por lo que tiene una secuencia de prólogo y una
+secuencia de epı́logo. (Algunos idiomas permiten puntos de entrada múltiples,
+cada uno de los cuales tiene su propia secuencia de prólogo.) Muchos de los
+detalles involucrados en estas secuencias se describen en la Sección 6.5. Esta
+sección se enfoca en asuntos que afectan la capacidad del compilador para ge-
+nerar código eficiente, compacto y consistente para llamadas de procedimiento
+[5].</p>
+
+<header>
+<h4 align="center" id=#def>Manejo del polimorfismo en un compilador</h4>
+</header>
+
+<p>Algunas funciones se ejecutan de una manera que es independiente del tipo
+de datos en el que ellas operan. Algunas estructuras de datos están formadas
+de la misma manera independientemente de los tipos de sus elementos. Como
+ejemplo, considere una función para concatenar dos listas enlazadas en Tiger.
+Primero se definen un tipo de datos de la lista enlazada y luego la función de
+concatenación:</p>
+
+Definición 4.
+
+<p>No hay nada sobre el código para el tipo de datos int list o el apéndice de
+la función que serı́a diferente si el tipo de elem fuera de la cadena o en lugar del
+árbol. Nos gustarı́a añadir para poder trabajar en cualquier tipo de lista. Una
+función polimórfica (del griego many + shape) si puede operar en argumentos
+de diferentes tipos. Hay dos tipos principales de polimorfismo:</p>
+
+1. Polimorfismo paramétrico. Una función es paramétricamente polimórfi-
+ca si sigue baja el mismo algoritmo, independientemente del tipo de su
+argumento. El Ada o El mecanismo genérico Modula-3, las plantillas de
+C ++ o los esquemas de tipo ML son examinados ples de polimorfismo
+paramétrico.
+2. Sobrecarga o polimorfismo ad hoc. Un identificador de función está so-
+brecargado si representa diferentes algoritmos dependiendo del tipo de su
+argumento. Por ejemplo, en la mayorı́a de los idiomas el signo + está so-
+brecargado, lo que significa que la suma entera en argumentos enteros y
+flotantes la adición de punto (que es un algoritmo bastante diferente) en
+argumento de coma flotante. En muchos idiomas, incluidos Ada, C ++
+y Java, los programadores pueden hacer funciones sobrecargadas propias.
+Estos dos tipos de polimorfismo son bastante diferentes, casi no relacio-
+nados, y requieren diferentes técnicas de implementación [?].
+
+<p>Algunos idiomas permiten que una función sea polimórfico o genérico, es
+decir, definido en una gran clase de tipos, por ejemplo, en todas las matrices
+sin importar cuáles sean los tipos de elementos. Una función puede declarar
+explı́citamente qué partes del tipo es genérico / polimórfico o esto puede ser
+implı́cito. El verificador de tipos puede insertar el tipo real en cada uso de la
+función genérica / polimórfica para crear instancias del tipo genérico / polimórfi-
+co. Este mecanismo es diferente de la sobrecarga, ya que las instancias estarán
+relacionadas por un tipo genérico común y porque una función polimórfica /
+genérica se puede instanciar por cualquier tipo, no solo por un lı́mite de lista de
+alternativas declaradas como es el caso de la sobrecarga [4].</p>
+
+<header>
+<h4 align="center" id=#def>Ejercicios</h4>
+</header>
+
+<p>E1.- Genérese código para las siguientes proposiciones en C.</p>
+
+1. x = f(a) + f(a) + f(a)
+2. x = f(a)/a(b,c)
+3. x = f(f(a))
+4. x = ++f(a)
+5. *p++ = *g++
+
+<p>E2.- Genérese código para el siguiente programa en C</p>
+
+Código.
+
+<p>E3.- Genérese código para las siguientes proposiciones en C</p>
+
+1. x = 1
+2. x = y
+3. x = x + 1
+4. x = a + b * c
+5. x = a/(b + c) - d*(e + f)
+
+<p>E4.- Genérese código para el siguiente programa en Pascal:</p>
+
+Código.
+
+<p>E5.- Construir el traductor dirigido por la sintaxis de la siguiente gramática:</p>
+
+1. N → SL
+2. S → +|−
+3. L → LB|B
+4. B → 0|1
+
+</div>
+</article>
+
+
+<a href="#openModal">FIGURA 1</a>
+
+<div id="openModal" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 1</font></h3>
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+	<font color=black>Características de las figuras</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques del programa objeto.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig1.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 2-->
+
+<a href="#openModal1">FIGURA 2</a>
+
+<div id="openModal1" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 2</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la arquitectura del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig2.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 3-->
+
+<a href="#openModal2">INTÉRPRETE</a>
+
+<div id="openModal2" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 3</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de definiciones</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Definición de intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<p><font color=black>Otro tipo de traductor, llamado intérprete, procesa en forma 			interna el programa fuente y los datos al mismo tiempo. Es decir, la interpretación 				del formulario de origen interno se produce en tiempo de ejecución y no se 				genera ningún programa objeto.</font></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+</body>
+</html>

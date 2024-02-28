@@ -1,0 +1,533 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+    width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+Paradigmas de la programación
+</font>
+</h2>
+
+<p align=right><a href=ParadigmasProgramacion2020/TemarioParadigmasProgramacion.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align="right" class="p5"><a href=SNCompiladores/COMapuntes2.svg target="_blank" style="float:center">
+APUNTES DE LA CLASE
+</a></p>
+
+<p align=right><a href=Pizarron40POO.html style="float:center">
+Pizarrón 40
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+EJEMPLOS 16
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<!--
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Ejemplos de expresiones regulares</font></p>
+
+
+<p>Las expresiones regulares aplicadas a las clases léxicas
+<br>
+<font color=red size=7><h3 align="center">abcd, &epsilon; o &lambda;</h3></font>
+<br>
+<font color=red size=7><h3 align="center">&epsilon; o &lambda;</h3></font>
+<br>
+<p align=center><font color=yellow size=6>Las expresiones regulares aplicadas a las clases léxicas</font></p>
+<br>
+<font color=red size=7><h3 align="center">a | b = {a} o {b}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a  b = {ab}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>*</SUP> = {&epsilon;,a,aa,aaa, ...}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>+</SUP> = {a,aa,aaa, ...}</h3></font>
+<br>
+</p>
+</header> -->
+
+<br>
+
+<section class=izquierda><strong>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Programación Lógica:</font></p>
+</header>
+
+<p align=right><a href=SNPoo/TemarioPOO.html style="float:center">
+TEMARIO POO
+</a></p>
+
+<p>Los cinco postulados de Peano sobre los números naturales.</p>
+
+<p><strong>Postulado 1:</strong> 0 pertenece a los naturales (el 0 es un número natural).</p>
+
+<p><strong>Postulado 2:</strong> Para todo número n, si n pertenece a los naturales entonces s(n) pertenece a los naturales. El número natural s(n) se denomina el sucesor de n.</p>
+
+<pre>
+natural(cero).
+natural(suc(N)) :- natural(N).
+</pre>
+
+<p><strong>Postulado 3:</strong> Para todo número n , si n pertenece a los a los naturales entonces s(n) diferente de 0.</p>
+
+<p><strong>Postulado 4:</strong> Para todo para de números nautarales n y m, s(n) = s(m) si y solo si n = m.</p>
+
+<pre>
+eqNatural(cero, cero).
+eqNatural(suc(N), suc(M)) :- natural(N), natural(M), eqNatural(N,M).
+</pre>
+
+<p><strong>Postulado 5:</strong> Para todo conjunto A de números nautarales, si 0 pertenece a A y s(n) pertenece a A siempre que n pertenece a A , entonces todo número natural está contenido en A.</p>
+
+<p>Este se complementa con cuatro axiomas que definen la suma y la multiplicación de los números naturales.</p>
+
+<p><strong>Axioma 1:</strong> Para todo número natural n, 0 + n = n.</p>
+
+<p><strong>Axioma 2:</strong> Para todo número natural n y m, s(n) + m = s(n + m).</p>
+
+<p><strong>Axioma 3:</strong> Para todo número natural n, 0 * n = 0.</p>
+
+<p><strong>Axioma 4:</strong> Para todo número natural n y m, s(n) * m = (n * m) + m.</p>
+
+<pre>
+suma(cero, N, N) :- natural(N).
+suma(suc(N), M, suc(S)) :- natural(N), natural(M), suma(N, M, S).
+
+producto(cero, N, cero) :- natural(N).
+producto(suc(N), M, P) :- natural(N), natural(M), producto(N, M, P1),
+                          suma(P1, M, P).
+</pre>
+
+<p>Por lo que se puede solucionar de la siguiente manera:</p>
+
+<pre>
+eqNatural(cero, cero).
+eqNatural(suc(N), suc(M)) :- eqNatural(N, M).
+
+suma(cero, N, M).
+suma(suc(N), M, suc(S)) :- suma(N, M, S).
+
+producto(cero, N, cero) :- natural(N).
+producto(suc(N), M, P) :- producto(N, M, P1), suma(P1, M, P).
+</pre>
+
+<p>Se puede solucionar de la siguiente manera también:</p>
+
+<pre>
+suma(N, M, S) :- natural(N), natural(M), suma(N, M, S).
+suma(cero, N, N).
+suma(suc(N), M, suc(S)) :- suma(N, M, S).
+</pre>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejemplo 1:</font></p>
+</header>
+
+<p><strong>Definición. </strong> Diferentes tipos de objetos responden de manera diferente al mismo método. </p>
+
+<p align=center><font color=red size=6>hermanas(X,Y) &xlarr; mujer(X) &and; mujer(Y) &and; padres(X,P,M) &and; padres(Y,P,M) </font></p>
+
+<p align=center><font color=red size=6>mujer(ana) &xlarr; hermanas(X,ana) </font></p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejemplo 2:</font></p>
+</header>
+
+<p align=center><font color=red size=6>p(X,Y) &xlarr; q(X,Y) <br> p(X,Y) &xlarr; q(X,Z) &and; p(Z,Y) <br> q(a,b) <br> q(b,c) </font></p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejemplo 3:</font></p>
+</header>
+
+<p align=center><font color=red size=6>p(X) :- q,r(X) <br> p(X) :- s(X),t <br> q :- a,!,b. <br> q :- c,d <br> r(uno). </font></p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Modificadores:</font></p>
+</header>
+
+<p align="center" class="p5">
+Block de notas, archivo java: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=ParadigmasProgramacion2020/Programas/Ensayo.java target="_blank" style="float:center"><strong>ParadigmasProgramacion2020/Programas/Ensayo.java </strong></font></a>
+</p>
+
+<p align="center" class="p5">
+Block de notas, archivo java: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=ParadigmasProgramacion2020/Programas/Prueba.java target="_blank" style="float:center"><strong>ParadigmasProgramacion2020/Programas/Prueba.java </strong></font></a>
+</p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Relaciones entre clases:</font></p>
+</header>
+
+<p align="center" class="p5">
+Block de notas, archivo java: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=ParadigmasProgramacion2020/Programas/PersonaVentas.java target="_blank" style="float:center"><strong>ParadigmasProgramacion2020/Programas/PersonaVentas.java </strong></font></a>
+</p>
+
+<p>Composición donde exclusivamente se requiere la propiedad. </p>
+
+<p>Agregación donde no se requiere la propiedad. </p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejemplo 6:</font></p>
+</header>
+
+
+
+</strong>
+</section>
+
+<!--------------------------------------------------------->
+
+<aside class=derecha>
+<strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Programación lógica:</font></p>
+</header>
+
+<p align=right><a href=SNPoo/TemarioPOO.html style="float:center">
+TEMARIO POO
+</a></p>
+
+<p><strong>1:</strong> [] es una lista.</p>
+
+<p><strong>2:</strong> (X, L) es una lista, si X es un elemento y L una lista; X se denominal la cabeza y L la cola de la lista.</p>
+
+<pre>
+esLista([]).
+esLista([_ | R]) :- esLista(L).
+</pre>
+
+<p><strong>A:</strong> member(E, L), sirve para comprobar si el elemento E está contenido en la lista L.</p>
+
+<pre>
+member(E, [E|_]).
+member(E, [_|L]) :- member(E, L).
+</pre>
+
+<p><strong>B:</strong> append(L1, L2, L), concatena las listas L1 y L2 en L.</p>
+
+<pre>
+append([ ], L, L).
+append([E|L1], L2, [E|L]) :- append(L1, L2, L).
+</pre>
+
+<p><strong>C:</strong> aplanar(L, A), reorganiza los elementos contenidos en las listas en una sola lista A.</p>
+
+<pre>
+aplanar([], []).
+aplanar([X|R], [X|P]) :- atomic(X), aplanar(R, P).
+aplanar([X|R], P) :- not atomic(X), aplanar(X, P_X),
+                   aplanar(R, P_R), append(P_X, P_R, P).
+</pre>
+
+<p><strong>D:</strong> ultimo(U, L), donde U es el último elemento de la lista L.</p>
+
+<pre>
+ultimo(U, [U]).
+ultimo(U, [_|R]) :- ultimo(U, R).
+
+ultimo(U, L) :- append(_, [U], L).
+</pre>
+
+<p><strong>E:</strong> sublistas.</p>
+
+<pre>
+prefijo(P, L) :- esLista(L), append(P, _ , L).
+
+sufijo(P, L) :- esLista(L), append(_, P, L).
+
+sublista(S, L) :- prefijo(S, L1), sufijo(L1, L).
+</pre>
+
+<p><strong>F:</strong> invertir(L, I), donde I es la lista invertida de la lista L.</p>
+
+<pre>
+invertir([], []).
+invertir([H|T], L) :- invertir(T, Z), append(Z, [H], L).
+</pre>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Conjuntos:</font></p>
+</header>
+
+<p><strong>1:</strong> repeticiones(C), comprueba la existencia de repeticiones en la lista C.</p>
+
+<pre>
+repeticiones([X|R]) :- member(X, R), repeticiones(R).
+
+conjunto(C) :- not repeticiones(C).
+</pre>
+
+<p><strong>2:</strong> en(X, C), presenta la relación de pertenencia de X en un conjunto C.</p>
+
+<pre>
+en(X, C) :- conjunto(C), member(X, C).
+</pre>
+
+<p><strong>3:</strong> subc(A, B), define la relación de inclusión entre conjuntos.</p>
+
+<pre>
+subc(A, B) :- conjunto(A), conjunto(B), subcl(A, B).
+subcl([], _).
+subcl([X|R], C) :- member(R, C), subcl(R, C):
+</pre>
+
+<p><strong>4:</strong> dif(C1, C2, D), define la operación de diferencia de conjuntos.</p>
+
+<pre>
+dif(C1, C2, D) ;- conjunto(C1), conjunto(C2), difl(C1, C2, D).
+difl(C1, [], C1).
+difl([], _, []).
+difl([X|R], C2, D) :- member(X, C2), difl(R, C2, D).
+difl([X|R], C2, [X|D1]) :- not member(X, C2), difl(R, C2, D1).
+</pre>
+
+<p><strong>5:</strong> union(C1, C2, U), define la unión de dos conjuntos.</p>
+
+<pre>
+union(C!, C2, U) :- conjunto(C1), conjunto(C2), uni(C1, C2, U).
+uni(U, [], U).
+uni([], U, U).
+uni([X|R], C2, U) :- member(X, C2), uni(R, C2, U).
+uni([X|R], C2, [X|R]) :- not member(X, C2), uni(R, C2, U).
+</pre>
+
+<p><strong>6:</strong> intersec(C1, C2, I), define la intersección de dos conjuntos.</p>
+
+<pre>
+intersec(C1, C2, I) :- conjunto(C1), conjunto(C2),
+                     interl(C1, C2, I).
+                     interl(_, [], []).
+                     interl([], _, []).
+inter1([X|R], C2, [X|I]) :- member(X, C2), interl(R, C2, I).
+interl([X|R], C2, I) :- not member(X, C2), interl(R, C2, I).
+</pre>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Programación procedimental:</font></p>
+</header>
+<pre>
+<p><strong>Paradigma imperativo; programación estructurada:</strong> Dónde se recurre a subrutinas y a tres estructuras de control básicas. Subrutinas que se ejecutan en secuencia, selección (if), iteración (whilw,for), recursión es, una función que se llama así misma</p>
+
+<p><strong>Programa 3:</strong> Presentar un programa que, .</p>
+
+<p><strong>Solución:</strong> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=ParadigmasProgramacion2020/PpEjemplo3.svg target="_blank" style="float:center"><strong>ParadigmasProgramacion2020/PpEjemplo3.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="ParadigmasProgramacion2020/PpEjemplo3.svg" align=center width=54% border=0></p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejercicios:</font></p>
+</header>
+
+<p><strong>Programa 1:</strong> Presentar un programa que, calcule el volumen de un cilindro: dónde r es su radio del cilindro y L su longitud. Utiliza la siguiente fórmula: V = Pi r<sup>2</sup> L. </p>
+
+<p><strong>Programa 2:</strong> Presentar un programa que, que calcule la superficie de un cilindro: dónde r es el radio del cilindro y l es la longitud del cilindro. Utiliza la fórmula : 2 Pi r l + 2 Pi r<sup>2</sup>. </p>
+
+<p><strong>Programa 3:</strong> Presentar un programa que, calcule las raices de x del siguiente polinomio; ax<sup>2</sup> + bx + c, donde a, b, c son números conocidos.</p>
+
+<p><strong>Programa 4:</strong> Presentar un programa que escriba asteriscos, iguales, operador suma y guiones en consola, por cada renglón presentar 45 caracteres en cinco líneas por separado.</p>
+
+<p><strong>Programa 5:</strong> Presentar un programa que escriba su mombre en una línea adornado de asteriscos y gatos.</p>
+
+<p><strong>Programa 6:</strong> Presentar un programa que escriba su comida favorita en una línea adornada de asteriscos y gatos.</p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ejercicios: Listas</font></p>
+</header>
+
+<p><strong>Programa 1:</strong> Crear listas: diccionario. Alimentar un arreglo para crear una lista de estudiantes con nombre, boleta y promedio. </p>
+
+<p><strong>Declarar la lista:</strong></p>
+
+<p align="center"><font color=yellow size=5>list &lt;Tipo&gt; Nombre de la lista;</font> </p>
+
+<p align="center"><font color=yellow size=5>list &lt;char&gt; L1;</font> </p>
+
+<p><strong>Cargar la lista:</strong></p>
+
+<p align="center"><font color=yellow size=5>for(int x = 'a'; x <= 'z'; x++); <br> L1.push_back(x); <br> cout << endl; </font> </p>
+
+<p align="center"><font color=yellow size=5>while(n != 0) {
+        cout << "Ponga la palabra: " << endl;
+        cin >> pal;
+        cout << endl;
+
+        lista1.push_back(pal);
+        n = n -1;
+    }</font> </p>
+
+<p><strong>Crear un iterador de la lista:</strong></p>
+
+<p align="center"><font color=yellow size=5>list &lt;char&gt; L1:: iterator i = L1.begin();</font> </p>
+
+<p><strong>Funciones de listas:</strong></p>
+
+<p align="center"><font color=yellow size=5>L1.front() <br> L1.back() <br> L1.push_front() <br> L1.push.back() <br> L1.merge() <br> L1.sort() <br> L1.begin() <br> L1.end() </font> </p>
+
+<p align="center" class="p5">
+Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=ParadigmasProgramacion2020/PpEjemplo4.svg target="_blank" style="float:center"><strong>ParadigmasProgramacion2020/PpEjemplo4.dia</strong></font></a>
+</p>
+
+<p align="center">
+<img src="ParadigmasProgramacion2020/PpEjemplo4.svg" align=center width=54% border=0></p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Interfaces: </font></p>
+</header>
+
+<pre>
+public interface Comestible {
+    public abstract String comoComer();
+}
+</pre>
+
+<pre>
+class Pollo extends Animal implements Comestible {
+    public String comoComer() {
+        return "Pollo frito ";
+    }
+}
+</pre>
+
+<pre>
+abstract class Fruta implements Comestible {
+
+}
+</pre>
+
+<pre>
+class Manzana extends Fruta {
+    public String comoComer() {
+        return "Se hace sidra ";
+    }
+}
+</pre>
+
+<pre>
+class Naranja extends Fruta {
+    public String comoComer() {
+        return "Se hace jugo ";
+    }
+}
+</pre>
+
+</strong>
+</aside>
+
+
+</body>
+</html>

@@ -1,0 +1,252 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	font-size: 16px;
+}
+
+.a1 {
+	margin-left: 61%;
+    margin-right: 2%;
+    width: auto;
+    height: auto;
+	float: right;
+	position: absolute;
+	transform: translate(-15%, -110%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 11px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 13: Clases y su herencia
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<font color=yellow>Métodos</font>
+
+public class Persona {
+	public String nombre;
+}
+
+Persona p1 = new Persona();
+p1.nombre
+
+p1.nombre = "Fernando";
+p1.nombre;
+
+p1.nombre = "Maribel";
+p1.nombre
+
+public class Persona {
+	private String nombre;
+	public void setNombre(String someNombre) {
+		this.nombre = someNombre;
+	}
+	public String getNombre() {
+		return this.nombre;
+	}
+}
+
+Persona p = new Persona();
+p.setNombre("Federico");
+p.getNombre()
+
+Persona b = new Persona();
+b.getNombre()
+
+public class Persona {
+	private String nombre;
+	public Persona() {
+		this.setNombre("No hay nombre");
+	}
+	public Persona(String elNombre) {
+		this.setNombre(elNombre);
+	}
+	public void setNombre(String someNombre) {
+		this.nombre = someNombre;
+	}
+	public String getNombre() {
+		return this.nombre;
+	}
+}
+
+Persona b = new Persona("Bernardo")
+b.getNombre()
+
+Persona v = new Persona()
+v.getNombre()
+
+v.setNombre("Vilma")
+v.getNombre()
+
+Persona agente99 = new Persona(99)
+NoSuchMethodException: constructor Person(int)
+
+Persona b = new Persona("Bernardo")
+bernardo
+Persona@63a721
+
+public String toString() {
+	return "Persona nombrada" + this.nombre;
+}
+
+Persona b = new Persona("Bernardo")
+System.out.println(b);
+Persona nombrada Bernardo
+
+public class Estudiante extends Persona {
+	private int id;
+	public int getId() {
+		return this.id;
+	}
+	public void setId(int elId) {
+		this.id = elId;
+	}
+}
+
+Estudiante b = new Estudiante()
+b.getNombre()
+ningún nombre
+
+b.setNombre("Beatriz")
+b.getNombre()
+"Beatriz"
+
+b.setId(999)
+b.getId()
+999
+
+Estudiante b = new Estudiante("Beatriz")
+NoSuchMethodException: constructor Estudiante(java.lang.String)
+
+</strong>
+</pre>
+
+<pre class="a1"><strong>
+
+<p align=center><font color=yellow>La clase Estudiante, con constructor y método String</font></p>
+
+public class Estudiante extends Persona {
+	//Campos
+	private int id;
+	//Constructores
+	public Estudiante() {
+		super(); //Llama al padre del constructor
+		id = -1;
+	}
+	public Estudiante(String nombre) {
+		super(nombre);
+		id = -1;
+	}
+	//Metodos
+	public int getId() {
+		return this.id;
+	}
+	public void setId(int elId) {
+		this.id = elId;
+	}
+	public String toString() {
+		return "Estudiante nombrado" +
+			this.getNombre() +
+			"Con id" + this.id;
+	}
+}
+
+Estudiante b = new Estudiante("Beatriz");
+System.out.println(b);
+Estudiante nombrado Beatriz con id -1
+
+<p align=center><font color=yellow>Clase principal</font></p>
+
+public static void main(String[] args) {
+	Persona f = new Persona("Fredi");
+	Persona b = new Persona("Bernardo");
+	
+	System.out.println("Fredi es un" + f);
+	System.out.println("Bernardo es un" + b);
+}
+
+<p align=center><font color=yellow>Método greet para Persona</font></p>
+
+public void greet() {
+	System.out.println("Hola Yo soy" + this.nombre);
+}
+
+Persona bruce = new Persona("Bruce")
+bruce.greet()
+Hola Yo soy Bruce
+
+Estudiante kristal = new Estudiante("Kristal")
+kristal.greet()
+Hola Yo soy Kristal
+
+public void greet() {
+	System.out.println("Hola yo soy" + this.nombre +
+		"pero yo tengo que ir a la clase ...");
+}
+
+1 error found:
+
+public void greet() {
+	System.out.println("Hola yo soy" + this.getNombre() +
+		"pero yo tengo que ir a clase ...");
+}
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

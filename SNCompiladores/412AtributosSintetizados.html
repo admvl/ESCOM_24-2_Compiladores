@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Atributos sintetizados</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 4</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">ATRIBUTOS SINTETIZADOS</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Atributos</h1>
+       <hr>
+       <br>
+      <p><strong>Funcionamiento del analizador sintáctico descendente.</strong> La entrada de un anlizador sintáctico son los tokens entregados por el analizador léxico. La función del analizador sintactico es colocar los tokens en una posición que cumpla con las reglas de sintáxis, que son expresadas por medio de gramáticas libres de contexto.</p>
+      <br>
+      <p>Tenemos la siguiente gramatica libre de contexto:</p>
+      <br>
+      <font color=red size=7><h3 align="center">S → aCa, <br> C → aCa, <br> C → b</h3></font>
+      <br>
+      <p>Nos fijamos en el tipo de derivaciones ya que las derivaciones son por la izquierda, que nos indica que es un análisis de la raiz a las hojas. <br> La gramática se puede escribir de la siguiente manera:</p>
+      <br>
+      <font color=red size=7><h3 align="center">S → aCa, <br> C → aCa | b</h3></font>
+      <br>
+      <p>Lo importante de la gramática es que se debe seleccionar solo una producción a usar.</p>
+      <br>
+      <font color=red size=7><h3 align="center">S ⇒  aCa ⇒  aaCaa ⇒  aabaa</h3></font>
+      <br>
+      <p>Para iniciar con las derivaciones por la izquierda, es necesario comenzar con el símbolo inicial. Esto quiere decir que vamos a iniciar desde la raiz.</p>
+      <br>
+      <p align="center">
+<img src="ArbolParen.svg" align=center width=80% border=0></p>
+     <br>
+      <p>Debido a esto la gramática formal es necesaria porque nos indica cual es el símbolo inicial:</p>
+      <br>
+      <font color=red size=7><h3 align="center">G(N, T, S, P)</h3></font>
+      <br>
+      <p>Ahora se requiere que una cadena de tokens sea colocada en el proceso de derivación. Por lo que la siguiente cadena de tokens, se requiere emparejar con las derivaciones adecuadas. Sea la cadena <strong>((i v))</strong> que se debe reconocer:</p>
+      <br>
+      <font color=red size=7><h3 align="center">S → (C), <br> C → (C) | i v</h3></font>
+      <br>
+      <p>Por lo que el inicio de las derivaciones es el uso del símbolo S, como se presenta a continuación:</p>
+      <br>
+      <font color=red size=7><h3 align="center">S ⇒  (C) ⇒  ((C)) ⇒  ((i v))</h3></font>
+      <br>
+      <p>El árbol es el siguiente:</p>
+      <br>
+      <p align="center">
+<img src="ArbolParenVar.svg" align=center width=80% border=0></p>
+     <br>
+    </article>
+    </section>
+
+
+      <aside>
+        <h1>Preguntas</h1>
+        <hr>
+        <br>
+       <p><strong>Pregunta 1.</strong> Describir los dos tipos de derivaciones.</p>
+     <br>
+     <p><strong>Pregunta 2.</strong> ¿Cuál tipo de derivación se usa para el análisis sintáctico descendente? Describir su respuesta.</p>
+       <br>
+       <hr>
+      <h1>Ejercicios</h1>
+        <hr>
+      <p><strong>Ejercicio 1.</strong> No hay.</p>
+      <br>
+      
+     
+        </aside>
+      <footer><p>Análisis semántico y generación de código intermedio: Tema 4.1.2</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

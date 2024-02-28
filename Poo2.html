@@ -1,0 +1,2730 @@
+<html>
+<style>
+header {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: 26%;
+width:50%;
+margin-left:25%;
+border: solid;
+border-color:#FFFF00;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+article {
+background-color: #aab885;
+display: block;
+margin-left: 25%;
+margin-top: 0.5%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: 50%;	
+height: auto;	
+}
+
+article header {
+background-color: #009F80;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#800000;
+	border: solid 6px #800;
+padding: 2px;
+height: auto;
+width:44%;
+text-align: center;
+font-size: 20px;
+margin-left:26%;
+margin-bottom: 5%;
+margin-top: 5%;
+}
+
+article h1 {
+font-size: 20px;
+
+}
+
+article div{
+background-color: #8ba987;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#0000FF;
+padding: 5px;
+width:40%;
+text-align: center;
+margin-left:0%;
+}
+
+	.modalDialog {
+		position: fixed;
+		font-family: Arial, Helvetica, sans-serif;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.2);
+		z-index: 99999;
+		opacity:0;
+		-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+		pointer-events: none;
+	}
+	.modalDialog:target {
+		opacity:1;
+		pointer-events: auto;
+	}
+	.modalDialog > div {
+		width: 30%;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+	  	-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+	}
+	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+	.close:hover { background: #00d9ff; }
+
+table {
+  margin-left: 15%;
+  padding: 15px;
+  
+}
+
+p.par1  {
+ width: 200px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #00f;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+p.p4  {
+ background-color: #808080;
+ font-size: 20px;
+ width: 230px;
+ margin: 10px 20px;
+ padding: 10px;
+ border: solid 6px #f60;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.p1  {
+ background-color: #808080;
+ width: 300px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #f60;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.p2  {
+ background-color: #808080;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #f60;
+ font: normal 18px arial, helvetica, sans-serif;
+ }
+
+body{
+font-size: 20px;
+}
+
+#columna {
+float: left;
+width: 250px;
+margin: 20px 0px;
+padding: 20px;
+background: #aab885;
+border: solid 6px #f60;
+margin-top: -40px;
+margin-bottom: -100000px;
+position: absolute;
+}
+
+.lateralDer {
+	position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+	left: 0; /* Establecemos la barra en la izquierda */
+	top: 620px; /* Bajamos la barra 200px de arriba a abajo */
+	z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+}
+
+.lateralIzq {
+	position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+	right: 0; /* Establecemos la barra en la izquierda */
+	top: 620px; /* Bajamos la barra 200px de arriba a abajo */
+	z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+}
+
+.t {
+  margin-left: -5%;
+  margin-top: -10%;
+  padding: 10px;
+}
+
+</style>
+
+<head>
+<title>Programación orientada a objetos dos</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<!--
+<a>
+<img src="LibCompiladores.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=26% height=44% border=0>
+</a>
+
+<a>
+<img src=ApuntesInt.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=23% height=42% border=0>
+</a>
+
+
+
+<img src=Estudiante.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=16% height=97% border=0>
+
+<img src=ApuntesInt.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=16% height=97% border=0>-->
+<header>
+<h1 align=left>
+<font color=maroon size=8>
+CAPÍTULO 2
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=6>
+Clases y Objetos
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<nav>
+<h3 align=center><font size=6>Índice</font></h3>
+
+<p align=center><font size=5>
+El material de estudio para el estudiante que se presenta en esta página, esta dividido de acuerdo al temario de la asignatura.</font></p>
+
+<font color=yellow><h3 align="center">Temas:</h3></font>
+
+<p align="center">
+<a href=#bas>
+Las bases
+</a>
+&nbsp; &nbsp;
+<a href=#imp>
+Implementando clases.
+</a>
+&nbsp; &nbsp;
+<a href=#con>
+Constructores.
+</a></p>
+
+<hr>
+
+<font color=yellow><h3 align="center">Material:</h3></font>
+
+<p align="center">
+<a href=ResumenPoo2.html>
+Resumen de capítulo 2.
+</a>
+&nbsp; &nbsp;
+<a href=ResumenPoo2.html>
+Definiciones del capítulo 2
+</a>
+&nbsp; &nbsp;
+<a href=PracticasPOO.html>
+Práctias del capítulo 2
+</a>
+&nbsp; &nbsp;
+<a href=ResumenPoo2.html>
+Presentaciones del capítulo 2
+</a>
+&nbsp; &nbsp;
+<a href=ProcedimientoUsadoPoo.html>
+Procedimientos del capítulo 2
+</a>
+&nbsp; &nbsp;
+<a href=ResumenPoo2.html>
+Código del capítulo 2
+</a></p>
+
+</nav>
+
+
+<hr>
+
+
+<article>
+<div class="section-content" style="width:900px;">
+<p style="text-align: center; ">En el último capı́tulo, vimos que la estructura del programa fundamental en
+un programa orientado a objetos es el objeto. También describimos el concepto
+de una clase, que es similar a los ADT ya que puede usarse para crear objetos de
+tipos que el lenguaje no admite directamente. En el último capı́tulo, vimos que la
+estructura fundamental del programa en un objeto orientado. En este capı́tulo,
+describimos en detalle cómo construir una clase. Utilizaremos la gramática del
+lenguaje Java (como haremos a lo largo del libro). Vamos a presentar el Unified Modeling Language (UML), que es una notación para describir el diseño de
+sistemas orientados a objetos. También discutimos las interfaces, un concepto
+que nos ayuda a especificar los requisitos del programa y demostrar sus usos.</p>
+
+
+
+
+
+
+<header>
+<h3 align="center" id=bas>Las bases</h3>
+</header>
+
+<p>
+Para entender la noción de objetos y clases, comenzamos con una analogı́a.
+Con respecto a un coche el fabricante decide construir un auto nuevo, se dedica
+un esfuerzo considerable en una variedad de actividades antes de que el primer
+automóvil salga de las lı́neas de montaje. Éstos incluyen:
+</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Identificación de la comunidad de usuarios para el automóvil y evaluación
+de las necesidades del usuario. Para esto, el fabricante puede formar un
+equipo.</td></tr>
+<tr><td>2</td><td>Después de evaluar los requisitos, el equipo puede expandirse para incluir
+ingenieros automotrices y otros especialistas que elaboran un diseño preliminar.</td></tr>
+<tr><td>3</td><td>Se puede utilizar una variedad de métodos para evaluar y refinar el diseño
+inicial (el equipo puede tener experiencia en la construcción de un vehı́culo
+similar): se pueden construir prototipos, simulaciones y se puede realizar
+un análisis matemático.</td></tr>
+</table>
+
+<p>
+Quizás después de meses de tal actividad, se complete el proceso de diseño.
+Otro paso que es necesario realizar es la construcción de la planta donde se
+producirá el automóvil. Se debe establecer una lı́nea de montaje y contratar
+personas. Después de tales pasos, la compañı́a está lista para producir los automóviles. El diseño ahora se reutiliza para muchos tiempos de fabricación. Por
+supuesto, el diseño puede tener que ser ajustado durante el proceso según las
+observaciones de la empresa y los comentarios de los usuarios. El desarrollo de sistemas de software a menudo siguen un patrón similar. Las necesidades del
+usuario tienen que ser evaluadas, se debe hacer un diseño y luego se debe construir el producto. Desde el punto de vista de los sistemas orientados a objetos, un
+aspecto diferente de la fabricación de automóviles El proceso de turing es importante. El diseño de un determinado tipo de automóvil requerirá tipos especı́ficos
+del motor, la transmisión, el sistema de frenos, etc., y cada una de estas partes
+en sı́ misma tiene su diseño propio (diseño original), plantas de producción, etc.
+En otras palabras, la compañı́a sigue la misma filosofı́a en la fabricación de las
+piezas individuales que en la producción de el coche. Por supuesto, algunas partes se pueden comprar a los fabricantes, pero a su vez siguen el mismo enfoque.
+Dado que la actividad de diseño es costosa, un fabricante reutiliza el diseño para
+fabricar las partes o los autos. El enfoque anterior se puede comparar con el diseño de sistemas orientados a objetos que están compuestos de muchos objetos
+que interactúan entre sı́. A menudo, estos objetos representan los jugadores de
+la vida real y sus interacciones representan interacciones de la vida real. Como
+el diseño de un auto es una colección de los diseños individuales de sus partes y
+un diseño de la interacción de estas partes, el diseño de un sistema orientado a
+objetos consiste en diseños de sus partes constituyentes y sus interacciones. Por
+ejemplo, un sistema bancario podrı́a tener un conjunto de objetos que representan a los clientes, otro conjunto de objetos que representan cuentas y un tercer
+conjunto de objetos que corresponden a préstamos. Cuando un cliente realmente
+hace un depósito en su cuenta en la vida real, el sistema actúa sobre el objeto
+de la cuenta correspondiente para imitar el depósito en el software. Cuando un
+cliente solicita un préstamo, se crea un nuevo objeto de préstamo y se conecta al
+objeto del cliente; cuando un pago se realiza sobre el préstamo, el sistema actúa
+sobre el objeto del préstamo correspondiente. Obviamente, estos objetos tienen
+que ser creados de alguna manera. Cuando un nuevo cliente ingresa al sistema,
+deberı́amos poder crear un nuevo objeto de cliente en software. Esta entidad de
+software, el objeto del cliente debe tener todas las caracterı́sticas relevantes del
+cliente de la vida real. Por ejemplo, deberı́a ser posible asociar el nombre y la
+dirección del cliente con este objeto sin embargo, los atributos del cliente que no
+son relevantes para el banco no serán representado en software. Como ejemplo,
+es difı́cil imaginar que un banco esté interesado en si un cliente es diestro; por lo tanto, el sistema de software no tendrá este <a href="#openModalD1">atributo</a>.
+</p>
+
+<p class="par1">
+DEFINICIÓN 1 (Atributo.) Un atributo es una propiedad
+que asociamos con un objeto; sirve para describir el objeto que
+contiene algún valor que se requiere para el procesamiento. [5] .
+</p>
+
+<p>
+El mecanismo de clase en lenguajes orientados a objetos proporcionan una
+forma de crear tales objetos. <b>Una clase es un diseño que se puede reutilizar cualquier cantidad de veces para crear objetos</b>. Por ejemplo, considerar un sistema
+orientado a objetos para una universidad. Hay objetos de estudiante, objetos
+de instructor, objetos de miembros del personal, etc. Antes de crear tales objetos, creamos las clases que sirven como planos para estudiantes, instructores,
+miembros del personal y cursos de la siguiente manera:
+</p>
+
+
+<pre class="p1">
+public class Estudiante {
+// codigo pera implementar
+}
+public class Instructor {
+// codigo pera implementar
+}
+public class StaffMember {
+// codigo pera implementar
+}
+public class Curso {
+// codigo para implementar un solo curso
+}
+</pre>
+
+
+<p>
+Las definiciones anteriores muestran cómo crear cuatro clases, sin dar ningún
+detalle. (Nosotros deberı́amos poner los detalles donde hemos dado comentarios.) La clase de token es una palabra clave que dice que estamos creando una
+clase y que el siguiente token es el nombre de la clase. De este modo, hemos
+creado cuatro clases: Estudiante, Instructor, StaffMember y Curso. El corchete
+izquierdo () significa el comienzo de la definición de la clase y el corchete derecho correspondiente () finaliza la definición. El token público es otra palabra
+clave que hace que la clase correspondiente esté disponible en todo el sistema de
+archivos. Antes de ver cómo poner los detalles de la clase, veamos cómo crear
+objetos usando estas clases. El proceso de crear un objeto también se llama
+instanciación. Cada clase introduce un nuevo nombre de tipo. Ası́ estudiante,
+instructor, miembro del personal y Curso son los tipos que hemos introducido.
+El siguiente código crea una instancia de un nuevo objeto de tipo Estudiante.
+</p>
+
+<pre class="p1">
+new Student ( ) ;
+</pre>
+
+<p>
+El nuevo operador hace que el sistema asigne un objeto de tipo Estudian-
+te con suficiente almacenamiento para guardar información sobre un alumno.
+El operador devuelve la dirección de la ubicación que contiene este objeto. Esta dirección se denomina referencia. La declaración anterior se puede ejecutar
+cuando tenemos un nuevo estudiante admitido en la Universidad. Una vez que
+instanciamos un nuevo objeto, debemos almacenar su referencia en algún lugar,
+por lo que que podemos usar más tarde de alguna manera apropiada. Para esto,
+creamos una variable de tipo Estudiante.
+</p>
+
+<pre class="p1">
+Student harry ;
+</pre>
+
+<p>
+Tenga en cuenta que la definición anterior simplemente dice que Harry es
+una variable que puede almacenar referencias a objetos de tipo Estudiante. Por
+lo tanto, podemos escribir
+</p>
+
+<pre class="p1">
+harry = new Student ( ) ;
+</pre>
+
+<p>
+No podemos escribir
+</p>
+
+<pre class="p1">
+harry = new Instructor ( ) ;
+</pre>
+
+<p>
+porque Harry es del tipo Estudiante, que no tiene ninguna relación (en la
+medida en que la clase decida a la de Instructor, que es del tipo de objeto creado del lado derecho de la tarea. Cada vez que instanciamos un nuevo objeto,
+debemos recordar la referencia a ese objeto en algún lado. Sin embargo, no es
+necesario que por cada objeto que instanciamos, declaremos una variable diferente para almacenar su referencia. Si ese fuera el caso, la programación serı́a
+tediosa. Vamos a ilustrar dando una analogı́a. Cuando un estudiante conduce a
+la escuela para tomar una clase, ella se ocupa solo de un número relativamente
+pequeño de objetos: los controles del automóvil, la carretera, los vehı́culos cercanos (y a veces sus ocupantes, aunque no siempre educadamente) y el tránsito,
+señales y signos. (Algunos también pueden tratar con un teléfono celular, ¡lo cual
+no es una buena idea!) Hay muchos otros objetos que el conductor (estudian-
+te) conoce, pero que no está tratando con ellos. Del mismo modo, mantenemos
+las referencias a un número relativamente pequeño de objetos en nuestros programas. Cuando surge la necesidad de acceder a otros objetos, utilizamos las
+referencias que ya tenemos para cubrirlos. Por ejemplo, supongamos que tenemos una referencia a un objeto Student. Ese objeto puede tener un atributo que
+recuerda al asesor del alumno, un objeto Instructor. Si es necesario averiguar el
+asesor de un alumno determinado, podemos consultar el correspondiente objeto
+del alumno para obtener el objeto Instructor. Un solo objeto Instructor puede
+tener atributos que recuerdan todos los consejos del instructor correspondiente.
+</p>
+
+
+
+
+<header>
+<h4 align="center" id=imp>Implementando clases</h4>
+</header>
+
+<p>
+En esta sección damos algunos de los conceptos básicos para crear clases.
+Centrémonos en la clase estudiante que inicialmente codificamos como
+</p>
+
+<pre class="p1">
+public class Student {
+// codigo per a implementar un solo Estudiante
+}
+</pre>
+
+<p>
+Ciertamente nos gustarı́a la capacidad de dar un nombre a un estudiante:
+dado un objeto de estudiante, nosotros debemos poder especificar que el nombre
+del alumno es ”Tom. o ”Jane. o , en general, alguna cuerda, esto a veces se conoce
+como un comportamiento del objeto. Podemos pensar en los objetos de los
+estudiantes que tienen el comportamiento que responden al asignar un nombre.
+Para este propósito, modificamos el código de la siguiente manera.
+</p>
+
+<pre class="p2">
+public class Estudiante {
+	// codigo para hacer otras cosas
+	public void setName ( String studentName ) {
+	// codigo para guardar el nombre
+	}
+}
+</pre>
+
+<p>
+El código que agregamos se llama método. <b>El nombre del método es setName.
+Un método es como un procedimiento o función en programación imperativa en
+que es una unidad de código que no se activa hasta que se invoca. Nuevamente,
+como en el caso de procedimientos y funciones, los métodos aceptan parámetros
+(separados por comas en Java)</b>. Cada parámetro establece el tipo de parámetro
+esperado. <b>Un método puede no devolver nada (como es el caso aquı́) o devolver
+un objeto o un valor de un tipo primitivo. Aquı́ hemos puesto vacı́o delante del
+significado del nombre del método que el método no devuelve nada. Los corchetes izquierdo y derecho comienzan y finalizan el código eso define el método</b>. A
+diferencia de las funciones y procedimientos, los métodos generalmente se invocan a través de objetos. El método setName se define dentro de la clase Student
+e invoca un objetos de tipo Estudiante.
+</p>
+
+<pre class="p1">
+Student aStudent = new Student ( ) ;
+aStudent . setName ( ”Ron” ) ;
+</pre>
+
+<p>
+El método setName () se invoca en ese objeto al que hace referencia un
+estudiante. Intuitivamente el código dentro de ese método debe almacenar el
+nombre en alguna parte. Recuerda que cada objeto se le asigna su propio almacenamiento. Esta pieza de almacenamiento debe incluir espacio para guardar
+el nombre del alumno. Embellecemos el código de la siguiente manera.
+</p>
+
+<pre class="p2">
+public class Student {
+	private String name ;
+	public void setName ( String studentName ) {
+	name = studentName ;
+	}
+	public String getName ( ) {
+	return name ;
+	}
+}
+</pre>
+
+<p>
+Dentro de la clase hemos definido el nombre de la variable de tipo String.
+Se llama un <a href="#openModalD2">campo</a>.
+</p>
+
+<p class="par1">
+DEFINICIÓN 2 (Campo.) Un campo es una variable definida
+directamente dentro de una clase y corresponde a un atributo Cada
+instancia del objeto tendrá almacenamiento para el campo.
+</p>
+
+<p>
+Examinemos el código dentro del método setName. Toma en un parámetro,
+studentName, y asigna el valor en ese objeto String al nombre del campo.
+Es importante comprender cómo Java usa el campo del nombre. Cada objeto
+de tipo El estudiante tiene un campo llamado nombre. Invocamos el método
+setName () en el objeto referido por un estudiante. Como aStudent tiene
+el nombre del campo e invocamos el método en un estudiante, la referencia al
+nombre dentro del método actuará en el campo de nombre de un estudiante. El
+método getName () recupera el contenido del campo de nombre y lo devuelve.
+Para ilustrar esto más a fondo, considere dos objetos de tipo Estudiante.
+</p>
+
+<pre class="p2">
+Student student1 = new Student ( ) ;
+Student student2 = new Student ( ) ;
+student1 . setName ( ” John ” ) ;
+student2 . setName ( ”Mary” ) ;
+System . out . println ( student1 . getName ( ) ) ;
+System . out . println ( student2 . getName ( ) ) ;
+</pre>
+
+<p>
+Se puede acceder a los miembros (campos y métodos por ahora) de una clase
+escribiendo
+</p>
+
+<pre class="p1">
+&#60; object−reference &#62;.&#60; member−name &#62;
+</pre>
+
+<p>
+El objeto al que se refiere student1 tiene su campo de nombre establecido en
+”John”, mientras que el objeto referido por student2 tiene su campo de nombre
+establecido en ”Mary”. El nombre del campo en el código
+</p>
+
+<pre class="p1">
+name = studentName ;
+</pre>
+
+<p>
+se refiere a diferentes objetos en diferentes instancias y, por lo tanto, diferentes instancias de campos. Escribamos un programa completo usando el código
+anterior.
+</p>
+
+<pre class="p2">
+public class Student {
+	// code
+	private String name ;
+	public void setName ( String studentName ) {
+	name = studentName ;
+	}
+	public String getName ( ) {
+	return name ;
+	}
+	public static void main ( String[ ] s ) {
+	Student student1 = new Student ( ) ;
+	Student student2 = new Student ( ) ;
+	student1 . setName ( ” John ” ) ;
+	student2 . setName ( ”Mary” ) ;
+	System . out . println ( student1 . getName ( ) ) ;
+	System . out . println ( student2 . getName ( ) ) ;
+	}
+}
+</pre>
+
+<p>
+La palabra clave public delante del método setName () hace que el método
+esté disponible donde esté disponible el objeto. Pero, ¿qué pasa con la palabra
+clave privada frente a ¿nombre del campo? Significa que solo se puede acceder
+a esta variable desde el código dentro de la clase Estudiante. Desde la linea
+</p>
+
+<pre class="p1">
+name = studentName ;
+</pre>
+
+<p>
+está dentro de la clase, el compilador lo permite. Sin embargo, si escribimos
+</p>
+
+<pre class="p1">
+Student someStudent = new Student ( ) ;
+someStudent . name = ”Mary” ;
+</pre>
+
+<p>
+fuera de la clase, el compilador generará un error de sintaxis. Como regla general, los campos a menudo se definen con el especificador de acceso privado y el
+método Los anuncios suelen hacerse públicos. La idea general es que los campos
+denotan el estado del objeto. y que el estado solo se puede cambiar interactuando a través de métodos predefinidos que denotar el comportamiento del objeto.
+Por lo general, esto ayuda a preservar la integridad de los datos. Sin embargo,
+en el ejemplo actual, es difı́cil argumentar que la consideración de integridad de
+datos juega un rol en hacer que el nombre sea privado porque todo lo que hace
+el método setName es cambiar el campo de nombre Sin embargo, si quisiéramos
+hacer algunas comprobaciones antes de cambiar el estudiante nombre (que no
+deberı́a suceder tan a menudo), esto nos da una forma de hacerlo. Si hubiéramos
+guardado nombre público y otros codificados para acceder directamente al campo, haciendo que el campo sea privado más tarde romperı́a su código. Para un
+uso más justificado del privado, considere el promedio de calificaciones (GPA)
+de un estudiante. Claramente, necesitamos hacer un seguimiento del GPA y necesitamos un campo para ello. GPA no es algo eso se cambia arbitrariamente:
+cambia cuando un estudiante obtiene una calificación para un curso. Entonces
+haciendo su público podrı́a conducir a problemas de integridad porque el campo
+puede ser cambiado inadvertidamente por código incorrecto escrito afuera. Por
+lo tanto, codificamos de la siguiente manera.
+</p>
+
+<pre class="p2">
+public class Student {
+	// field stostore the class es the student has registered for .
+	private String name ;
+	private double gpa ;
+	public void setName ( String studentName ) {
+	name = studentName ;
+	}
+	public void addCourse ( Course newCourse ) {
+	// code to store are fto newCourse in the Student object .
+	}
+	private void computeGPA ( ) {
+	// code to access the stored courses , compute and set the gpa
+	}
+	public double getGPA ( ) {
+	return gpa ;
+	}
+	public void assign Grade ( Course aCourse , char newGrade ) {
+	// code to assign newGrade to aCourse
+	computeGPA ( ) ;
+	}
+}
+</pre>
+
+<p>
+Ahora escribimos código para utilizar la idea anterior.
+</p>
+
+<pre class="p2">
+Student aStudent = new Student ( ) ;
+Course aCourse = new Course ( ) ;
+aStudent . addCourse ( aCourse ) ;
+aStudent . assign Grade ( aCourse, 'B');
+System . out . println ( aStudent . getGPA ( ) ) ;
+</pre>
+
+<p>
+El código anterior crea un objeto Estudiante y un objeto Curso. Llama al
+addCourse método en el alumno, para agregar el curso a la colección de cursos
+tomados por el alumno, y luego llama a asignarGrade. Tenga en cuenta los dos
+parámetros: aCourse y ’B’. Lo implı́cito lo que significa es que el estudiante ha
+completado el curso (aCourse) con una calificación de ”B”. los El código en el
+método debe calcular el nuevo GPA para el estudiante usando la información
+presumiblemente en el curso (como el número de créditos) y el número de puntos
+para una calificación de B’.
+</p>
+
+
+<header>
+<h3 align="center" id=con>Constructores</h3>
+</header>
+
+<p>
+La clase Estudiante tiene un método para establecer el nombre de un estudiante. Aquı́ ponemos el nombre del alumno después de crear el objeto. Esto es
+algo antinatural. Ya que cada estudiante tiene un nombre, cuando creamos un
+objeto de estudiante, probablemente también sepamos el nombre del estudiante.
+Serı́a conveniente almacenar el nombre del alumno en el objeto a medida que
+lo creamos. objeto. Para ver hacia dónde nos dirigimos, considere las siguientes
+declaraciones de variables de primitivas tipos de datos.
+</p>
+
+<pre class="p1">
+int counter = 0 ;
+double final PI = 3 . 1 4 ;
+</pre>
+
+<p>
+Ambas declaraciones almacenan valores en las variables a medida que se
+crean las variables. De otra manera, el objeto Estudiante, cuando se crea, tiene
+un cero en cada bit de cada campo. Java y otros lenguajes orientados a objetos
+permiten la inicialización de campos utilizando lo qué se llaman <a href="#openModalD3">constructores</a>.
+</p>
+
+<p class="par1">
+DEFINICIÓN 3 (Constructor.) Un constructor es parecido a un
+método en el que se puede tener un especificador de acceso (público o privado), un nombre, parámetros y código ejecutable.
+Sin embargo, los constructores tienen las siguientes diferencias o
+caracterı́sticas especiales:
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Los constructores no pueden regresar un tipo: ni siquiera un nulo.</td></tr>
+
+<tr><td>2</td><td>Los constructores tienen el mismo nombre que la clase en la que están definidos.</td></tr>
+
+<tr><td>3</td><td>Se llama a los constructores cuando se crea el objeto.</td></tr>
+</table>
+</p>
+
+<p>
+Para la clase estudiante escribimos el siguiente constructor:
+</p>
+
+
+<pre class="p1">
+public Student(String studentName) {
+	name = studentName;
+}
+</pre>
+
+<p>
+La sintaxis es similar a la de los métodos, pero no hay ningún tipo de retorno. Sin embargo, tiene un
+parámetro, un especificador de acceso de public y un cuerpo con código ejecutable. Si es necesario, uno
+podría poner variables locales también dentro de los constructores.
+Reescribamos la clase Student con este constructor y algunas otras modificaciones.
+</p>
+
+<pre class="p2">
+public class Student {
+	private String name;
+	private String address;
+	private double gpa;
+	public Student(String studentName) {
+	name = studentName;
+	}
+	public void setName(String studentName) {
+	name = studentName;
+	}
+	public void setAddress(String studentAddress) {
+	address = studentAddress;
+	}
+	public String getName() {
+	return name;
+	}
+	public String getAddress() {
+	return address;
+	}
+	public double getGpa() {
+	return gpa;
+	}
+	public void computeGPA(Course newCourse, char grade) {
+	// use the grade and course to update gpa
+	}
+}
+</pre>
+
+<p>
+Ahora mantenemos la dirección del alumno y proporcionamos métodos para establecer y obtener el nombre
+y la direccion.
+Con el constructor anterior, se crea un objeto como se muestra a continuación.
+</p>
+
+<pre class="p2">
+Student aStudent = new Student("John");
+</pre>
+
+<p>
+Cuando se ejecuta la declaración anterior, se llama al constructor con el parámetro dado,
+"John". Esto se almacena en el campo de nombre del objeto.
+En versiones anteriores de la clase Student, no teníamos un constructor. En esos casos
+donde no tenemos un constructor explícito, el sistema inserta un constructor sin argumentos. Una
+ vez que insertamos nuestro propio constructor, el sistema elimina este valor predeterminado, constructor sin argumentos.
+Como resultado, es importante tener en cuenta que lo siguiente ya no es legal porque hay
+constructor sin argumentos.
+</p>
+
+<pre class="p2">
+Student aStudent = new Student();
+</pre>
+
+<p>
+Una clase puede tener cualquier cantidad de constructores. Todos deberían tener firmas diferentes:
+es decir, deberían diferir en la forma en que esperan los parámetros. Lo siguiente agrega dos más
+constructores para la clase de estudiantes.
+</p>
+
+<pre class="p2">
+public class Student {
+	private String name;
+	private String address;
+	private double gpa;
+	public Student(String studentName) {
+	name = studentName;
+	}
+	public Student(String studentName, String studentAddress) {
+	name = studentName;
+	address = studentAddress;
+	}
+	public Student() {
+	}
+	public void setName(String studentName) {
+	name = studentName;
+	}
+	public void setAddress(String studentAddress) {
+	address = studentAddress;
+	}
+	public String getName() {
+	return name;
+	}
+	public String getAddress() {
+	return address;
+	}
+	public double getGpa() {
+	return gpa;
+	}
+	public void computeGPA(Course newCourse, char grade) {
+	22 Basics of Object-Oriented Programming
+	// use the grade and course to update gpa
+	}
+}
+</pre>
+
+<p>
+Observe que todos los constructores tienen el mismo nombre, el cual es el nombre de la clase. Uno de los
+nuevos constructores aceptan el nombre y la dirección del alumno y lo almacenan en el lugar apropiado
+de los campos del objeto. El otro constructor no acepta argumentos y no hace nada: como un resultado, los campos de nombre y dirección del objeto son nulos.
+</p>
+
+<p>Un constructor es una función miembro especial cuya tarea es inicializar los objetos de sus clases. Este es especial porque su nombre es el mismo que el nombre de la clase. El constructor es invocado sin embargo como un objeto de su clase asociada. Es llamado constructor porque estos valores del constructor de los miembros datos de la clase.</p>
+
+<pre class="p2">
+class entero {
+
+	int m, n;
+public:
+	entero(void);
+};
+
+entero :: entero(void) {
+
+	m = 0;
+	n = 0;
+}
+
+</pre>
+
+
+<font color=yellow><h3 align="center">Imprimiendo el objeto</h3></font>
+
+Queremos imprimir un objeto. Por lo que hacemos:
+
+<pre class="p2">
+System.out.println(student);
+</pre>
+
+<p>
+donde estudiante es una referencia de tipo Student.
+La declaración, sin embargo, no producirá nada muy útil para alguien que espera
+ver el nombre y la dirección del alumno. Para objetos, a menos que el programador haya proporcionado
+código específico, Java siempre imprime el nombre de la clase de la cual el objeto es una instancia,
+seguido del símbolo @ y un valor, que es la representación hexadecimal sin signo
+del código hash del objeto. No se hace suposiciones sobre los campos a imprimir;
+no imprime ninguno de ellos!
+Este problema se resuelve poniendo un método llamado toString () en la clase. El método contiene código que le dice a Java cómo convertir el objeto en una cadena.
+</p>
+
+<pre class="p2">
+public String toString() {
+	// return a string
+}
+</pre>
+
+<p>
+Siempre que un objeto se convierta en una Cadena, Java llama al método toString para convertir el
+objeto en cadena como cualquier otro método. La llamada del método System.out.println () intenta
+convierte sus argumentos a la forma de cadena. Entonces llama al método toString ().
+Podemos completar el método toString para la clase Student como se muestra a continuación.
+</p>
+
+<pre class="p2">
+public String toString() {
+	return "Name " + name + " Address " + address + " GPA " + gpa;
+}
+</pre>
+
+<p>
+Es una buena práctica poner el método toString en cada clase y devolver un método apropiado.
+A veces, el método puede involucrarse un poco más que el método simple que se tiene arriba; por ejemplo, podemos querer imprimir los elementos de una matriz que el objeto
+mantiene, en cuyo caso un bucle para concatenar los elementos está en orden.
+</p>
+
+
+
+
+
+
+<font color=yellow><h3 align="center">Miembros estáticos</h3></font>
+
+<p>
+Hasta ahora, se accedió a todos los miembros de una clase utilizando la sintaxis
+</p>
+
+<pre class="p2">
+&lt;object_reference&gt;.&lt;member_name&gt;
+</pre>
+
+
+<pre class="p2">
+Nombre del objeto.Nonbre de la funcion (arguentos);
+</pre>
+
+<p>Por ejemplo</p>
+
+<pre class="p2">
+x.getdata(100,75.5);
+</pre>
+
+<p>Una variable declarada como public puede ser accesada por el objeto directamente. Por ejemplo:</p>
+
+<pre class="p2">
+class xyz {
+	int x;
+	int y;
+public:
+	int z;
+};
+</pre>
+
+<p>Si queremos hacer los siguientes accesos:</p>
+
+<pre class="p2">
+xyz p;
+p.x = 0; //error, devido a que x es private
+p.z = 10; // es correcto, devido a que z es public
+</pre>
+
+<p>Definición de funciones miembro, la scuales pueden ser definidas en dos posiciones: fuera de la definición de clase; dentro de la definición de clase.</p>
+
+<pre class="p2">
+TipoDeRegreso NombreClase :: NombreFuncion (DeclaracionArgumentos) {
+
+	Cuerpo de la funcion
+
+	}
+</pre>
+
+<p>Ejemplo:</p>
+
+<pre class="p2">
+void elemento :: getdata(int a, float b) {
+
+	numero = a;
+	costo = b;
+
+	}
+
+void elemento :: putdata(void) {
+
+	cout << "Numero:" << numero << "\n";
+	cout << "Costo:" << costo << "\n";
+
+	}
+</pre>
+
+<p>Declaración de funciones miembro dentro de la clase.</p>
+
+<pre class="p2">
+class elemento {
+
+	int numero;
+	float costo;
+public:
+	void getdata(int a, float b);
+	void putdata(void) {
+
+		cout << "Numero:" << numero << "\n";
+		cout << "Costo:" << costo << "\n"; //dentro de la clase
+
+	}
+};
+</pre>
+
+<p>
+Esto es bastante lógico porque queríamos actuar sobre objetos específicos. Cada objeto estudiantil,
+por ejemplo, tiene su propio nombre, gpa y campos de dirección. Si no especificamos el objeto
+y simplemente se especifica el campo/método, la especificación estaría incompleta.
+<font color=black>A veces, necesitamos campos que sean comunes a todas las instancias de un objeto</font>. En otras palabras,
+dichos campos tienen exactamente una instancia y todas las instancias de la clase comparten esta instancia.
+Dichos campos se llaman <font color=yellow><b>campos estáticos</b></font>. Por el contrario, los campos se mantienen por separado para cada objeto. Se llaman <font color=yellow><b>campos de instancia</b></font>.
+Veamos un ejemplo. La mayoría de las universidades generalmente tienen una regla de que los estudiantes se mantengan para alcanzar un cierto promedio mínimo que se pondrá por una prueba académica. Asumamos que el estándar mínimo es el mismo para todos los estudiantes. De vez en cuando, una universidad puede decidir
+que este estándar mínimo se suba o baje. (¡La variación de grado puede ser un problema!)
+Nos gustaría presentar un campo para realizar un seguimiento de este mínimo GPA. Desde el valor que tiene que ser el mismo para todos los estudiantes, no es necesario mantener un campo separado para
+cada objeto del alumno. De hecho, es arriesgado mantener un campo separado para cada objeto: ya que cada instancia del campo debe tener el mismo valor, se debe hacer un esfuerzo especial para
+actualizar todas las copias del campo cada vez que decidamos cambiar su valor. Esto puede dar lugar a
+problemas de integridad, también es bastante ineficiente.
+Supongamos que decidimos llamar a este nuevo campo, minimumGPA, y hacer que su tipo sea doble.
+Definimos la variable de la siguiente manera.
+</p>
+
+<pre class="p2">
+private static double minimumGPA;
+</pre>
+
+<p>
+El especificador estático significa que solo habrá una instancia del campo GPA mínimo;
+El campo se creará tan pronto como el sistema cargue la clase. Tenga en cuenta que sí no tiene que haber ningún objeto para que este campo exista. Esta instancia será compartida por todas las instancias
+de la clase.
+Supongamos que necesitamos modificar este campo ocasionalmente y que también queremos un método que
+nos diga cuál es su valor. Normalmente escribimos lo que se llaman métodos estáticos para hacer el trabajo.
+</p>
+
+<pre class="p2">
+public static void setMinimumGPA(double newMinimum) {
+	minimumGPA = newMinimum;
+}
+public static double getMinimumGPA() {
+	return minimumGPA;
+}
+</pre>
+
+<p>
+La palabra clave <font color=black>static especifica que el método se puede ejecutar sin usar un objeto</font>.
+El método se llama de la siguiente manera.
+</p>
+
+<pre class="p2">
+&lt;class_Name&gt;.&lt;method_name&gt;
+</pre>
+
+<p>
+Por ejemplo,
+</p>
+
+<pre class="p2">
+Student.setMinimumGPA(2.0);
+System.out.println("Minimum GPA requirement is "
++ Student.getMinimumGPA());
+</pre>
+
+<p>
+Los métodos y campos con la palabra clave static delante de ellos generalmente se denominan static
+métodos y campos estáticos respectivamente.
+Es instructivo ver, en el caso anterior, por qué queremos que los dos métodos sean estáticos.
+Supongamos que fueran métodos de instancia. Luego tienen que ser llamados usando un objeto como en el
+siguiente ejemplo.
+</p>
+
+<pre class="p2">
+Student student1 = new Student("John");
+student1.setMinimumGPA(2.0);
+</pre>
+
+<p>
+Si bien esto es técnicamente correcto, tiene las siguientes desventajas:
+</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Se requiere que creemos un objeto y lo usemos para modificar un campo estático. Esto va en contra del espíritu de los miembros estáticos; deberían ser accesibles incluso si no hay objetos.</td></tr>
+
+<tr><td>2</td><td>Alguién que lea el fragmento anterior puede hacer creer que setMinimumGPA () se usa para modificar un campo de instancia.</td></tr>
+</table>
+
+<p>
+Por otro lado, un método static no puede acceder a ningún campo o método de la instancia. Es fácil
+ver por qué se puede acceder a un método estático sin utilizar ningún objeto. Por lo tanto,
+¿Qué objeto debe usar el método para acceder al miembro? De hecho, puede que no haya
+objetos creados aún cuando el método estático está en uso.
+</p>
+
+<P>Un miembro variable static tiene ciertas características especiales. Que son:</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Se inicializa a cero cuando el primer objeto de su clase es creado. Ninguna otra inicialización se permite.</td></tr>
+
+<tr><td>2</td><td>Solamente una copia del miembro se crea para la clase entera y esta se comparte para todos los objetos de la clase, no importa cuantos objetos son creados.</td></tr>
+
+<tr><td>3</td><td>Es visible solamente dentro de la clase, pero su tiempo de vida es durante el programa entero.</td></tr>
+
+</table>
+
+<p>Las variables static son normalmente usadas para mantener valores comunes para toda la clase. Por ejemplo, un miembro dato static puede ser usado como un contador que registra las ocurrencias de todos los objetos. El programa ProgStatic.cpp lo ilustra:</p>
+
+
+<p>Una función miembro puede ser llamada por otra función que es miembro de su clase. Un objeto no puede invocar una función privada con el operador punto</p>
+
+<pre class="p2">
+class muestra {
+
+	int m;
+	void leer(void);
+public:
+	void actualizar(void);
+	void escribir(void);
+};
+
+</pre> 
+
+<p>Si s<SUB>1</SUB> es un objeto de la clase muestra, entonces:</p>
+
+<pre class="p2">
+s1.leer();
+</pre>
+
+<p>es ilegal. Sin embargo, la función leer() puede ser llamada por la función actualizar() para actualizar el valor de m.</p>
+
+<pre class="p2">
+void muestra :: actualizar(void){
+
+	leer();
+	}
+</pre>
+
+<p>El arreglo puede ser usado como una variable miembro en una clase. La siguiente definición de clase es válida:</p>
+
+<pre class="p2">
+const int size = 10;
+
+class arreglo {
+
+	int a[size];
+public:
+	void setval(void);
+	void display(void);
+};
+</pre>
+
+<p>Funciones miembro static, parecido a la variable miembro static tienen las siguientes propiedades:</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Una función static puede tener acceso a solamante otro miembro static (función o variable) declarada en la misma clase.</td></tr>
+
+<tr><td>2</td><td>La función miembro static puede ser llamada usando el nombre de la clase (en vez de su objeto) como sigue:</td></tr>
+</table>
+
+<pre class="p2">
+Nombre de la clase :: Nombre de la funcion;
+</pre>
+
+<p>Arreglo de objetos, sabemos que un arreglo puede ser cualquier tipo incluyendo una struc. Podemos tener arreglos de variables que son del tipo class. Tales variables son llamadas arreglos de objetos. Ver la siguiente clase:</p>
+
+<pre class="p2">
+class empleo {
+
+	char nombre[30];
+	float edad;
+public:
+	void getdata(void);
+	void putdata(void);
+};
+</pre>
+
+<p>Para crear arreglos objeto se hace de la siguiente forma</p>
+
+<pre class="p2">
+empleo manager[3];
+empleo foreman[15];
+empleo worker[75];
+</pre>
+
+<p>Objetos como argumentos de funciones, parecido a cualquier otro tipo de datos, un objeto puede ser usado como un argumento de función, esto puede hacerse de dos formas.</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Pase por valor. Una copia del objeto entero es pasado a la función.</td></tr>
+
+<tr><td>2</td><td>Pase por referencia. Solamente la dirección de los objetos es transferido a la función.</td></tr>
+</table>
+
+<p>Las funciones amigas como ya se dijo, los miembros privados no pueden ser accesados desde fuera de la clase. Una función no miembro no puede tener acceso a los datos privados de la clase.</p>
+
+<p>Funciones miembro const, si una función miembro no altera los datos en la clase, por lo que declaramos a la función miembro como <font color="black">const</font>, y se hace como sigue:</p>
+
+<pre class="p2">
+void mul(int, int) const;
+double getBalance() const;
+</pre>
+
+
+
+
+
+<font color=yellow><h3 align="center">Programando con clases mútipes</h3></font>
+
+<p>
+Incluso el sistema de aplicación orientado a objetos más simple tendrá múltiples clases que estan relacionadas para el sistema universitario que discutimos anteriormente en este capítulo, identificamos y escribimos los esqueletos de cuatro clases: <font color=black>estudiante, instructor, miembro del personal y curso</font>.
+En esta sección, veremos cómo estructurar las clases para tales casos.
+Consideremos la clase del curso. Existe un curso en el catálogo de la escuela, con un nombre,
+Identificación del curso, breve descripción y número de créditos. Aquí hay una posible definición.
+</p>
+
+<pre class="p2">
+public class Course {
+	private String id;
+	private String name;
+	private int numberofCredits;
+	private String description;
+	public Course(String courseId, courseName) {
+	id = courseId;
+	name = courseName;
+	}
+	public void setNumberOfCredits(int credits) {
+	numberOfCredits = credits;
+	}
+	public void setDescription(String courseDescription) {
+	description = courseDescription;
+	}
+	public String getId() {
+	return id;
+	}
+	public String getName() {
+	return name;
+	}
+	public int getNumberOfCredits() {
+	return numberOfCredits;
+	}
+	public String getDescription() {
+	return description;
+	}
+}
+</pre>
+
+<p>
+Un departamento selecciona del catálogo una cantidad de cursos para ofrecer cada semestre. Una sección es un curso ofrecido en un semestre determinado, que se celebra en un lugar determinado en ciertos días. Algunas veces (No nos preocuparemos por el instructor para la clase, capacidad, etc.). Permítanos crea una clase para esto. Usaremos objetos String para almacenar el lugar, los días, la hora y el semestre. Por lo tanto, nosotros debemos tener tres campos llamados lugar, días y horas y semestre con semantics, lo cual es obvio.
+Claramente, esto es inadecuado: la clase no contiene el nombre y otros detalles del
+curso. Pero es redundante tener campos para estos porque la información está disponible en
+el objeto del curso correspondiente. Lo que se requiere es un campo que recuerde la corrección
+curso de patrocinio. Podemos hacer esto teniendo la siguiente declaración de campo.
+</p>
+
+<pre class="p2">
+private Course course;
+</pre>
+
+<p>
+Cuando se crea la instancia de Sección, este campo se puede inicializar.
+</p>
+
+<pre class="p2">
+public class Section {
+	private String semester;
+	private String place;
+	private String daysAndTimes;
+	private Course course;
+	public Section(Course theCourse, String theSemester,
+	String thePlace, String theDaysAndTimes) {
+	course = theCourse;
+	place = thePlace;
+	daysAndTimes = theDaysAndTimes;
+	semester = theSemester;
+	}
+	public String getPlace() {
+	return place;
+	}
+	public String getDaysAndTimes() {
+	return daysAndTimes;
+	}
+	public String getSemester() {
+	return semester;
+	}
+	public Course getCourse() {
+	return course;
+	}
+	public void setPlace(String newPlace) {
+	place = newPlace;
+	}
+	public void setDaysAndTimes(String newDaysAndTimes) {
+	daysAndTimes = newDaysAndTimes;
+	}
+}
+</pre>
+
+<p>
+¿Dónde creamos una instancia de Sección? Una posibilidad es hacer esto en el curso.
+Supongamos que agregamos un nuevo método llamado createSection en Course, que
+acepta el semestre, el lugar, los días y la hora como parámetros y devuelve una instancia de un
+nuevo objeto de sección para el curso. Luego lo usaremos de la siguiente manera.
+</p>
+
+<pre class="p2">
+Course cs350 = new Course("CS 350", "Data Structures");
+Section cs350Section1 = cs350.createSection("Fall 2004",
+"Lecture Hall 12", "T H 1-2:15");
+Section cs350Section2 = cs350.createSection("Fall 2004",
+"Lecture Hall 25", "‘M W F 10-10:50");
+</pre>
+
+<p>
+Pasemos a la tarea de codificar el método createSection. Se parece a lo siguiente:
+</p>
+
+<pre class="p2">
+public Section createSection(String semester, String place, String time) {
+	return new Section(/* parameters */);
+}
+</pre>
+
+<p>
+¿Cómo invocamos al constructor de Sección desde el método createSection? El problema es que, aunque tenemos referencias al semestre, el lugar y los días y horas disponibles en los parámetros de este método, necesitamos una referencia al objeto del curso a sí mismo. Este no es un parámetro explícito para el método, sino el objeto del curso en el que se invoca el método createSection, de hecho, la referencia que necesitamos. Aqui el idioma viene en nuestra ayuda. En el método createSection, la referencia al objeto que fue utilizado en su invocación está disponible a través de una palabra clave especial llamada <b>this</b>.
+En general, suponga que tenemos una clase C con un método m como se muestra a continuación. también
+se muestra otra clase C2, que tiene un método llamado m2 que requiere un objeto de tipo C
+como su único parámetro.
+</p>
+
+<pre class="p2">
+public class C {
+	public void m() {
+	// this refers to the object on whom m is being invoked
+	}
+}
+public class C2 {
+	public void m2(C aC) {
+	// code
+	}
+}
+</pre>
+
+<p>
+Supongamos que creamos una instancia de C desde el exterior e invocamos m como se muestra a continuación.
+</p>
+
+<pre class="p2">
+C c1 = new C();
+c1.m();
+</pre>
+
+Figura 1.
+
+<p>
+Esto se representa en la Figura 2.1. La referencia c1 apunta a una instancia de C. Supongamos que el método m contenía el siguiente código:
+</p>
+
+<pre class="p2">
+public void m(){
+C2 c2 = new C2();
+c2.m2(this);
+}
+</pre>
+
+<p>
+En lo anterior, esta es una referencia que apunta al mismo objeto que c1. En resumen, un
+El objeto puede referirse a sí mismo utilizando la palabra clave <b>this</b>.
+Continuando con el ejemplo de los cursos y sus secciones, podemos codificar
+Método createSection como se muestra a continuación.
+</p>
+
+<pre class="p2">
+public Section createSection(String semester, String place, String time) {
+return new Section(this, semester, place, time);
+}
+</pre>
+
+<p>
+La palabra clave <b>this</b> obtiene la referencia al objeto del curso y se pasa al construc-
+tor de sección.
+Además de pasar una referencia a sí mismo a los métodos, podemos usar esto para obtener el
+campos del objeto, que son útiles para resolver conflictos. Por ejemplo,
+</p>
+
+<pre class="p2">
+class Section {
+    private String place;
+    public void setPlace(String place) {
+    this.place = place;
+    }
+}
+</pre>
+
+<p>
+El <b>place</b> del identificador en el lado derecho de la asignación se refiere al parámetro formal; en el lado izquierdo está precedido por <b>this</b> y, por lo tanto, es una referencia al campo privado.
+</p>
+
+<font color=yellow><h3 align="center">Interfaces</h3></font>
+
+<p>
+Diseñamos clases basadas en especificaciones. Estas especificaciones podrían estar escritas en inglés y aumentado con diagramas, pero un compilador no puede leer dichos documentos y asegurarse de que
+la clase cumple con las especificaciones.
+Una interfaz es una forma de especificar parcialmente nuestros requisitos. Supongamos que necesitamos
+crea una lista de todos los estudiantes en nuestra universidad. Digamos que deberíamos poder agregar un estudiante, eliminar un estudiante e imprimir todos los estudiantes de la lista. Podemos especificar la sintaxis para los métodos creando una interfaz como se muestra a continuación.
+</p>
+
+<pre class="p2">
+public interface StudentList {
+	public void add(Student student);
+	public void delete(String name);
+	public void print();
+}
+</pre>
+
+<p>
+Observe que la sintaxis de la primera línea se parece a la sintaxis de una clase con la palabra clave <b>class</b> reemplazada por la palabras clave <b>interface</b>. Hemos especificado tres métodos: agregar con
+un solo parámetro de tipo Estudiante; eliminar con el nombre del alumno como parámetro,
+e imprimir sin parámetros. Tenga en cuenta que no hemos proporcionado un cuerpo para los métodos; ahí
+es un punto y coma inmediatamente después del paréntesis derecho que finaliza los parámetros.
+Veamos cómo utilizar la entidad anterior. Ahora podemos crear una clase que implemente las tres operaciones de arriba y esto se muestra abajo.
+</p>
+
+<pre class="p2">
+public class StudentLinkedList implements StudentList {
+	// campos para crear una lista enlazada
+	public void add(Student student) {
+	// codigo para agregar un estudiante a la lista
+	}
+	public void delete(String name) {
+	// codigo para borrar un estudiante de la lista
+	}
+	public void print() {
+	// codigo para imprimir la lista
+	}
+// otros metodos
+}
+</pre>
+
+<p>
+La primera línea indica que estamos creando una nueva clase llamada StudentLinkedList, las palabras <b>implements StudentList</b> significan que esta clase tendrá todos los métodos de
+la interfaz StudentList. Es un error de sintaxis si la clase no implementó los tres métodos porque se ha afirmado que los debe implementar.
+Así como una clase introduce un nuevo tipo, una interfaz también crea un nuevo tipo. En el ejemplo anterior, StudentList y StudentLinkedList son ambos <b>tipos</b>. Todas las instancias de
+la clase StudentLinkedList también es del tipo StudentList.
+Así podemos escribir:
+</p>
+
+<pre class="p2">
+StudentList students;
+students = new StudentLinkedList();
+// ejemplo de codigo que usa StudentList;
+Student s1 = new Student(/* parameters */);
+students.add(s1);
+s1 = new Student(/* parameters */);
+students.add(s1);
+students.print();
+</pre>
+
+<p>
+Creamos una instancia de la clase StudentLinkedList y almacenamos una referencia de ella en estudiantes, que es de tipo StudentList. Podemos invocar los tres métodos de interfaz (y de la clase) a través de esta variable. Parte de esto probablemente parece esfuerzo perdido. Aunque en este momento no podemos discutir
+todos los beneficios de usar interfaces, analicemos uno: De lo anterior, preste especial atención a los siguientes hechos:
+</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>La clase StudentLinkedList implementa la interfaz StudentList. Asi que, las variables de tipo StudentLinkedList también son del tipo StudentList.</td></tr>
+
+<tr><td>2</td><td>Declaramos students del tipo StudentLinkedList y no como StudentLinkedList.</td></tr>
+
+<tr><td>3</td><td>Nos limitamos a usar los métodos de la interfaz StudentList.</td></tr>
+</table>
+
+<p>
+Luego, suponga que encontramos que la clase StudentLinkedList no es satisfactoria: tal vez no sea lo suficientemente eficiente. Nos gustaría intentar crear una nueva clase StudentArrayList que usa arreglos en lugar de una implementación de lista enlazada.
+</p>
+
+<pre class="p2">
+public class StudentArrayList implements StudentList {
+	// campos para mantener un arreglo basado en lista 
+	public void add(Student student) {
+	// codigo para agregar un estudiante a la lista
+	}
+public void delete(String name) {
+	// codigo para borrar un estudiante de una lista
+}
+public void print() {
+	// codigo para imprimir la lista
+	}
+}
+</pre>
+
+<p>
+Ahora, podemos reescribir el código que manipula StudentList como se muestra a continuación.
+</p>
+
+<pre class="p2">
+StudentList students;
+students = new StudentArrayList();
+// codigo que usa StudentList;
+</pre>
+
+<p>
+El único cambio que necesitamos hacer en nuestro código para usar la lista es el que crea antes el objeto StudentList. Ya que nos limitamos a usar los métodos de StudentList en el resto del código (en lugar de usar métodos o campos exclusivos de
+la clase StudentLinkedList), no necesitamos cambiar nada más. Esto hace el mantenimiento más fácil.
+Es instructivo completar el código para StudentLinkedList y
+StudentArrayList.
+</p>
+
+<font color=yellow><h3 align="center">Implementación de StudentLinkedList</h3></font>
+
+<p>
+Una lista enlazada consta de nodos, cada uno de los cuales almacena la dirección del siguiente. Así escribimos la siguiente clase:
+</p>
+
+<pre class="p2">
+public class StudentNode {
+	private Student data;
+	private StudentNode next;
+	public StudentNode(Student student, StudentNode initialLink) {
+	this.data = student;
+	next = initialLink;
+	}
+	public Student getData() {
+		return data;
+	}
+	public void setData(Student student) {
+		this.data = student;
+	}
+	public StudentNode getNext() {
+		return next;
+	}
+	public void setNext(StudentNode node) {
+		next = node;
+	}
+}
+</pre>
+
+<p>
+Esta clase será necesaria solo en StudentLinkedList. Por lo tanto, podemos usar lo que son llamadas clases internas en Java. Una clase interna es una clase encerrada dentro de otra clase. Así, nosotros escribimos
+</p>
+
+<pre class="p2">
+public class StudentLinkedList implements StudentList {
+	private StudentNode head;
+	private class StudentNode {
+		private Student data;
+		private StudentNode next;
+		public StudentNode(Student student, StudentNode initialLink) {
+			this.data = student;
+			next = initialLink;
+		}
+	public Student getData() {
+		return data;
+	}
+	public void setData(Student student) {
+		this.data = student;
+	}
+	public StudentNode getNext() {
+		return next;
+	}
+	public void setNext(StudentNode node) {
+		next = node;
+	}
+}
+   public void add(Student student) {
+	// codigo para agregar un estudiante a la lista
+   }
+   public void delete(String name) {
+	// codigo para por borrar un estudiante de la lista
+   }
+   public void print() {
+	// codigo para imprimir la lista
+   }
+}
+</pre>
+
+<p>
+La clase interna StudentNode ahora se declara como privada, por lo que no se puede usar desde un código fuera de la clase.
+Codifiquemos el método add.
+</p>
+
+<pre class="p2">
+public void add(Student student) {
+	head = new StudentNode(student, head);
+}
+</pre>
+
+<p>
+El código crea un nuevo StudentNode y lo coloca al principio de la lista. A continuación, codificamos el método de print.
+</p>
+
+<pre class="p2">
+public void print() {
+	System.out.print("List: ");
+	for (StudentNode temp = head; temp != null; temp = temp.getNext()) {
+		System.out.print(temp.getData() + " ");
+	}
+   	System.out.println();
+}
+</pre>
+
+<p>
+El código comienza al principio de la lista, extrae los datos en el nodo correspondiente e imprime esos datos. La impresión finaliza cuando el nodo al que apunta es nulo; es decir, no existe.
+Suponiendo que la clase Student tiene un método toString() adecuado, obtendremos el nombre, dirección y GPA de cada alumno impreso.
+Finalmente, codificamos el método para eliminar a un alumno. Tendremos que mirar a cada estudiante objetar y ver si el campo de nombre coincide con el nombre dado. ¿Cómo hacemos esta comparación?
+Supongamos que <b>temp</b> es una variable que se refiere a un objeto Student. La llamada temp.getData ()
+recupera el objeto <b>Student</b> y <b>temp.getData().getName()</b> obtiene el nombre del estudiante. Considere la siguiente comparación:
+</p>
+
+<pre class="p2">
+temp.getData().getName() == studentName
+</pre>
+
+<p>
+Ambos lados de la comparación de igualdad generan una referencia. El sistema simplemente compara estas referencias y la expresión es verdadera si y solo si las dos son iguales. En general, esta no es una comparación correcta.
+Cuando necesitamos comparar dos objetos, digamos, object1 y object2, debemos escribir
+</p>
+
+<pre class="p2">
+object1.equals(object2)
+</pre>
+
+<p>
+lo que devuelve un valor lógico que es verdadero si los dos objetos son iguales y de lo contrario falso. El código para el método de eliminación se proporciona a continuación.
+</p>
+
+<pre class="p2">
+public void delete(String studentName) {
+	if (head == null) {
+		return;
+	}
+	if (head.getData().getName().equals(studentName)) {
+		head = head.getNext();
+	} else {
+	   for (StudentNode temp = head.getNext(), previous = head;
+		temp != null; temp = temp.getNext()) {
+	   if (temp.getData().getName().equals(studentName)) {
+		previous.setNext(temp.getNext());
+		return;
+	   }
+	   }
+	}
+}
+</pre>
+
+<p>
+El código primero verifica si la lista está vacía; Si es así, no hay nada que hacer. Con un no vacío lista, comprueba si el nombre del alumno esta al principio de la lista y es el mismo que el nombre
+suministrado en el parámetro. Si coinciden, el objeto Estudiante al principio de la lista es eliminado de la lista moviendo la cabeza al siguiente objeto (que de no existir, en el que caso de que tenemos un nulo). Si el elemento al principio de la lista no es lo que queremos, la ejecución pasa a un bucle que examina todos los elementos que comienzan en la segunda posición hasta el final de
+la lista o se ubica al estudiante con el nombre de pila. La variable anterior siempre se refiere al objeto que precede al objeto mencionado por <b>temp</b>. Una vez que se encuentra, el objeto se puede eliminar.
+</p>
+
+<font color=yellow><h3 align="center">Implementación de listas con arreglos</h3></font>
+
+<p>
+Necesitamos configurar una arreglo de objetos Student. Esto se hace de lasiguiente manera.
+</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Declare un campo en la clase StudentArrayList, que es una arreglo de tipo Student.</td></tr>
+
+<tr><td>2</td><td>Asigne un arreglo del tamaño requerido. Asignaremos almacenamiento para tantos estudiantes como lo desee el usuario; Si el usuario no especifica un número, asignaremos espacio para un pequeño número, digamos, 10 objetos. En cualquier caso, cuando este arreglo se llene, le asignaremos más.</td></tr>
+</table>
+
+<p>
+Por lo tanto, necesitamos dos constructores: uno que acepte la capacidad inicial y el otro que no acepta nada. El código para el campo de arreglo y el constructor se proporciona a continuación.
+</p>
+
+<pre class="p2">
+public class StudentArrayList implements StudentList {
+	private Student[] students;
+	private int initialCapacity;
+	public StudentArrayList() {
+	   students = new Student[10];
+	   initialCapacity = 10;
+	}
+public StudentArrayList(int capacity) {
+	students = new Student[capacity];
+	initialCapacity = capacity;
+	}
+// other methods
+}
+</pre>
+
+<p>
+Tenga en cuenta que el código para el primer constructor es un caso especial del segundo constructor. Esto es
+indeseable. Deberíamos intentar reutilizar el código en el segundo constructor porque es general
+suficiente. Por lo tanto, cuando el usuario no proporciona una capacidad inicial, deberíamos invocar de alguna manera
+el segundo constructor con un valor de 10. Esta reutilización se puede lograr reescribiendo el primer
+constructor de la siguiente manera:
+</p>
+
+<pre class="p2">
+public StudentArrayList() {
+	this(10);
+}
+</pre>
+
+<p>
+En este caso, esto se refiere a otro constructor de la clase. Estamos especificando un constructor
+que tiene un único parámetro int e invocandolo con un valor de parámetro de 10. El efecto neto
+sería el mismo que el del usuario que escribe una nueva StudentArrayList (10).
+El uso de esto en el contexto anterior no debe confundirse con el que se usa
+para referirse al objeto utilizado en los métodos de instancia. Además, tenga en cuenta los siguientes aspectos.
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>No puede haber código antes de la declaración this(). En otras palabras, esta llamada debería ser la primera declaración en el constructor.</td></tr>
+
+<tr><td>2</td><td>Puede tener código en el constructor después de la llamada a otro constructor.</td></tr>
+
+<tr><td>3</td><td>Puede llamar como máximo a otro constructor desde un constructor.</td></tr>
+</table>
+
+
+Usaremos el siguiente enfoque para administrar la lista. Tendremos dos variables, primero eso da el índice de la primera celda ocupada, y cuenta, el número de objetos en la lista.
+Cuando la lista está vacía, ambos son 0. Cuando agregamos un objeto a la lista, lo insertaremos en (first + count)% array size e inclrementa count.
+</p>
+
+
+<pre class="p2">
+public class StudentArrayList implements StudentList {
+	private Student[] students;
+	private int first;
+	private int count;
+	private int initialCapacity;
+	public StudentArrayList() {
+	   students = new Student[10];
+	   initialCapacity = 10;
+	}
+public StudentArrayList(int capacity) {
+	students = new Student[capacity];
+	initialCapacity = capacity;
+	}
+public void add(Student student) {
+	if (count == students.length) {
+	   reallocate(count * 2);
+	}
+	int last = (first + count) % students.length;
+	students[last] = student;
+	count++;
+}
+public void delete(String name) {
+	for (int index = first, counter = 0; counter menque count;
+	      counter++, index = (index + 1) % students.length) {
+	   if (students[index].getName().equals(name)) {
+	      students[index] = students[(first + count - 1) % students.length];
+	      students[(first + count - 1) % students.length] = null;
+	      count--;
+	      return;
+	}
+}
+}
+public Student get(int index) {
+	if (index >= 0 && index menque count) {
+	   return students[index];
+	}
+	return null;
+	}
+	public int size() {
+		return count;
+	}
+	public void print() {
+	   for (int index = first, counter = 0; counter menque count;
+	      counter++, index = (index + 1)
+	      % students.length) {
+	      System.out.println(students[index]);
+	   }
+}
+public void reallocate(int size) {
+	Student[] temp = new Student[size];
+	if (first + count >= students.length) {
+	   int count1 = students.length - first;
+	   int count2 = count - count1;
+	   System.arraycopy(students, first, temp, 0, count1);
+	   System.arraycopy(students, first + count1, temp, count1, count2);
+	} else {
+	   System.arraycopy(students, first, temp, 0, count);
+	}
+	students = temp;
+	first = 0;
+	}
+}
+</pre>
+
+<font color=yellow><h3 align="center">Clases abstractas</h3></font>
+
+<p>
+En cierto modo, las clases y las interfaces representan los extremos de un espectro de posibles implementaciones cuando escribimos una clase, codificamos cada campo y método; en otras palabras, el código está completo en cierto sentido. Las interfaces son meramente especificaciones. A veces, podríamos conocer las especificaciones para una clase, pero podríamos no tener la información necesaria para implementar la clase por completo. Por ejemplo, considere el conjunto de posibles figuras que se pueden dibujar en la pantalla de una computadora. Si bien el conjunto es infinito, consideremos solo tres posibilidades: triángulos, rectángulos y círculos. Sabemos que el conjunto de campos que se necesitan para representar cada objeto es diferente, pero también hay algunos puntos en común, por ejemplo, todas las formas tienen un área. En tales casos, podemos implementar una clase parcialmente usando lo que se llama clases abstractas. En el caso de una figura, podemos codificar:
+</p>
+
+<pre class="p2">
+public abstract class Figura {
+	private double area;
+	public abstract void calcularArea();
+	public double getArea() {
+		return area;
+	}
+	// mas campos y metodos
+}
+</pre>
+
+<p>
+La clase se declara como abstracta (utilizando la palabra clave abstract antes de la palabra clave class), lo que significa que la clase está incompleta. Como sabemos que cada forma tiene un área, hemos definido el campo area como double y el método getArea() para devolver el área de la figura. Requiere que haya un método para calcular el área de una figura, así que hemos escrito el método getArea(). Pero dado que la fórmula para calcular el área es diferente para las tres formas posibles, hemos dejado de lado la implementación y declaramos el método en sí mismo como abstracto.
+Cualquier clase que contenga un método abstracto debe declararse abstract. No podemos crear una instancia de una clase abstracta. La utilidad de una clase abstracta proviene del hecho de que proporciona una implementación básica que otras clases pueden "extender". Esto se hace usando la técnica de herencia. Ver capítulo 3.
+</p>
+
+<font color=yellow><h3 align="center">Comparando objetos por igualdad</h3></font>
+
+<p>
+Hemos visto la necesidad de usar el método equals para comparar dos objetos. En esta sección exploramos este tema un poco más.
+Dadas dos variables del mismo tipo primitivo, es fácil para Java decidir si son iguales: las variables son iguales si tienen el mismo valor. Sin embargo, considere un clase como estudiante. Es una clase definida por el usuario. ¿Cuándo dices que dos objetos estudiantes son iguales? Aquí hay algunas posibilidades:
+</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>El lenguaje especifica que dos objetos son iguales si ocupan el mismo almacenamiento físico.</td></tr>
+
+<tr><td>2</td><td>El lenguaje proporciona la facilidad para verificar si los campos correspondientes de la observación de los objetos son iguales. Esta es una definición recursiva. Por ejemplo, en la clase Student, los campos son el nombre, dirección y gpa. Para que el campo de nombre de dos objetos sea igual, tenemos que saber cuándo dos objetos String son iguales. Como el gpa es un doble, el campo no presenta problemas.</td></tr>
+
+<tr><td>3</td><td>El lenguaje deja la responsabilidad a la clase misma; es decir, permite que la clase especifique lo dudoso cuando dos de sus objetos son iguales.</td></tr>
+</table>
+
+<p>
+Java es compatible con (1) y (3) anteriores. Dado que una clase puede especificar cuándo otro objeto es igual a un objeto de su tipo, podemos implementar (2) como un caso especial.
+Para especificar cómo se deben comparar los objetos por igualdad, necesitamos escribir un método especial llamado equals que tiene el siguiente formato:
+</p>
+
+<pre class="p2">
+public boolean equals(Object someObject) {
+	// implement the policy for comparison in this method.
+	// return true if and only if this object is equal to someObject
+}
+</pre>
+
+<p>
+Se nos dan dos objetos: this, el que invocamos es equals() y someObject,
+un objeto arbitrario, que puede ser de cualquier tipo. Es suficiente en esta etapa saber que Object es una clase especial en Java y cada objeto puede considerarse como una instancia de esta clase.
+El método es libre de decidir si someObject es igual a this de la forma que desee. Por ejemplo, digamos que un objeto Student es igual a otro objeto solo si ese
+object es un objeto Student, los nombres son iguales y tienen la misma dirección. Uno
+podria definitivamente argumentar que la política es defectuosa, pero ese no es nuestro enfoque. Aquí es cómo implementar el método igual.
+</p>
+
+<pre class="p2">
+public boolean equals(Object anObject) {
+	Student student = (Student) anObject;
+	return student.name.equals(name) && student.address.equals(address);
+}
+</pre>
+
+<p>
+Como se explicó anteriormente, el método se coloca dentro de la clase Student y se invoca como abajo.
+</p>
+
+<pre class="p2">
+Student student1 = new Student("Tom");
+student1.setAddress("1 Main Street");
+// some other code
+Student student2 = new Student("Tom");
+student2.setAddress("1 Main Street");
+// more code
+if (student1.equals(student2)) {
+	System.out.println("student1 is the same as student2");
+	} else {
+   		System.out.println("student1 is not the same as student2");
+	}
+</pre>
+
+<p>
+Después de crear los dos objetos Student con el mismo nombre y dirección, invocamos
+el método equals en student1 con student2 como parámetro real. Lo primero que el método equals hace es convertir el objeto entrante como un objeto Student. La referencia resultante se puede usar para acceder a todos los miembros del objeto Student correspondiente y, en particular, los campos de name y address.
+Después de la conversión, verificamos si el campo name del objeto de conversión es igual al campo nombre de this, que en nuestro ejemplo es estudiante1. Tenga en cuenta que estamos haciendo esto invocando el método equals en el objeto student.name, que es una cadena; así invocamos el método equals de la clase String. Resulta que el método equals de la clase String devuelve true si y solo si cada carácter en una cadena es igual a el carácter correspondiente de la otra cadena.
+Los campos de dirección se comparan de manera similar. El método devuelve verdadero si y solo si los dos campos coinciden.
+¿Qué sucede cuando pasa un objeto que no sea un Student, por ejemplo, un objeto Course? Esto es válido porque un objeto Course también se puede ver como de tipo Object. La conversión en el método equals fallará y el programa puede fallar si este problema no es dirigido.
+</p>
+
+<font color=yellow><h3 align="center">Una notación para describir el sistema orientado a objetos</h3></font>
+
+<p>
+Todos sabemos que es importante documentar los sistemas y programas. En esta sección, nosotros introduce una notación llamada Unified Modeling Language (UML), que es el estándar para documentar sistemas orientados a objetos. Se han sugerido muchas ideas diferentes para documentar sistemas orientados a objetos en el pasado y el término "Unificado" refleja el hecho de que UML fue un intento de unificar estos diferentes enfoques. Entre los que contribuyeron al desarrollo de esta notación, los esfuerzos de Grady Booch, James Rumbaugh e Ivor Jacobson merecen una mención especial. Después de que se desarrolló la notación inicial alrededor de 1995, el
+Object Management Group (OMG) asumió la tarea de desarrollar la notación más adelante en 1997. Con el paso de los años, el lenguaje se hizo más rico y, naturalmente, más complejo. La versión actual es UML 2.0.
+UML proporciona una notación esquemática o gráfica para documentar los artefactos, como clases, objetos y paquetes que forman un sistema orientado a objetos. Los diagramas UML pueden se dividirá en tres categorías.
+</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td><strong>Diagramas de estructura</strong> que muestran la arquitectura estática del sistema independientemente de la hora. Por ejemplo, los diagramas de estructura para un sistema universitario pueden incluir diagramas
+que representan el diseño de clases como Estudiantes, Facultad, etc.</td></tr>
+
+<tr><td>2</td><td><strong>Los diagramas de comportamiento</strong> que representan el comportamiento de un sistema o proceso de negocio.</td></tr>
+
+<tr><td>3</td><td><strong>Los diagramas de interacción</strong> que muestran los métodos, interacciones y actividades de la observación de objetos. Para un sistema universitario, un posible diagrama de comportamiento mostraría cómo un estudiante se registra para un curso.</td></tr>
+</table>
+
+<p>
+Los diagramas de estructura podrían ser uno de los siguientes.
+</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td><strong>Diagramas de clases</strong>: muestran las clases, sus métodos y campos.</td></tr>
+
+<tr><td>2</td><td><strong>Diagramas de estructura compuesta</strong>: proporcionan un medio para presentar los detalles de un elemento estructural como una clase. Como ejemplo, considere una clase que representa un sistema de microordenador. Cada objeto contiene otros objetos como CPU, memoria, placa base, etc., que se mostrarían como partes que componen el sistema microordenador en sí. El diagrama de estructura compuesta para tal sistema mostraría estas partes y exhibir las relaciones entre ellos ayudando al lector a entender los detalles.</td></tr>
+
+<tr><td>3</td><td><strong>Diagramas de componentes</strong>: los componentes son entidades de software que satisfacen ciertos requerimientos funcionales especificados por las interfaces. Estos diagramas muestran los detalles de
+componentes.</td></tr>
+
+<tr><td>4</td><td><strong>Diagramas de implementación</strong>: un sistema orientado a objetos consta de una serie de archivos ejecutables a veces distribuidos en múltiples elementos informáticos. Estos diagramas muestran la asignación de archivos ejecutables en los elementos informáticos y la comunicación que implica entre estas entidades.</td></tr>
+
+<tr><td>5</td><td><strong>Diagramas de objetos</strong>: se utilizan para mostrar cómo los objetos están relacionados y se utilizan en la ejecución. Por ejemplo, en un sistema universitario podemos mostrar el objeto correspondiente a un
+curso específico y mostrar otros objetos que representan a los estudiantes que se han registrado para el curso. Como esto muestra un escenario real que involucra estudiantes y un curso, es mucho menos abstracto que los diagramas de clase y contribuye a una mejor comprensión del sistema.</td></tr>
+
+<tr><td>6</td><td><strong>Diagramas de paquetes</strong>: las clases pueden agruparse en paquetes y los paquetes pueden residir en otros paquetes. Estos diagramas muestran paquetes y dependencias entre ellos:
+si un cambio en un paquete puede afectar a otros paquetes.</td></tr>
+</table>
+
+Figura 2.
+
+<p>
+Cada uno de los seis diagramas es un diagrama de estructura. Esta jerarquía se ilustra en la Figura 2.2
+como un árbol con nodos que representan estos seis diagramas como hijos del diagrama de estructura nodo. Resulta que este método de mostrar una jerarquía se usa en UML; entonces estamos usando ¡Notación UML para describir UML!
+Los diagramas de comportamiento pueden ser cualquiera de los siguientes (ver Figura 2.3).
+</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td><strong>Diagramas de actividad</strong>: es algo así como un diagrama de flujo en el que muestra la secuencia de eventos en una actividad. Al igual que un diagrama de flujo, utiliza varios tipos de nodos, como acciones, decisiones, puntos de fusión, etc. Acomoda objetos con tipos adecuados
+que representan objetos, flujos de objetos, etc.</td></tr>
+
+<tr><td>2</td><td><strong>Diagramas de casos de uso</strong>: un caso de uso es una sola unidad de algún trabajo útil. Involucra a un usuario
+(llamado actor) y el sistema. Un ejemplo de un caso de uso en un entorno universitario es un estudiante que se inscribe en un curso. Un diagrama de caso de uso muestra la interacción involucrado en un caso de uso.</td></tr>
+
+<tr><td>3</td><td><strong>Diagramas de máquina de estados</strong>: muestra la secuencia de estados por los que pasa un objeto durante su vida útil, por ejemplo, el software que controla una lavadora de ropa. Inicialmente, el la lavadora está en estado apagado. Después de poner el jabón, la ropa se carga y se enciende
+botón presionado, el sistema pasa a un estado donde absorbe agua. En este estado el
+el sistema espera una señal del sensor de agua para indicar que el agua ha alcanzado
+el nivel requerido. Luego, el sistema pasa al estado de lavado donde el lavado toma
+lugar. Después de esto, el sistema puede pasar por otros estados como enjuagar y centrifugar y finalmente alcanza el estado lavado.</td></tr>
+</table>
+
+<p>
+Hay cuatro tipos de diagramas de interacción como se muestra en la Figura 2.4.
+</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td><strong>Diagramas de secuencia</strong>: un diagrama de secuencia es un diagrama de interacción que detalla cómo las operaciones se llevan a cabo: qué mensajes se envían y cuándo. Los diagramas de secuencia son
+organizado según el tiempo. El tiempo avanza a medida que avanza la página. Los objetos involucrados en la operación se enumeran de izquierda a derecha según cuándo participan en la secuencia del mensaje</td></tr>
+
+<tr><td>2</td><td><strong>Diagramas de tiempo</strong>: muestra el cambio en el estado de un objeto a lo largo del tiempo como el objeto
+reacciona a los eventos. El eje horizontal muestra el tiempo y los cambios de estado se indican en el eje vertical. Contraste esto con diagramas de secuencia en los cuales el tiempo está en el eje vertical.</td></tr>
+
+<tr><td>3</td><td><strong>Diagramas de comunicación</strong>: un diagrama de comunicación sirve esencialmente con el mismo
+propósito como un diagrama de secuencia. Al igual que en un diagrama de secuencia, este diagrama también tiene nodos para objetos y usa líneas dirigidas entre objetos para indicar el flujo de mensajes y dirección. Sin embargo, a diferencia de los diagramas de secuencia, la dirección vertical no tiene
+la relación con el tiempo y el orden de los mensajes se muestra numerando las líneas dirigidas que representan mensajes. Las interacciones que involucran una gran cantidad de objetos pueden ser algo inconvenientes
+mostrar usando diagramas de secuencia porque deben estar dispuestos horizontalmente. Ya que no se aplican tales restricciones a los diagramas de comunicación, son más fáciles de dibujar.
+Sin embargo, el orden de los mensajes puede ser más difícil de ver en los diagramas de comunicación.</td></tr>
+
+<tr><td>4</td><td><strong>Diagramas de visión general de interacción</strong>: un diagrama de visión general de interacción muestra los controles de nivel de flujo en un sistema. Muestra las interacciones entre diagramas de interacción.
+tales como diagramas de secuencia y diagramas de comunicación. Cada nodo en el diagrama puede ser un diagrama de interacción.</td></tr>
+</table>
+
+<p>
+Veremos ejemplos de muchos de estos diagramas a medida que desarrollemos conceptos en este libro. Ala vez, mostramos un ejemplo de un diagrama de clase.
+</p>
+
+<font color=yellow><h3 align="center">Diagramas de clase</h3></font>
+
+<p>
+La figura 2.5 es un ejemplo de un diagrama de clase. Cada clase está representada por un cuadro, que se divide en tres rectángulos. El nombre de la clase se da en el rectángulo superior. Los atributos se muestran con sus nombres y sus tipos en el segundo cuadro. La tercera caja muestra los métodos con sus tipos y parámetros de retorno (nombres y tipos). El especificador de acceso para cada campo y método se proporciona justo delante del campo nombre o del método nombre. Un signo - indica acceso privado, + significa acceso público y # (no se muestra en este ejemplo)
+se utiliza para el acceso protegido, que discutiremos en el Capítulo 3.
+</p>
+
+<font color=yellow><h3 align="center">Casos de uso y diagramas de casos de uso</h3></font>
+
+<p>
+Un caso de uso describe una cierta pieza de funcionalidad deseada de un sistema de aplicación. Eso se construye durante la etapa de análisis. Muestra la interacción entre un actor, que podría ser un ser humano o una pieza de software o hardware y el sistema. No especifica cómo el sistema lleva a cabo la tarea.
+Como ejemplo de un caso de uso simple, describamos qué hará un cajero automático simple hacer. Un usuario puede retirar o depositar dinero de su cuenta bancaria utilizando esta máquina. Esta funcionalidad se muestra en el diagrama de casos de uso de la Figura 2.6.
+</p>
+
+<p>
+Los casos de uso pueden describirse verbalmente en una tabla con dos columnas: la primera columna muestra qué hace el actor y la segunda columna describe el comportamiento del sistema.
+</p>
+
+<p>
+A continuación damos el caso de uso para retirar dinero.
+</p>
+
+<p>
+Observe que el caso de uso especifica las responsabilidades de las dos entidades pero no muestra cómo procesa el sistema la solicitud. A lo largo del libro, expresamos casos de uso en un formato de dos columnas como el anterior.
+El caso de uso especificado anteriormente no dice lo que se supone que debe hacer el sistema. Por ejemplo, ¿qué debe hacer el sistema si no es un cajero automático válido? ¿se inserta la tarjeta? Tales consideraciones pueden resultar en una especificación más complicada. Que es especificado anteriormente a veces se denomina flujo principal.
+</p>
+
+<font color=yellow><h3 align="center">Diagramas de secuencia</h3></font>
+
+<p>
+Uno de los principales objetivos del diseño es determinar las clases y sus responsabilidades y una forma de progresar hacia el objetivo anterior es crear diagramas de secuencia para cada caso de uso identificamos en la etapa de análisis. En dicho diagrama desglosamos el sistema en un número de objetos y decidir qué debe lograr cada objeto en el caso de uso correspondiente. Es decir, delegamos responsabilidades.
+Tenemos una columna para cada entidad que juega un papel en el caso de uso. La dirección vertical representa el flujo del tiempo. Las flechas horizontales representan funcionalidades que se invocan; la entidad en la cola de la flecha invoca el método nombrado en la entidad a la cabeza de la flecha.
+Por ejemplo, la Figura 2.7 muestra el diagrama de secuencia correspondiente al caso de uso dimos anteriormente para retirarse de un cajero automático. Los rectángulos en la parte superior del diagrama representan al cliente, el cajero automático y dos objetos que residen en la base de datos del banco: Accounts, que almacena todos los objetos de la cuenta y BankAccount, que almacena información relacionada con la cuenta para una sola cuenta. Para cada objeto, dibujamos una linea vertical discontinua, llamada línea de vida, para mostrar las acciones del objeto. El largo y ancho de las cajas rectangulares dentro de estas líneas de vida que se muestran cuándo ese objeto está activo.
+</p>
+
+<p>
+En muchos casos de uso, el actor interactúa solo con la entidad más a la izquierda, que generalmente representa algún tipo de interfaz. Estas interacciones reflejan la funcionalidad descrita en el
+caso de uso. La primera flecha indica que el cliente (actor) inserta la tarjeta de débito en el cajero automático, que, a su vez, solicita el PIN, como lo muestra la flecha del cajero automático al cliente. Observe que la última línea es más baja que la línea que representa la inserción de la tarjeta. Esto es porque
+el tiempo aumenta a medida que avanzamos en el diagrama. Los eventos en el diagrama de secuencia que ocurrieron después de que el cliente ingresa el PIN depende de cómo se haya implementado el sistema. En nuestro ejemplo hipotético, suponemos que el cajero automático tiene que acceder a un repositorio central (a saber, Cuentas) e intente recuperar la información del usuario. Si tiene éxito, el repositorio devuelve una referencia a un objeto (BankAccount) que representa la cuenta del usuario, y el ATM luego interactúa con este objeto para completar la transacción.
+El diagrama de secuencia nos da los detalles de la implementación: las llamadas del cajero automático al método getAccount en el objeto Accounts con el número de tarjeta como parámetro. El objeto Accounts devuelve la referencia al objeto BankAccount correspondiente al número de tarjeta, o nulo si dicha cuenta no existe.
+Cuando se invoca el método getAccount, el objeto Accounts llama al método
+retrieveAccount para obtener el objeto BankAccount al número de tarjeta correspondiente. 
+Observe el arco autodirigido en la línea de vida del objeto Accounts, lo que indica que el cálculo se realiza localmente dentro de Accounts. El método getAccount invocan y devuelven líneas separadas, con la devolución mostrada por una línea punteada.
+Luego, el cajero automático invoca el método verifyPIN en el objeto BankAccount para asegurar de que el PIN sea válido. Si por alguna razón la tarjeta no es válida, Accounts devuelve una referencia nula, en cuyo caso el procesamiento posterior es imposible. Por lo tanto, la llamada para verificar el PIN está condicionada a que la referencia no sea nula. Esto se indica en
+el diagrama de secuencia escribiendo [cuenta no nula] junto con la llamada al método verifyPIN. Tal condicional se llama guardia.
+Así como Accounts llamaron a un método en sí mismo, BankAccount llama al método
+verifyPIN para ver si el PIN ingresado por el usuario es válido. El resultado, un booleano, es regresado y se muestra en una línea de puntos separada en el diagrama. Si el PIN es válido, el cajero automático
+pide al usuario el monto a retirar. Una vez más, tenga en cuenta el guardia asociado con esta acción. Después de recibir el valor (la cantidad a retirar), la máquina envía el mensaje retirar con el importe como parámetro para el objeto BankAccount, que verifica si el monto puede retirarse llamando al método debit en sí mismo. Los resultados se devuelve al cajero automático, que distribuye efectivo siempre que el resultado sea aceptable.
+</p>
+
+<font color=yellow><h3 align="center">Asosiación</h3></font>
+
+<p>
+En nuestro ejemplo que involucraba el cajero automático, Accounts y BankAccount, la instancia Accounts contenía todos los objetos de BankAcount, cada uno de los cuales podría ser recuperado suministrando un número de tarjeta. Esta relación se puede mostrar usando una asociación como en la Figura
+2.8. Observe el número 1 sobre la línea cerca del rectángulo que representa Accounts y 0 ... * en el extremo derecho de la línea cerca de BankAccount. Significan que un objeto Accounts puede contener referencias a cero o más objetos de BankAccount.
+</p>
+
+<font color=yellow><h3 align="center">Interfaces y su implementación</h3></font>
+
+<p>
+Las interfaces y su implementación se pueden representar en UML como en la Figura 2.9. Con la interfaz StudentList y la clase StudentLinkedList que lo implementa, dibujamos un cuadro para representar la interfaz y otro para representar a la clase. Los métodos se muestran en ambos. La línea de puntos de la clase a la interfaz muestra que la clase implementa la interfaz.
+</p>
+
+<font color=yellow><h3 align="center">Discusión y lecturas futuras</h3></font>
+
+<p>
+El concepto de clase es fundamental para el paradigma orientado a objetos. Como hemos discutido, se basa en la noción de un tipo de datos abstracto y uno puede rastrear sus orígenes hasta el lenguaje de programación Simula. Este capítulo también discutió algunos de la notación UML usado para describir clases. En el próximo capítulo veremos cómo se interconectan las clases para formar un sistema y el uso de UML para denotar estas relaciones.
+La sintaxis y los conceptos de Java que hemos descrito en este capítulo son bastante similares a los de C ++; así que el lector debería tener poca dificultad para ser presentado a ese lenguaje. Una diferencia fundamental entre Java y C ++ está en la disponibilidad de punteros en C ++, que puede manipularse usando aritmética de puntero de manera que agregue considerable flexibilidad y poder al lenguaje. Sin embargo, la aritmética del puntero y otras características en el lenguaje también hace que C ++ sea más desafiante para alguien nuevo en este concepto.
+Dado que nuestra intención es cubrir solo las características del lenguaje suficientes para completar la implementación, es posible que algunos lectores deseen explorar otras características del lenguaje. Para los que deseen una exposición a las numerosas características de Java, le sugerimos Core Java de Cornell y Horstmann [25]. Se puede encontrar una exposición más suave y lenta a la programación en Java en Liang [27]. Si la sintaxis y la semántica de Java le resultan bastante fáciles, pero desea obtener más información sobre el uso de Java, puede echar un vistazo a Eckel [11].
+Es importante darse cuenta de que los conceptos de programación orientada a objetos que hemos discutido se basan en el lenguaje Java. Las ideas son algo diferentes en idiomas como Ruby, que abandona la comprobación de tipos estáticos y permite cambios mucho más dinámicos en estructura de clase durante el tiempo de ejecución. Para una introducción a Ruby, ver [9].
+</p>
+
+<font color=yellow><h3 align="center">Proyectos</h3></font>
+
+<p>
+<table CELLSPACING="18">
+<tr><td>1</td><td>Un grupo de consumidores prueba productos. Cree una clase llamada Producto con lo siguiente
+campos:</td></tr>
+
+<tr><td></td><td>
+(a) Nombre del modelo,
+(b) Nombre del fabricante,
+(c) precio de venta,
+(d) Una calificación general ("A", "B", "C", "D", "F"),
+(e) Una calificación de confiabilidad (basada en una encuesta al consumidor) que es un número doble entre 0 y 5,
+(f) El número de clientes que contribuyeron a la encuesta sobre la calificación de confiabilidad. Recuerde que los nombres deben contener una secuencia de caracteres y el precio minorista puede tener una parte fraccional.</td></tr>
+<tr><td></td><td>
+La clase debe tener dos constructores:
+(a) El primer constructor acepta el nombre del modelo, el nombre del fabricante y el precio de venta en ese orden.
+(b) El segundo constructor acepta el nombre del modelo y el nombre del fabricante en ese orden, y este constructor debe usar efectivamente el primer constructor.
+Tener métodos para obtener todos los campos. Tener métodos para establecer el precio minorista y el total clasificación.
+La calificación de confiabilidad es el promedio de las calificaciones de confiabilidad de todos los clientes que calificaron este producto. Se debe escribir un método llamado rateReliability para ingresar el Calificación de confiabilidad de un cliente. Este método tiene un único parámetro que toma en
+fiabilidad del producto según lo visto por un cliente. El método debe entonces aumentar el número de clientes que calificaron el producto y actualizaron la calificación de confiabilidad usando La siguiente fórmula.</td></tr>
+
+<tr><td></td><td>
+Nuevo valor del índice de confiabilidad = (Valor anterior del índice de confiabilidad * Valor anterior del número-
+ber de clientes + Calificación de confiabilidad de este cliente) / Nuevo valor del número de
+clientes.
+Por ejemplo, suponga que el antiguo valor de confiabilidad era 4.5 basado en la entrada de
+100 clientes Si un nuevo cliente otorga una calificación de confiabilidad de 1.0, entonces el nuevo valor
+de fiabilidad sería
+(4.5 * 100 + 1.0) / 101
+que es 4.465347.
+Anule el método toString de manera adecuada.</td</tr>
+
+<tr><td>2</td><td>Escriba una clase Java llamada LongInteger según las siguientes especificaciones.
+Los objetos de esta clase almacenan enteros que pueden tener hasta 50 dígitos. La clase debe
+tener los siguientes constructores y métodos.</td></tr>
+
+<tr><td></td><td>
+(a) public LongInteger (): establece el entero en 0.
+(b) public LongInteger (int [] otherDigits): establece el entero en
+entero dado representado por el parámetro Una copia de otros dígitos debe ser
+hecho para evitar cambios accidentales.
+(c) public LongInteger (int número) Establece el entero en el valor dado
+en el parámetro
+(d) public void readIn (): lee en el entero desde el teclado. Usted puede
+suponga que solo se ingresarán dígitos.
+(e) public LongInteger add (int número) Agrega un número al inte-
+ger representado por este objeto y devuelve el resultado.
+(f) Public LongInteger add (número LongInteger) Agrega número
+al entero representado por este objeto y devuelve el resultado.
+(g) public String toString () devuelve una representación String de la entrada
+teger
+Use una matriz de 50 entradas para almacenar los dígitos del número.</td></tr>
+
+<tr><td>3</td><td>Estudie la interfaz extensible que figura a continuación.</td></tr>
+
+<tr><td></td><td>
+<pre class="p1">
+interfaz pública extensible {
+público boolean append (char c);
+public boolean append (secuencia char []);
+}
+<pre>
+</td></tr>
+
+<tr><td><td>
+El método append (char c) agrega un carácter al objeto (o, más pre
+con precisión la clase del objeto) que implementa esta interfaz. La segunda versión de la
+El método agrega todos los caracteres de la matriz a este objeto. Si no hay espacio en el
+objetar anexar, los métodos devuelven falso; de lo contrario, vuelven verdad. Escribir
+código para la clase SimpleBuffer que implementa la interfaz anterior que tiene un
+constructor de la siguiente firma.
+Public SimpleBuffer (tamaño int)
+El tamaño inicial de la matriz se pasa como un parámetro.
+La clase debe tener dos campos: uno que almacena la matriz de caracteres y el otro que
+almacena el número de elementos realmente rellenados en la matriz.
+Esta clase también debe implementar el método toString para recuperar correctamente un
+Representación de cadena de la matriz de caracteres. También debe implementar los iguales
+método tal que dos memorias intermedias son iguales si y solo si contienen el mismo conjunto de
+caracteres.</td></tr>
+</table>
+
+<font color=yellow><h3 align="center">Ejercicios</h3></font>
+
+<p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Dada la siguiente clase, escriba un constructor que no tenga parámetros pero utilice constructor dado para que x e y se inicialicen en tiempo de construcción a 1 y 2 respectivamente</td></tr>
+
+<tr><td></td><td>
+<pre class="p2">
+clase pública SomeClass {
+int privado x;
+int privado;
+public SomeClass (int a, int b) {
+x = a;
+y = b;
+}
+// escribe un sin argumento (sin parámetros)
+// constructor aquí, para que x e y sean
+// inicializado a 1 y 2 respectivamente.
+// DEBES utilizar el constructor dado.
+}
+<pre>
+</td></tr>
+
+<tr><td>2</td><td>En la Sección 2.3, tuvimos una clase llamada Curso, que tenía un método que crea Objetos de sección. Modifique las dos clases para que
+(a) La clase del curso mantiene la lista de todas las secciones.
+(b) La sección almacena la capacidad y el número de estudiantes inscritos en la clase.
+
+
+(c) El curso tiene una función de búsqueda que devuelve una lista de secciones que no están completas.</td></tr>
+
+<tr><td>3</td><td>En la Sección 2.7, tuvimos una discusión sobre dos posibles casos de uso para usar un cajero automático.
+Desarrolle el caso de uso para depositar dinero usando un cajero automático.</td></tr>
+
+<tr><td>4</td><td>Dibuje el diagrama de secuencia para el caso de uso que desarrolló para el Ejercicio 3.</td></tr>
+
+<tr><td>5</td><td>Observe el caso de uso y el diagrama de secuencia que desarrollamos para retirar ing dinero a través de un cajero automático. Diseñe el método getAccount () en la clase Cuentas ¿Necesita esto interacción entre las dos clases, Cuentas y ¿Cuenta bancaria? Si es así, ¿qué métodos adicionales necesita en BankAccount?</td></tr>
+</table>
+</p>
+
+<font color=yellow><h3 align="center">Reforzamiento</h3></font>
+
+<p align="center">
+El objeto STUDENT. Los datos Name, Cumpleaños, Calificación. Funciones: Total, Promedio, Visualizar.
+
+Por ejemplo una clase Fruta, se crea el objeto mango:
+
+<pre class="p1">
+Fruit mango;
+</pre>
+
+<pre class="p2">
+Pajaro: Atributos son las características pone huevos.
+Pajaros que no vuelan: Atributos; Pinguino, Kiwi.
+Pajaros que vuelan: Atributos; Martín de arena, zorzal petirrojo.
+</pre>
+
+<pre class="p1">
+Forma: Dibujar().
+Objeto circulo: Dibujar( circulo).
+Objeto caja: Dibujar(caja).
+Objeto triángulo: Dibujar(triángulo)
+</pre>
+
+<pre class="p1">
+#include iostream
+
+using namespace std;
+
+int main()
+{
+	count #C++ es mejor que C";
+
+	return 0;
+}
+</pre>
+
+<font color=yellow><h3 align="center">Creación de objetos const</h3></font>
+
+<p>Cuando creamos los objetos constantes se usa la palabra clave <b>const</b> antes de la declaración. Por ejemplo, se crea el objeto X como un objeto constante de la clase matriz.</p>
+
+<pre class="p1">
+const matriz X(m, n);
+</pre>
+
+<p>la modificación de valores de m y n generará errores en la compilación. Un objeto constante puede llamar funciones miembro const. Si el objeto const invoca a una función miembro const, se generarán un error de compilación.</p>
+
+<font color=yellow><h3 align="center">Destructores</h3></font>
+
+<p>El destructor destruye el objeto creado por un constructor. Y para invocar la destrucción se hace por el siguiente código:</p>
+
+<pre class="p1">
+&#126;entero() {}
+</pre>
+
+<pre class="p2">
+matriz :: &#126;matriz() {
+	for(int i = 0; i < d1; i++)
+		delete p[i];
+		delete p;
+}
+</pre>
+
+
+
+</div>
+</article>
+
+		<!--  VENTANAS   -->
+
+<!--Ventana 1-->
+
+<div id="openModal" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 2</font></h3>
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+	<font color=black>Características de las figuras</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la entrada y salida del Compilador.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig3.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 2-->
+
+<div id="openModal1" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 1</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la arquitectura del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig2.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 3-->
+
+<div id="openModal2" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 3</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de definiciones</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Definición de intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<p><font color=black>Otro tipo de traductor, llamado intérprete, procesa en forma 			interna el programa fuente y los datos al mismo tiempo. Es decir, la interpretación 				del formulario de origen interno se produce en tiempo de ejecución y no se 				genera ningún programa objeto.</font></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 4-->
+
+<div id="openModal3" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 4</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la entrada y salida del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig1.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 5-->
+
+<div id="openModal4" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 4</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama del concepto del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig4.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 6-->
+
+<div id="openModal5" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 5</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama del intérprete para ejemplificar con el compilador.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig5.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+
+<!--Ventana Cuadro-->
+
+<div id="openModalC1" class="modalDialog">
+	<div>
+		<h3><font color=black>CUADRO 1</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de cuadros</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Sugerencia sobre la tabla de sı́mbolos.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+                <table color=black CELLSPACING="20">
+                    <tr><td><font color=black>1</font></td><td><font color=black>Posición</font></td><td><font color=black>...</fony></td></tr>
+                    <tr><td><font color=black>2</font></td><td><font color=black>Inicial</font></td><td><font color=black>...</sont></td></tr>
+                    <tr><td><font color=black>3</font></td><td><font color=black>Velocidad</fony></td><td><font color=black>...</font></td></tr>
+                    <tr><td><font color=black>4</font>/td><td></td><td><font color=black>...</font></td></tr>
+                </table>
+			    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 7-->
+
+<div id="openModalD1" class="modalDialog">
+	<div>
+		<h3><font color=black>Definición 1</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de definiciones</font>.
+
+
+<table width="350" cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Definición de Atributo.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p class="par1"><font color=black>
+DEFINICIÓN 1 (Atributo.) Un atributo es una propiedad
+que asociamos con un objeto; sirve para describir el objeto que
+contiene algún valor que se requiere para el procesamiento. [5] .</font>
+</p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 8-->
+
+<div id="openModalD2" class="modalDialog">
+	<div>
+		<h3><font color=black>Definición 2</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de definiciones</font>.
+
+
+<table width="350" cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Definición de Campo.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p class="par1"><font color=black>
+DEFINICIÓN 2 (Campo.) Un campo es una variable definida
+directamente dentro de una clase y corresponde a un atributo Cada
+instancia del objeto tendrá almacenamiento para el campo.
+</font>
+</p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 9-->
+
+<div id="openModalD3" class="modalDialog">
+	<div>
+		<h3><font color=black>Definición 3</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de definiciones</font>.
+
+
+<table width="350" cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Definición de Constructor.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p class="par1"><font color=black>
+DEFINICIÓN 3 (Constructor.) Un constructor es parecido a un
+método en el que se puede tener un especificador de acceso (público o privado), un nombre, parámetros y código ejecutable.
+Sin embargo, los constructores tienen las siguientes diferencias o
+caracterı́sticas especiales:
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Los constructores no pueden regresar un tipo: ni siquiera un nulo.</td></tr>
+
+<tr><td>2</td><td>Los constructores tienen el mismo nombre que la clase en la que están definidos.</td></tr>
+
+<tr><td>3</td><td>Se llama a los constructores cuando se crea el objeto.</td></tr>
+</table>
+</font>
+</p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 10-->
+
+<div id="openModalD10" class="modalDialog">
+	<div>
+		<h3><font color=black>Código 1</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de código</font>.
+
+
+<table width="350" cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Formato de acceso.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<font color=black>
+<pre class="p2">
+Student aStudent = new Student ( ) ;
+Course aCourse = new Course ( ) ;
+aStudent . addCourse ( aCourse ) ;
+aStudent . assign Grade ( aCourse, 'B');
+System . out . println ( aStudent . getGPA ( ) ) ;
+</pre>
+
+</font>
+</p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 11-->
+
+<div id="openModalD11" class="modalDialog">
+	<div>
+		<h3><font color=black>Código 2</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de código</font>.
+
+
+<table width="350" cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Formato de miembro.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<font color=black>
+
+<pre class="p2">
+public class Student {
+// field stostore the class es the student has registered for .
+private String name ;
+private double gpa ;
+public void setName ( String studentName ) {
+name = studentName ;
+}
+public void addCourse ( Course newCourse ) {
+// code to store are fto newCourse in the Student object .
+}
+private void computeGPA ( ) {
+// code to access the stored courses , compute and set the gpa
+}
+public double getGPA ( ) {
+return gpa ;
+}
+public void assign Grade ( Course aCourse , char newGrade ) {
+// code to assign newGrade to aCourse
+computeGPA ( ) ;
+}
+}
+</pre>
+</font>
+</p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+
+
+
+<aside class="lateralDer">
+
+<font color=yellow><h3 align="center">Definiciones</h3></font>
+
+<p class="p4">
+<table class="t" CELLSPACING="18">
+<tr><td><a href="#openModalD1">atributo</a></td><td><a href="#openModalD2">campo</a></td></tr>
+<tr><td><a href="#openModalD3">constructores</a></td><td><a href="#openModal4">Conversión</a></td></tr>
+</table>
+</p>
+
+</aside>
+
+
+<aside class="lateralIzq">
+
+<font color=yellow><h3 align="center">Código</h3></font>
+
+<p class="p4">
+<table class="t" CELLSPACING="18">
+<tr><td><a href="#openModalD10">Acceso</a></td><td><a href="#openModalD11">Miembros</a></td></tr>
+<tr><td><a href="#openModalD3">Objetos</a></td><td><a href="#openModal4">Clases</a></td></tr>
+
+<tr><td><a href="#openModalD3">Constructor</a></td><td><a href="#openModal4">Variables</a></td></tr>
+</table>
+</p>
+
+</aside>
+
+
+</body>
+</html>

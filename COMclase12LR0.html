@@ -1,0 +1,110 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 0%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+	font-size: 20px;
+}
+
+.a1 {
+	margin-left: 50%;
+	float: right;
+	position: absolute;
+	transform: translate(-15%, -60%);
+	background-color: rgba(98,98,98,0.5);
+}
+
+table {
+	margin-left: 8%;
+	font-size: 30px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+COMPILADORES
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 12: Analizador ascendente LR(0)
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+<font color=yellow>¿Que es una analizador ascendente?</font>
+<pre><strong>
+Se tiene la siguiente gramática libre de contexto:
+
+
+<table CELLSPACING="20">
+
+<tr><th>Número</th><th>Producción</th></tr>
+
+<tr><td>1</td><td>E → E + T </td></tr>
+<tr><td>2</td><td>E → T </td></tr>
+<tr><td>3</td><td>T → x </td></tr>
+</table>
+</strong>
+</pre>
+
+<section class="a1">
+<pre class="a1"><strong>
+<font color=yellow><h1>Procedimiento de construcción del analizador ascendente LR(0)</h1></font size=5>
+
+<hr>
+
+<font color=yellow>Se expande, se aumenta y se divide en capas la gramática</font size=5>
+<br>
+<font color=yellow>Se obtienen los elementos LR(0)</font size=5>
+<br>
+<font color=yellow>Se obtiene el grafo de la operación de IR_A y de aplicar la <br>continuidad a cada uno de los estados obtenidos</font size=5>
+<br>
+<font color=yellow>Se obtiene la tabla de acciones y de IR-A, aplicando la tabla <br>de primeros y siguientes a los elementos completos</font size=5>
+<br>
+<font color=yellow>Se analizan sentencias x + x. Se usa una tabla con una pila, <br>lectura de símbolos, variable estado y la acción <br>que se aplicará</font size=5>
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

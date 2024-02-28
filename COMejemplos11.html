@@ -1,0 +1,461 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+    width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+Compiladores
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPoo.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+TEMARIO 2009
+</a></p>
+
+<p align=right><a href=EstudianteAgoDic2022.html style="float:center">
+LISTA DE CLASES
+</a></p>
+
+<p align="right" class="p5"><a href=SNCompiladores/COMapuntes9.svg target="_blank" style="float:center">
+(APUNTES 9) SNCompiladores/COMapuntes9.dia
+</a></p>
+
+<p align=right><a href=Pizarron9COM.svg style="float:center">
+(PIZARRÓN DE CLASE 9) MiMIC/Pizarron9COM.dia
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+EJEMPLOS 11 <br> LR(1)
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<!--
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Autómata AFD mínimo</font></p>
+
+
+<p>Las expresiones regulares aplicadas a las clases léxicas
+<br>
+<font color=red size=7><h3 align="center">abcd, &epsilon; o &lambda;</h3></font>
+<br>
+<font color=red size=7><h3 align="center">&epsilon; o &lambda;</h3></font>
+<br>
+<p align=center><font color=yellow size=6>Las expresiones regulares aplicadas a las clases léxicas</font></p>
+<br>
+<font color=red size=7><h3 align="center">a | b = {a} o {b}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a  b = {ab}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>*</SUP> = {&epsilon;,a,aa,aaa, ...}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>+</SUP> = {a,aa,aaa, ...}</h3></font>
+<br>
+</p>
+</header> -->
+
+<br>
+
+<section class=izquierda><strong>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Código fuente</font></p>
+</header>
+
+<br>
+<font color=red size=7><h3 align="center"> f = f * f + f</h3></font>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de la gramática libre de contexto</font></p>
+</header>
+
+<br>
+<font color=red size=7><h3 align="center"> S &rarr; E = E | f <br> E &rarr; E + T | T <br> T &rarr; T * f | f </h3></font>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Aumentar, expandir y dividir en capas a la gramática libre de contexto</font></p>
+</header>
+
+<br>
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Gramática aumentada, expandida y dividida en capas.</CAPTION>
+        <tr><th scope="row"> NÚMERO </th> <th> PRODUCCIÓN </th> <th> C1 </th> <th> C2 </th> <th> C3 </th> </tr>
+        <tr> <td> 0 </td> <td> G &rarr; </td> <td> S </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 1 </td> <td> S &rarr; </td> <td> E </td>  <td> = </td> <td> E </td> </tr>
+        
+        <tr> <td> 2 </td> <td> S &rarr; </td> <td> f </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 3 </td> <td> E &rarr; </td> <td> T </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 4 </td> <td> E &rarr;  </td> <td> E </td>  <td> + </td> <td> T </td> </tr>
+        
+        <tr> <td> 5 </td> <td> T &rarr;  </td> <td> f </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 6 </td> <td> T &rarr;  </td> <td> T </td>  <td> * </td> <td> f </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de los elementos LR(1)</font></p>
+</header>
+
+<br>
+
+<p align=right><a href=SNCompiladores/332AnalizadorSintacticoLR(1).html style="float:center">
+3.3.2 Analizadores LR(1)
+</a></p>
+
+<br>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla que muestra la construcción de los conjuntos cerradura.</CAPTION>
+        <tr><th scope="row"> ESTADO </th> <th> CERRADURA </th> <th> CONJUNTO CERRADURA </th> <th>DIAGRAMA </th> </tr>
+        <tr> <td> I<sub>0</sub> </td> <td> cerr (G → • S ; $) = </td> <td> { G → • S ; $ , S → • E = E ; $ , S → &#8226; f ; $ , E &rarr; &#8226; T ; = : + , <br> E &rarr; &#8226; E + T ; = : + , T &rarr; &#8226; f; = : + : * , T &rarr; &#8226; T * f ; = : + : *} </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI0.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>1</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, S)) = cerr ( G &rarr; S • ; $ ) = </td> <td> { G &rarr; S • ; $ } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI1.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>2</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, E)) = cerr ( S &rarr; E • = E; $ , E &rarr; E &#8226; + T ; = : +) = </td> <td> { S &rarr; E • = E; $ , E &rarr; E &#8226; + T ; = : + } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI2.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>3</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, f)) = cerr ( S &rarr; f • ; $ , T &rarr; f &#8226; ; = ; + : *) = </td> <td> { S &rarr; f • ; $ , T &rarr; f &#8226; ; = : + : *} </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI3.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>4</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, T)) = cerr ( E &rarr; T &#8226; ; = : + , T &rarr; T &#8226; * f ; = : + : * ) = </td> <td> { E &rarr; T &#8226; ; = : + , T &rarr; T &#8226; * f ; = : + : * } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI4.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>5</sub> </td> <td> cerr (Ir a(I<sub>2</sub>, =)) = cerr ( S &rarr; E = &#8226; E ; $ ) =  </td> <td> { S &rarr; E = &#8226; E ; $ , E &rarr; &#8226; T ; $ : + , T &rarr; &#8226; f ; $ : + : * , <br> T &rarr; &#8226; T * f ; $ : + : * , E &rarr; &#8226; E + T ; $ : + } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI5.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>6</sub> </td> <td> cerr (Ir a(I<sub>2</sub>, +)) = cerr ( E &rarr; E + &#8226; T ; = : + ) =  </td> <td> { E &rarr; E + &#8226; T ; = : + , T &rarr; &#8226; f ; = : + : * , T &rarr; &#8226; T * f ; = : + : * } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI6.svg" align=center width=90% border=0></p></td>  </tr>
+        
+        <tr> <td> I<sub>7</sub> </td> <td> cerr (Ir a(I<sub>4</sub>, * )) = cerr ( T &rarr; T * &#8226; f ; = : + : * ) =  </td> <td> { T &rarr; T * &#8226; f ; = : + : * } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI7.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>8</sub> </td> <td> cerr (Ir a(I<SUB>5</SUB> , E)) = cerr ( S → E = E • ; $ , E → E • + T ; $ : + ) =  </td> <td> { S → E = E • ; $ , E → E • + T ; $ : + } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI8.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>9</sub> </td> <td> cerr (Ir a(I<SUB>6</SUB> , T)) = cerr ( E → E + T • ; = : + , T → T • ∗ f ; = : + : * ) =  </td> <td> { E → E + T • ; = : + , T → T • ∗ f ; = : + : * } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI9.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>10</sub> </td> <td> cerr (Ir a(I<SUB>7</SUB> , f)) = cerr ( T → T ∗ F • ; = : + : * ) =  </td> <td> { T → T ∗ F • ; = : + : * } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI10.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>11</sub> </td> <td> cerr (Ir a(I<SUB>5</SUB> , T)) = cerr ( E → T • ; $ : + , T &rarr; T &#8226; * f ; $ : + : * ) =  </td> <td> { E → T • ; $ : + , T &rarr; T &#8226; * f ; $ : + : * } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI11.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>12</sub> </td> <td> cerr (Ir a(I<SUB>5</SUB> , f)) = cerr ( T → f • ; $ : + : * ) =  </td> <td> { T → f • ; $ : + : * } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI12.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>13</sub> </td> <td> cerr (Ir a(I<SUB>11</SUB> , *)) = cerr ( T → T * &#8226; f ; $ : + : * ) =  </td> <td> { T → T * &#8226; f ; $ : + : * } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI13.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>14</sub> </td> <td> cerr (Ir a(I<SUB>13</SUB> , f)) = cerr ( T → T * f &#8226; ; $ : + : * ) =  </td> <td> { T → T * f &#8226; ; $ : + : * } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI14.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>15</sub> </td> <td> cerr (Ir a(I<SUB>8</SUB> , +)) = cerr ( E → E + &#8226; T ; $ : + ) =  </td> <td> { E → E + &#8226; T ; $ : + , T &rarr; &#8226; f ; $ : + : * , T &rarr; &#8226; T * f ; $ : + : * } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI15.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>16</sub> </td> <td> cerr (Ir a(I<SUB>15</SUB> , T)) = cerr ( E → E + T &#8226; ; $ : + , T &rarr; T &#8226; * f ; $ : + : * ) =  </td> <td> { E → E + T &#8226; ; $ : + , T &rarr; T &#8226; * f ; $ : + : * } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI16.svg" align=center width=90% border=0></p></td> </tr>
+      </table>
+      </CENTER>
+    
+      <br>
+
+<p>El siguiente AFD:</p>
+
+<br>
+
+<p align=center><a href=SNCompiladores/Ejem5Afd1.svg style="float:center">
+AFD 1
+</a></p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de la tabla de primeros y siguientes  <br> (Opcional)</font></p>
+</header>
+
+<br>
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de primeros y siguientes de la gramática de igualdad.</CAPTION>
+        <tr><th scope="row"> </th> <th> G </th> <th> S </th> <th> E </th> <th> T </th> </tr>
+        <tr> <td> PRIMEROS </td> <td> f </td> <td> f </td>  <td> f </td> <td> f </td> </tr>
+        
+        <tr> <td> SIGUIENTES </td> <td> $ </td> <td> $ </td>  <td> $, =, + </td> <td> $, = , +, * </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+
+<p align=center><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+DEL TEMARIO 2009
+</a></p>
+
+</strong>
+</section>
+
+<!--------------------------------------------------------->
+
+<aside class=derecha>
+<strong>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de grafo</font></p>
+</header>
+
+<br>
+<p align="center">
+<img src="SNCompiladores/GraAsignacionLR(1)b.svg" align=center width=80% border=0></p>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de la tabla de acciones e Ir a</font></p>
+</header>
+
+<br>
+ <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=up>Tabla de Acciones y de Ir a.</CAPTION>
+        
+        <tr> <th colspan=6>Acciones </th> <th colspan=3>Ir-a </th> </tr>
+        
+        <tr><th scope="row"> ESTADOS </th> <th> f </th> <th> + </th> <th> * </th> <th> = </th> <th> $ </th> <th> S </th> <th> E </th> <th> T </th> </tr>
+        
+        <tr> <td> I<SUB>0</SUB> </td> <td> d<SUB>3</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> I<SUB>1</SUB> </td> <td> I<SUB>2</SUB> </td> <td> I<SUB>4</SUB> </td> </tr>
+        
+        <tr> <td> I<SUB>1</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> acp </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>2</SUB> </td> <td> e </td> <td> d<SUB>6</SUB> </td> <td> e </td> <td> d<SUB>5</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>3</SUB> </td> <td> e </td> <td> r<SUB>5</SUB> </td> <td> r<SUB>5</SUB> </td> <td> r<SUB>5</SUB> </td> <td> r<SUB>2</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>4</SUB> </td> <td> e </td> <td> r<SUB>3</SUB> </td> <td> d<SUB>7</SUB> </td> <td> r<SUB>3</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>5</SUB> </td> <td> d<SUB>12</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> I<SUB>8</SUB> </td> <td> I<SUB>11</SUB> </td> </tr>
+        
+        <tr> <td> I<SUB>6</SUB> </td> <td> d<SUB>3</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> I<SUB>9</SUB> </td> </tr>
+        
+        <tr> <td> I<SUB>7</SUB> </td> <td> d<SUB>10</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>8</SUB> </td> <td> e </td> <td> d<SUB>15</SUB> </td> <td> e </td> <td> e </td> <td> r<SUB>1</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>9</SUB> </td> <td> e </td> <td> r<SUB>4</SUB> </td> <td> d<SUB>7</SUB> </td> <td> r<SUB>4</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>10</SUB> </td> <td> e </td> <td> r<SUB>6</SUB> </td> <td> r<SUB>6</SUB> </td> <td> r<SUB>6</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>11</SUB> </td> <td> e </td> <td> r<SUB>3</SUB> </td> <td> d<SUB>13</SUB> </td> <td> r<SUB>3</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>12</SUB> </td> <td> e </td> <td> r<SUB>5</SUB> </td> <td> r<SUB>5</SUB> </td> <td> e </td> <td> r<SUB>5</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>13</SUB> </td> <td> d<SUB>14</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>14</SUB> </td> <td> e </td> <td> r<SUB>6</SUB> </td> <td> r<SUB>6</SUB> </td> <td> e </td> <td> r<SUB>6</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>15</SUB> </td> <td> d<SUB>12</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> I<SUB>16</SUB> </td> </tr>
+        
+        <tr> <td> I<SUB>16</SUB> </td> <td> e </td> <td> r<SUB>4</SUB> </td> <td> d<SUB>13</SUB> </td> <td> e </td> <td> r<SUB>4</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+      </table>
+      </CENTER>
+      <br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>¿Cómo se analizan las sentencias?</font></p>
+</header>
+
+<br>
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=up>Tabla de análisis de una cadena de tokens.</CAPTION>
+        <tr><th scope="row"> ESTADOS </th> <th> PILA </th> <th> ACCIÓN </th> <th> ENTRADA </th> </tr>
+        
+        <tr> <td> - </td> <td> $ I<SUB>0</SUB> </td> <td> - </td> <td> &uarr; f = f * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>0</SUB> </td> <td> $ I<SUB>0</SUB> f I<SUB>3</SUB> </td> <td> d<SUB>3</SUB> </td> <td> &uarr; f = f * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>3</SUB> </td> <td> $ I<SUB>0</SUB> T I<SUB>4</SUB> </td> <td> r<SUB>5</SUB> </td> <td>   f &uarr; = f * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>4</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> </td> <td> r<SUB>3</SUB> </td> <td>  f &uarr; = f * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>5</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> </td> <td> d<SUB>5</SUB> </td> <td>  f = &uarr; f * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>12</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> f I<SUB>12</SUB> </td> <td> d<SUB>12</SUB> </td> <td>  f = f &uarr; * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>11</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> T I<SUB>11</SUB> </td> <td> r<SUB>5</SUB> </td> <td>  f = f &uarr; * f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>13</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> T I<SUB>11</SUB> * I<SUB>13</SUB> </td> <td> d<SUB>13</SUB> </td> <td>  f = f * &uarr; f + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>14</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> * I<SUB>13</SUB> f I<SUB>14</SUB> </td> <td> d<SUB>14</SUB> </td> <td>  f = f * f &uarr; + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>11</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> T I<SUB>11</SUB> </td> <td> r<SUB>6</SUB> </td> <td>  f = f * f &uarr; + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>8</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> E I<SUB>8</SUB> </td> <td> r<SUB>3</SUB> </td> <td>  f = f * f &uarr; + f $ </td> </tr>
+        
+        <tr> <td> I<SUB>15</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> E I<SUB>8</SUB> + I<SUB>15</SUB> </td> <td> d<SUB>15</SUB> </td> <td>  f = f * f + &uarr; f $ </td> </tr>
+        
+        <tr> <td> I<SUB>12</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> E I<SUB>8</SUB> + I<SUB>15</SUB> f I<SUB>12</SUB> </td> <td> d<SUB>12</SUB> </td> <td>  f = f * f + f &uarr; $ </td> </tr>
+        
+        <tr> <td> I<SUB>16</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> E I<SUB>8</SUB> + I<SUB>15</SUB> T I<SUB>16</SUB> </td> <td> r<SUB>5</SUB> </td> <td>  f = f * f + f &uarr; $ </td> </tr>
+        
+        <tr> <td> I<SUB>8</SUB> </td> <td> $ I<SUB>0</SUB> E I<SUB>2</SUB> = I<SUB>5</SUB> E I<SUB>8</SUB> </td> <td> r<SUB>4</SUB> </td> <td>  f = f * f + f &uarr; $ </td> </tr>
+        
+        <tr> <td> I<SUB>1</SUB> </td> <td> $ I<SUB>0</SUB> S I<SUB>1</SUB> </td> <td> r<SUB>1</SUB> </td> <td>  f = f * f + f &uarr; $ </td> </tr>
+        
+        <tr> <td> I<SUB>1</SUB> </td> <td> $ I<SUB>0</SUB> S I<SUB>1</SUB> </td> <td> acp </td> <td>  f = f * f + f &uarr; $ </td> </tr>
+        
+        </table>
+      </CENTER>
+      
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Otros ejemplos</font></p>
+</header>
+
+<br>
+
+<p align=center><a href=Ejem9ejemplo1.html style="float:center">
+Ejemplo 1
+</a></p>
+
+<p align=center><a href=Ejem9ejemplo2.html style="float:center">
+Ejemplo 2
+</a></p>
+
+<p>Este algoritmo se aplica para reducir el número de estados de un AFD:</p>
+<p>Se aplica a todo AFD:</p>
+
+<table CELLSPACING="16" align=center>
+<tr><th>&delta;</th><th>a</th><th>b</th></tr>
+
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+
+</table>
+
+</strong>
+</aside>
+
+
+</body>
+</html>

@@ -1,0 +1,404 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+}
+
+.a1 {
+	margin-left: 52%;
+	float: right;
+	position: absolute;
+	transform: translate(-15%, -110%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 18px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 11: Definición de la interface
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<p align=center><font color=yellow>Del libro: Manual de Java</font></p>
+<p align=right><font color=yellow>Autor: Date</font></p>
+
+<p align=left><font color=yellow>DEFINICIÓN</font></p>
+
+La interface es:
+
+Los interfaces y las clases internas proporcionan
+formas más sofisticadas de organizar y 
+controlar los objetos de un sistema.
+
+La palabra clave interface produce una
+clase completamente abstracta, que no
+tiene ningún tipo de implementación. Se
+aprenderá que una interfaz es más que una
+clase abstracta llevada al extremo,
+
+La palabra clave interfaz lleva el concepto
+de abstracción un paso más allá. Se podría
+pensar que es una clase abstracta "pura".
+Permite al creador establecer la forma de
+una clase: nombres de métodos, listas de
+parámetros, y tipos de retorno, pero no
+cuerpos de métodos. Una interfaz también
+puede contener campos, pero éstos son
+implícitamente estáticos y constantes.
+Una interfaz proporciona sólo la forma,
+pero no la implementación [pág 255].
+
+Ver el programa Musica5.java
+ver el programa Commissioned.java
+
+La interfaz no es sólo una forma "más pura"
+de clase abstracta. Tiene un propósito mayor.
+Dado que una interfaz no tiene implementación
+alguna -es decir, no hay espacio de
+almacenamiento asociado con una interfaz- no 
+hay nada que evite que se combinen varias
+interfaces. Esto es muy valioso, pues hay
+veces en las que es necesario decir "una
+x es una a y una b y una c". En C++, a este
+acto de combinar múltiples interfaces de
+clases se le denomina herencia múltiple, y
+porta un equipaje bastante pegajoso porque
+puede que cada clase tenga una
+implementación. En Java, se puede
+hacer lo mismo, pero sólo una de las clases
+puede tener una implementación, por lo que
+los problemas de C++ no ocurren en Java al
+combinar múltiples interfaces [pág 258]:
+
+Una interface es un contrato entre un
+programa diseñado y un programa
+implementado que estandariza la comunicación
+entre las diferentes clases. Este uso de
+interfeces es esencial para satisfacer
+la programación de proyectos [Dean, pág 533].
+
+public interface Datable {
+  int anio();
+  int mes();
+  int dia();
+}
+
+Revisar los programas Apple.java y
+Employee.java
+
+<a font-size: 18px href=Apple.java style="float:center" target="_blank">
+Programa Apple.java
+</a>
+
+<p align=left><font color=yellow>Tipos de clases</font></p>
+
+<a href=ProgramacionOrientadaObjetos.pdf style="float:center" target="_blank">
+Tipos de clases. [pág. 25-31]
+</a>
+
+<a href=ProgramacionOrientadaObjetos.pdf style="float:center" target="_blank">
+Método abstracto. [pág. 38]
+</a>
+
+<a href=ProgramacionOrientadaObjetos.pdf style="float:center" target="_blank">
+La clase Object. [pág. 57]
+</a>
+
+<a href=ProgramacionOrientadaObjetos.pdf style="float:center" target="_blank">
+La palabra try. [pág. 56]
+</a>
+
+<a href=ProgramacionOrientadaObjetos.pdf style="float:center" target="_blank">
+Interfaz. [págs. 31, 36, 37]
+</a>
+
+<a href=ProgramacionOrientadaObjetos.pdf style="float:center" target="_blank">
+La palabra instanceOf [págs. 28]
+</a>
+
+Correr el programa Pets2.java sobre
+instanceOf.
+
+<a href=ProgramacionOrientadaObjetos.pdf style="float:center" target="_blank">
+El método equals [págs. 58]
+</a>
+
+Ver el programa Callback.java para ver
+el uso de interface.
+
+El método abstracto es un método que declara
+una funcionalidad que debe ser implementada
+en todas las clases derivadas de la clase
+en que se vaya a utilizar
+
+public abstract class Figura {
+  abstract public double area();
+
+  public Figura(String nombreFigura) {
+    nombre = nombreFigura;
+  }
+
+  final public boolean menorQue(Figura lder) {
+    return area() &lg; lder.area();
+  }
+
+  final public String toString() {
+    return nombre + "con área" + area();
+  }
+
+  private String nombre;
+}
+
+<p align=left><font color=yellow>Los modificadores</font></p>
+
+Normalmente se muestra el estado de un objeto
+usando print. Para hacer esto se define el
+método toString en la clase. Dicho método devuelve
+un valor de tipo String apto para producir una
+salida. Ver programa Fecha.java.
+
+El método equals se usa para comprobar si dos
+referencias describen el mismo valor. La 
+signatura es siempre la siguiente:
+
+public boolean equals(Object lder)
+
+El método static es un método que no necesita un
+objeto que lo controle. El método estático más
+común es main. Los atributos estáticos se usan
+cuando necesitamos que una variable esté
+compartida por todos los componentes de una clase.
+Cuando una variable se declara static en una
+clase, se crea una única instancia de la variable.
+No forma parte de ninguna instancia de la 
+clase. En su lugar, se comporta como una variable
+global pero con el ámbito de la clase. En otras
+palabras, en la declaración
+
+public class Ejemplo {
+  private int x;
+  private static int y;
+}
+
+cada objeto Ejemplo almacena su propia x, pero
+hay solamente una y compartida. 
+
+Un uso común de un atributo estático es para
+representar una constante. Por ejemplo, la clase
+Integer define el valor MAX_VALUE como
+
+public final static int MAX_VALUE = 2147;
+
+Inicialización estáticos
+
+Los atributos estáticos se inicializan cuando
+se carga la clase. Ejemplo: supongamos que 
+necesitamos un vector estático que almacena las
+raíces cuadradas de los primeros 100 enteros.
+Sería deseable que esos valores se clacularan
+automáticamente. Una posibilidad es 
+proporcionar un método estático y obligar
+al programador a llamarlo antes de usar el
+vector.
+Una alternativa es usar el inicializador 
+estático
+
+public class Raices {
+  private static double raicesCuadradas[] = 
+    new double[100];
+
+  static {
+    for(int i = 0; i &lg; raicesCuadradas.lenght;
+        i++)
+      raicesCuadradas[i] = Math.sqrt((double) i);
+  }
+
+  //Resto de la clase
+}
+
+El inicializador estático debe aparecer a 
+continuación de la declaración del atributo
+estático [weiss, pág 67].
+
+</strong>
+</pre>
+
+<pre class="a1"><strong>
+
+<p align=center><font color=yellow>Clase Circulo</font></p>
+
+public Circulo extends Figura {
+  public Circulo(double r) {
+    super("Circulo");
+    radio = r;
+  }
+  
+  public double area() {
+    return PI * radio * radio;
+  }
+
+  private static final double PI = 3.14159265;
+  private double radio;
+}
+
+<p align=center><font color=yellow>Clase Rectángulo</font></p>
+
+public class Rectangulo extends Figura {
+  public Rectangulo(double largo,  double ancho) {
+    super("Rectangulo");
+    base = largo;
+    alt = ancho;
+  }
+  
+  public double area() {
+    return base * alt;
+  }
+
+  private double base;
+  private double alt;
+}
+
+<p align=center><font color=yellow>Clase Cuadrado</font></p>
+
+public class Cuadrado extends Rectangulo {
+  public Cuadrado(double lado) {
+    super(lado, lado);
+  }
+  
+}
+
+<p align=center><font color=yellow>La Clase principal</font></p>
+
+clas TestFigura {
+  private static BufferedReader in;
+  
+  private static Figura leer Figura() {
+  
+  public static void main(String[] args) {
+
+  }
+
+  }
+}
+
+<p align=center><font color=yellow>Clase Circle3</font></p>
+
+public class Circle3 {
+  /** The radius of the circle */
+  private double radius = 1;
+
+  /** The number of the objects created */
+  private static int numberOfObjects = 0;
+
+  /** Construct a circle with radius 1 */
+  public Circle3() {
+    numberOfObjects++;
+  }
+
+  /** Construct a circle with a specified radius */
+  public Circle3(double newRadius) {
+    radius = newRadius;
+    numberOfObjects++;
+  }
+
+  /** Return radius */
+  public double getRadius() {
+    return radius;
+  }
+  
+  /** Set a new radius */
+  public void setRadius(double newRadius) {
+    radius = (newRadius >= 0) ? newRadius : 0;
+  }
+
+  /** Return numberOfObjects */
+  public static int getNumberOfObjects() {
+    return numberOfObjects;
+  }
+
+  /** Return the area of this circle */
+  public double getArea() {
+    return radius * radius * Math.PI;
+  }
+}
+
+
+<p align=center><font color=yellow>Pasar objetos a métodos</font></p>
+
+Puede pasar objetos a métodos. Como pasar una matriz, pasar
+un objeto es en realidad pasar la referencia del
+objeto. El siguiente código pasa el objeto myCircle como
+argumento para el método printCircle:
+
+public class Test {
+  public static void main(String[] args) {
+    // Circle3 se define en otro lado 8.9
+    Circle3 myCircle = new Circle3(5.0); 
+    printCircle(myCircle);
+  }
+
+  public static void printCircle(Circle3 c) {
+    System.out.println("The area of the circle of radius "
+      + c.getRadius() + " is " + c.getArea());
+  }
+}
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

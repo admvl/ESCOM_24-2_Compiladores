@@ -1,0 +1,274 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	font-size: 18px;
+}
+
+.a1 {
+	margin-left: 58%;
+	float: right;
+	position: absolute;
+	transform: translate(-18%, -355%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 18px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 16: Principio de modularidad
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<p align=center><font color=yellow>¿Qué es el principio de modularidad?</font></p>
+
+<p align=left><font color=yellow>Enlace: https://compilandoconocimiento.com/
+2017/01/02/fundamentos-de-poo/</font></p>
+<p align=left><font color=blue>DEFINICIÓN DE MODULARIDAD</font></p>
+
+Es descomponer el programa
+en módulos para que sea más fácil, las llamadas 
+a clases. En la composición modular, estos modelos 
+tiene que estar conectados, y son partes de un todo.
+
+Comprensibilidad Modular: Tiene que ser posible 
+entender un modulo sin necesidad de conocer los 
+demás módulos.
+
+Continuidad Modular: en caso de realizar cambios (mejoras 
+o corrección de errores) en un módulo, no debe de 
+perjudicar a los demás modulos.
+
+Protección Modular: Sin importar que se haga, debería 
+ser imposible afectar negativamente a un 
+módulo desde fuera de este.
+
+Podemos también hablar de varias reglas:
+
+Correspondencia Directa: Que podamos ser capaces 
+de mejorar un modulo y el programa debe de funcionar 
+de manera normal.
+
+Pocas Interfaces: Busca que tus clases no se 
+relacionen a menos que sea totalmente necesario, 
+evitando así errores al actualizar un módulo.
+
+Pequeñas Interfaces: Busca que la relación, que 
+la cantidad de atributos sean los menores posibles, 
+busca una mayor independencia de cada módulo.
+
+Interfaces Explicitas: Evita que varios módulos 
+modifiquen un mismo atributo para evitar conflicto 
+de escritura o lectura.
+
+Ocultación de la Información: Solo la clase misma 
+debería poder ser capaz de modificar sus atributos.
+
+Y sino es ni de lejos todo lo que POO pero nos dará 
+una idea bastante exacta de esta nueva idea a de 
+entender la programación.
+
+<p align=left><font color=yellow>Diccionario: 
+Real Académia de la lengua</font></p>
+
+1. f. Cualidad de modular.
+
+<p align=left><font color=blue>DEFINICIÓN DE MODULAR</font></p>
+
+
+1. tr. Variar con fines armónicos las cualidades 
+del sonido en el habla o en el canto.
+
+2. tr. Modificar los factores que intervienen en 
+un proceso para obtener distintos resultados; p. ej., 
+aumentar la temperatura para acelerar una reacción.
+
+3. tr. Electr. Variar el valor de la amplitud, 
+frecuencia o fase de una onda portadora en función 
+de una señal.
+
+4. intr. Mús. Pasar de una tonalidad a otra.
+
+
+<p align=left><font color=orange>EJEMPLO DE PROGRAMA</font></p>
+
+<p align=left><font color=yellow>El proceso de mularidad
+se muestra en el siguiente texto.</font></p>
+
+La modularidad se refiere a la idea de armar 
+un sistema grande desarrollando un número
+de componentes distintos de forma independiente 
+y luego integrarlos para proporcionar la requerida
+funcionalidad. Este enfoque, cuando se usa 
+correctamente, generalmente hace que los 
+módulos individuales relativamente simple y, por 
+lo tanto, el sistema es más fácil de entender que 
+uno diseñado como estructura monolitica. En otras 
+palabras, dicho diseño debe ser modular. La 
+funcionalidad del sistema debe ser proporcionada 
+por varios módulos bien diseñados y cooperantes. 
+Obviamente, cada módulo debe proporcionar cierta 
+funcionalidad claramente especificada por una interfaz.
+La interfaz también define cómo otros componentes 
+pueden interactuar o comunicarse con el módulo.
+
+<p align=left><font color=yellow>El siguiente ejemplo
+es sobre la clase para controlar la TV.</font></p>
+
+public class TV {
+  int channel = 1; // Default channel is 1
+  int volumeLevel = 1; // Default volume level is 1
+  boolean on = false; // By default TV is off
+
+  public TV() {
+  }
+
+  public void turnOn() {
+    on = true;
+  }
+
+  public void turnOff() {
+    on = false;
+  }
+
+  public void setChannel(int newChannel) {
+    if (on && newChannel >= 1 && newChannel <= 120)
+      channel = newChannel;
+  }
+
+  public void setVolume(int newVolumeLevel) {
+    if (on && newVolumeLevel >= 1 && newVolumeLevel <= 7)
+      volumeLevel = newVolumeLevel;
+  }
+
+  public void channelUp() {
+    if (on && channel < 120)
+      channel++;
+  }
+
+  public void channelDown() {
+    if (on && channel > 1)
+      channel--;
+  }
+
+  public void volumeUp() {
+    if (on && volumeLevel < 7)
+      volumeLevel++;
+  }
+
+  public void volumeDown() {
+    if (on && volumeLevel > 1)
+    volumeLevel--;
+  }
+}
+
+<p align=left><font color=yellow>El siguiente ejemplo
+es sobre la forma de mandar mensaje de bienvenida.</font></p>
+
+public class Bienvenido {
+	public static void main(String[] args) {
+		// Despliega el mensaje Bienvenido
+		 a Java! en la consola
+	System.out.println("Bienvenido a Java!");
+	}
+}
+
+</strong>
+</pre>
+
+<pre class="a1"><strong>
+
+<p align=left><font color=red>EJERCICIOS</font></p>
+
+<p align=left><font color=yellow>Realizar la clase
+para hacer operaciones de suma, resta, multiplicación,
+y división. Usar la modularidad. Tomar como base,
+la siguiente clase.</font></p>
+
+public class CalcularExpresion {
+	public static void main(String[] args) {
+		System.out.println((10.5 + 2 * 3)
+		 / (45 – 3.5));
+	}
+}
+
+<p align=left><font color=yellow>Realizar el control
+de un aparato de TV. Usar el siguiente código en 
+Java. Y complementar con el código del ejemplo.</font></p>
+
+public class TestTV {
+  public static void main(String[] args) {
+    TV tv1 = new TV();
+    tv1.turnOn();
+    tv1.setChannel(30);
+    tv1.setVolume(3);
+    
+    TV tv2 = new TV();
+    tv2.turnOn();
+    tv2.channelUp();
+    tv2.channelUp();
+    tv2.volumeUp();
+    System.out.println("tv1's channel is " + tv1.channel
+      + " and volume level is " + tv1.volumeLevel );
+    System.out.println("tv2's channel is " + tv2.channel
+      + " and volume level is " + tv2.volumeLevel);
+  }
+}
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

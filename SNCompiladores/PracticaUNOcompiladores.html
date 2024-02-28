@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Práctica 1 Compiladores</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Práctica 1</header>
+ <nav>
+    
+     <p><img src="temario-icono.png" width=95% border=5></image></p>
+     
+     <p class="derecha"><a href="TemarioCompiladores.html">Temario<img src="iconoPoo.png" width=65% border=5></image></a></p>
+     
+     <p><a href="MaterialPoo.html"><img src="iconoPoo.png" width=90% border=5></image></a></p>
+         
+ </nav>
+
+  <section class="envoltura">
+    <h1 class="titulo">DISEÑO E IMPLEMENTACIÓN DE LAS CLASES AFN, AFD</h1>
+
+    <section class="interna">
+      
+      <article>
+       
+       <h1>Objetivo</h1>
+       <hr>
+       <p>Se crearan las clases, para el AFN y para el AFD.</p>
+      <hr>
+      <br>
+      <h1>Actividades</h1>
+      <hr>
+      <br>
+      <!--
+       <p>Compilar y ejecutar los siguientes programas:</p>
+       <br>
+       <p><strong>Programa AFN:</strong></p>
+       <br>
+       <pre>
+       public class AFN {
+
+       }
+         
+       public class Thompson() {
+           
+         }
+
+       public class Subconjuntos() {
+           
+         }
+
+       public class Minimizacion() {
+           
+         }
+        
+       public class DriverAFN {
+         public static void main(String[] args) {
+           AFN er = new AFN();
+           
+         }
+       }
+       </pre>
+       <br>-->
+       <p>Se tiene la expresión regular <strong>c* b (c | bc* b)*</strong>. Usar el siguiente código para programar los tokens que acepta el AFD.</p>
+       <p><strong>Programa AFD.</strong> Para ejecutar este programa se hace con la linea de comando:<strong> java DriverAFD cadena de entrada</strong></p>
+       <br>
+       
+       Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=6><a href=Pra1prog1.svg target="_blank" style="float:center"><strong>SNCompiladores/Pra1prog1.dia</strong></a></font>
+       
+       <p align="center">
+<img src="Pra1prog1.svg" align=left width=54% border=0></p>
+
+       <br>
+
+       Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=6><a href=Pra1prog1a.svg target="_blank" style="float:center"><strong>SNCompiladores/Pra1prog1a.dia</strong></a></font>
+       
+       <p align="center">
+<img src="Pra1prog1a.svg" align=left width=54% border=0></p>
+
+       <br>
+
+       Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=6><a href=Pra1prog1b.svg target="_blank" style="float:center"><strong>SNCompiladores/Pra1prog1b.dia</strong></a></font>
+       
+       <p align="center">
+<img src="Pra1prog1b.svg" align=left width=54% border=0></p>
+
+       <br>
+       <p>Aplicación del algoritmo de minimización. Se forman dos grupos. Grupo de estados no finales G1 = {q0, q2, q3, q6} y el grupo de estados finales G2 = {q1, q4, q5}:</p>
+
+       <table CELLSPACING="16" align=center>
+<tr><th>G1</th><th>b</th><th>c</th></tr>
+
+<tr><td>q<sub>0</sub></td><td>q<sub>1</sub></td><td>q<sub>2</sub></td></tr>
+<tr><td>q<sub>2</sub></td><td>q<sub>1</sub></td><td>q<sub>2</sub></td></tr>
+<tr><td>q<sub>3</sub></td><td>q<sub>5</sub></td><td>q<sub>6</sub></td></tr>
+<tr><td>q<sub>6</sub></td><td>q<sub>5</sub></td><td>q<sub>6</sub></td></tr>
+
+</table>
+
+       <br>
+       
+       <table CELLSPACING="16" align=center>
+<tr><th>G2</th><th>b</th><th>c</th></tr>
+
+<tr><td>q<sub>1</sub></td><td>q<sub>3</sub></td><td>q<sub>4</sub></td></tr>
+<tr><td>q<sub>4</sub></td><td>q<sub>3</sub></td><td>q<sub>4</sub></td></tr>
+<tr><td>q<sub>5</sub></td><td>q<sub>3</sub></td><td>q<sub>4</sub></td></tr>
+
+</table>
+
+       <br>
+
+       <p>Se forman grupos consistentes, como: G3 = {q0, q2}, G4 = {q3, q6} y G2 es consistente. Por lo que el autómata queda de la siguiente forma.</p>
+       <br>
+
+       Pizarrón, archivo dia: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=6><a href=Pra1prog1c.svg target="_blank" style="float:center"><strong>SNCompiladores/Pra1prog1c.dia</strong></a></font>
+       
+       <p align="center">
+<img src="Pra1prog1c.svg" align=left width=54% border=0></p>
+
+       <br>
+
+       <table CELLSPACING="16" align=center>
+<tr><th>Tabla &delta;</th><th>b</th><th>c</th></tr>
+
+<tr><td>G<sub>3</sub></td><td>G<sub>2</sub></td><td>G<sub>3</sub></td></tr>
+<tr><td>G<sub>2</sub></td><td>G<sub>4</sub></td><td>G<sub>2</sub></td></tr>
+<tr><td>G<sub>4</sub></td><td>G<sub>2</sub></td><td>G<sub>4</sub></td></tr>
+
+</table>
+
+       <br>
+       <p>Se puede usar la siguiente tabla de transiciones:</p>
+       <br>
+
+       <table CELLSPACING="16" align=center>
+<tr><th>Tabla &delta; 1</th><th>b</th><th>c</th></tr>
+
+<tr><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>1</td><td>2</td><td>1</td></tr>
+<tr><td>2</td><td>1</td><td>2</td></tr>
+
+</table>
+
+       <br>
+       <p>La tabla de transiciones que se usa es "Tabla &delta; 1" para hacer el programa.</p>
+       <br>
+
+       <pre>
+       import java.util.*;
+
+       public class DriverAFD {
+         public static void main(String[] args) {
+           ArgumentosToken tm = new ArgumentosToken(args);
+           AFD m = new AFD(tm);
+           m.activarAFD();
+         }
+       }
+
+       class ArgumentosToken {
+         private int indice;
+         String entrada;
+         
+         public ArgumentosToken(String[] args) {
+           if(args.length > 0)
+             entrada = args[0];
+           else
+             entrada = "";
+           indice = 0;
+           System.out.println("entrada = " + entrada);
+         }
+         
+         public char getSiguienteToken() {
+           if(indice < entrada.length())
+             return entrada.charAt(indice++);
+           else
+             return '$';
+         }
+       } 
+
+       class AFD {
+         ArgumentosToken tm;
+         private char tokenActual;
+         
+         public AFD(ArgumentosToken tm) {
+           this.tm = tm;
+         }
+         
+         public void avanzar() {
+           tokenActual = tm.getSiguienteToken();
+         }
+         
+         public void activarAFD() {
+           int estadoActual = 0;
+           avanzar();
+    
+           while(tokenActual != '$') {
+             switch(estadoActual) {
+               case 0:
+                 if(tokenActual == 'b') estadoActual = 1;
+                 else if(tokenActual == 'c') estadoActual = 0;
+                 break;
+               case 1:
+                 if(tokenActual == 'b') estadoActual = 2;
+                 else if(tokenActual == 'c') estadoActual = 1;
+                 break;
+               case 2:
+                 if(tokenActual == 'b') estadoActual = 1;
+                 else if(tokenActual == 'c') estadoActual = 2;
+                 break;
+               
+             }
+             avanzar();
+           }
+           
+           if(estadoActual == 1)
+             System.out.println("Acep");
+           else
+             System.out.println("rechazado");
+         }
+       }
+       </pre>
+       <br>
+
+       <hr>
+      <h1>Cuestionario</h1>
+      <hr>
+      <br>
+      <p><strong>Pregunta 1.</strong> Realizar todo el proceso de transformación de la expresión regular hasta la tabla de transiciones del AFD. De tal manera que se compruebe el programa <strong>DriverAFD</strong>.</p>
+      <br>
+      <p><strong>Pregunta 2.</strong> Obtener el programa para reconocer las palabras que acepta la siguiente expresión regular <strong>(b|c)(b|c).</strong>.</p>
+      <br>
+      <p><strong>Pregunta 3.</strong> Obtener el programa para reconocer las palabras que acepta la siguiente expresión regular <strong>(b|c)(b|cc*).</strong>.</p>
+      <br>
+      <p><strong>Pregunta 4.</strong> Obtener el programa para reconocer las palabras clave <strong>if, else y return</strong>.</p>
+      <br>
+
+      </article>
+       <br>
+       <hr>
+       <br> 
+          
+    </section>
+
+       <aside>
+        <h1>Sugerencias</h1>
+        <hr>
+        <br>
+        <p><strong>Sugerencia 1. </strong> Para compilar el programa en la consola, usar el comando: <strong>javac ProgramaAFD.java</strong>. Para ejecutarlo, usar el comando: <strong>java ProgramaAFD</strong>.</p>
+        <br>
+        <p><strong>Sugerencia 2.</strong> El programa AFD, sirve para una ER específica.</p>
+        <br>
+       </aside>
+      <footer><p>Práctica 1</p><p class="derecha">Prof. José Sánchez Juárez</p></footer>
+   </section>
+</body>
+</html>

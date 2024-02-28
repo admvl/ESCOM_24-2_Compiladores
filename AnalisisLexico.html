@@ -1,0 +1,1502 @@
+<html>
+<style>
+header {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height:26%;
+width:55%;
+margin-left:22%;
+border: solid;
+border-color:#FFFF00;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+article {
+background-color: #8ba987;
+display: block;
+margin-left: 25%;
+margin-top: 0.5%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width:50%;	
+height:25%;	
+}
+
+article header {
+background-color: #009F80;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#800000;
+padding: 2px;
+height: auto;
+width:44%;
+text-align: center;
+font-size: 20px;
+margin-left:26%;
+margin-bottom: 5%;
+margin-top: 5%;
+}
+
+article h1 {
+font-size: 20px;
+
+}
+
+article div{
+background-color: #8ba987;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#0000FF;
+padding: 5px;
+width:40%;
+text-align: center;
+margin-left:0%;
+}
+
+p.par1  {
+ background-color: #808080;
+ font-size: 28px;
+ width: 200px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #00f;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+p.p2  {
+ background-color: #808080;
+ font-size: 28px;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #00f;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+p.p3  {
+ background-color: #808080;
+ font-size: 28px;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #f60;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+p.p4  {
+ background-color: #808080;
+ font-size: 20px;
+ width: 230px;
+ margin: 10px 20px;
+ padding: 10px;
+ border: solid 6px #000;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+pre.p2  {
+ background-color: #808080;
+ font-size: 28px;
+ width: 500px;
+ margin: 10px auto;
+ padding: 5px;
+ border: solid 6px #80A93E;
+ font: normal 15px arial, helvetica, sans-serif;
+ }
+
+	.modalDialog {
+		position: fixed;
+		font-family: Arial, Helvetica, sans-serif;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.2);
+		z-index: 99999;
+		opacity:0;
+		-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+		pointer-events: none;
+	}
+	.modalDialog:target {
+		opacity:1;
+		pointer-events: auto;
+	}
+	.modalDialog > div {
+		width: 40%;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+	  	-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+	}
+	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+.close:hover { background: #00d9ff; }
+
+table {
+  margin-left: 25%;
+  padding: 10px;
+}
+
+.t {
+  margin-left: -5%;
+  margin-top: -10%;
+  padding: 10px;
+}
+
+body{
+font-size: 20px;
+}
+
+.lateralIzq {
+	position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+	left: 0; /* Establecemos la barra en la izquierda */
+	top: 580px; /* Bajamos la barra 200px de arriba a abajo */
+	z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+}
+
+.lateralDer {
+	position: fixed; /* Hacemos que la posición en pantalla sea fija para que siempre se muestre en pantalla*/
+	right: 0; /* Establecemos la barra en la izquierda */
+	top: 580px; /* Bajamos la barra 200px de arriba a abajo */
+	z-index: 2000; /* Utilizamos la propiedad z-index para que no se superponga algún otro elemento como sliders, galerías, etc */
+}
+
+</style>
+
+<head>
+<title>Análisis Léxico</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<a>
+<img src="LibCompiladores.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=22% height=44% border=0>
+</a>
+
+<a>
+<img src=CapAnalisisLexico.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=22% height=44% border=0>
+</a>
+
+<header>
+<img src=Estudiante.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=16% height=97% border=0>
+
+<img src=CapAnalisisLexico.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=16% height=97% border=0>
+
+<h1 align=center>
+<font color=maroon size=8>
+CAPÍTULO 2
+</font>
+</h1>
+
+<h2 align=center>
+<font color=white size=6>
+Análisis Léxico
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<nav>
+<h3 align=center><font size=6>Índice</font></h3>
+
+<p align=center><font size=5>
+El material de estudio para el estudiante que se presenta en esta página, esta dividido de acuerdo al temario de la asignatura.</font></p>
+
+<hr>
+
+<font color=yellow><h3 align="center">Temas:</h3></font>
+
+<p align=center>
+<a href=#def>Definición de las clases léxicas por medio de expresiones regulares.</a>
+&nbsp; &nbsp;
+<a href=#ana>Análisis Léxico.</a>
+&nbsp; &nbsp;
+<a href=#cre>Creación de AFN por medio de la construcción de Thompson.</a>
+&nbsp; &nbsp;
+<a href=#con>Conversión de AFN a AFD.</a>
+&nbsp; &nbsp;
+<a href=#afd>Creación de un AFD a partir de una expresión regular.</a>
+&nbsp; &nbsp;
+<a href=#min>Minimización de estados de un AFD.</a>
+&nbsp; &nbsp;
+<a href=#cons>Construcción de analizadores léxicos definidos por medio de expresiones regulares.</a>
+&nbsp; &nbsp;
+<a href=#gen>Generadores de analizadores léxicos.</a>
+</p>
+</nav>
+
+
+<hr>
+
+
+<article>
+<div class="section-content" style="width:900px;">
+<p style="text-align: center; ">El analizador léxico es también llamado escaner, su función es reconocer una
+cadena de caracteres para identificar las palabras del lenguaje en estudio. La
+forma de ir reconociendo el carácter que forma a la palabra, se hace acoplando
+la cadena de caracteres en estudio a una gramática por medio de un autómata.
+Al final el autómata reconoce si la cadena de caracteres es una palabra válida.
+Las palabras que debe reconocer el escaner, son: los números, los identificadores,
+las palabras reservadas, los operadores y los delimitadores.</p>
+
+<header>
+<h3 align="center" id=def>Definición de las clases léxicas por medio de expresiones regulares.</h3>
+</header>
+
+<p>Todo lenguaje de programación se expresa por medio de cinco tokens, los
+cuales están agrupados en clases léxicas. Las clases léxicas son los tipos de
+palabras que se usan en programación, tales son: los números, los identificadores,
+las palabras reservadas, los operadores y los delimitadores. Estas clases léxicas,
+también llamadas tokens, se pueden expresar por medio de expresiones regulares.</p>
+
+<font color=yellow><h4 align="center">Expresiones regulares</h4></font>
+
+<p>Todo lenguaje tiene tipos de palabras que ayudan a expresar las ideas. El
+lenguaje de programación también tiene tipos de palabras, que permiten expresar las ideas por medio de algoritmos. Los tipos de palabras que tiene cada
+lenguaje de programación se pueden clasificar, en: números, identificadores, palabras clave, operadores y delimitadores.</p>
+
+<p>Se muestra en el siguiente listado ejemplos de tokens:</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Números: 1, 2, 3, 4, 0.5, 0.6, 0.7, etc.</td></tr>
+<tr><td>2</td><td>Identificadores: a, b, c, d, a1, b2, A, A1, etc.</td></tr>
+<tr><td>3</td><td>Palabras clave: int, float, main, new, etc.</td></tr>
+<tr><td>4</td><td>Operadores: +, -, *, /, etc.</td></tr>
+<tr><td>5</td><td>Delimitadores: , , [, ], etc.</td></tr>
+</table>
+
+
+<font color=yellow><h3 align="center">Clases léxicas</h3></font>
+
+<p>El término letra y carácter se usará como sinónimo de sı́mbolo para denotar un elemento de un alfabeto. Si se pone una secuencia de sı́mbolos lado a
+lado, se tiene una cadena de sı́mbolos. Por ejemplo, 01011 es una cadena del
+alfabeto binario {0, 1 }. El término sentencia y palabra son frecuentemente
+usadas como sinónimos de cadena [?] .</p>
+
+<p>Se formaliza la idea de una gramática y cómo se usa. Para este propósito,
+sea V T un conjunto finito de sı́mbolos no vacı́o llamado alfabeto terminal. Los
+sı́mbolos en V T se llaman sı́mbolos terminales. El metalenguaje que se usa para
+generar cadenas en el lenguaje se supone que contiene un conjunto de clases
+sintácticas o variables llamadas sı́mbolos no terminales. El conjunto de sı́mbolos
+no terminales es denotado por V N y los elementos de V N se utilizan para definir
+la sintaxis (estructura) del lenguaje. Además, se supone que los conjuntos V N y
+V T son disjuntos [7].</p>
+
+
+<p class="par1">
+DEFINICIÓN <b>1</b> (Vocabulario.) Es el conjunto V N ∪ V T que
+consiste en sı́mbolos no terminales y terminales [7].
+</p>
+
+
+<p class="par1">
+DEFINICIÓN <b>2</b> (Lenguaje.) Es un conjunto de cadenas de
+longitud finita sobre algún alfabeto finito Σ [?] .
+</p>
+
+
+
+<p>La expresión regular se define como la representación de las palabras por
+medio de cadenas de sı́mbolos, donde se utiliza la notación algebraica, la cual
+es reducida y fácil de asimilar. Esta representación se hace por medio de tres
+operaciones algebraicas de los sı́mbolos: la concatenación, la concatenación de
+los caracteres de cero a más veces (cerradura) y la alternativa.</p>
+
+<p class="p2">
+DEFINICIÓN <b>3</b> (Conjunto regular.) Sea Σ un alfabeto finito. Un conjunto regular es recursivo sobre el alfabeto Σ de la
+siguiente manera:
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Φ es una conjunto regular sobre Σ.</td></tr>
+<tr><td>2</td><td>{e} es una conjunto regular sobre Σ.</td></tr>
+<tr><td>3</td><td>{a} es una conjunto regular sobre Σ.</td></tr>
+<tr><td>4</td><td>Si P y Q son conjuntos regulares sobre Σ, entonces:
+
+	<table CELLSPACING="18">
+	<tr><td>a</td><td>P ∪ Q.</td></tr>
+	<tr><td>b</td><td>PQ.</td></tr>
+	<tr><td>c</td><td>P ∗ .</td></tr>
+	</table>
+
+</td></tr>
+<tr><td>5</td><td>Nada también es un conjunto regular.</td></tr>
+</table>
+</p>
+
+<p class="p2">
+DEFINICIÓN <b>4</b> (Expresión regular.) Sea Σ un alfabeto finito. Una expresión regular es una definición recursiva, como se
+presenta en el siguiente listado:
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Φ es una expresión regular que denota el conjunto regular
+{Φ}.</td></tr>
+<tr><td>2</td><td>e es una expresión regular que denota el conjunto regular
+{e}.</td></tr>
+<tr><td>3</td><td>a ∈ Σ es una expresión regular que denota el conjunto regular {a}.</td></tr>
+<tr><td>4</td><td>Si p y q son expresiones regulares que denota el conjunto
+regular P y Q respectivamente, entonces :
+
+<table CELLSPACING="18">
+	<tr><td>a</td><td>(p + q) es una expresión regular que denota P ∪ Q.</td></tr>
+	<tr><td>b</td><td>(pq) es una expresión regular que denota PQ.</td></tr>
+	<tr><td>c</td><td>(p) ∗ es una expresión regular que denota P ∗ .</td></tr>
+	</table>
+
+</td></tr>
+
+<tr><td>5</td><td>Nada también es una expresión regular.</td></tr>
+</table>
+</p>
+
+
+<font color=yellow><h3 align="center">Las operaciones básicas de las expresiones regulares</h3></font>
+
+<p>
+Las operaciones básicas de las expresiones regulares, son: la concatenación, la alternativa y la cerradura. Con estas operaciones se forma cualquier expresión regular.
+</p>
+
+
+<font color=yellow><h4 align="center">La concatenación</h4></font>
+
+<p>La concatenación es la consecución de sı́mbolos, uno después de otro. Ası́ que
+la concatenación de los sı́mbolos a y b se expresa, como:</p>
+
+<font color=red><h2 align="center">ab</h2></font>
+
+<p>Sean <b>R</b> y <b>S</b> dos cadenas de sı́mbolos, la concatenación de las dos cadenas
+se denota como: <b>RS</b>. Se define por medio de la notación de conjuntos, como a
+continuación se muestra: <b>{xy|x ∈ R ∧ Y ∈ S}</b>.
+Un solo sı́mbolo es por si solo una expresión regular, ya que es la concatenación del sı́mbolo con la cadena vacı́a una o más veces. Sea  la representación
+de la cadena vacı́a. El sı́mbolo a, se expresa como la concatenación de la cadena
+vacı́a una o más veces con el sı́mbolo, de la siguiente manera:</p>
+
+<font color=red><h4 align="center">a = a&epsilon; = a&epsilon; &epsilon; = a&epsilon; &epsilon; &epsilon; · · ·</h4></font>
+
+<p>Por lo que, una cadena con un sólo sı́mbolo, es  de por sı́, una expresión regular.
+Reafirmando: a, b, &epsilon;, son expresiones regulares.</p>
+
+
+<font color=yellow><h4 align="center">La alternativa</h4></font>
+
+<p>Cuando se quiere reconocer un sı́mbolo u otro sı́mbolo, la notación algebraica
+que lo determina, es la siguiente:</p>
+
+<p>Esto quiere decir que se lee a o se lee b. Sean R y S dos cadenas de sı́mbolos, la
+alternativa de dos cadenas se define como <b>{x|x ∈ R ∨ x ∈ S}</b>. Su representación,
+es:</p>
+
+<font color=red><h2 align="center">a|b</h2></font>
+
+
+<font color=yellow><h4 align="center">Las cerraduras</h4></font>
+
+<p>La concatenación de sı́mbolos cero o más veces hasta el infinito se hace por
+medio de las cerraduras de Kleene y la concatenación de una o más veces hasta
+el infinito se hace por medio de la cerradura positiva. La cerradura de Kleene o
+transitiva se representa de la siguiente manera:</p>
+
+
+
+<font color=red><h4 align="center">La cerradura de kleene</h4></font>
+
+Se representa por medio de la concatenación que se formaliza con la siguiente expresión:
+<p><font color=red align="center" size="8"> &cup;<SUB>i = 0</SUB><SUP>&infin;</SUP>&nbsp; a<SUP>i</SUP> = a<SUP>*</SUP></font></p>
+
+
+<font color=red><h4 align="center">La cerradura positiva</h4></font>
+
+<p>También se representa por medio de la concatenación que se formaliza con la siguiente expresión:</p>
+
+<p><font color=red align="center" size="8"> &cup;<SUB>i = 1</SUB><SUP>&infin;</SUP>&nbsp;a<SUP>i</SUP> = a<SUP>+</SUP></font></p>
+
+<font color=yellow><h4 align="center">Determinación de Tokens de un fragmento de código</h4></font>
+
+<p>Ası́ que observemos un fragmento de código en un lenguaje de programación. Por ejemplo en el lenguaje C++ o en Java:</p>
+
+<font color=yellow><h5 align="center">Listado 1: Fragmento de código Java.</h5></font>
+
+<pre class="p2">
+Public class MinTest{
+public static void main ( string [ ] args ) {
+int a =3;
+int b=7;
+System . out . println ( min ( a , b ) ) ;
+		}
+	{
+	return x mayor que y ? x : y ;
+	}
+}
+</pre>
+
+
+<p>Del código en Java del listado 1 se extraen los tokens, tales como las palabras
+reservadas: int, return, public, estatic, etc. Los identificadores: a, b, x, etc. Los
+números, 3, 7, etc. Los operadores: <, ?. Los delimitadores: (, ), ;, etc.</p>
+
+<p>Se muestran ejemplos de expresiones regulares en la siguiente lista:</p>
+
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Números: 1, 2, 3, 4, 0.5, 0.6, 0.7, etc.</td></tr>
+<tr><td>2</td><td>Identificadores: a, b, c, d, a1, b2, A, A1, etc.</td></tr>
+<tr><td>3</td><td>Palabras clave: int, float, main, new, etc.</td></tr>
+<tr><td>4</td><td>Operadores: +, -, *, /, etc.</td></tr>
+<tr><td>5</td><td>Delimitadores: , , [, ], etc.</td></tr>
+</table>
+
+<header>
+<h4 align="center" id=ana>Análisis Léxico</h4>
+</header>
+
+<p>Cuando el compilador analiza un programa escrito en un lenguaje de alto
+nivel. El primer paso es reconocer las palabras contenidas en el programa, de
+acuerdo a las clases léxicas [3]. Las palabras se van leyendo sı́mbolo por sı́mbolo
+y al agrupar todos los caracteres, se forman las palabras, las cuales se comparan
+con un conjunto de reglas, que se representan por medio de expresiones regulares
+o por medio de gramáticas. Si la palabra es válida, de acuerdo al lenguaje de
+programación usado acoplado con las reglas de una expresión regular o una
+gramática, el escaner asigna una clase léxica o categorı́a sintáctica, o la reconoce
+como parte del programa.</p>
+
+
+<img src="ALexFig1.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=44% border=0>
+
+<p>De esta manera se sabe si en el programa las palabras estan bien escritas
+Existen herramientas automáticas para generar escaners. El proceso de la
+herramienta es una descripción matemática de la sintaxis léxica del lenguaje.
+Para construir los escaners artesanales y los escaneres generados, se aplican
+las mismas técnicas en ambos. Los compiladores comerciales y los compiladores
+de código abierto usan escaneres artesanales [5]. Los escaners artesanales son
+más rápidos que los escaners generados, porque la implementación optimiza
+una porción del encabezado que no se puede evitar en un escaner generado.
+El modelo de reconocedor, es un programa que identifica las palabras de una
+cadena de caracteres.
+Reconocedor de palabras, la explicación más simple de un algoritmo para
+reconocer palabras es reconocer carácter por carácter. Por ejemplo reconocer la
+palabra clave new. Considerando la rutina SiguienteCaracter() que regresa el
+siguiente carácter, se implementa como sigue:</p>
+
+
+<img src="ALexAlg1.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=44% border=0>
+
+<p>
+El Algoritmo 2, es la función que hace la lectura de los símbolos que forman la palabra:
+</p>
+
+<img src="ALexAlg2.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=44% border=0>
+
+
+<header>
+<h3 align="center" id=cre>Creación de AFN por medio de la
+construcción de Thompson.</h3>
+</header>
+
+<p>Las clases léxicas, se representan con las siguientes operaciones básicas, las
+cuales son: la concatenación, la alternativa, la cerradura de Kleene y la cerradura
+positiva. A partir de estas operaciones básicas se construye el autómata AFN,
+que va a reconocer a los tokens que forman el lenguaje de programación.</p>
+
+<font color=yellow><h4 align="center">Autómata finito no determinı́stico (AFN).</h4></font>
+
+<p>El autómata finito no determinista se abrevia como AFN. Este autómata
+se define como aquel que tiene transiciones con la cadena vacı́a &epsilon; y que tiene
+transiciones de un estado con el mismo sı́mbolo a dos estados diferentes. Y el
+número de los estados que componen al AFN son finitos.</p>
+
+
+<img src="ALexFig2.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=44% border=0>
+
+<p>El autómata de la figura 2, tiene una transición del estado 0 al estado 1 con
+la cadena vacı́a &epsilon;. Además tiene dos transiciones con el sı́mbolo b del estado 3 a
+los estados 0 y 4. Por lo que este autómata es AFN.</p>
+
+
+<img src="ALexFig3.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=44% border=0>
+
+<font color=yellow><h4 align="center">Construcción de Thompson.</h4></font>
+
+<p>Tomando en cuenta las operaciones básicas de las expresiones regulares, se
+plantea la construcción del AFN: para la concatenación ab, se representa por el
+grafo de la figura 4 [5].</p>
+
+
+<img src="ALexFig4.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>La construcción de thompson para la cerradura de Kleene, en notación algebraica es a<SUP>∗</SUP> , el grafo es el de la figura 5 [5]:</p>
+
+<img src="ALexFig5.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>La construcción de thompson para la cerradura de positiva, en notación
+algebraica es a<SUP>+</SUP> , el grafo es el de la figura 6 [4]:</p>
+
+
+<img src="ALexFig6.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>La construcción de Thompson para la alternativa, en notación algebraica es
+a|b, el grafo es el de la figura 7 [5]:</p>
+
+
+<img src="ALexFig7.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+
+<p class="p3">
+EJEMPLO 1 (Construcción de Thompson.) La
+entrada del analizador léxico es el código fuente y la salida son los tokens
+reconocidos en el código fuente de la entrada. Ası́ que para
+reconocer los tokens, se hace de dos formas: por medio de las
+expresiones regulares o por medio de los autómatas.
+<br>
+Si tenemos la palabra reservada if, la expresión regular de esta
+palabra reservada es Itálica{if}.
+</p>
+
+<p>El AFN de la expresión regular Itálica{if}, es el que se muestra en la figura
+11 , el cuál representa la concatenación del sı́mbolo i con el sı́mbolo f.</p>
+
+
+<img src="ALexFig8.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p class="p3">
+EJEMPLO 2 (Construcción de Thompson.) Ahora
+la
+entrada del analizador léxico es una alternativa y la salida son
+los tokens reconocidos en el código fuente de la entrada. Ası́ que
+para reconocer los tokens, se hace de dos formas: por medio de
+las expresiones regulares o por medio de los autómatas.
+<br>
+Si tenemos la expresión regular Itálica{(a | b)}.
+</p>
+
+<p>Su AFN es el que se muestra en la figura 9 .</p>
+
+<img src="ALexFig9.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p class="p3">
+EJEMPLO 3 (Construcción de Thompson.) Ahora
+entrada del analizador léxico es un identificador.
+<br>
+La expresión regular del identificador es Itálica{l(l|d) ∗ }.
+</p>
+
+<p>Su AFN es el que se muestra en la figura 10 .</p>
+
+
+<img src="ALexFig10.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<header>
+<h4 align="center" id=con>Conversión de AFN a AFD</h4>
+</header>
+
+<p>Existe un AFD equivalente a un AFN con transiciones &epsilon;, el que se puede
+obtener de la siguiente manera:
+Sea M=(Q, Σ, δ, q<SUB>0</SUB> , F) un AFN con transiciones &epsilon;. Un AFD equivalente a
+un AFN será como sigue:
+M’=(Q<SUB>1</SUB> , Σ, δ<SUB>1</SUB> , q<SUB>1</SUB> , F<SUB>1</SUB> ), donde Q<SUB>1</SUB> es subconjunto de 2 Q , lo que quiere decir
+que cada estado de un AFD corresponde a un subconjunto de Q.
+Para cada subconjunto de estados de M habrá un solo estado de M’. Donde
+M’ simulará el comportamiento del autómata M, haciendo transiciones entre sus
+estados de la forma que M hace las transiciones entre sus subconjuntos.</p>
+
+
+<p class="p2">
+DEFINICIÓN 5 (Cerradura-&epsilon;.) La cerradura-&epsilon;({S}) es el
+conjunto de todos los estados que reciben una transición con el
+carácter vacı́o &epsilon;, incluido el conjunto de estados {S} de donde
+salen las transiciones &epsilon;.
+</p>
+
+
+<p>El primer estado q<SUB>1</SUB> = cerradura-&epsilon;({q<SUB>0</SUB> }), es el estado inicial del AFD. Se
+agregará q<SUB>1</SUB> a Q<SUB>1</SUB> , y luego se encuentra la transición de q<SUB>1</SUB> de la siguiente manera:
+δ (q<SUB>1</SUB> , a) = cerradura-&epsilon; (δ (representación del subconjunto q<SUB>1</SUB> , a)).
+Si esta transición genera un nuevo subconjunto de Q, entonces este será agregado a Q<SUB>1</SUB> ; y la siguiente transición de este se deberá encontrar, se continuará de
+esta manera hasta que no se pueda agregar un nuevo estado a Q<SUB>1</SUB> .
+Después se identificará los estados del AFD que contengan al menos un esta-
+do que pertenezca al conjunto de estados F. Si la cerradura-&epsilon;({q<SUB>0</SUB> }) no contiene
+un miembro de F y el conjunto de los estados del AFD constituye F<SUB>1</SUB> , pero si la
+cerradura-&epsilon;({q<SUB>0</SUB> }) contiene un miembro de F.
+De [3] la transformación de AFN a AFD por medio de subconjuntos, se hace
+de la siguiente manera.
+Aplicando los siguientes conceptos:
+Cerradura-&epsilon;({s}), es el conjunto de estados del AFN alcanzables desde el
+estado s del AFN con transiciones &epsilon; solamente.
+Cerradura-&epsilon;({T }), es el conjunto de estados del AFN alcanzables desde el
+estado s en el conjunto T con transiciones &epsilon; solamente; ∪ s∈T cerradura − &epsilon;(s).
+mover(T , a), es el conjunto de estados del AFN a los cuales hay una transición
+con un sı́mbolo de entrada a desde algún estado s en T .
+Se exploran los conjuntos de estados de N que pueden ver después las cadenas
+de entrada. Como base, antes de leer el primer sı́mbolo de entrada, N puede estar
+en cualquiera de los estados de la cerradura-&epsilon;({s<SUB>0</SUB> }), donde s<SUB>0</SUB> es el estado inicial.
+Se supone que N puede estar en el conjunto de estados T después de leer la
+cadena de entrada x. Si hay un lectura a, entonces N puede inmediatamente ir a
+cualquiera de los estados mover(T, a). Sin embargo después de leer a este puede
+hacer algunas transiciones &epsilon;; ası́ que N podrı́a estar en algunos de los estados
+cerradura-&epsilon;((mover(T, a)) después de leer la entrada xa. Siguiendo estas ideas,
+la construcción del conjunto de estados D’s, D estados , y su función de transición
+D transicion se muestra en el siguiente algoritmo:</p>
+
+
+<img src="ALexAlg3.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>El estado inicial de D es cerradura-&epsilon;({s 0 }), y el estado de aceptación de
+D son todos los conjuntos de estados N’s que incluyen al menos un estado de
+aceptación N .</p>
+
+
+<img src="ALexAlg4.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<font color=yellow><h4>Algoritmo de subconjuntos.</h4></font>
+
+<p>La transformación de un AFN a un AFD se hace aplicando el algoritmo
+de subconjuntos, el cual comienza al aplicar cerradura-&epsilon; al primer estado del
+AFN. El concepto de cerradura, es: al estado al que se le aplica la cerradura-&epsilon;
+se incluye en el conjunto y además todos los estados que se accedan por medio
+de un transición &epsilon; a partir del estado al que se le aplica la cerradura-&epsilon;. Se
+van formando subconjuntos de estados, los cuales también se van formado del
+movimiento de todos los caracteres que acepta el AFN desde el estado al que
+se obtuvo, ası́ si los subconjuntos de estados son diferentes se marcan como un
+estado nuevo para el AFD.</p>
+
+
+<p class="p2">
+DEFINICIÓN 6 (Movimiento(Estado, Sı́mbolo).) Es el
+movimiento de un estado marcado como Estado con cada sı́mbolo
+del alfabeto Σ hacia otro estado. El movimiento se puede expresar
+también como mov(estado, sı́mbolo).
+</p>
+
+<p>Observar el siguiente ejemplo:</p>
+
+
+<p class="p3">
+EJEMPLO 4 (Conversión de AFN a AFD.) La siguiente
+expresión regular Itálica{(a|b) ∗ ba} transformarla en AFN,
+aplicando la construcción de Thompson. Para después aplicar el
+algoritmo de subconjuntos y ası́ transformar el AFN a AFD.
+</p>
+
+<p>El AFN que se obteniene aplicando los patrones de la construcción de Thompson, es el que aparece en la figura 11 :</p>
+
+
+<img src="ALexFig11.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>Para transformar el AFN de la figura 11 a AFD, se aplica el algoritmo de subconjuntos. Se comienza aplicando la operación de cerr-&epsilon; al estado 0, este primer
+subconjunto de estados será el primer estado del AFD, el que se etiquetará como
+S<SUB>0</SUB> :</p>
+
+<font color=red><h4>cerr−&epsilon;({0}) = {0, 1, 2, 4, 7} = S<SUB>0</SUB></h4></font>
+
+<p>Para obtener el estado S<SUB>1</SUB> se aplica la operación de movimiento por todo el
+alfabeto <font color=black>Σ = {a, b}</font>, también a cada movimiento se le aplica la operación de
+cerr-&epsilon;, como se muestra a continuación:</p>
+
+<font color=red><h4>mov(S<SUB>0</SUB> , a) = {5}</h4></font>
+
+<p>Se le aplica la operación de cerr-&epsilon; al movimiento de S<SUB>0</SUB> con el sı́mbolo a, por
+lo que se obtiene:</p>
+
+<font color=red><h4>cerr − &epsilon;(mov(S<SUB>0</SUB> , a)) = {1, 2, 4, 5, 6, 7} = S<SUB>1</SUB></h4></font> 
+
+<p>Se hacen las siguientes operaciones:</p>
+<font color=red><h4>mov(S<SUB>0</SUB> , b) = {3, 8}</h4></font>
+<font color=red><h4>cerr − &epsilon;(mov(S<SUB>0</SUB> , b)) = {1, 2, 3, 4, 6, 7, 8, 9} = S<SUB>2</SUB></h4></font>
+
+<p>Se hacen las siguientes operaciones:</p>
+<font color=red><h4>mov(S<SUB>1</SUB> , a) = {5}</h4></font>
+<font color=red><h4>cerr − &epsilon;(mov(S<SUB>1</SUB> , a)) = S<SUB>1</SUB></h4></font>
+
+<p>Se hacen las siguientes operaciones:</p>
+<font color=red><h4>mov(S<SUB>1</SUB> , b) = {3, 8}</h4>
+cerr − &epsilon;(mov(S<SUB>1</SUB> , b)) = S<SUB>2</SUB></font>
+
+<p>Se hacen las siguientes operaciones:</p>
+<font color=red><h4>mov(S<SUB>0</SUB> , a) = {5}</h4>mov(S<SUB>2</SUB> , a) = {5, 10}
+cerr − &epsilon;(mov(S<SUB>2</SUB> , a)) = {1, 2, 4, 5, 6, 7, 10} = S<SUB>3</SUB></font>
+
+<p>Se hacen las siguientes operaciones:</p>
+<font color=red><h4>mov(S<SUB>0</SUB> , a) = {5}</h4></font>
+<font color=red>mov(S<SUB>2</SUB> , b) = {3, 8}
+cerr − &epsilon;(mov(S<SUB>2</SUB> , b)) = S<SUB>2</SUB></font>
+
+<p>Se hacen las siguientes operaciones:</p>
+<font color=red><h4>mov(S<SUB>3</SUB> , a) = {5}</h4></font>
+<font color=red><h4>cerr − &epsilon;(mov(S<SUB>3</SUB> , a)) = S<SUB>1</SUB></h4></font>
+
+<p>Se hacen las siguientes operaciones:</p>
+<font color=red><h4>mov(S<SUB>3</SUB> , b) = {3, 8}</h4></font>
+<font color=red><h4>cerr − &epsilon;(mov(S<SUB>3</SUB> , b)) = S<SUB>2</SUB></h4></font>
+
+<p>El siguiente paso es obtener de las operaciones anteriores el AFD, como se
+muestra en la figura 12 .</p>
+
+
+<img src="ALexFig12.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<header>
+<h3 align="center" id=afd>Creación de un AFD a partir de una
+expresión regular</h3>
+</header>
+
+<p>El proceso de construcción de un AFD de una expresión regular, es: aplicar
+la construcción de Thompson a la expresión regular para obtener un autómata
+AFN, para después aplicar el algoritmo de subconjuntos al AFN para obtener
+un AFD no mı́nimo, como se muestra en la figura 13.</p>
+
+
+<img src="ALexFig13.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p class="p3">
+[Transformación de expresión regular a AFD.] Otro método es usar
+cuatro funciones: anulable, primerapos, ultimapos y siguientepos,
+haciendo recorridos sobre un árbol. Por último se construye el
+AFD a partir de siguientepos. Las funciones anulable, primerapos
+y ultimapos se definen sobre los nodos del árbol sintáctico y se
+usan para calcular siguientepos, que esta definida en el conjunto
+de posiciones [3].
+</p>
+
+<p class="p2">
+DEFINICIÓN 7 (Función siguientepos().) Es el conjunto
+de posiciones j tales que hay alguna cadena de entrada cd tal que
+i corresponde a la aparición de c y j a la aparición de d [3] .
+</p>
+
+<p class="p2">
+DEFINICIÓN 8 (Función primerapos().) La que propor-
+ciona el conjunto de posiciones que pueden concordar con el pri-
+mer sı́mbolo de una cadena generada por la subexpresión con raı́z
+en n [3] .
+</p>
+
+
+<p class="p2">
+DEFINICIÓN 9 (Función últimapos().) La que proporcio-
+na el conjunto de posiciones que pueden concordar con el último
+sı́mbolo en esa cadena [3] .
+</p>
+
+
+<p class="p2">
+DEFINICIÓN 10 (Función anulable().) Es necesario cono-
+cer qué nodos son las raı́ces de las subexpresiones que generan
+lenguajes que incluyen la cadena vacı́a. A dichos nodos se les de-
+nomina anulables, y la función anulable(n) se define como verda-
+dera si el nodo n es anulable, y falso en caso contrario [3] .
+</p>
+
+
+<p class="p2">
+DEFINICIÓN 11 (Construcción de un AFD de una expresión regular.)
+Entrada:
+Una expresión regular r.
+Salida:
+Un AFD D que reconoce a L(r).
+Método:
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Constrúyase un árbol sintáctico para la expresión regular aumentada (r)#, dónde # es un marcador de final único que se añade a (r).</td></tr>
+<tr><td>2</td><td>Constrúyanse las funciones anulable(), primerapos(), útimapos() y siguientepos() haciendo recorridos en profundidad en el árbol T.</td></tr>
+<tr><td>3</td><td>Contrúyanse los estadosD, el conjunto de estados D, y tranD, la tabla de transiciones para D. Los estados dentro de estadosD son conjuntos
+de posiciones; al principio, cada estado esta “no marcado”, y un estado se
+convierte en “marcado” justo antes de considerar sus transiciones de salida.
+El estado de inicio de D es primerapos(raı́z), y los estados de aceptación
+son todos los que contienen la posición asociada con el marcador de final #.
+[3] .</td></tr>
+</table>
+</p>
+
+
+<font color=yellow><h4>Listing 2: Construcción de la tabla de transiciones del estado D.</h4></font>
+
+<pre class="p2">
+al principio , el único estado no marcado en estadosD es
+primerapos ( raiz ) , donde raiz es la raiz del arbol de
+sintaxis para ( r )#;
+while hay un estado sin marcar T en estadosD do begin
+marcar T ;
+for cada simbolo de entrada a do begin
+se a U el conjunto de posicion es que estan en
+siguientepos ( p ) para alguna posicion p en T,
+tal
+que el simbolo en la posicion p es a ;
+if U no esta vacio y no esta en estadosD then
+aniadir U como estado no marcado a estadosD ;
+tranD [ T, a ] := U
+    end
+end
+</pre>
+
+<font color=yellow><h4 align="center">Ejercicio.</h4></font>
+
+<p>Convertir la expresión regular aumentada Itálica { (a|b) ∗ abb# } en un
+AFD, utilizando las funciones primerapos, últimapos, siguientepos. Lo primero
+es colocar en un árbol sintáctico la expresión regular. Existen los nodos: nodo-
+ast que es el nodo para una cerradura de Kleene, el nodo-cat que es el nodo
+para la concatenación, el nodo-o que es el nodo para la alternativa y también el
+nodo-pos que es el nodo para la cerradura positiva.</p>
+
+
+<img src="ALexFig14.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>En la expresión regular Itálica{ (a|b) ∗ abb } se enumeran los sı́mbolos del
+alfabeto incluido el sı́mbolo #, como se muestra en el cuadro 2 :</p>
+
+
+<img src="ALexCuadro1.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>En el árbol se marcan los nodos en la parte izquierda del nodo se colocan
+los primeros y en la parte derecha del nodo se colocan los últimos.</p>
+
+
+<img src="ALexFig15.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>Para calcular la función siguientepos se aplican las siguientes dos reglas:</p>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Si n es un nodo-cat con hijo izquierdo c<SUB>1</SUB> e hijo derecho c<SUB>2</SUB> , e<SUB>i</SUB> es una posición dentro de últimapos(c<SUB>1</SUB> ), entonces todas las posiciones de primerapos(c<SUB>2</SUB> )
+están en siguientepos(i).</td></tr>
+
+<tr><td>2</td><td>Si n es un nodo-ast, e i es una posición dentro de últimapos((n), entonces todas las posiciones de primerapos(n) están en siguientepos(i).</td></tr>
+
+</table>
+
+
+<p>En el cuadro ?? se listan los conjuntos primeros y últimos:</p>
+
+
+<img src="ALexCuadro2.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>Se obtiene el autómata AFD de la figura 2.</p>
+
+<header>
+<h3 align="center" id=min>Minimización de estados de un AFD</h3>
+</header>
+
+<p>Después de transformar un autómata AFN a AFD, es conveniente que el
+AFD tenga el mı́nimo de estados con la finalidad de que cuando se programe el
+AFD sea con un número de estados pequeño.
+Para minimizar un AFD existen algoritmos de Minimización, los cuales, son:
+El algoritmo de Hopcroft [5], el algoritmo de consistencia [4].</p>
+
+
+
+<font color=yellow><h4 align="center">El algoritmo de Hopcroft.</h4></font>
+
+<p>Se forma un conjunto de particiones P del autómata a minimizar. La construcción del conjunto de particiones se basa en el principio de que un estado se
+comporta de la misma manera que otro estado, si tienen el mismo comportamiento ante la misma cadena de entrada, entonces los estados son equivalentes.
+Ası́ es, se expresa de la siguiente manera. Ante la entrada de la cadena de ca-
+racteres abc, el comportamiento de un estado p → q es el mismo que el de
+otro estado p<SUB>1</SUB> → q<SUB>1</SUB> , entonces los estados q y q<SUB>1</SUB> son equivalentes. Representado
+gráficamente:</p>
+
+<font color=red><h4 align="center">p −−−−−−−−−−−→ q</h4></font>
+
+<p>Se tiene que el estado q 1 tiene el mismo comportamiento que q, ante la misma
+cadena de entrada, lo que se representa de la siguiente forma:</p>
+
+<font color=red><h4 align="center">p<SUB>1</SUB> −−−−−−−−−−−→ q<SUB>1</SUB> </h4></font>
+
+<font color=yellow><h4 align="center">El algoritmo de consistencia.</h4></font>
+
+<p>La manera de minimizar el número de estados es determinar las salidas
+de cada uno de los estados basados en que hacen de acuerdo a la cadena de
+caracteres que aceptan los estados.
+Dado un AFD D que acepta el alfabeto Σ con estado S donde F ⊆ S
+es el conjunto de los estados de aceptación, construimos un AFD D 0 donde
+cada estado es un grupo de estados de D. Los grupos en el AFD mı́nimo son
+consistentes: para cada par de estados s<SUB>1</SUB> , s<SUB>2</SUB> en el mismo grupo G y cualquier
+sı́mbolo c, mover(s<SUB>1</SUB> , c) esta en el mismo grupo G<SUB>1</SUB> como mover(s<SUB>2</SUB> , c) o ambos
+son indefinidos. En otras palabras, no podemos decir s<SUB>1</SUB> y s<SUB>2</SUB> aparte por buscar
+sus tradiciones.
+Se forman dos grupos de estados: los estados finales y los estados no finales.
+Se verifica la consistencia de los grupos formados. Si no son consistentes se
+divide el grupo, tomando los grupos de estados que si sean consistentes y se
+reemplaza el grupo que no fué consistente por los nuevos grupos formados.
+Esto se repite hasta que todos los grupos sean consistentes.</p>
+
+<font color=yellow><h4 align="center">Ejemplo</h4></font>
+
+<p>Se tiene el siguiente autómata AFD no mı́nimo: con el conjunto de estados
+S = {0, 1, 2, 3, 4}, donde la tabla de transiciones se representa en el cuadro 3:</p>
+
+
+<img src="ALexCuadro3.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>El autómata AFD no mı́nimo de la tabla de transiciones 3, esta representado
+en la figura 16 : los estados finales F = {0} y el conjunto de los estados no finales
+G = {1, 2, 3, 4}.</p>
+
+
+<img src="ALexFig16.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>Para minimizar el autómata de la figura 16, se aplica el algoritmo de con-
+sistencia a los dos grupos formados: el grupo de estados no finales G y el grupo
+de estados finales F .
+Se presentan los grupos G y F en forma de tabla, como se muestra en el
+cuadro 4 y en el cuadro 5, respectivamente:</p>
+
+
+<img src="ALexCuadro4.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+
+<p>Al aplicar la consistencia al grupo G representado en el cuadro 4 , se determina que todos los estados son inconsistentes, pues tienen diferentes transiciones.
+Por lo que cada estado se divide en un grupo diferente, de manera que se obtienen cuatro grupos.
+Al aplicar la consistencia al grupo F representado en el cuadro 5 , y ya que
+tiene un sólo estado se considera que el grupo F es consistente, por lo que se
+obtiene un grupo.</p>
+
+
+<img src="ALexCuadro5.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>En total se obtuvieron cinco grupos consistentes y ya que el AFD no mı́nimo
+tiene cinco estados. Entonces, se concluye que el AFD no mı́nimo es el AFD
+mı́nimo.</p>
+
+<font color=yellow>Lista de ejercicios</font>
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>Dado el autómata AFD No mı́nimo de la figura 17, minimizarlo aplicando los algoritmos de minimización:Figura 17.</td></tr>
+<tr><td>2</td><td>Para el AF D N o mı́nimo de la figura 18, minimizarlo aplicando los algoritmos de minimización:Figura 18.</td></tr>
+</table>
+
+<img src="ALexFig17.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<img src="ALexFig18.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<header>
+<h3 align="center" id=cons>Construcción de analizadores léxicos definidos
+por medio de expresiones regulares</h3>
+</header>
+
+<p>Para construir un analizador léxico se parte de la expresión regular, la cual se
+transforma en autómata AFN por medio de la construcción de Thompson. Después, el autómata AFN se convierte en autómata AFD utilizando el algoritmo
+de subconjuntos, posteriormente se minimiza el número de estados, utilizando
+un algoritmo de minimización. Cuando ya se tiene el AFD mı́nimo, este se programa en un lenguaje de programación de alto nivel, ya sea C++, Java, etc. La
+programación del AFD mı́nimo, es la implementación del analizador léxico.</p>
+
+
+<img src="ALexFig19.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<font color=yellow><h4 align="center">Ejemplo</h4></font>
+
+
+<p class="p3">
+EJEMPLO 5 (Construcción de un analizador léxico.) A
+partir de la siguiente expresión regular construir un analizador
+léxico: la expresión regular (a|b) ∗ ba, se transforma en
+AFN aplicando la construcción de Thompson para tres
+concatenaciones, la primera concatenación es una cerradura
+de Kleene y dentro de la cerradura de Kleene una alternativa, por
+lo que se obtiene el siguiente autómata:
+</p>
+
+
+<img src="ALexFig20.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>El siguiente paso es convertir el autómata AFN en un autómata AFD
+aplicando el algoritmo de subconjuntos. De donde se obtiene el el autómata
+AFD no mı́nimo, que se muestra en seguida:</p>
+
+<table CELLSPACING="18">
+<tr><td>cerradura-&epsilon;({0}) = </td><td>{ 0, 1, 2, 4, 7 } = S<SUB>0</SUB></td></tr>
+<tr><td>cerradura-&epsilon;(mov(S<SUB>0</SUB> ,a)) = cerradura-&epsilon;({ 3 }) = </td><td>{ 3, 6, 7, 1, 2, 4 } = S<SUB>1</SUB></td></tr>
+<tr><td>cerradura-&epsilon;(mov(S<SUB>0</SUB> ,b)) = cerradura-&epsilon;({ 5 }) = </td><td>{ 5, 6, 7, 1, 2, 4 } = S<SUB>2</SUB></td></tr>
+<tr><td>cerradura-&epsilon;(mov(S<SUB>1</SUB> ,a)) = cerradura-&epsilon;({ 3 }) =</td><td>S<SUB>1</SUB></td></tr>
+<tr><td>cerradura-&epsilon;(mov(S<SUB>1</SUB> ,b)) = cerradura-&epsilon;({ 8, 5 }) = </td><td>{ 8, 5, 6, 7, 1, 2, 4 } = S<SUB>3</SUB></td></tr>
+<tr><td>cerradura-&epsilon;(mov(S<SUB>2</SUB> ,a)) = cerradura-&epsilon;({ 3 }) =</td><td>S<SUB>1</SUB></td></tr>
+
+
+<tr><td>cerradura-&epsilon;(mov(S<SUB>2</SUB> ,b)) = cerradura-&epsilon;({ 8, 5 }) =</td><td>S<SUB>3</SUB></td></tr>
+<tr><td>cerradura-&epsilon;(mov(S<SUB>3</SUB> ,a)) = cerradura-&epsilon;({ 9, 3 }) = </td><td>  { 9, 3, 6, 7, 1, 2, 4 } = S<SUB>4</SUB></td></tr>
+<tr><td>cerradura-&epsilon;(mov(S<SUB>3</SUB> ,b)) = cerradura-&epsilon;({ 8, 5 }) =</td><td>S<SUB>3</SUB></td></tr>
+<tr><td>cerradura-&epsilon;(mov(S<SUB>4</SUB> ,a)) = cerradura-&epsilon;({ 3 }) =</td><td>S<SUB>1</SUB></td></tr>
+<tr><td>cerradura-&epsilon;(mov(S<SUB>4</SUB> ,b)) = cerradura-&epsilon;({ 8, 5 }) =</td><td>S<SUB>3</SUB></td></tr>
+</table>
+
+
+<font color=yellow><h4 align="center">De las operaciones de cerradura se obtiene el AFD:</h4></font>
+
+
+<img src="ALexFig21.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>Se aplica el algoritmo de minimización del cual se obtiene el autómata
+AFD mı́nimo:
+Se forma el grupo de estados no finales G<SUB>0</SUB> = {S<SUB>0</SUB>, S<SUB>1</SUB>, S<SUB>2</SUB> , S<SUB>3</SUB> } y el grupo
+de estados finales G<SUB>1</SUB> = {S<SUB>4</SUB> }. El grupo G<SUB>1</SUB> por tener un sólo estado es de por
+si consistente. Al grupo G<SUB>0</SUB> se le aplica la consistencia y este se divide en dos
+grupos: G<SUB>2</SUB> = {S<SUB>0</SUB> , S<SUB>1</SUB> , S<SUB>2</SUB> } y G<SUB>3</SUB> = {S<SUB>3</SUB> }, ası́ que el autómata AFD mı́nimo se
+forma como en la figura 22 .</p>
+
+
+<img src="ALexFig22.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+
+<p class="p3">
+EJEMPLO 6 (Construcción de un analizador léxico.) A
+partir de la siguiente expresión regular construir un analizador
+léxico: la expresión regular (a|b) ∗ abb, se transforma en
+AFN aplicando la construcción de Thompson para cuatro
+concatenaciones, la primera concatenación es una cerradura
+de Kleene y dentro de la cerradura de Kleene una alternativa, por
+lo que se obtiene el siguiente autómata:
+</p>
+
+
+<img src="ALexFig23.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>El autómata AFD de la figura 24 se obtiene aplicando el algoritmo de subconjuntos al autómata AFN de la figura 23 .</p>
+
+
+<img src="ALexFig24.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+
+<p class="p3">
+EJEMPLO 7 (Construcción de un analizador léxico.) A
+partir de la siguiente expresión regular construir un analizador
+léxico: la expresión regular (a|b) ∗ bba, se transforma en
+AFN aplicando la construcción de Thompson para cuatro
+concatenaciones, la primera concatenación es una cerradura
+de Kleene y dentro de la cerradura de Kleene una alternativa, por
+lo que se obtiene el siguiente autómata:
+</p>
+
+
+<img src="ALexFig25.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+
+<img src="ALexFig26.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>Aplicando el algoritmo de minimización al AFD de la figura 26 , se obtiene
+el autómata AF D M de la figura 27 :</p>
+
+
+<img src="ALexFig27.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=54% border=0>
+
+<p>Se debe construir la función siguiente(), que se muestra a continuación en el
+algoritmo :</p>
+
+
+<img src="ALexAlg5.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=44% border=0>
+
+<p>Después de haber obtenido la tabla de transiciones del autómata AFD mı́nimo, se aplica el siguiente código para implementar el analizador léxico, escaner
+o reconocedor:</p>
+
+
+<img src="ALexAlg6.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=44% border=0>
+
+<font color=yellow><h4 align="center">Lista de ejercicios</h4></font>
+
+<p>Dadas las siguientes expresiones regulares construir un analizador léxico:
+
+<table CELLSPACING="18">
+<tr><td>1</td><td>a<SUP>∗</SUP> (a|b)aa</td></tr>
+<tr><td>2</td><td>((a|b)(a|bb))<SUP>∗</SUP></td></tr>
+<tr><td>3</td><td>(ab|ac)<SUP>∗</SUP></td></tr>
+<tr><td>4</td><td>(0|1)<SUP>∗</SUP> 1100 1<SUP>∗</SUP></td></tr>
+<tr><td>5</td><td>(01|10|00)<SUP>∗</SUP> 11</td></tr>
+</table>
+
+</p>
+
+<header>
+<h3 align="center" id=gen>Generadores de analizadores léxicos</h3>
+</header>
+
+<p>Los generadores de analizadores léxicos hacen todo el proceso desde la introducción de la expresión regular, estos generan el autómata mı́nimo ya codificado.
+Las especificaciones en FLEX se hace de la siguiente forma:</p>
+
+
+<pre class="p2">
+Definiciones
+%%
+Reglas
+%%
+Código de usuario
+</pre>
+
+<p>En la siguiente tabla 6, se especifican las expresiones regulares en LEX:</p>
+
+
+
+<table CELLSPACING="18">
+<tr><th>Expresión regular</th><th>Código</th></tr>
+<tr><th>ER</th><th>CO</th></tr>
+<tr><td>if</td><td>{return IF;}</td></tr>
+<tr><td>[a − z][a − z0 − 9]<SUP>∗</SUP></td><td>{return ID;}</td></tr>
+<tr><td>[0 − 9]<SUP>+</SUP></td><td>{return NUM;}</td></tr>
+<tr><td>([0 − 9] ”.”[0 − 9]<SUP>∗</SUP>)|([0 − 9]<SUP>∗</SUP> ”.”[0 − 9]<SUP>+</SUP> )</td><td>{return REAL;}</td></tr>
+<tr><td>(” − −”[a − z]<SUP>∗</SUP> ””)|(””|””|” ̈”)<SUP>+</SUP> </td><td>{ /* do nothing */ }</td></tr>
+<tr><td></td><td>{error();}</td></tr>
+</table>
+<font color=yellow>Cuadro 6: Tabla de código en lex.</font>
+
+<p>El siguiente es un programa en LEX:</p>
+
+
+<pre class="p2">
+%{
+/* Declaraciones de C: */
+#include "tokens.h" /* definiciones de IF, ID, NUM, ... */
+#include "errormsg.h"
+union {int ival; string sval; double fval;} yylval;
+int charPos=1;
+#define ADJ (EM_tokPos=charPos, charPos+=yyleng)
+%}
+/* Definiciones de Lex: */
+digits [0-9]+
+%%
+/* Expresiones Regulares y Acciones: */
+if
+{ADJ; return IF;}
+[a-z][a-z0-9]*
+ADJ; yylval.sval=String(yytext);
+return ID;}
+{digits}
+{ADJ; yylval.ival=atoi(yytext);
+return NUM;}
+({digits}"."[0-9]*)|([0-9]*"."{digits})
+{ADJ;
+yylval.fval=atof(yytext);
+return REAL;}
+("--"[a-z]*"\n")|(" "|"\n"|"\t")+ {ADJ;}
+.
+{ADJ; EM_error("caracter ilegal");}
+</pre>
+
+</div>
+</article>
+
+
+<!--Ventana 1-->
+
+<div id="openModal" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 1</font></h3>
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+	<font color=black>Características de las figuras</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques del programa objeto.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig1.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 2-->
+
+<div id="openModal1" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 2</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la arquitectura del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig2.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 3-->
+
+<div id="openModal2" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 3</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de definiciones</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Definición de intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<p><font color=black>Otro tipo de traductor, llamado intérprete, procesa en forma 			interna el programa fuente y los datos al mismo tiempo. Es decir, la interpretación 				del formulario de origen interno se produce en tiempo de ejecución y no se 				genera ningún programa objeto.</font></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 4-->
+
+<div id="openModal4" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 1</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de figuras</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Conversión de código fuente a expresión regular.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<img src="ALexFig1.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=44% border=0>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+
+<!--Ventana 5-->
+
+<div id="openModal5" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 11</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de figuras</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Conversión de AFN a AFD por algoritmo de subconjuntos.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<img src="ALexFig11.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=110% border=0>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+
+<!--Ventana 6-->
+
+<div id="openModal6" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 12</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de figuras</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Autómata AFD obtenido de la conversión.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<img src="ALexFig12.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=110% border=0>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 7-->
+
+<div id="openModal7" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 11a</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de figuras</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Autómata AFN del ejercicio a* (a|b) aa.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<img src="ALexFig11a.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=100% border=0>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 8-->
+
+<div id="openModal8" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 11b</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de figuras</font>.<table width="70%" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Autómata AFN del ejercicio a* (a|b) aa, por construcción de Thompson.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<img src="ALexFig11b.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=100% border=0>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+
+<aside class="lateralIzq">
+<font color=yellow><h3 align="center">Figuras:</h3></font>
+<p class="p4">
+<table class="t" CELLSPACING="18">
+<tr><td><a href="#openModal">FIGURA 1</a></td><td><a href="#openModal1">FIGURA 2</a></td></tr>
+<tr><td><a href="#openModal2">INTÉRPRETE</a></td><td><a href="#openModal4">Conversión</a></td></tr>
+
+<tr><td><a href="#openModal5">FIGURA 11</a></td><td><a href="#openModal6">FIGURA 12</a></td></tr>
+
+<tr><td><a href="#openModal7">FIGURA 11a</a></td><td><a href="#openModal8">FIGURA 11b</a></td></tr>
+</table>
+</p>
+
+</aside>
+
+
+<aside class="lateralDer">
+<font color=yellow><h3 align="center">Tablas:</h3></font>
+<p class="p4">
+<table class="t" CELLSPACING="18">
+<tr><td><a href="#openModal">FIGURA 1</a></td><td><a href="#openModal1">FIGURA 2</a></td></tr>
+<tr><td><a href="#openModal2">INTÉRPRETE</a></td><td><a href="#openModal4">Conversión</a></td></tr>
+
+</table>
+</p>
+
+</aside>
+
+
+</body>
+</html>

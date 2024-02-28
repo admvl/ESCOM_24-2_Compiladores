@@ -1,0 +1,724 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+        margin-right: 3%;
+	font-size: 16px;
+}
+
+.a1 {
+	margin-left: 61%;
+        margin-right: 2%;
+        width: auto;
+        height: auto;
+	float: right;
+	position: absolute;
+	transform: translate(-15%, -54%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 16px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 14: Repaso de clases y herencia
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+
+<p align=left><font color=yellow size=6>Los tipos de clases</font></p>
+
+Las clases pueden ser: superclase, subclase y 
+clase abstracta.
+
+<p align=left><font color=maroon>Superclase</font></p>
+Esta se ve mediante el siguiente programa:
+El programa <a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Faculty.java style="float:center" target="_blank">Faculty.java</a> es sobre
+la clase padre.</p>
+
+Esta es la clase padre:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/GeometricObject1.java style="float:center" target="_blank">GeometricObject1.java</a>.
+
+<p align=left><font color=maroon>Subclase</font></p>
+Esta es la subclase:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Circle4.java style="float:center" target="_blank">Circle4.java</a>.
+
+Esta es la clase principal que corre con la 
+clase Circle4:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/TestCirculoRectangulo.java style="float:center" target="_blank">TestCirculoRectangulo.java</a>.
+
+<p align=left><font color=maroon>La clase abstracta</font></p>
+Este programa para ejemplicar 
+las clases abstractas:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/AbstractAreas.java style="float:center" target="_blank">AbstractAreas.java</a>.
+
+Este código es sobre las clases 
+abstractas:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/TestRationalClass.java style="float:center" target="_blank">TestRationalClass.java</a>.
+
+<p align=left><font color=maroon>La herencia (Ejemplo de una
+jerarquía)</font></p>
+
+Considere una empresa que vende varios 
+productos, como televisores y libros. Obvio que 
+las diferencias entre los productos implican que 
+deben tiener diferentes atributos para ser rastreados 
+y que necesitamos dos clases, Televisión y Libro. Una 
+forma de lograr esta tarea es crear una clase para 
+televisores, digamos, Televisión, y una segunda clase, 
+para libros, es decir, Libro. Sin embargo, en muchas 
+situaciones, a la compañía le gustaría pensar en libros 
+y televisores como simples productos. 
+Por ejemplo, la empresa necesita realizar un 
+seguimiento de las ventas, ganancias (o pérdidas), etc., 
+para todos los productos. Ahora, agregue a la situación 
+anterior más productos, digamos, CD, DVD, reproductores 
+de cassette, bolígrafos, etc. Cada uno puede garantizar 
+una clase separada, pero, como solo se discutio, todos 
+tienen propiedades y comportamientos comunes y para la 
+empresa, son todos los productos.
+Lo que vemos es un ejemplo de una situación en la que 
+dos clases tienen muchas similitudes, pero también 
+diferencias sustanciales. La necesidad de ver diferentes 
+entidades como televisores y los libros como productos 
+sugieren que podemos beneficiarnos al tener un nuevo tipo, 
+Producto, introducido en el sistema. Dado que hay una 
+buena cantidad de funcionalidad común entre los dos 
+productos, nos gustaría que el producto sea una clase 
+que implemente la comunidad encontrado en Televisión 
+y Libro.
+En Java, hacemos esto de la siguiente manera. 
+Comenzamos con una clase que captura las propiedades 
+y métodos esenciales comunes a todos los productos.
+
+public class Product {
+  // functionalidad para un producto
+}
+
+La clase anterior puede tener atributos como el 
+número de unidades vendidas y el precio unitario. 
+También lo hará tener constructores y métodos para 
+registrar ventas, calcular ganancias, etc.
+Ahora estamos listos para crear una clase que 
+represente un solo televisor. Para esto, notamos
+que un televisor es un producto y que nos gustaría 
+utilizar la funcionalidad que acabamos de
+implementado para productos. En Java, hacemos esto 
+de la siguiente manera:
+
+public class Television extends Product {
+  // functionalidad que es inica para televisions
+  // modificaciones
+}
+
+Hablando informalmente, la clase de Televisión 
+hereda todas las propiedades y métodos.
+de la clase Producto. Todo lo que hemos hecho 
+es agregar propiedades y métodos únicos a los 
+televisores, que, por razones obvias, no se 
+implementarán en el Producto.
+De manera similar, se implementa la clase Libro.
+
+public class Book extends Product {
+  // functionality that is unique for books
+  // modifications
+}
+
+La relación entre las tres clases se describe
+en la figura 3.6 [Sarnath, págs, 57-58].
+
+El siguiente código es la clase Product 
+para ejemplificar la jerarquía de herencia:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Product.java style="float:center" target="_blank">Product.java</a>.
+
+El siguiente código es la clase Television 
+para ejemplificar la jerarquía de herencia 
+[Sarnath, págs, 61]:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Television.java style="float:center" target="_blank">Television.java</a>.
+
+<p align=left><font color=maroon>Campos y métodos
+protegidos</font></p>
+
+Considere la jerarquía como se muestra en la 
+Figura 3.11. ClosedFigure tiene un área de 
+atributo que almacena el área de un objeto 
+ClosedFigure. Desde las clases Polígono y
+ClosedCurve son tipos de ClosedFigure, nos 
+gustaría que este atributo esté disponible 
+para ellos. Esto implica que el atributo no 
+puede ser privado; por otro lado haciéndolo
+public podría llevar a un uso inapropiado por 
+parte de otros clientes. La solución a esto se 
+encuentra en El especificador de acceso 
+protegido. Hablando en términos generales, 
+lo que esto significa es que este campo puede
+se accede por ClosedFigure y sus descendientes 
+como se muestra a continuación.
+
+
+Declararlo protegido garantiza que el campo 
+esté disponible para los descendientes pero no 
+se pueda Se accede por código que reside fuera 
+de la jerarquía enraizada en ClosedFigure.
+El ejemplo anterior es simple ya que la clase 
+Polygon está modificando el campo de un
+Objeto poligonal Considere la siguiente situación.
+
+public class ClosedCurve {
+  // other fields and methods
+  public void areaManipulator(Polygon p) {
+    p.area = 0.0;
+  }
+}
+
+Aquí la clase ClosedCurve está modificando el 
+área de un polígono. Nuestra definición suelta 
+dice esa área es visible para ClosedCurve, lo 
+que haría que esto sea válido. Sin embargo, 
+ClosedCurve es un hermano de Polygon y, por lo 
+tanto, no es parte de las restricciones de diseño 
+de Polygon, y proporcionar dicho acceso podría 
+comprometer la integridad de nuestro código. De 
+hecho, un cliente sin escrúpulos podría hacer 
+fácilmente lo siguiente:
+
+class BackDoor extends ClosedFigure {
+  public void setArea(double area, 
+    ClosedFigure someClosedFigure) {
+    someClosedFigure.area = area;
+  }
+}
+
+Por lo tanto, necesitamos la siguiente definición 
+más estricta de acceso protegido.
+El código que reside en una clase A solo puede 
+acceder a un atributo protegido de un objeto de 
+la clase B si B es al menos del tipo A, es decir, 
+B pertenece a la jerarquía enraizada en A.
+Con esta definición, métodos como setArea en 
+BackDoor violarían la protección acceso (ya 
+que ClosedFigure no es una subclase de BackDoor) 
+y puede capturarse en tiempo de compilación. El 
+compilador no levantará una objeción si 
+someClosedFigure se lanza como
+BackDoor como se muestra a continuación.
+
+((BackDoor) someClosedFigure).area = area;
+
+Si someClosedFigure contenía una referencia a un 
+objeto Polygon, la conversión fallará en tiempo 
+de ejecución que impide el acceso al campo protegido
+[Sarnath, págs, 69-71].
+
+<p align=left><font color=maroon>Genericidad</font></p>
+
+La genericidad es un mecanismo para crear entidades 
+que varían solo en los tipos de sus parámetros, y 
+esta noción puede asociarse con cualquier entidad 
+(clase o método) que requiera parámetros de algunos 
+tipos específicos. Como hemos visto antes, en la 
+definición de cualquier entidad, se especifican los 
+tipos de parámetros involucrados. En el caso de un 
+método, especificamos los tipos de argumentos y el 
+tipo de retorno. En el caso de una clase, los tipos 
+de argumentos para los constructores, Los tipos de 
+retorno y los tipos de argumento de los métodos 
+están especificados. En cualquier caso de
+la entidad, los tipos reales de todos estos parámetros 
+deben ajustarse a los tipos correspondientes
+especificado en la definición. Cuando especificamos 
+una entidad genérica, los tipos de los parámetros son
+reemplazado por marcadores de posición, que se 
+denominan parámetros genéricos. Por lo tanto, la 
+entidad no es completamente especificado y no puede 
+usarse como tal para crear instancias de objetos 
+concretos. En el momento de crear artefactos (objetos, 
+si nuestra entidad genérica era una clase), estos 
+marcadores de posición deben ser reemplazado por 
+tipos reales. Para comprender la utilidad de la 
+genericidad, considere la siguiente implementación 
+de un apilar [Sarnath, págs, 71-72]:
+
+El siguiente código es la clase Stack 
+para ejemplificar la genericidad 
+[Sarnath, págs, 72]:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Stack.java style="float:center" target="_blank">Stack.java</a>.
+
+</strong>
+</pre>
+
+<pre class="a1"><strong>
+
+<p align=left><font color=yellow size=6>Uso de las clases</font></p>
+
+<p align=left><font color=maroon>La herencia (continuación)</font></p>
+El siguiente programa es para ejemplificar 
+la herencia:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/SimpleHerencia.java style="float:center" target="_blank">SimpleHerencia.java</a>.
+
+La palabra clave <font color=black>final</font> tiene tres usos. PRIMERO, se 
+puede usar para crear el equivalente de un nombre
+constante. Este uso se describió en el capítulo 
+anterior. Los otros dos usos de la aplicación <font color=black>final</font>
+aplicadas a la herencia.
+
+DOS (sobreescritura), si bien la anulación de métodos 
+es una de las características más potentes de Java, habrá 
+momentos en que querrás evitar que ocurra. Para 
+evitar que un método sea anulado, especifique 
+<font color=black>final</font> como modificador al comienzo de su declaración. 
+Los métodos declarados como <font color=black>final</font> no pueden
+ser anulados. Esto se ilustra en el siguiente 
+código y ver el programa 
+<font color=black>AbstractAreas.java</font>:
+
+class A {
+  final void meth() {
+  System.out.println("This is a final method.");
+  }
+}
+
+class B extends A {
+  void meth() { // ERROR! Can't override.
+  System.out.println("Illegal!");
+  }
+}
+
+El siguiente programa muestra la sobreescritura:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Prueba.java style="float:center" target="_blank">Prueba.java</a>.
+
+El siguiente programa muestra la sobrecarga:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Prueba1.java style="float:center" target="_blank">Prueba1.java</a>.
+
+El siguiente programa muestra la sobrecarga:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/BoxDemo6.java style="float:center" target="_blank">BoxDemo6.java</a>.
+Modificarlo para hacer el cálculo del volumen de
+un cubo.
+
+El siguiente programa muestra la sobrecarga:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/BoxDemoCubo.java style="float:center" target="_blank">BoxDemoCubo.java</a>.
+Modificado para hacer el cáĺculo del volumen de
+un cubo.
+
+El siguiente programa muestra el acceso a miembros
+y herencia:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Access.java style="float:center" target="_blank">Access.java</a>.
+
+TRES (Evitar la herencia), algunas veces querrás evitar 
+que una clase sea heredada. Para hacer esto, preceda la
+declaración de clase con <font color=black>final</font>. Declarar una clase como 
+<font color=black>final</font> declara implícitamente todos sus métodos
+como <font color=black>final</font> también. Como es de esperar, es ilegal 
+declarar una clase como abstracta y <font color=black>final</font>
+dado que una clase abstracta está incompleta por 
+sí misma y depende de sus subclases para proporcionar
+implementaciones completas.
+
+final class A {
+  // ...
+}
+
+// La siguiente clase es ilegal.
+class B extends A { // ERROR! No puede ser subclase de A
+  // ...
+}
+
+
+Una gran ventaja de la herencia es que una vez que 
+ha creado una superclase que define los atributos 
+comunes a un conjunto de objetos, estos se pueden usar 
+para crear cualquier cantidad de subclases 
+específicas. Cada subclase puede adaptar 
+con precisión su propia clasificación. Por ejemplo, 
+lo siguiente La clase hereda Box y agrega un atributo 
+de color:
+
+// Aqui, Box se extiende para incluir color.
+class ColorBox extends Box {
+  int color; // color de box
+
+  ColorBox(double w, double h, double d, int c) {
+  width = w;
+  height = h;
+  depth = d;
+  color = c;
+  }
+}
+
+El siguiente programa ejemplifica el caso plantedo
+anterior inmediato:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/DemoBoxWeight.java style="float:center" target="_blank">DemoBoxWeight.java</a>.
+
+Una vez que se crea una superclase que define los
+aspectos generales de un objeto, la superclase puede 
+heredar para formar clases especializadas. Cada
+subclase simplemente agrega sus propios atributos.
+
+<p align=left><font color=maroon>Downcasting</font></p>
+
+Podemos convertir una referencia a una superclase en una
+referencia a una subclase. Por ejemplo, podríamos codificar:
+
+double computeTax(Investment investment) {
+  double amount;
+  Deposit deposit = (Deposit) investment;
+  amount = deposit.getInterest();
+  // code for computing tax on amount
+  // rest of the method not shown
+}
+
+El convertidor hacia abajo podría, por supuesto, 
+fallar, en cuyo caso el sistema arroja una instancia 
+de ClassCastException. Aunque ClassCastException es una 
+RuntimeExcepctio y normalmente no debe 
+deteclarse, esto podría considerarse una situación 
+apropiada donde debe ser manejado. Podemos reescribir 
+el método de la siguiente manera.
+
+double computeTax(Investment investment) {
+  double amount;
+  try {
+    Deposit deposit = (Deposit) investment;
+    amount = deposit.getInterest();
+    // code for computing tax on amount
+  } 
+  
+  catch(ClassCastException cce) {
+    try {
+      Stock stock = (Stock) investment;
+      amount = stock.getInterest();
+      // code for computing tax on amount
+    } catch(ClassCastException cce) {
+      cce.printStackTrace();
+    }
+  }
+// return tax
+}
+
+El ejemplo anterior parece sugerir que el 
+downcasting y el operador instanceof 
+se puede usar indistintamente. Aunque son 
+funcionalmente equivalentes, existe un estilo
+diferente en esas excepciones, idealmente, 
+no debe ser lanzada a menos que ocurra una 
+situación excepcional. En el Capítulo 
+10 encontramos una situación en la que el 
+downcasting es una solución natural para
+problema en cuestión, y en el Capítulo 11 
+tenemos un ejemplo de una situación en la 
+que el operador instanceof proporciona una 
+solución elegante [Sarnath, pág. 89].
+
+
+<p align=left><font color=maroon>Los constructores</font></p>
+
+El siguiente programa ejemplifica las llamadas a
+los constructores:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/CallingCons.java style="float:center" target="_blank">CallingCons.java</a>.
+
+En una jerarquía de clases, cuando un método en 
+una subclase tiene el mismo nombre y firma como 
+el método de su superclase, luego se dice 
+que el método en la subclase anula el método en
+la superclase. Cuando se llama a un método sobreescrito 
+desde una subclase, siempre se referirá a la versión de 
+ese método definida por la subclase. La versión del 
+método definido por la superclase estará oculto. 
+Considera lo siguiente [Manual de java, pág 171]:
+
+El siguiente programa ejemplifica la sobreescritura
+de los métodos:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/Override.java style="float:center" target="_blank">Override.java</a>.
+
+Si desea acceder a la versión de superclase de un método 
+anulado, puede hacerlo usando super. Por ejemplo, en 
+esta versión de B, se invoca la versión de superclase de 
+show () dentro de la versión de la subclase. Esto permite 
+que se muestren todas las variables de instancia.
+
+class B extends A {
+  int k;
+
+  B(int a, int b, int c) {
+    super(a, b);
+    k = c;
+  }
+
+  void show() {
+    super.show(); // este llama a show() de A
+    System.out.println("k: " + k);
+  }
+}
+
+
+El siguiente programa ejemplifica la sobreescritura
+de los métodos:
+<a href=../../MEMUNO2019/MIMIC/ParaCorrerProg/OverrideA.java style="float:center" target="_blank">OverrideA.java</a>.
+
+<p align=left><font color=maroon>La interfaz</font></p>
+
+Un tipo especializado de herencia es aquel en el 
+que una clase hereda de una interfaz. Recuerde 
+que en el Capítulo 2 habíamos definido una interfaz 
+como una colección de métodos que pueden ser
+implementada por una clase. Se ha comparado una 
+interfaz con un contrato firmado por la clase para
+implementar la interfaz. En el contexto de este 
+capítulo, debe señalarse que la implementación de 
+la interfaz también se puede ver como una forma de 
+herencia, donde la clase implementadora hereda un 
+conjunto abstracto de propiedades de la interfaz.
+Java reconoce una interfaz como un tipo (al igual 
+que otros lenguajes orientados a objetos), lo que 
+significa que los objetos que pertenecen a clases 
+que implementan una interfaz dada también pertenecen
+al tipo representado por la interfaz. Del mismo modo, 
+podemos declarar un identificador como perteneciente
+al tipo de interfaz y luego podemos usarla para 
+acceder a los objetos de cualquier clase que 
+implementa la interfaz [Sarnath, pág. 62].
+
+public interface I {
+  // details of I
+}
+
+public class A implements I {
+  //code for A
+}
+
+public class B implements I {
+  //code for B
+}
+
+I i1 = new A(); // i1 holds an A
+I i2 = new B(); // i2 holds a B
+
+En la notación UML, este tipo de relación entre 
+la interfaz y la implementación de la clase se 
+denomina realisation y está representada por 
+una línea punteada con una gran punta de flecha 
+abierta que apunta a la interfaz como se muestra 
+en la Figura 3.8.
+
+<p align=center><font color=yellow size=6>La clase Estudiante,
+con constructor y método String</font></p>
+
+public class Estudiante extends Persona {
+	//Campos
+	private int id;
+	//Constructores
+	public Estudiante() {
+		super(); //Llama al padre del constructor
+		id = -1;
+	}
+	public Estudiante(String nombre) {
+		super(nombre);
+		id = -1;
+	}
+	//Metodos
+	public int getId() {
+		return this.id;
+	}
+	public void setId(int elId) {
+		this.id = elId;
+	}
+	public String toString() {
+		return "Estudiante nombrado" +
+			this.getNombre() +
+			"Con id" + this.id;
+	}
+}
+
+Estudiante b = new Estudiante("Beatriz");
+System.out.println(b);
+Estudiante nombrado Beatriz con id -1
+
+<p align=center><font color=yellow>Clase principal</font></p>
+
+public static void main(String[] args) {
+	Persona f = new Persona("Fredi");
+	Persona b = new Persona("Bernardo");
+	
+	System.out.println("Fredi es un" + f);
+	System.out.println("Bernardo es un" + b);
+}
+
+<p align=center><font color=yellow>Método greet para Persona</font></p>
+
+public void greet() {
+	System.out.println("Hola Yo soy" + this.nombre);
+}
+
+Persona bruce = new Persona("Bruce")
+bruce.greet()
+Hola Yo soy Bruce
+
+Estudiante kristal = new Estudiante("Kristal")
+kristal.greet()
+Hola Yo soy Kristal
+
+public void greet() {
+	System.out.println("Hola yo soy" + this.nombre +
+		"pero yo tengo que ir a la clase ...");
+}
+
+1 error found:
+
+public void greet() {
+	System.out.println("Hola yo soy" + this.getNombre() +
+		"pero yo tengo que ir a clase ...");
+}
+
+
+
+public class Persona {
+	public String nombre;
+}
+
+Persona p1 = new Persona();
+p1.nombre
+
+p1.nombre = "Fernando";
+p1.nombre;
+
+p1.nombre = "Maribel";
+p1.nombre
+
+public class Persona {
+	private String nombre;
+	public void setNombre(String someNombre) {
+		this.nombre = someNombre;
+	}
+	public String getNombre() {
+		return this.nombre;
+	}
+}
+
+Persona p = new Persona();
+p.setNombre("Federico");
+p.getNombre()
+
+Persona b = new Persona();
+b.getNombre()
+
+public class Persona {
+	private String nombre;
+	public Persona() {
+		this.setNombre("No hay nombre");
+	}
+	public Persona(String elNombre) {
+		this.setNombre(elNombre);
+	}
+	public void setNombre(String someNombre) {
+		this.nombre = someNombre;
+	}
+	public String getNombre() {
+		return this.nombre;
+	}
+}
+
+Persona b = new Persona("Bernardo")
+b.getNombre()
+
+Persona v = new Persona()
+v.getNombre()
+
+v.setNombre("Vilma")
+v.getNombre()
+
+Persona agente99 = new Persona(99)
+NoSuchMethodException: constructor Person(int)
+
+Persona b = new Persona("Bernardo")
+bernardo
+Persona@63a721
+
+public String toString() {
+	return "Persona nombrada" + this.nombre;
+}
+
+Persona b = new Persona("Bernardo")
+System.out.println(b);
+Persona nombrada Bernardo
+
+public class Estudiante extends Persona {
+	private int id;
+	public int getId() {
+		return this.id;
+	}
+	public void setId(int elId) {
+		this.id = elId;
+	}
+}
+
+Estudiante b = new Estudiante()
+b.getNombre()
+ningún nombre
+
+b.setNombre("Beatriz")
+b.getNombre()
+"Beatriz"
+
+b.setId(999)
+b.getId()
+999
+
+Estudiante b = new Estudiante("Beatriz")
+NoSuchMethodException: constructor Estudiante(java.lang.String)
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

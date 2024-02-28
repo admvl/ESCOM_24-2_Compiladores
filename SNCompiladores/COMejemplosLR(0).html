@@ -1,0 +1,442 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+    width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+Compiladores
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPoo.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+TEMARIO 2009
+</a></p>
+
+<p align=right><a href=EstudianteAgoDic2022.html style="float:center">
+LISTA DE CLASES
+</a></p>
+
+<p align="right" class="p5"><a href=SNCompiladores/COMapuntes9.svg target="_blank" style="float:center">
+(APUNTES 9) SNCompiladores/COMapuntes9.dia
+</a></p>
+
+<p align=right><a href=Pizarron9COM.svg style="float:center">
+(PIZARRÓN DE CLASE 9) MiMIC/Pizarron9COM.dia
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+EJEMPLOS <br> LR(0)
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<!--
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Autómata AFD mínimo</font></p>
+
+
+<p>Las expresiones regulares aplicadas a las clases léxicas
+<br>
+<font color=red size=7><h3 align="center">abcd, &epsilon; o &lambda;</h3></font>
+<br>
+<font color=red size=7><h3 align="center">&epsilon; o &lambda;</h3></font>
+<br>
+<p align=center><font color=yellow size=6>Las expresiones regulares aplicadas a las clases léxicas</font></p>
+<br>
+<font color=red size=7><h3 align="center">a | b = {a} o {b}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a  b = {ab}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>*</SUP> = {&epsilon;,a,aa,aaa, ...}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>+</SUP> = {a,aa,aaa, ...}</h3></font>
+<br>
+</p>
+</header> -->
+
+<br>
+
+<section class=izquierda><strong>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Código fuente</font></p>
+</header>
+
+<br>
+<font color=red size=7><h3 align="center"> id * id + id </h3></font>
+<br>
+<font color=red size=7><h3 align="center"> id + id + id </h3></font>
+<br>
+<font color=red size=7><h3 align="center"> ( id * id ) + id </h3></font>
+<br>
+<font color=red size=7><h3 align="center"> ( id + id ) * ( id + id )</h3></font>
+<br>
+<font color=red size=7><h3 align="center"> id + id * id * id</h3></font>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de la gramática libre de contexto</font></p>
+</header>
+
+<br>
+<font color=red size=7><h3 align="center">E &rarr; E + T | T <br> T &rarr; T * F | F <br> F &rarr; (E) | id</h3></font>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Aumentar, expandir y dividir en capas a la gramática libre de contexto</font></p>
+</header>
+
+<br>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Análisis de la cadena de operaciones de suma y multiplicación.</CAPTION>
+        <tr><th scope="row"> NÚMERO </th> <th> PRODUCCIÓN </th> <th> C1 </th> <th> C2 </th> <th> C3 </th> </tr>
+        <tr> <td> 0 </td> <td> E' &rarr; </td> <td> E </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 1 </td> <td> E &rarr; </td> <td> E </td>  <td> + </td> <td> T </td> </tr>
+        
+        <tr> <td> 2 </td> <td> E &rarr; </td> <td> T </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 3 </td> <td> T &rarr;  </td> <td> T </td>  <td> * </td> <td> F </td> </tr>
+        
+        <tr> <td> 4 </td> <td> T &rarr;  </td> <td> F </td>  <td>  </td> <td>  </td> </tr>
+        
+        <tr> <td> 5 </td> <td> F &rarr;  </td> <td> ( </td>  <td> E </td> <td> ) </td> </tr>
+        
+        <tr> <td> 6 </td> <td> F &rarr;  </td> <td> id </td>  <td>  </td> <td>  </td> </tr>
+        
+      </table>
+      </CENTER>
+      
+      <br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de los elementos LR(0)</font></p>
+</header>
+
+<br>
+
+<p align=right><a href=SNCompiladores/332AnalizadorSintacticoLR(1).html style="float:center">
+3.3.2 Analizadores LR(1)
+</a></p>
+
+<br>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=up>Tabla que muestra la construcción de los conjuntos cerradura.</CAPTION>
+        <tr><th scope="row"> ESTADO </th> <th> CERRADURA </th> <th> CONJUNTO CERRADURA </th> <th>DIAGRAMA </th> </tr>
+        <tr> <td> I<sub>0</sub> </td> <td> cerr (E' → •E) = </td> <td> { E' &rarr; &#8226; E , E → • E + T , E → • T ,
+T → • T ∗ F , T → • F , F → • ( E ) , F → • id  } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI0.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>1</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, E)) = cerr ( E' &rarr; E • , E → E • + T ) = </td> <td> { E' &rarr; E • ,
+E &rarr; E • + T  } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI1.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>2</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, T)) = cerr ( E → T • , T → T • ∗ F ) = </td> <td> { E → T • ,
+T → T &#8226; ∗ F } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI2.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>3</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, F)) = cerr ( T → F • ) = </td> <td> { T &rarr; F &#8226; } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI3.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>4</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, ()) = cerr ( F &rarr; (• E ) ) = </td> <td> { F → (• E ) , E → • E + T , E &rarr; • T ,
+T → &#8226; T ∗ F , T → • F , F &rarr; • ( E ) , F → • id } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI4.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>5</sub> </td> <td> cerr (Ir a(I<sub>0</sub>, id)) = cerr ( F &rarr; id &#8226; ) =  </td> <td> { F &rarr; id &#8226; } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI5.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>6</sub> </td> <td> cerr (Ir a(I<sub>1</sub>, +)) = cerr ( E &rarr; E + &#8226; T ) =  </td> <td> { E &rarr; E + • T , T → &#8226; T ∗ F , T &rarr; • F ,
+F → &rarr; ( E ) , F → &#8226; id } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI6.svg" align=center width=90% border=0></p></td>  </tr>
+        
+        <tr> <td> I<sub>7</sub> </td> <td> cerr (Ir a(I<sub>2</sub>, * )) = cerr ( T &rarr; T ∗ &#8226; F ) =  </td> <td> { T → T ∗ &#8226; F , F &rarr; • ( E ) , F → &#8226; id } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI7.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>8</sub> </td> <td> cerr (Ir a(I<SUB>4</SUB> , E)) = cerr ( F &rarr; ( E &#8226; ) , E &rarr; E &#8226; + T ) =  </td> <td> { F &rarr; ( E &#8226; ) ,
+E → E &#8226; + T } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI8.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>9</sub> </td> <td> cerr (Ir a(I<SUB>6</SUB> , T)) = cerr ( E &rarr; E + T &#8226; , T &rarr; T • ∗ F ) =  </td> <td> { E &rarr; E + T &#8226; ,
+T → T &#8226; ∗ F } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI9.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>10</sub> </td> <td> cerr (Ir a(I<SUB>7</SUB> , F)) = cerr ( T &rarr; T ∗ F &#8226; ) =  </td> <td> { T → T ∗ F &#8226; } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI10.svg" align=center width=90% border=0></p></td> </tr>
+        
+        <tr> <td> I<sub>11</sub> </td> <td> cerr (Ir a(I<SUB>8</SUB> , ))) = cerr ( F &rarr; ( E ) &#8226; ) =  </td> <td> { F &rarr; ( E ) &#8226; } </td> <td><p align="center">
+<img src="SNCompiladores/Ejem2cerrI11.svg" align=center width=90% border=0></p></td> </tr>
+        
+        
+      </table>
+      </CENTER>
+    
+      <br>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de la tabla de primeros y siguientes  </font></p>
+</header>
+
+<br>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=bottom>Tabla de primeros y siguientes de la gramática de expresiones.</CAPTION>
+        <tr><th scope="row"> </th> <th> E' </th> <th> E </th> <th> T </th> <th> F </th> </tr>
+        <tr> <td> PRIMEROS </td> <td> id, ( </td> <td> id, ( </td>  <td> id, ( </td> <td> id, ( </td> </tr>
+        
+        <tr> <td> SIGUIENTES </td> <td> $ </td> <td> $, +, ) </td>  <td> $, +, ), * </td> <td> $, +, ), * </td> </tr>
+        
+      </table>
+      </CENTER>
+      
+      <br>
+
+<p align=center><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+DEL TEMARIO 2009
+</a></p>
+
+</strong>
+</section>
+
+<!--------------------------------------------------------->
+
+<aside class=derecha>
+<strong>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de grafo</font></p>
+</header>
+
+<br>
+<p align="center">
+<img src="GraExpresionesLR0.svg" align=center width=80% border=0></p>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de la tabla de acciones e Ir a</font></p>
+</header>
+
+<br>
+
+ <CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=up>Tabla de Acciones y de Ir a.</CAPTION>
+        
+        <tr> <th colspan=7>Acciones </th> <th colspan=3>Ir-a </th> </tr>
+        
+        <tr><th scope="row"> ESTADOS </th> <th> id </th> <th> + </th> <th> * </th> <th> ( </th> <th> ) </th> <th> $ </th> <th> E </th> <th> T </th> <th> F </th> </tr>
+        
+        <tr> <td> I<SUB>0</SUB> </td> <td> d<SUB>5</SUB> </td> <td> e </td> <td>e </td> <td> d<SUB>4</SUB> </td> <td> e </td> <td>e </td> <td> 1 </td> <td> 2 </td> <td> 3 </td> </tr>
+        
+        <tr> <td> I<SUB>1</SUB> </td> <td> e </td> <td> d<SUB>6</SUB> </td> <td>e </td> <td> e </td> <td> e </td> <td>acep </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>2</SUB> </td> <td> e </td> <td> r<SUB>2</SUB> </td> <td>d<SUB>7</SUB> </td> <td> e </td> <td> r<SUB>2</SUB> </td> <td>r<SUB>2</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>3</SUB> </td> <td> e </td> <td> r<SUB>4</SUB> </td> <td>r<SUB>4</SUB> </td> <td> e </td> <td> r<SUB>4</SUB> </td> <td>r<SUB>4</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>4</SUB> </td> <td> d<SUB>5</SUB> </td> <td> e </td> <td>e </td> <td> d<SUB>4</SUB> </td> <td> e </td> <td>e </td> <td> 8 </td> <td> 2 </td> <td> 3 </td> </tr>
+        
+        <tr> <td> I<SUB>5</SUB> </td> <td> e </td> <td> r<SUB>6</SUB> </td> <td> r<SUB>6</SUB> </td> <td> e </td> <td> r<SUB>6</SUB> </td> <td> r<SUB>6</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>6</SUB> </td> <td> d<SUB>5</SUB> </td> <td> e </td> <td> e </td> <td> d<SUB>4</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> 9 </td> <td> 3 </td> </tr>
+        
+        <tr> <td> I<SUB>7</SUB> </td> <td> d<SUB>5</SUB> </td> <td> e </td> <td> e </td> <td> d<SUB>4</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> <td> 10 </td> </tr>
+        
+        <tr> <td> I<SUB>8</SUB> </td> <td> e </td> <td> d<SUB>6</SUB> </td> <td> e </td> <td> e </td> <td> d<SUB>11</SUB> </td> <td> e </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>9</SUB> </td> <td> e </td> <td> r<SUB>1</SUB> </td> <td> d<SUB>7</SUB> </td> <td> e </td> <td> r<SUB>1</SUB> </td> <td> r<SUB>1</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>10</SUB> </td> <td> e </td> <td> r<SUB>3</SUB> </td> <td> r<SUB>3</SUB> </td> <td> e </td> <td> r<SUB>3</SUB> </td> <td> r<SUB>3</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+        <tr> <td> I<SUB>11</SUB> </td> <td> e </td> <td> r<SUB>5</SUB> </td> <td> r<SUB>5</SUB> </td> <td> e </td> <td> r<SUB>5</SUB> </td> <td> r<SUB>5</SUB> </td> <td> e </td> <td> e </td> <td> e </td> </tr>
+        
+      </table>
+      </CENTER>
+      
+      <br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>¿Cómo se analizan las sentencias?</font></p>
+</header>
+
+<br>
+
+<CENTER>
+      <table BORDER CELLPADDING=10 CELLSPACING=15 BGCOLOR="BLUE">
+        <CAPTION ALIGN=up>Tabla de análisis de una cadena de tokens.</CAPTION>
+        
+        <tr><th scope="row"> ESTADOS </th> <th> PILA </th> <th> ACCIÓN </th> <th> ENTRADA </th> </tr>
+        
+        <tr> <td> - </td> <td> $I<SUB>0</SUB> </td> <td> - </td> <td> &uarr; id * id + id $ </td> </tr>
+        
+        <tr> <td> I<SUB>0</SUB> </td> <td> $I<SUB>0</SUB> </td> <td> d<SUB>5</SUB> </td> <td> &uarr; id * id + id $ </td> </tr>
+        
+        <tr> <td> I<SUB>5</SUB> </td> <td> $I<SUB>0</SUB> id I<SUB>5</SUB> </td> <td> r<SUB>6</SUB> </td> <td>  id &uarr;* id + id $ </td> </tr>
+        
+        <tr> <td> I<SUB>3</SUB> </td> <td> $I<SUB>0</SUB> F I<SUB>3</SUB> </td> <td> r<SUB>4</SUB> </td> <td>  id &uarr;* id + id $ </td> </tr>
+        
+        <tr> <td> I<SUB>2</SUB> </td> <td> $I<SUB>0</SUB> T I<SUB>2</SUB> </td> <td> d<SUB>7</SUB> </td> <td>  id &uarr;* id + id $ </td> </tr>
+        
+        <tr> <td> I<SUB>7</SUB> </td> <td> $I<SUB>0</SUB> T I<SUB>2</SUB> * I<SUB>7</SUB> </td> <td> d<SUB>5</SUB> </td> <td>  id * &uarr;id + id $ </td> </tr>
+        
+        <tr> <td> I<SUB>5</SUB> </td> <td> $I<SUB>0</SUB> T I<SUB>2</SUB> * I<SUB>7</SUB> id I<SUB>5</SUB> </td> <td> r<SUB>6</SUB> </td> <td>  id * id &uarr;+ id $ </td> </tr>
+        
+        <tr> <td> I<SUB>10</SUB> </td> <td> $I<SUB>0</SUB> T I<SUB>2</SUB> * I<SUB>7</SUB> F I<SUB>10</SUB> </td> <td> Ir a 1<SUB>0</SUB> </td> <td>  id * id &uarr;+ id $ </td> </tr>
+        
+        <tr> <td> I<SUB>2</SUB> </td> <td> $I<SUB>0</SUB> T I<SUB>2</SUB> </td> <td> r<SUB>3</SUB> </td> <td>  id * id &uarr;+ id $ </td> </tr>
+        
+        <tr> <td> I<SUB>1</SUB> </td> <td> $I<SUB>0</SUB> E I<SUB>1</SUB> </td> <td> r<SUB>2</SUB> </td> <td>  id * id &uarr;+ id $ </td> </tr>
+        
+        <tr> <td> I<SUB>6</SUB> </td> <td> $I<SUB>0</SUB> E I<SUB>1</SUB> + I<SUB>6</SUB> </td> <td> d<SUB>6</SUB> </td> <td>  id * id + &uarr;id $ </td> </tr>
+        
+        <tr> <td> I<SUB>5</SUB> </td> <td> $I<SUB>0</SUB> E I<SUB>1</SUB> + I<SUB>6</SUB> id I<SUB>5</SUB> </td> <td> d<SUB>5</SUB> </td> <td>  id * id + id &uarr;$ </td> </tr>
+        
+        <tr> <td> I<SUB>3</SUB> </td> <td> $I<SUB>0</SUB> E I<SUB>1</SUB> + I<SUB>6</SUB> F I<SUB>3</SUB> </td> <td> r<SUB>6</SUB> </td> <td>  id * id + id &uarr;$ </td> </tr>
+        
+        <tr> <td> I<SUB>9</SUB> </td> <td> $I<SUB>0</SUB> E I<SUB>1</SUB> + I<SUB>6</SUB> T I<SUB>9</SUB> </td> <td> r<SUB>4</SUB> </td> <td>  id * id + id &uarr;$ </td> </tr>
+        
+        <tr> <td> I<SUB>1</SUB> </td> <td> $I<SUB>0</SUB> E I<SUB>1</SUB> </td> <td> r<SUB>1</SUB> </td> <td>  id * id + id &uarr;$ </td> </tr>
+        
+        <tr> <td> I<SUB>1</SUB> </td> <td> $I<SUB>0</SUB> E I<SUB>1</SUB> </td> <td> acep </td> <td>  id * id + id &uarr;$ </td> </tr>
+        
+      </table>
+      </CENTER>
+      
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Otros ejemplos</font></p>
+</header>
+
+<br>
+
+<p align=center><a href=COMejemplosLR(0)uno.html style="float:center">
+Ejemplo 1
+</a></p>
+
+<p align=center><a href=COMejemplosLR(0)dos.html style="float:center">
+Ejemplo 2
+</a></p>
+
+<p align=center><a href=COMejemplosLR(0)tres.html style="float:center">
+Ejemplo 3
+</a></p>
+
+
+
+</strong>
+</aside>
+
+
+</body>
+</html>

@@ -1,0 +1,733 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+	width: auto;
+       margin-left: 0%;
+       margin-right: 45%;
+	font-size: 20px;
+       overflow-x: auto;
+}
+
+.a1 {
+	margin-left: 56%;
+    margin-right: -7%;
+	float: right;
+	position: absolute;
+	transform: translate(0%, -45%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 20px;
+    width: 40%;
+}
+
+article {
+background-color: rgba(98,98,98,0.5);
+background-repeat: no-repeat;
+background-size: cover;
+opacity: 1;
+display: block;
+margin-left: 0%;
+padding: 10px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: auto;	
+height: auto;
+margin-left: 5%;
+margin-right: 0%;
+text-align: center;
+position: relative;	
+overflow-x: auto;
+}
+
+p {
+overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPOO.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNPoo/211AtributosYmetodos.html style="float:center">
+TEMA 2.1.1 Atributos y métodos
+</a></p>
+
+<p align=right><a href=SNPoo/212ConstructoresYdestructores.html style="float:center">
+TEMA 2.1.2 Constructores
+</a></p>
+
+<p align=right><a href=SNPoo/31Agregacion.html style="float:center">
+TEMA 3.1 Agregación
+</a></p>
+
+<p align=right><a href=SNPoo/32Herencia.html style="float:center">
+TEMA 3.2 Herencia
+</a></p>
+
+<p align=right><a href=Pizarron18POO.html style="float:center">
+Pizarrón 18
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 18: Programas
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section class="izquierda">
+<article>
+<pre><strong>
+<p align=center><font color=yellow>HERENCIA ENTRE CLASES</font></p>
+
+<!--<p align=left><font color=yellow>Libro: Introducción a la
+ programación de Java</font></p> -->
+
+<p align=left><font color=yellow>Determinación de características de la superclase y la subclase.</font></p>
+
+
+
+<p> <font color=purple>Requerimiento.</font> Se requiere generalizar todas las formas geométricas planas. Por lo que hacemos 
+una superclase con las siguientes características: el relleno de la figura, color de la 
+figura. El nombre de la superclase, es: "FiguraGeometrica".
+<br> 
+
+<font color=purple>Solución.</font>  Se considera que hay una superclase "FiguraGeometrica" 
+y la subclase es depenediendo de las figuras que se necesiten. En este caso la subclase es 
+"Circulo".</p>
+
+<p >La superclase.</p>
+
+<font color=maroon>FiguraGeometrica</font>
+
+<p >La subclase.</p>
+
+<font color=maroon>Circulo</font>
+
+<p >Una superclase hereda características a la o las subclases.</p>
+
+<p align=left><font color=yellow>Codificación de la superclase y de la subclase</font></p>
+
+<pre>
+<font color=blue>
+public class FiguraGeometrica {
+
+}
+</font>
+</pre>
+
+<pre>
+<font color=purple>
+public class Circulo {
+
+}
+</font>
+</pre>
+
+<p align=left><font color=yellow>Determinación de características de la superclase y la subclase.</font></p>
+
+
+
+<p> <font color=purple>Requerimiento.</font> Se requiere formar una  superclase que contenga características del "reino vegetal", 
+por lo que las características generales, son: nombre del vegetal, tiempo de vida del 
+vegetal, clima de crecimiento del vegetal, fecha de plantación.
+<br> 
+
+<font color=purple>Solución.</font>  Se considera que hay una superclase llamada "ReinoVegetal" 
+y la subclase es depenediendo de los vegetales que se consideren. En este caso la subclase es 
+"Arbol".</p>
+
+<p >La superclase.</p>
+
+<font color=maroon>ReinoVegetal</font>
+
+<p >La subclase.</p>
+
+<font color=maroon>Arbol</font>
+
+<p >Una superclase hereda características a la o las subclases.</p>
+
+<p align=left><font color=yellow>Codificación de la superclase y de la subclase</font></p>
+
+<pre>
+<font color=blue>
+public class ReinoVegetal {
+
+}
+</font>
+</pre>
+
+<pre>
+<font color=purple>
+public class Arbol {
+
+}
+</font>
+</pre>
+
+<p align=left><font color=yellow>Uso de la palabra "super"</font></p>
+
+<br> 
+
+<p>La palabra clave "super" tiene un uso: es el que hace referencia al constructor de la superclase.</p>
+
+<p align=right><a href=Ajedrez1.java style="float:center">
+Ajedrez1.java
+</a></p>
+
+<p>El otro uso de la palabra clave "super", es de la siguiente manera: es el que hace referencia a un miembro 
+del constructor de la superclase. Donde el miembro es un campo de datos o un método.</p>
+
+<pre>
+<font color=red>
+super.miembro;
+</font>
+</pre>
+
+<pre>
+Class A {
+   int i;
+}
+
+cass B extends A {
+   int i;
+
+   B(int a, int b) {
+      super.i = a;
+      i = b;
+   }
+
+   void mostrar() {
+      System.out.println("Campo de dato i en la superclase " + super.i);
+      System.out.println("Campo de dato i en la subclase " + i);
+   }
+}
+
+class UsoSuperMiembro {
+   public static void main(String[] args) {
+      B subO = new B(1, 2);
+
+      subO.mostrar();
+   }
+}
+</pre>
+
+<br>
+
+<p> <font color=purple>Requerimiento.</font> Se requiere formar una  superclase que contenga características del "Arte", 
+por lo que las características generales, son: nombre de la obra, tpo de obra, autor de la obra, valor de la obra, lugar de origen de la obra, crear la obra.</p>
+
+<br>
+
+<font color=maroon>Arte</font>
+
+<p> <font color=purple>Requerimiento.</font> Se requiere formar una  superclase que contenga características del "Instrumento", 
+por lo que las características generales, son: nombre del instrumento, afinar el instrumento, tocar el instrumento, nombre del músico.</p>
+
+<br>
+
+<font color=maroon>Instrumento</font>
+
+</article>
+</section>
+
+
+
+
+</strong>
+</pre>
+
+<section class="derecha">
+
+<pre class="a1"><strong>
+
+<p align=center><font color=yellow>Diagramas de clase</font></p>
+
+<p align=center><font color=black>Diagrama FiguraGeometrica con link SNPoo/heClaseFigurageometrica.svg</font></p>
+
+<p>
+<img src="SNPoo/heClaseFigurageometrica.svg" align=left width=90% border=0></p>
+
+<p align=center><font color=black>Diagrama ReinoVegetal con link SNPoo/ReinoVegetal.svg</font></p>
+
+<p>
+<img src="SNPoo/ReinoVegetal.svg" align=left width=90% border=0></p>
+
+<p align=center><font color=black>Diagrama Ajedrez1 con link SNPoo/Ajedrez1.svg</font></p>
+
+<p>
+<img src="SNPoo/Ajedrez1.svg" align=left width=90% border=0></p>
+
+<p align=center><font color=black>Diagrama Producto con link SNPoo/DiagramaProducto.svg</font></p>
+
+<p>
+<img src="SNPoo/DiagramaProducto.svg" align=left width=90% border=0></p>
+
+<p align=center><font color=black>Diagrama Arte con link SNPoo/DiagramaClaseArte.svg</font></p>
+
+<p>
+<img src="SNPoo/DiagramaClaseArte.svg" align=left width=90% border=0></p>
+
+<p align=center><font color=black>Diagrama Autobús con link SNPoo/Autobus.svg</font></p>
+
+<p>
+<img src="SNPoo/Autobus.svg" align=left width=90% border=0></p>
+
+<p align=center><font color=black>Diagrama Instrumento con link SNPoo/InterfaceInstrumento.svg</font></p>
+
+<p>
+<img src="SNPoo/InterfaceInstrumento.svg" align=left width=90% border=0></p>
+
+
+<p align=left><font color=marroon>Las partes que componen a un programa: Los
+
+ campos de datos, los objetos, los métodos.</font></p>
+
+
+<p align=left><font color=yellow>Uso del método equals() en el programa "Estudiante.java"</font></p>
+
+<pre>
+public boolean equals(Object unObjeto) {
+   Estudiante e1 = (Estudiante) unObjeto;
+   return e1.nombre.equals(nombre) && 
+   e1.direccion.equals(direccion);
+}
+</pre>
+
+<p>Para definir el método main, es como sigue:</p>
+
+<pre>
+Estudiante e1 = new Estudiante("Tomás");
+e1.setDireccion("Av Othon de Mendizabal 234");
+
+Estudiante e2 = new Estudiante("Daniel");
+e2.setDireccion("Av IPN 344");
+
+if(e1.equals(e2)) {
+   System.out.println("El estudiante es el mismo que 
+   el estuadiante");
+}
+else {
+   System.out.println("El estudiante no es el mismo que 
+   el estuadiante");
+}
+</pre>
+
+<p align=left><font color=yellow>Uso del método toString() en el programa "Estudiante.java"</font></p>
+
+
+<pre>
+public class Estudiante {
+   private String nombre;
+   private int calificacion;
+   
+   public void setCalificacion(int calificacion) {
+      this.calificacion = calificacion;
+   }
+   
+   public int getCalificacion() {
+      return calificacion;
+   }
+   
+   public void setNombre(String nombre) {
+      this.nombre = nombre;
+   }
+   
+   public String getNombre() {
+      return nombre;
+   }
+
+   public String toString() {
+      return "El nombre del estudiante, es: " ;
+   }
+
+   public static void main(String[] args) {
+      Estudiante e1 = new Estudiante();
+      
+      e1.setNombre(" ");
+      e1.setCalificacion();
+      
+      System.out.println(e1.toString() + e1.getNombre() + 
+      "con calificación " + e1.getCalificacion());   
+   }
+}
+</pre>
+
+<p align=left><font color=yellow>Usar un método getSuma() en el programa "Suma.java"</font></p>
+
+
+<pre>
+public class Suma {
+    private int a;
+    private int b;
+    private int suma;
+
+    public int suma(int i1, int i2) {
+       int suma = 0;
+   
+       for (int i = i1; i <= i2; i++)
+        suma += i;
+     
+       return suma;
+    }
+
+   public String toString() {
+      return "Para el intervalo, de: " ;
+   }
+
+    public static void main(String[] args) {
+       Suma sum = new Suma();
+       
+       System.out.println(sum.toString() + sum.suma(1,10));
+       
+    }
+}
+</pre>
+
+<p align=left><font color=yellow>El programa "Fecha.java"</font></p>
+
+
+<pre>
+public class Fecha {
+   private int dia;
+   private int mes;
+   private int anio;
+
+   public Fecha() {
+      dia = 1;
+      mes = 1;
+      anio = 1998;
+   }
+
+   public Fecha(int d1, int m1, int a1) {
+      dia = d1;
+      mes = m1;
+      anio = a1;
+   }
+
+   public boolean equals(Object ob1) {
+      if(!(ob1 instanceof Fecha))
+         return false;
+      Fecha ob2 = (Fecha) ob1;
+      return ob2.dia == dia && ob2.mes == mes && ob2.anio == anio;
+   }
+
+   public String toString() {
+      return dia + "/" + mes + "/" + anio;
+   }
+   
+   public static void main(String[] args) {
+      Fecha f1 = new Fecha(28,2,2022);
+
+      System.out.println(f1.toString());
+     
+   
+   }
+}
+</pre>
+
+
+<p align=left><font color=yellow>CÓMO SE NOMBRA UN PROGRAMA EN JAVA</font></p>
+
+<p align=left><font color=marroon>El nombre del programa en Java se forma de la clase
+principal seguido de la extensión java.</font></p>
+
+<pre>
+public class Estudiante {
+   private String nombre;
+   private int calificacion;
+
+   public int getCalificacion() {
+      return calificacion;
+   }
+   
+   public void setNonbre(Strig nombre) {
+      this.nombre = nombre;
+   }
+   
+   public void setCalificacion(int calificacion) {
+      this.calificacion = calificacion;
+   }
+
+   public static void main(String[] args) {
+      Estudiante e1 = new Estudiante();
+
+      e1.setEstudiante("Aurelio");
+      e1.setCalificacion(6);
+   
+   }
+}
+</pre>
+
+<p align=left><font color=marroon>El nombre del programa en Java es el siguiente:</font></p>
+
+
+<p align=left><font color=yellow>El programa "Animal.java"</font></p>
+
+<pre>
+class Animal {
+  static String a1;
+  
+  void comer() {
+    System.out.println("EL " + a1 + " come croquetas");
+  }
+  
+  public static void main(String args[]) {
+    Animal perro = new Animal();
+    a1 = "perro";
+    
+    perro.comer();
+  }
+}
+</pre>
+
+<!--
+class Test {
+public static void main(String[] args) {
+  Student student = new Student();
+  System.out.println("name? " + student.name );
+  System.out.println("age? " + student.age );
+  System.out.println("isScienceMajor? " + student.isScienceMajor );
+  System.out.println("gender? " + student.gender );
+  }
+}
+
+class Student {
+  String name; // name has default value null
+  int age; // age has default value 0
+  boolean isScienceMajor; // isScienceMajor has default value false
+  char gender; // c has default value '\u0000'
+}
+
+<p align=center><font color=yellow>EJEMPLO DE PROGRAMA EN JAVA</font></p>
+
+class Test2 {
+public static void main(String[] args) {
+  Student student = new Student();
+  student.setNombre("Julio");
+  System.out.println("name? " + student.name );
+  System.out.println("age? " + student.age );
+  System.out.println("isScienceMajor? " + student.isScienceMajor );
+  System.out.println("genero? " + student.genero );
+
+  System.out.println("El nombre del estudiante es:" + student.getNombre() );
+  }
+}
+
+class Student {
+  String name; // name has default value null
+  int age; // age has default value 0
+  boolean isScienceMajor; // isScienceMajor has default value false
+  char genero; // c has default value '\u0000'
+  
+  public void setNombre(String name) {
+    this.name = name;
+  }
+
+  public String getNombre() {
+    return this.name;
+  }
+
+  public void setGenero(char genero) {
+    this.genero = genero;
+  }
+}
+
+<p align=center><font color=yellow>OTRO EJEMPLO DE PROGRAMA EN JAVA</font></p>
+
+
+
+<p align=center><font color=yellow>EJERCICIO DE PROGRAMA EN JAVA</font></p>
+
+class Test1 {
+public static void main(String[] args) {
+  Student student = new Student();
+  System.out.println("name? " + student.name );
+  System.out.println("age? " + student.age );
+  System.out.println("isScienceMajor? " + student.isScienceMajor );
+  System.out.println("genero? " + student.genero );
+  }
+}
+
+class Student {
+  String name; // name has default value null
+  int age; // age has default value 0
+  boolean isScienceMajor; // isScienceMajor has default value false
+  char genero; // c has default value '\u0000'
+  
+  public void setNombre(String name) {
+    this.name = name;
+  }
+
+  public void setGenero(char genero) {
+    this.genero = genero;
+  }
+}
+
+
+
+public class TestCircle1 {
+  /** Metodo principal */
+  public static void main(String[] args) {
+    // Crea un circulo con radio 1.0
+    Circle1 circle1 = new Circle1();
+    System.out.println("El area del circulo de raio "
+	+ circle1.radius + " es " + circle1.getArea() );
+    // Crea un circulo con radio 25
+    Circle1 circle2 = new Circle1(25);
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea());
+    // Crea un circulo de radio 125
+    Circle1 circle3 = new Circle1(125);
+    System.out.println("El area del circulo de raio "
+	+ circle3.radius + " es " + circle3.getArea());
+    // Modifica el radio del circulo
+    circle2.radius = 100;
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea() );
+    }
+  }
+// Define la clase circulo con dos constructores
+class Circle1 {
+  double radius ;
+  /** Construir del circulo con radio 1 */
+  Circle1() {
+    radius = 1.0;
+  }
+  /** Construir un circulo con radio especificado */
+  Circle1(double newRadius) {
+    radius = newRadius;
+  }
+  /** Regresa el area del circulo */
+  double getArea() {
+    return radius * radius * Math.PI;
+  }
+}
+
+<p align=center><font color=yellow>OTRO EJERCICIO EN JAVA</font></p>
+
+Nombre de la clase: Circulo
+
+Campo de datos: radio: double
+
+Constructores y métodos: Circulo()
+			 Circulo(newRadio : double)
+			 getArea() : double
+
+public class Circle1 {
+  double radio;
+  double getArea() {
+    return Math.PI * radio * radio;
+  }
+  /** Metodo principal */
+  public static void main(String[] args) {
+    // Crea un circulo con radio 1.0
+    Circle1 circle1 = new Circle1();
+    circle1.radio = 1;
+    System.out.println("El area del circulo de raio "
+	+ circle1.radio + " es " + circle1.getArea() );
+    // Crea un circulo con radio 25
+    Circle1 circle2 = new Circle1();
+    circle2.radio = 25;
+    System.out.println("El area del circulo de radio "
+	+ circle2.radio + " es " + circle2.getArea());
+    // Crea un circulo de radio 125
+    Circle1 circle3 = new Circle1();
+    circle3.radio = 125;
+    System.out.println("El area del circulo de raio "
+	+ circle3.radiio + " es " + circle3.getArea());
+    // Modifica el radio del circulo
+    circle2.radio = 100;
+    System.out.println("El area del circulo de radio "
+	+ circle2.radius + " es " + circle2.getArea() );
+    }
+  }
+
+<p align=center><font color=yellow>MÁS EJERCICIOS EN JAVA</font></p>
+
+public class Estudiante {
+  
+  private String nombre;
+  private int cal;
+  
+  public String getNombre() {
+  return this.nombre;
+  }
+
+  public int getCal() {
+  return this.cal;
+  }
+
+  public void setNombre(String nombre) {
+  this.nombre = nombre;
+  }
+
+  public void setCal(int cal) {
+  this.cal = cal;
+  }
+
+  public static void main(String[] args) {
+  Estudiante est1 = new Estudiante();
+  Estudiante est2 = new Estudiante();
+  est1.setNombre("Juan");
+  est1.setCal(6);
+
+  est2.setNombre("Benjamin");
+  est2.setCal(8);
+  System.out.println(est1.getNombre() + ", " +
+    est2.getNombre());
+  }
+}-->
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

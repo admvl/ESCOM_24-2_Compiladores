@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Ejemplo de conversión de AFN a AFD</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 2</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">EJEMPLO DE CONVERSIÓN DE AFN A AFD (ALGORITMO DE SUBCONJUNTOS)</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Diagrama a bloques del proceso de construcción de un analizador léxico</h1>
+       <hr>
+      <br>
+      <p><strong>Para hacer la conversión de ER a AFN.</strong> Se usa la construcción de Thompson:</p>
+      <br>
+    <p align="center">
+<img src="ProcedimientoAL1a.svg" align=center width=100% border=0></p>
+
+     <!-- <p>Este capítulo describe las herramientas matemáticas y técnicas de programación.
+que se utilizan comúnmente para construir escáneres, ambos generados
+y escáneres hechos a mano. El capítulo comienza, en la Sección 2.2, presentando un modelo para reconocedores, programas que identifican palabras en un flujo de
+caracteres. La sección 2.3 describe las expresiones regulares, una notación formal para
+especificando la sintaxis. En la sección 2.4, mostramos un conjunto de construcciones para convertir un
+expresión regular en un reconocedor. Finalmente, en la Sección 2.5 presentamos tres
+diferentes formas de implementar un escáner: un escáner de mesa, un escáner de codificación directa
+escáner y un enfoque codificado a mano.
+Tanto los escáneres generados como los hechos a mano se basan en las mismas técnicas subyacentes. Si bien la mayoría de los libros de texto y cursos abogan por el uso de
+los escáneres, la mayoría de los compiladores comerciales y los compiladores de código abierto utilizan escáneres hechos a mano. Un escáner hecho a mano puede ser más rápido que uno generado
+escáner porque la implementación puede optimizar una parte de la sobrecarga que no se puede evitar en un escáner generado. Porque los escáneres son
+simples y cambian con poca frecuencia, muchos escritores de compiladores consideran que la ganancia de rendimiento de un escáner hecho a mano supera la conveniencia
+de generación automática de escáneres. Exploraremos ambas alternativas. </p>-->
+     <br>
+      <br>
+     <hr>
+     <h1>Algoritmo de subconjuntos (Ejercicio 1)</h1>
+     <hr>
+     <br>
+     <p>Convertir la ER en autómata AFD:</p>
+     <br>
+     <font color=red size=7><h3 align="center">a(a|b)* a</h3></font>
+      <br>
+      <p>La ER se convierte en AFN aplicando los modelos de Thompson de las ERs, como sigue:</p>
+      <br>
+      
+      <p align="center">
+<img src="Ejem1ConvAfnAfd.svg" align=center width=100% border=0></p>
+
+     <br>    
+      <p>Convertir el autómata AFN de la ER anterior, en AFD. Al AFN de la figura siguiente, 
+se le aplica el algoritmo de subconjuntos:</p>
+      <br>
+      <p align="center">
+<img src="Ejem1ConvAfnAfd.svg" align=center width=100% border=0></p>
+      <br>
+      <font color=yellow size=4><h3 align="center">q0 = {0}</h3></font>
+      <br>
+      <p>Movimiento para el estado q1:</p>
+      <br>
+     <font color=red size=5><h3 align="center">cerradura-&epsilon;(mov(q1, a)) = cerr-&epsilon;({5, 11}) = {5, 11, 8, 9, 10, 3, 4, 6} = q2</h3></font>
+     
+     <font color=red size=5><h3 align="center">cerr-&epsilon;(mov(q1, b)) = cerr-&epsilon;({7}) = {7, 8, 9, 10, 3, 4, 6} = q3</h3></font>
+     <br>
+     <font color=yellow size=4><h3 align="center">q1 = {1, 2, 3, 4, 6, 9, 10}</h3></font>
+     <br>
+     <p>Movimiento para el estado q2:</p>
+      <br>
+     <font color=red size=5><h3 align="center">cerr-&epsilon;(mov(q2, a)) = cerr-&epsilon;({5, 11}) = {5, 11, 8, 9, 10, 3, 4, 6} = q2</h3></font>
+
+     <font color=red size=5><h3 align="center">cerr-&epsilon;(mov(q2, b)) = cerr-&epsilon;({7}) = {7, 8, 9, 10, 3, 4, 6} = q3</h3></font>
+     <br>
+     <font color=yellow size=4><h3 align="center">q2   = {3, 4, 5, 6, 8, 9, 10, 11}</h3></font>
+     <br>
+     <p>Movimiento para el estado q3:</p>
+      <br>
+     <font color=red size=5><h3 align="center">cerr-&epsilon;(mov(q3, a)) = cerr-&epsilon;({5, 11}) = {5, 11, 8, 9, 10, 3, 4, 6} = q2</h3></font>
+
+     <font color=red size=5><h3 align="center">cerr-&epsilon;(mov(q3, b)) = cerr-&epsilon;({7}) = {7, 8, 9, 10, 3, 4, 6} = q3</h3></font>
+     <br>
+     <font color=yellow size=4><h3 align="center">q3 = {3, 4, 6, 7, 8, 9, 10}</h3></font>
+     <br>
+    <p align="center">
+<img src="Ejem1ConvAfnAfd1.svg" align=center width=100% border=0></p>
+    </article>
+    </section>
+      <aside>
+        <h1>Ejercicios</h1>
+        <hr>
+     <br>
+     <p><strong>Ejercicio 1.</strong> Obtener el AFN de la ER a(a|b)<SUPER>* a</p>
+     <br>
+    <p><strong>Ejercicio 2.</strong> Obtener el AFN de la ER (a|b)<SUPER>* a(a|b)(a|b)</p>
+     <br>
+     <p><strong>Ejercicio 3.</strong> Obtener el AFN de la ER a<SUPER>*ba<SUPER>*ba<SUPER>*ba<SUPER>*</p>
+     <br>
+     <hr>
+     <h1>Pregunta</h1>
+        <hr>
+     <br>
+     <p><strong>No hay.</strong> </p>
+     <br>
+     <p><a href="23EjemploConvAfnAfd.html">Enlace a ejemplo.</a></p>
+     <br>
+        </aside>
+      <footer><p>Construcción de analizadores léxicos: Tema 2.3</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

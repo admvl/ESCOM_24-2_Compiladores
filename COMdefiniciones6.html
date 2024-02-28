@@ -1,0 +1,271 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+    width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+    width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+Compiladores
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPoo.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+TEMARIO 2009
+</a></p>
+
+<p align=right><a href=EstudianteAgoDic2022.html style="float:center">
+LISTA DE CLASES
+</a></p>
+
+<p align="right" class="p5"><a href=SNCompiladores/COMapuntes6.svg target="_blank" style="float:center">
+(APUNTES 6) SNCompiladores/COMapuntes6.dia
+</a></p>
+
+<p align=right><a href=Pizarron6COM.svg style="float:center">
+(PIZARRÓN DE CLASE 6) MiMIC/Pizarron6COM.dia
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+DEFINICIONES 6
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>¿Qué es un elememto LR(0)?</font></p>
+
+
+<p>Se tiene un AFD, sin embargo este puede tener menos estados. El proceso de reducir el número de estados, quiere decir que se minimiza el AFD:</p>
+<br>
+<font color=red size=7><h3 align="center">AFD<SUB>no mínimo</SUB> = Q(Q<sub>t</sub>, Q<sub>tf</sub>, Q<sub>ti</sub>, &Sigma;, &delta;<sub>t</sub>)</h3></font>
+
+<br>
+<p align=center><font color=yellow size=6>¿Cómo se obtienen los elementos LR(0)?</font></p>
+<br>
+<p>En un AFD, referente a las transiciones. Es cuando tienen las mismas transiciones dos estados en un AFD no mínimo:</p>
+<font color=red size=7><h3 align="center">AFD<SUB>mínimo</SUB> = Q(Q<sub>r</sub>, Q<sub>rf</sub>, Q<sub>ri</sub>, &Sigma;, &delta;<sub>r</sub>)</h3></font>
+<br>
+
+<br>
+<p align=center><font color=yellow size=6>¿Cómo se construye el grafo?</font></p>
+<br>
+
+<p align=center><font color=yellow size=6>¿Cómo se construyen las tablas?</font></p>
+<br>
+
+<p align=center><font color=yellow size=6>¿Cómo se analizan las sentencias?</font></p>
+<br>
+
+<table CELLSPACING="16" align=center>
+<tr><th>&delta;</th><th>a</th><th>b</th></tr>
+
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+<tr><td>q<sub>0</sub></td><td>q<sub>0</sub></td><td>q<sub>0</sub></td></tr>
+
+</table>
+
+
+<p>Esta tabla es la que se usa para poder programarla.</p>
+</p>
+
+</header>
+
+<br>
+
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Metodología para aplicar el método del árbol</font></p>
+
+<p>Este algoritmo se aplica para convertir una ER en un AFD mínimo:</p>
+
+<font color=red size=7><h3 align="center">ER</h3></font>
+<font color=red size=7><h3 align="center">Árbol de análisis sintáctico</h3></font>
+<font color=red size=7><h3 align="center">Funciones anulable(), primerapos() y ultimapos()</h3></font>
+<font color=red size=7><h3 align="center">Función siguientepos()</h3></font>
+
+<p align=right><a href=SNCompiladores/24CreacionAfdEr.html style="float:center">
+TEMA 2.4
+</a></p>
+<p align=right><a href=SNCompiladores/ArbolSinER1anulablePu.svg style="float:center">
+(PIZARRÓN ÁRBOL) MiMIC/SNCompiladores/ArbolSinER1anulablePu.dia
+</a></p>
+<p align=right><a href=SNCompiladores/TablaSigPos.svg style="float:center">
+(PIZARRÓN OBTENCIÓN FUNCIÓN) MiMIC/SNCompiladores/TablaSigPos.dia
+</a></p>
+
+<font color=red size=7><h3 align="center">Obtención de estados</h3></font>
+
+</header>
+
+<!--
+<section class=izquierda><strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Sintaxis de la clase interna:</font></p>
+</header>
+
+<pre>
+ClaseExterna.ClaseInterna objetoInterno = objetoExterno.new ClaseInterna();
+</pre>
+
+<p>Si la clase interna es del tipo static, entonces se aplica la siguiente
+sintaxis:</p>
+
+<pre>
+ClaseExterna.ClaseInterna objetoInterno = new ClaseExterna.ClaseInterna();
+</pre>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Programa Logistica.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa Logistica.java</font> Se quiere saber cuánto se envia y a donde se envia un paquete.</p>
+
+<p><a href=Logistica.java style="float:center" target="_blank">Logistica.java</a>.</p>
+
+<p align=right><a href=SNPoo/ProgramaLogisticaVariante.svg style="float:center">
+Diagrama de programa logistica
+</a></p>
+
+<p align="center">
+<img src="SNPoo/ProgramaLogisticaVariante.svg" align=left width=54% border=0></p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Programa TemperaturaCuerpoHumano.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa TemperaturaCuerpoHumano.java</font> Se quiere saber si la temperatura del cuerpo humano requiere atención médica.</p>
+
+<p><a href=TemperaturaCuerpoHumano.java style="float:center" target="_blank">TemperaturaCuerpoHumano.java</a>.</p>
+
+</strong>
+</section>-->
+
+<!--------------------------------------------------------->
+
+<!--
+<aside class=derecha>
+<strong>
+<br>
+<header class=encabezado>
+<p align=center><font color=yellow>Programa CompraBotellas.java</font></p>
+</header>
+
+<p align=center><font color=yellow>Enunciado del programa Comprabotellas.java</font> Se quiere saber cuánto se debe pagar por una cantidad de botellas compradas.</p>
+
+<br>
+
+<p><a href=CompraBotellas.java style="float:center" target="_blank">CompraBotellas.java</a>.</p>-->
+
+</strong>
+</aside>
+
+
+</body>
+</html>

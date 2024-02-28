@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Arquitectura de los compiladores e intérpretes</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 1</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">ARQUITECTURA DE LOS COMPILADORES E INTÉRPRETES</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Arquitectura del compilador</h1>
+       <hr>
+      <p><strong>Arquitectura.</strong> El compilador esta formado de dos etapas: la etapa de análisis y la etapa de síntesis.</p>
+      <br>
+      <p><a href="ArquitecturaComp-Inter.pdf">Diagrama de la arquitectura del compilador y del intérprete.</a></p>
+      <br>
+     <p><a href="CapituloIntroduccion.pdf">Apuntes en pdf.</a></p>
+      <br>
+      <hr>
+       <h1>Arquitectura del intérprete</h1>
+       <hr>
+       <p><strong>Arquitectura.</strong> La estructura del intérprete es de una sola etapa y no genera código.</p>
+      <br>
+      <p>Un intérprete puro analizará una declaración de programa fuente cada vez que se va a ejecutar para descubrir cómo
+realizar la ejecución. Esto, por supuesto, es muy ineficiente y
+no se usa con mucha frecuencia. El método habitual es programar el
+intérprete en dos fases. <strong>La primera fase</strong> analiza el programa fuente completo, de la misma manera que lo hace un compilador, y lo traduce
+en una representación intermedia. <strong>La segunda fase</strong> interpreta o
+ejecuta esta forma de representación intermedia del programa fuente. La representación intermedia está diseñada para minimizar el tiempo necesario para "decodificar" o analizar cada declaración para ejecutarla. </p>
+   <br>
+    <p>Aunque el término intérprete se refiere a todo el proceso (ambas partes anteriores), lo usaremos para referirnos sólo a la segunda parte, ya que aquí es donde la representación intermedia está siendo interpretada. Esta segunda parte ocurre en el "tiempo de interpretación".</p>
+     <br>
+     <p>Un intérprete es mucho más lento en su ejecución que su equivalente programa de lenguaje de máquina. Por tanto, no debe utilizarse en un entorno de producción, donde se dedica la mayor parte del tiempo informático en ejecución. La interpretación se presta a un entorno de educación, donde la mayor parte del tiempo se dedica a depurar el programa fuente. Es más fácil producir un buen tiempo de ejecución que instalar la depuración en un intérprete que en un compilador.</p>
+     
+      <article>
+      <p class="cita"><cite>Compiler Construction for Digital Computers, David Gries, Pág. 328</cite></p>
+    <br>
+     </article>
+    </section>
+      <aside>
+        <h1>Ejercicios</h1>
+        <hr>
+     <p><strong>Ejercicio 1.</strong> Investigar sobre la arquitectura del compilador. Entregar una reseña en word.</p>
+     <br>
+     <p><strong>Ejercicio 2.</strong> Investigar sobre la arquitectura del intérprete. Entregar una reseña en word.</p>
+       <br>
+     <hr>
+     <h1>Preguntas</h1>
+     <hr>
+     <p><strong>Pregunta 1.</strong> Nombrar cada una de las partes que forman la arquitectura del compilador. Entregar en una hoja de word.</p>
+     <br>
+      <p><strong>Pregunta 2.</strong> Nombrar cada una de las partes que forman la arquitectura del intérprete. Entregar en una hoja de word.</p>
+     <br>
+        </aside>
+      <footer><p>Arquitectura de los compiladores e intérpretes: Tema 1.2</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

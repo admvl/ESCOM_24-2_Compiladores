@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Definición de lenguajes libres de contexto</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 3</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">DEFINICIÓN DE LENGUAJES LIBRES DE CONTEXTO</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Gramáticas libres de contexto</h1>
+       <hr>
+       <br>
+      <p><strong>Diferencia entre gramáticas regulares y gramáticas libres de contexto.</strong> El listado de palabras con una cantidad de a’s emparejadas, es el siguiente
+{aba, aabaa, aaabaaa, · · · }, que se representa por el conjunto de producciones:</p>
+      <font color=red size=7><h3 align="center">S → aCa, <br> C → aCa, <br> C → b</h3></font>
+      <br>
+      <p>que son parte del cuarteto de la gramática formal del tipo libre de contexto.
+Aplicando la gramática anterior y las derivaciones se obtiene la cadena aaabaaa:</p>
+      <br>
+      <font color=lime size=7><h3 align="center">S ⇒  aCa ⇒  aaCaa ⇒  aaaCaaa ⇒  aaabaaa</h3></font>
+      <br>
+      <p>Sin embargo esta cadena también se puede obtener por medio de la gramática formal que se enlista a continuación:</p>
+      <br>
+      <font color=red size=7><h3 align="center">S → aS <br> S → aB <br> B → bC <br> C → aC <br> C → a</h3></font>
+      <br>
+      <p>De la derivación se obtiene aplicando la gramática anterior, la cadena aaabaaa:</p>
+      <br>
+      <font color=lime size=7><h3 align="center">S ⇒  aS ⇒  aaS ⇒  aaaB ⇒  aaabC ⇒  aaabaC
+⇒  aaabaaC ⇒  aaabaaa</h3></font>
+      <br>
+      <p>La diferencia esta en que con la gramática libre de contexto no se puede
+obtener la cadena aabaaaa y con la gramática regular si se puede obtener:</p>
+      <br>
+      <font color=red size=7><h3 align="center">S ⇒  aS ⇒  aaB ⇒  aabC ⇒  aabaC ⇒  aabaaC ⇒  aabaaaC ⇒  aabaaaa</h3></font>
+      <br>
+      <p>Esto quiere decir que no se puede obtener una cadena emparejada, por ejemplo los paréntesis emparejados que son esenciales en análisis sintáctico.</p>
+      <br>
+      <p>EJEMPLO 7 (Diferencia entre una GR y una GLC.) La gramática regular se abrevia GR y la gramática libre de contexto se abrevia GLC.
+Con la siguiente expresión regular no se pueden expresar operaciones con
+paréntesis:
+Con una gramática libre de contexto si se pueden representar operaciones con paréntesis. Como se muestra en la sección “Representación de gramáticas libres de contexto”.</p>
+       <br>
+       <p><strong>Representación de gramáticas libres de contexto</strong> Las gramáticas libres de contexto se representan como ya se dijo por medio
+de cuartetos, pero también se representan por medio de la teorı́a de conjuntos:</p>
+    <br>
+       <font color=red size=7><h3 align="center">{cadena | logica}</h3></font>
+      <br>
+      <p>ya que se requiere representar las estructuras por medio de un listado de la
+teorı́a de conjuntos, con la finalidad de expresar caracterı́sticas que no se pue-
+den observar por medio de la representación formal de las gramáticas libres de
+contexto. Como se muestra con el siguiente ejemplo:</p>
+      <br>
+      <p><strong>Gramática libre de contexto.</strong> La gramática con conjunto de producciones:</p>
+      <br>
+      <font color=red size=7><h3 align="center">P = {S → aCa,
+C → aCa,
+C → b}</h3></font>
+      <br>
+      <p><strong>Gramática regular.</strong> La gramática con conjunto de producciones:</p>
+      <br>
+      <font color=red size=7><h3 align="center">P = {S → aS,
+S → aB,
+B → bC,
+C → aC,
+C → a}</h3></font>
+      <br>
+      <p>Se representa por medio de la teorı́a de conjuntos de la siguiente forma:</p>
+      <br>
+      <font color=red size=7><h3 align="center">L(G) = {a <SUP>n</SUP> b a <SUP>m</SUP> | n, m ≥ 1}</h3></font>
+      <br>
+      <p>EJEMPLO 8 (Resaltar la caracterı́stica con la teorı́a de conjuntos.)
+Se requiere exaltar las caracterı́sticas de emparejamiento. Las cuales se
+hacen por medio de las reglas de la teorı́a de conjuntos.</p>
+      <br>
+      <font color=red size=7><h3 align="center">L(G) = {( <SUP>n</SUP> b ) <SUP>m</SUP> | n, m ≥ 1}</h3></font>
+      <br>
+      <p>Se nota claramente el emparejamiento de los paréntesis, cuando n y m son
+iguales y en este caso se convierte en la siguiente gramática:</p>
+      <br>
+      <font color=red size=7><h3 align="center">L(G) = {( <SUP>n</SUP> b ) <SUP>n</SUP> | n ≥ 1}</h3></font>
+      <br>
+    </article>
+    </section>
+
+
+      <aside>
+        <h1>Preguntas</h1>
+        <hr>
+        <br>
+       <p><strong>Pregunta 1.</strong> Explicar cada una de las formas de representar una gramática libre de contexto, de acuerdo a lo planteado en esta página.</p>
+     <br>
+     <p><strong>Pregunta 2.</strong> ¿Cuál forma  de las gramáticas libres de contexto es la adecuada para el estudio de los analizadores sintácticos?</p>
+       <br>
+       <hr>
+      <h1>Ejercicios</h1>
+        <hr>
+      <p><strong>Ejercicio 1.</strong> Presentar en forma de teoría de conjuntos el emparejamiento de paréntesis.</p>
+      <br>
+      
+     
+        </aside>
+      <footer><p>Construcción de analizadores sintácticos: Tema 3.1.4</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

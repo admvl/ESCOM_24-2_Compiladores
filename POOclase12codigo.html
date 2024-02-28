@@ -1,0 +1,367 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	font-size: 16px;
+}
+
+.a1 {
+	margin-left: 61%;
+    margin-right: 2%;
+    width: auto;
+    height: auto;
+	float: right;
+	position: absolute;
+	transform: translate(-15%, -110%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 11px;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=POOclase12.html style="float:center">
+ANTERIOR
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 12: Código lista enlazada
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section>
+
+<pre><strong>
+<font color=yellow>Métodos</font>
+
+class NodoLista {
+	Object dato;
+	NodoLista sig;
+}
+	tmp = new NodoLista();
+	tmp.dato = x;
+	tmp.sig = act.sig;
+	act.sig = tmp;
+
+	tmp = new NodoLista(x, act.sig);
+	act.sig = tmp;
+
+public class ListaEnlazada implements Lista {
+	public ListaEnlazada() {
+		cabecera = new NodoLista(null);
+	}
+	public boolean esVacia() {
+		return cabecera.sig == null;
+	}
+	public void vaciar() {
+		cabecera.sig = null;
+	}
+	NodoLista cabecera;
+}
+
+public class ListaEnlazadaIter implements ListaIter {
+	public ListaEnlazadaIter(ListaEnlazadaIter unaLista) {
+		laLista = unaLista;
+		act = laLista.esVacia() ?
+			unaLista.cabecera:unaLista.cabecera.sig;
+	}
+public ListaEnlazadaIter(Lista unaLista) {
+	this((ListaEnlazada)unaLista);
+}
+public void cero() {
+	act = laLista.cabecera;
+}
+public void inseratr(Object x) {
+	
+}
+public void buscar (Object x) {
+
+}
+
+public void eliminar (Object x) {
+
+}
+
+public void recuperar () {
+
+}
+
+public void primero () {
+
+}
+
+public void avanzar () {
+
+}
+
+public boolean estaDentro () {
+
+}
+
+protected ListaEnlazada laLista;
+protected NodoLista act;
+}
+
+public static void copiar(ListaEnlazada lizq, ListaEnlazada lder) {
+	if(lizq == lder)
+		return;
+
+	lizq.vaciar();
+	ListaEnlazadaIter itrIzq = new ListaEnlazadaIter(lizq);
+	ListaEnlazadaIter itrDer = new ListaEnlazadaIter(lder);
+
+	try {
+		for( ;itrDer.estaDentro();itrDer.avanzar())
+			itrIzq.insertar(itrDer.recuperar());
+	}
+	catch(ElementoNoEncontrado e) {
+	}
+
+public static void imprimir(ListaEnlazada laLista) {
+	if(laLista.esVacia())
+		System.out.print("Lista vacia");
+	else {
+		ListaEnlazadaIter itr = new ListaEnlazadaIter(laLista);
+		for( ;itr.estaDentro();itr.avanzar())
+			System.out.print(itr.recuperar() + "");
+	}
+	System.out.println();
+}
+
+public void insertar(Object x) {
+	if(actual == null)
+		trow new ElementoNoEncontrado("Error de insercion");
+	NodoLista nuevoNodo = new NodoLista(x, actual.siguiente);
+	actual = actual.siguiente = nuevoNodo;
+}
+
+public boolean buscar(Object x) {
+	NodoLista itr = laLista.cabecera.siguiente;
+	while(itr != null && !itr.dato.equals(x))
+		itr = itr.siguiente;
+	if(itr == null)
+		return false;
+	actual = itr;
+	return true;
+}
+
+public void eliminar(Object x) {
+	NodoLista itr = laLista.cabecera;
+	while(itr.siguiente != null && !itr.siguiente.dato.equals(x))
+		itr = itr.siguiente;
+	if(itr.siguiente == null)
+		throw new ElementoNoEncontrado("Fallo en la eliminacion");
+	itr.siguiente = itr.siguiente;
+	actual = laLista.cabecera;
+}
+
+public Object recuperar() {
+	return estaDentro() ? actual.dato : null;
+}
+
+public void primero() {
+	actual = laLista.cabecera.siguiente;
+}
+
+public void avanzar() {
+	if(actual != null)
+		actual = actual.siguiente;
+}
+
+public boolean estaDentro() {
+	return actual != null && actual != laLista.cabecera;
+}
+
+class Link {
+	public int iData; // dato
+	public double dData; // dato
+	public Link next; // referencia al siguiente link
+}
+
+</strong>
+</pre>
+
+<pre class="a1"><strong>
+
+<p align=center><font color=yellow>Clase lista enlazada</font></p>
+
+class Link {
+	public int iData; // dato
+	public double dData; // dato
+	public Link next; // referencia al siguiente link
+
+	public Link(int id, double dd) { // constructor
+		iData = id; // initialize dato
+		dData = dd; // ('next' es automaticamente // puesto null)
+	}
+	public void displayLink() { // display a nosotros mismo
+		System.out.print("{" + iData + ", " + dData + "}");
+	}
+}
+
+class LinkList {
+	private Link first; // referencia al first link de la lista
+
+	public void LinkList() { // constructor
+		first = null;	// no hay items en list aun
+	}
+
+	public boolean isEmpty() { // true si lista esta empty
+		return (first==null);
+	}
+
+	...   // otros metodos van aqui
+
+}
+
+// insertar al principio de la list
+public void insertFirst(int id, double dd) {
+	// hace un nuevo link
+	Link newLink = new Link(id, dd);
+	newLink.next = first; // newLink --> old first
+	first = newLink; // first --> newLink
+}
+
+public Link deleteFirst() { // delete first item // (assumes list not empty)
+	Link temp = first; // save reference to link
+	first = first.next; // delete it: first-->old next
+	return temp; // return deleted link
+}
+
+public void displayList() {
+	System.out.print("List (first-->last): ");
+	Link current = first; // start at beginning of list
+	while(current != null) // until end of list,
+	{
+		current.displayLink(); // print data
+		current = current.next; // move to next link
+	}
+	System.out.println("");
+}
+
+class Link {
+	public int iData; // data item (key)
+	public double dData; // data item
+	public Link next; // next link in list
+
+	public Link(int id, double dd) { // constructor
+		iData = id; // initialize data
+		dData = dd; // ('next' is automatically // set to null)
+	}
+
+	public void displayLink() { // display ourself
+		System.out.print("{" + iData + ", " + dData + "} ");
+	}
+} // end class Link
+
+
+class LinkList {
+	private Link first; // ref to first link on list
+
+	public LinkList() { // constructor
+		first = null; // no items on list yet
+	}
+
+	public boolean isEmpty() { // true if list is empty
+		return (first==null);
+	}
+
+	// insert at start of list
+	public void insertFirst(int id, double dd) {
+		// make new link
+		Link newLink = new Link(id, dd);
+		newLink.next = first; 	// newLink --> old first
+		first = newLink; // first --> newLink
+	}
+
+	public Link deleteFirst() { // delete first item (assumes list not empty)
+		Link temp = first; // save reference to link
+		first = first.next; // delete it: first-->old
+	next
+	return temp; // return deleted link
+	}
+
+	public void displayList() {
+		System.out.print("List (first-->last): ");
+		Link current = first; // start at beginning of list
+		while(current != null)
+		// until end of list,
+		{
+			current.displayLink(); // print data
+			current = current.next; // move to next link
+		}
+	System.out.println("");
+	}
+
+} // end class LinkList
+
+<p align=center><font color=yellow>Clase principal</font></p>
+
+class LinkListApp {
+	public static void main(String[] args) {
+		LinkList theList = new LinkList(); // make new list
+		theList.insertFirst(22,2.99); // insert four items
+		theList.insertFirst(44,4.99);
+		theList.insertFirst(66,6.99);
+		theList.insertFirst(88,8.99);
+
+		theList.displayList(); // display list
+
+		while( !theList.isEmpty() ) // until it's empty,
+		{
+			Link aLink = theList.deleteFirst(); // delete link
+			System.out.print("Deleted "); 	// display it
+			aLink.displayLink();
+			System.out.println("");
+		}
+		theList.displayList(); 	// display list
+	} // end main()
+} // end class LinkListApp
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

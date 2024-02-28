@@ -1,0 +1,314 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: #0000FF;
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+	width: auto;
+    	margin-left: -2%;
+    	margin-right: 45%;
+	font-size: 20px;
+    
+}
+
+.a1 {
+	margin-left: 60%;
+        margin-right: 0%;
+	float: right;
+	position: absolute;
+	transform: translate(-2%, -220%);
+	background-color: rgba(98,98,98,0.5);
+	font-size: 20px;
+	width: 40%;
+}
+
+article {
+background-color: rgba(98,98,98,0.5);
+background-repeat: no-repeat;
+background-size: cover;
+opacity: 1;
+display: block;
+margin-left: 0%;
+padding: 10px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width: auto;	
+height: auto;
+margin-left: 5%;
+margin-right: 0%;
+text-align: center;
+position: relative;	
+overflow-x: auto;
+}
+
+p {
+overflow-x: auto;
+}
+
+pre {
+overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+PROGRAMACIÓN ORIENTADA A OBJETOS
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPOO.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNPoo/211AtributosYmetodos.html style="float:center">
+TEMA 2.1.1 Atributos y métodos
+</a></p>
+
+<p align=right><a href=SNPoo/212ConstructoresYdestructores.html style="float:center">
+TEMA 2.1.2 Constructores
+</a></p>
+
+<p align=right><a href=SNPoo/31Agregacion.html style="float:center">
+TEMA 3.1 Agregación
+</a></p>
+
+<p align=right><a href=SNPoo/32Herencia.html style="float:center">
+TEMA 3.2 Herencia
+</a></p>
+
+<p align=right><a href=Pizarron12POO.html style="float:center">
+Pizarrón 12
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+CLASE 12: Programas de herencia.
+</font>
+</h2>
+</header>
+
+<hr>
+
+<section class="izquierda">
+<article>
+<pre><strong>
+<p align=center><font color=yellow>HERENCIA</font></p>
+<!--<p align=left><font color=yellow>Libro: Introducción a la
+ programación de Java</font></p> -->
+
+<p align=left><font color=yellow>El concepto de herencia</font></p>
+
+<p >La herencia es la transferencia de características de una clase a otra. Para poder indicar al
+compilador la transferencia de características de una clase a otra, se utiliza la palabra clave
+<font color=purple>extends</font>. <br> 
+<br>
+
+<p>Un ejemplo</p>
+
+<p> La clase "B", es la superclase:</p>
+
+<pre><font color=purple>
+public class B {
+   public void p(double i) {
+      System.out.println(i * 2);
+   }
+}
+</font></pre>
+
+<p>La clase "A", es la subclase:</p>
+
+
+<pre><font color=blue>
+public class A {
+   public void p(double i) {
+      System.out.println(i);
+   }
+}
+</font></pre>
+
+<p>La herencia se realiza con el siguiente código:</p>
+
+<pre><font color=brown>
+public class A extends B {
+   public void p(double i) {
+      System.out.println(i);
+   }
+   
+   public static void main(String[] args) {
+      A a = new A();
+      a.p(10);
+      a.p(10.0);
+   }
+}
+</font></pre>
+
+<p>Si se usa el siguiente código:</p>
+
+<pre><font color=brown>
+public class A extends B {
+   public void p(int i) {
+      System.out.println(i);
+   }
+   
+   public static void main(String[] args) {
+      A a = new A();
+      a.p(10);
+      a.p(10.0);
+   }
+}
+</font></pre>
+
+
+
+<p align=left><font color=yellow>La determinación de las características de las superclase y la subclase, es la siguiente:</font></p>
+
+<p><font color=purple>La clase ReinoVegetal.</font>  Las características de esta clase, son: el nombre del vegetal, el tipo de clima, 
+el tiempo de vida. 
+<br> 
+<br> 
+<font color=blue>La clase Arbol.</font> Las características de la clase "Arbol", son: el tipo de árbol, la altura del árbol, tiene hojas o tiene
+hojas con flores. 
+ 
+<br> 
+<br> 
+<font color=brown>La clase Arbol que herda de la clase ReinoVegetal.</font> Hereda las características de la clase "reinoVegetal", son: 
+el nombre, el tiempo de vida, el tipo de clima. Más las características de la clase
+"Arbol".</p>
+
+<p align=left><font color=yellow>La sintaxis es la siguiente:</font></p>
+
+<p> La clase "ReinoVegetal", es la superclase:</p>
+
+<pre><font color=purple>
+public class ReinoVegetal {
+
+}
+</font></pre>
+
+<p>La clase "Arbol", es la subclase:</p>
+
+
+<pre><font color=blue>
+public class Arbol {
+
+}
+</font></pre>
+
+<p>La herencia se realiza con el siguiente código:</p>
+
+<pre><font color=brown>
+public class Arbol extends ReinoVegetal {
+
+}
+</font></pre>
+
+
+<p>
+<img src="SNPoo/DiagramaClaseEstudiante.svg" align=left width=54% border=0></p>
+
+
+
+<br>
+<br>
+<br>
+<br>
+</article>
+</section>
+
+
+</strong>
+</pre>
+
+<section class="derecha">
+
+<pre class="a1"><strong>
+
+
+
+<p align=right><font color=yellow>Uso de la consola: 
+Aunque linux</font></p>
+
+<p align=left><font color=yellow>USO DEL OPERADOR DE ACCESO EN JAVA</font></p>
+
+<p align=left><font color=marroon>Compilar desde consola en Java:</font></p>
+
+<p align=center>javac nombre_archivo.java</p>
+
+<p align=left><font color=marroon>Ejecutar desde consola en Java:</font></p>
+
+<p align=center>java nombre_archivo</p>
+
+<p><font color=marroon>Las partes que componen un programa: Los campos de datos, los objetos, los métodos.</font></p>
+
+
+<p align=left><font color=yellow>Los diagramas de clases</font></p>
+
+<p align="center">
+<img src="SNPoo/DiagramaClaseEstudiante.svg" align=left width=54% border=0></p>
+
+<p align=left><font color=marroon>El nombre del programa en Java es el siguiente:</font></p>
+
+
+<p align=left><font color=yellow>El programa "Animal.java"</font></p>
+
+<pre>
+class Animal {
+  static String a1;
+  
+  void comer() {
+    System.out.println("EL " + a1 + " come croquetas");
+  }
+  
+  public static void main(String args[]) {
+    Animal perro = new Animal();
+    a1 = "perro";
+    
+    perro.comer();
+  }
+}
+</pre>
+
+
+
+</strong>
+</pre>
+</section>
+
+</body>
+</html>

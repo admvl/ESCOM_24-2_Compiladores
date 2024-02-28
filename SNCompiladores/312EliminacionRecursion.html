@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Eliminación de la recursión izquierda</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 3</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">ELIMINACIÓN DE LA RECURSIÓN IZQUIERDA EN LAS GRAMÁTICAS</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Recursión izquierda</h1>
+       <hr>
+      <br>
+      <p><strong>Definición de recursión izquierda.</strong> Para determinar la recursión izquierda, se usa el reconocimiento de tokens de izquierda a derecha. Consideremos la siguiente gramática G4 :</p>
+      <br>
+      <font color=red size=7><h3 align="center">E → E + T |T, <br>
+T → T ∗ F |F, <br>
+F → id|(E)</h3></font>
+      <br>
+      <p><strong>Y para esto se analiza la expresión id + id + id. Por lo que se aplican las siguientes derivaciones:</strong> </p>
+      <br>
+      <font color=lime size=7><h3 align="center">E ⇒ E + T ⇒ E + T + T ⇒ T + T + T ⇒ F + T + T ⇒ id + T + T
+⇒ id + F + T ⇒ id + id + T ⇒ id + id + F ⇒ id + id + id</h3></font>
+     <br>
+     <br>
+      <p><strong>de las derivaciones obtenidas se construye el árbol de análisis sintáctico. Que es el siguiente:</strong> </p>
+     <br>
+     <p align="center">
+<img src="ArExp4RecIz.svg" align=center width=80% border=0></p>
+     <br>
+     <br>
+     <p>Si se puede obtener un árbol de análisis sintáctico diferente, entonces la gramática sería ambigüa. Haciendo la siguiente derivación:</p>
+     <br>
+     <br>
+     <font color=lime size=7><h3 align="center">E ⇒ E + T ⇒ E + F ⇒ E + id ⇒ E + T + id ⇒ E + F + id
+⇒ E + id + id ⇒ T + id + id ⇒ F + id + id ⇒ id + id + id</h3></font>
+     <br>
+     <br>
+     
+       <p>Sucede que no podemos saber donde detener la aplicación de la producción E &rarr; E + T.</p>
+       <br>
+       <font color=lime size=7><h3 align="center">E ⇒ E + T ⇒ E + T + T ⇒ E + T + T + T ⇒ ...</h3></font>
+       <p>Debido a que la producción E &rarr; E + T, tiene la forma A &rarr; A &alpha;.</p>
+       <br>
+       <p>Una producción cuando tiene la siguiente forma:</p>
+       <font color=red size=7><h3 align="center">A &rarr; A &alpha;</h3></font>
+       <p>Se dice que tiene recursividad izquierda. Remarcando:</p>
+       <br>
+       <font color=red size=7><h3 align="center">E &rarr; E + T <br> A &rarr; A &alpha;</h3></font>
+       <p>Se puede ver que tienen la misma forma, haciendo las siguientes igualdades:</p>
+       <br>
+       <font color=red size=7><h3 align="center">E = A <br> + T = &alpha;</h3></font>
+       <p class="cita"><cite>Engineering a compiler, Keith D. Cooper and Linda Torczon, Pág. 1-3</cite></p>
+       <br>
+      
+      <hr>
+       <h1>Elininación de la recursión izquierda</h1>
+       <hr>
+       <br>
+       <p><strong>Para eliminar la recursividad izquierda.</strong> Se aplica la siguiente transformación:</p>
+       <br>
+       <font color=red size=7><h3 align="center">A &rarr; &beta; A' <br> A' &rarr; &alpha; A' | &epsilon;</h3></font>
+       <br>
+       <p>Cuando se encuentran producciones de la siguiente forma:</p>
+       <br>
+       <font color=red size=7><h3 align="center">A &rarr; A &alpha;  | &beta;</h3></font>
+       <br>
+       <p class="cita"><cite>Engineering a compiler, Keith D. Cooper and Linda Torczon, Pág. 3</cite></p>
+       <br>
+       <br>
+       <p class="cita"><cite>Introduction
+to Compiler Design, Torben AEgidius Mogensen, Pág. 97</cite></p>
+       <br>
+       <br>
+       <p align="center">
+<img src="RecursividadIzquierda.svg" align=center width=80% border=0></p>
+       <br>
+       <br>
+       <p><strong>Ejemplo.</strong> Eliminación de la recursividad izquierda a la gramática 4:</p>
+       <hr>
+       <br>
+       <p>Se plantea la siguiente línea de código:</p>
+       <br>
+       <font color=lime size=7><h3 align="center">return (a + b) * c ;</h3></font>
+      <br>
+      <br>
+      <p>Se construye la gramática libre de contexto (GLC).</p>
+      <br>
+      <br>
+      <font color=red size=7><h3 align="center">S → return E ; , <br> E → E + T | T , <br>
+T → T ∗ F | F , <br>
+F → id | (E)</h3></font>
+      <br>
+      <p>Las derivaciones para esta línea de código, es:</p>
+      <br>
+      <font color=lime size=7><h3 align="center"> S ⇒ return E ; ⇒ T ⇒ return T * F ; ⇒ return F * F ; ⇒ return ( E ) * F ; ⇒ return ( E + T ) * F ; ⇒ return ( T + T ) * F ; ⇒ return ( F + T ) * F ; ⇒ return ( id + T ) * F ; ⇒ return ( id + F ) * F ; ⇒ return ( id + id ) * F ; ⇒ <br> return ( id + id ) * id ; </h3></font>
+<br>
+       <p>Se hace la comparación de la gramática 4 con la forma general de la recursividad izquierda, de la siguiente forma:</p>
+       <font color=red size=7><h3 align="center">E → E + T |T, <br>
+T → T ∗ F |F, <br> F → id|(E) </h3></font>
+       <br>
+       <p>Se aplica la forma general de la recursividad izquierda:</p>
+       <br>
+       <font color=red size=7><h3 align="center">A &rarr; A &alpha; | &beta; </h3></font>
+       <p>Cuando se encuentra una producción con recursividad izquierda, se aplica la siguiente transformación:</p>
+       <br>
+       <font color=red size=7><h3 align="center">A &rarr; &beta; A' <br> A' &rarr; &alpha; A' | &epsilon;</h3></font>
+       <br>
+       <p>Las producciones que tienen recursividad izquierda son las siguientes:</p>
+       <br>
+       <font color=red size=7><h3 align="center">E → E + T |T <br>
+T → T ∗ F |F </h3></font>
+       <br>
+       <p>Se aplican las transformaciones de la siguiente forma:</p>
+       <br>
+       <p>Para la producción:</p>
+       <br>
+       <font color=red size=7><h3 align="center">E → E + T | T <br> A &rarr; A &alpha; | &beta;</h3></font>
+       <br>
+       <font color=yellow size=7><h3 align="center">A = E <br> A' = E' <br>&alpha; = + T <br> &beta; = T </h3></font>
+       <br>
+       <p>Para la producción:</p>
+       <br>
+       <font color=red size=7><h3 align="center">T → T ∗ F | F <br>
+       A &rarr; A &alpha; | &beta;</h3></font>
+       <br>
+       <font color=yellow size=7><h3 align="center">A = T <br> A' = T' <br> &alpha; = * F <br> &beta; = F </h3></font>
+       <br>
+       <p>Las producciones con la recursividad izquierda ya corregida, quedan de la siguiente forma al hacer la substitución en la transformación que se escribe en rojo:</p>
+       <br>
+       <font color=red size=7><h3 align="center">A &rarr; &beta; A' <br> A' &rarr; &alpha; A' | &epsilon;</h3></font>
+       <br>
+       <font color=yellow size=7><h3 align="center">E &rarr; T E' <br> E' &rarr; +T E' | &epsilon; </h3></font>
+       <br>
+       <p>Y lo otra producción queda como sigue:</p>
+       <br>
+       <font color=yellow size=7><h3 align="center">T &rarr; F T' <br> T' &rarr; *F T' | &epsilon; </h3></font>
+       <br>
+       <p>La gramática corregida queda de la siguiente forma:</p>
+       <br>
+       <font color=red size=7><h3 align="center"> S → return E ; <br> E &rarr; T E' <br> E' &rarr; +T E' | &epsilon; <br> T &rarr; F T' <br> T' &rarr; *F T' | &epsilon; <br> F → id | (E) </h3></font>
+       <br>
+       <p><strong>Otro ejemplo.</strong> Eliminación de la recursividad izquierda a la siguiente gramática:</p>
+       <hr>
+      <br>
+      <p>Se plantea las dos líneas de código siguientes:</p>
+      <br>
+      <font color=lime size=7><h3 align="center">int x1;</h3></font>
+        <br>
+      <font color=lime size=7><h3 align="center">int x1 , x2 , x3 , x4 , x5;</h3></font>
+      <br>
+      <p>Esto se puede expresar por medio de la siguiente gramática:</p>
+      <br>
+        <font color=red size=7><h3 align="center">S → int LV ;, <br>
+LV → LV , V | V, <br> V → x1 | x2 | x3 | x4 | x5 </h3></font>
+       <br>
+       <p>La producción que tiene la recursividad izquierda, es:</p>
+       <br>
+       <font color=red size=7><h3 align="center">A &rarr; A &alpha; | &beta; <br>
+LV → LV , V | V </h3></font>
+       <br>
+       <p>Se aplican las transformaciones de la siguiente forma:</p>
+       <br>
+       <font color=red size=7><h3 align="center">A &rarr; &beta; A' <br> A' &rarr; &alpha; A' | &epsilon;</h3></font>
+       <br>
+       <p>Se hacen las siguientes igualdades:</p>
+       <br>
+       <font color=yellow size=7><h3 align="center">A = LV <br> A' = LV' <br>&alpha; = , V <br> &beta; = V </h3></font>
+       <br>
+       <p>Se hacen las substituciones:</p>
+       <br>
+       <font color=yellow size=7><h3 align="center">LV &rarr; V LV' <br> LV' &rarr; , V LV' | &epsilon; </h3></font>
+       <br>
+       <p>Así que la grmática se escribe de la siguiente forma:</p>
+       <br>
+       <font color=red size=7><h3 align="center">S → int LV ;, <br>
+LV &rarr; V LV' <br> LV' &rarr; , V LV' | &epsilon;, <br> V → x1 | x2 | x3 | x4 | x5 </h3></font>
+       <br>
+    </article>
+    </section>
+
+
+      <aside>
+        <h1>Preguntas</h1>
+        <hr>
+        <br>
+       <p><strong>Pregunta 1.</strong> ¿Qué es recursividad izquierda?</p>
+     <br>
+     <p><strong>Pregunta 2.</strong> ¿Cuál es la forma general de la recursividad izquierda?</p>
+       <br>
+       <hr>
+      <h1>Ejercicios</h1>
+        <hr>
+      <p><strong>Ejercicio 1.</strong> </p>
+      <br>
+      <p><strong>Ejercicio2.</strong> </p>
+        <br>
+     <p><strong>Ejercicio 3.</strong> </p>
+        </aside>
+      <footer><p>Construcción de analizadores sintácticos: Tema 3.1.2</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

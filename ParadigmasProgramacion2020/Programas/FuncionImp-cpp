@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+void imprimirLinea(char c, int longitud = 45);
+
+int main() {
+
+
+}
+
+void imprimirLinea(char c, int longitud) {
+    for(int i = 1; i <= longitud; i++)
+        cout << c << endl;
+    cout << "\n";
+
+    return;
+}

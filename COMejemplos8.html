@@ -1,0 +1,331 @@
+<html>
+<style>
+
+body {
+	background-image: url(Clasesalon.jpeg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: cover;
+	opacity: 0.9;
+}
+
+header {
+/*background-image: url(SAM_2598.jpg);*/
+background-color: rgba(0,0,255,0.6);
+display: block;
+/*color:#FFFFFF;*/
+text-align: center;
+height: auto;
+width: auto;
+margin-left: 3%;
+margin-right: 3%;
+border: solid;
+border-color:#FFFFFF;
+}
+
+section {
+	background-color: rgba(128,128,128,0.5);
+    	margin-left: 3%;
+	margin-right: 3%;
+	font-size: 18px;
+        width: 45%;
+}
+
+.a1 {
+	margin-left: 64%;
+	float: right;
+	position: absolute;
+	/*transform: translate(-15%, -90%);*/
+	background-color: rgba(128,128,128,0.5);
+	font-size: 18px;
+        width: 40%;
+}
+
+p {
+    overflow-x: auto;
+}
+
+.encabezado {
+    margin-left: 3%;
+	background-color: rgba(0,128,0,0.4);
+	font-size: 20px;
+    text-align: justify;
+    padding: 8px;
+    width: auto;
+}
+
+.izquierda {
+    margin-left: 3%;
+    margin-right: 40%;
+	background-color: rgba(0,0,255,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 50%;
+    position: absolute;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+.derecha {
+    margin-left: 58%;
+    margin-right: 4%;
+	background-color: rgba(128,0,0,0.2);
+	font-size: 20px;
+    text-align: justify;
+    width: 38.5%;
+    border: solid;
+    border-color:#FFFFFF;
+    height: auto;
+}
+
+pre.p2  {
+ background-color: rgba(80,80,80,0.4);
+ width: 500px;
+ margin: 10px auto;
+ padding: 8px;
+ border: solid 6px #80A93E;
+ font: normal 20px arial, helvetica, sans-serif;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+pre.p2 {
+    overflow-x: auto;
+}
+
+</style>
+
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<header>
+<h1 align=left>
+<font color=white>
+José Sánchez Juárez
+</font>
+</h1>
+
+<h2 align=left>
+<font color=white size=5>
+Compiladores
+</font>
+</h2>
+
+<p align=right><a href=SNPoo/TemarioPoo.html style="float:center">
+TEMARIO
+</a></p>
+
+<p align=right><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+TEMARIO 2009
+</a></p>
+
+<p align=right><a href=EstudianteAgoDic2022.html style="float:center">
+LISTA DE CLASES
+</a></p>
+
+<p align="right" class="p5"><a href=SNCompiladores/COMapuntes8.svg target="_blank" style="float:center">
+(APUNTES 8) SNCompiladores/COMapuntes8.dia
+</a></p>
+
+<p align=right><a href=Pizarron8COM.svg style="float:center">
+(PIZARRÓN DE CLASE 8) MiMIC/Pizarron8COM.dia
+</a></p>
+
+<h2 align=center>
+<font color=white size=6>
+EJEMPLOS 8
+</font>
+</h2>
+</header>
+
+<hr>
+
+
+<!--
+<header class=encabezado>
+
+<p align=center><font color=yellow size=6>Autómata AFD mínimo</font></p>
+
+
+<p>Las expresiones regulares aplicadas a las clases léxicas
+<br>
+<font color=red size=7><h3 align="center">abcd, &epsilon; o &lambda;</h3></font>
+<br>
+<font color=red size=7><h3 align="center">&epsilon; o &lambda;</h3></font>
+<br>
+<p align=center><font color=yellow size=6>Las expresiones regulares aplicadas a las clases léxicas</font></p>
+<br>
+<font color=red size=7><h3 align="center">a | b = {a} o {b}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a  b = {ab}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>*</SUP> = {&epsilon;,a,aa,aaa, ...}</h3></font>
+<br>
+<font color=red size=7><h3 align="center">a<SUP>+</SUP> = {a,aa,aaa, ...}</h3></font>
+<br>
+</p>
+</header> -->
+
+<br>
+
+<section class=izquierda><strong>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Código fuente</font></p>
+</header>
+
+<br>
+
+<br>
+
+<font color=lime size=7><h3 align="center">public class Prueba{Prueba o = new Prueba();}</h3></font>
+
+<pre>
+public class Prueba {
+    Prueba o = new Prueba();
+}
+</pre>
+
+<p><font color=lime size=7><h3 align="center">public static void main(String[] args) { int a; }</h3></font></p>
+
+<pre>
+public static void main(String[ ] args) {
+    int a;
+}
+</pre>
+
+<p align="right" class="p5">
+Página, archivo html: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/331AnalizadorSintacticoLR(0).html target="_blank" style="float:center"><strong>SNCompiladores/331AnalizadorSintacticoLR(0).html</strong></font></a>
+</p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de la gramática libre de contexto (GLC)</font></p>
+</header>
+
+<table CELLSPACING="15" align=center>
+<tr><th>Izquierda</th><th>Produce</th><th>Derecha</th></tr>
+
+<tr> <td><font color=lime size=5>S'</font></td> <td><font color=lime size=5>&rarr;</font></td> <td><font color=lime size=5>S</font></td> </tr>
+
+<tr> <td><font color=lime size=5>S</font></td> <td><font color=lime size=5>&rarr;</font></td> <td><font color=lime size=5>M(P)C</font></td> </tr>
+
+<tr> <td><font color=lime size=5>M</font></td> <td><font color=lime size=5>&rarr;</font></td> <td><font color=lime size=5>psvm</font></td> </tr>
+
+<tr> <td><font color=lime size=5>P</font></td> <td><font color=lime size=5>&rarr;</font></td> <td><font color=lime size=5>Str[] args</font></td> </tr>
+
+<tr> <td><font color=lime size=5>C</font></td> <td><font color=lime size=5>&rarr;</font></td> <td><font color=lime size=5>{ D }</font></td> </tr>
+
+<tr> <td><font color=lime size=5>D</font></td> <td><font color=lime size=5>&rarr;</font></td> <td><font color=lime size=5>t id ;</font></td> </tr>
+
+</table>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Ampliar, expandir y dividir en capas la gramática libre de contexto (GLC)</font></p>
+</header>
+
+<table CELLSPACING="15" align=center>
+<tr> <th>Número</th><th>Izquierda</th><th>Produce</th><th>Derecha</th> </tr>
+
+<tr> <td> </td> <td> </td> <td> </td> <td>c1</td> <td>c2</td> <td>c3</td> <td>c4</td> <td>c5</td> </tr>
+
+<tr> <td>0</td><td><font color=lime size=5>S'</font></td> <td><font color=lime size=5>&rarr;</font></td> <td><font color=lime size=5>S</font></td> </tr>
+
+<tr> <td>1</td><td><font color=lime size=5>S</font></td> <td><font color=lime size=5>&rarr;</font></td> <td><font color=lime size=5>M</font></td> <td><font color=lime size=5>(</font></td> <td><font color=lime size=5>P</font></td> <td><font color=lime size=5>)</font></td> <td><font color=lime size=5>C</font></td> </tr>
+
+<tr> <td>2</td><td><font color=lime size=5>M</font></td> <td><font color=lime size=5>&rarr;</font></td> <td><font color=lime size=5>p</font></td> <td><font color=lime size=5>s</font></td> <td><font color=lime size=5>v</font></td> <td><font color=lime size=5>m</font></td> </tr>
+
+<tr> <td>3</td><td><font color=lime size=5>P</font></td> <td><font color=lime size=5>&rarr;</font></td> <td><font color=lime size=5>Str</font></td> <td><font color=lime size=5>[</font></td> <td><font color=lime size=5>]</font></td> <td><font color=lime size=5>args</font></td> </tr>
+
+<tr> <td>4</td><td><font color=lime size=5>C</font></td> <td><font color=lime size=5>&rarr;</font></td> <td><font color=lime size=5>{ </font></td> <td><font color=lime size=5>D</font></td> <td><font color=lime size=5>}</font></td> </tr>
+
+<tr> <td>5</td><td><font color=lime size=5>D</font></td> <td><font color=lime size=5>&rarr;</font></td> <td><font color=lime size=5>t</font></td> <td><font color=lime size=5>id</font></td> <td><font color=lime size=5>;</font></td> </tr>
+
+</table>
+
+<font color=lime size=7><h3 align="center">S &rarr; S'</h3></font>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Obtención de los elementos LR(0)</font></p>
+</header>
+
+<font color=lime size=7><h3 align="center">S &rarr; S'</h3></font>
+
+<br>
+
+<p align=center><a href=SNCompiladores/Ejem5Afd1.svg style="float:center">
+AFD 1
+</a></p>
+
+<p align="right" class="p5">
+Pizarron, archivo Día: &nbsp;&nbsp;&nbsp;&nbsp; <font color=yellow size=5><a href=SNCompiladores/ElementosLRpartes.svg target="_blank" style="float:center"><strong>SNCompiladores/ElementosLRpartes.dia</strong></font></a>
+</p>
+
+<br>
+
+</strong>
+</section>
+
+<!--------------------------------------------------------->
+
+<aside class=derecha>
+<strong>
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>Construcción del grafo</font></p>
+</header>
+
+<p>El siguiente AFD:</p>
+
+<header class=encabezado>
+<p align=center><font color=yellow>¿Cómo se obtiene la tabla de acciones?</font></p>
+</header>
+
+<br>
+
+<p align=center><a href=SNCompiladores/TemarioCompiladores2009.html style="float:center">
+DEL TEMARIO 2009
+</a></p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>¿Cómo se obtiene la tabla IR_A?</font></p>
+</header>
+
+<p>El siguiente AFD:</p>
+
+<br>
+
+<header class=encabezado>
+<p align=center><font color=yellow>¿Cómo se analizan las sentencias?</font></p>
+</header>
+
+<p>El algoritmo se aplica de la siguiente manera:</p>
+
+
+<table CELLSPACING="15" align=center>
+<tr><th>Izquierda</th><th>a</th><th>Derecha</th></tr>
+
+<tr> <td><font color=lime size=5><h3 align="center">S</h3></font></td> <td><font color=lime size=5><h3 align="center">&rarr;</h3></font></td> <td><font color=lime size=5><h3 align="center">S'</h3></font></td> </tr>
+
+<tr> <td><font color=lime size=5><h3 align="center">S</h3></font></td> <td><font color=lime size=5><h3 align="center">&rarr;</h3></font></td> <td><font color=lime size=5><h3 align="center">S'</h3></font></td> </tr>
+
+<tr> <td><font color=lime size=5><h3 align="center">S</h3></font></td> <td><font color=lime size=5><h3 align="center">&rarr;</h3></font></td> <td><font color=lime size=5><h3 align="center">S'</h3></font></td> </tr>
+
+<tr> <td><font color=lime size=5><h3 align="center">S</h3></font></td> <td><font color=lime size=5><h3 align="center">&rarr;</h3></font></td> <td><font color=lime size=5><h3 align="center">S'</h3></font></td> </tr>
+
+</table>
+
+</strong>
+</aside>
+
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+  <head>
+    <Meta charset="utf-8">
+    <title>Expresiones regulares</title>
+    <script src=".js"></script>
+    <link rel="stylesheet" href="PresentacionCapitulo.css">
+  </head>
+<body>
+<header>Compiladores<br>Capítulo 2</header>
+ <nav>
+   <!-- <div class="contenedor">--> 
+      <p><img src="curie.svg" align=center width=55% border=5></image>Clásico</p>
+      <p class="derecha"><a href="TemarioCompiladores.html">Temario</a></p>
+      
+      <p><a href="21ClasObjPra.html"><img src="EstudiarPracticandoIzq.svg" align=center width=55% border=5></image>Práctico</a></p>
+      <p><a href="21ClasObjHac.html"><img src="EstudiarHaciendo.svg" align=center width=55% border=5></image>Haciendo</a></p>
+    <!--</div>-->
+ </nav>
+  <section class="envoltura">
+    <h1 class="titulo">EXPRESIONES REGULARES</h1>
+    <section class="interna">
+      
+      <article>
+     <h1>Partes que componen a un analizador léxico</h1>
+       <hr>
+       <br>
+     <!-- <p>Este capítulo describe las herramientas matemáticas y técnicas de programación.
+que se utilizan comúnmente para construir escáneres, ambos generados
+y escáneres hechos a mano. El capítulo comienza, en la Sección 2.2, presentando un modelo para reconocedores, programas que identifican palabras en un flujo de
+caracteres. La sección 2.3 describe las expresiones regulares, una notación formal para
+especificando la sintaxis. En la sección 2.4, mostramos un conjunto de construcciones para convertir un
+expresión regular en un reconocedor. Finalmente, en la Sección 2.5 presentamos tres
+diferentes formas de implementar un escáner: un escáner de mesa, un escáner de codificación directa
+escáner y un enfoque codificado a mano.
+Tanto los escáneres generados como los hechos a mano se basan en las mismas técnicas subyacentes. Si bien la mayoría de los libros de texto y cursos abogan por el uso de
+los escáneres, la mayoría de los compiladores comerciales y los compiladores de código abierto utilizan escáneres hechos a mano. Un escáner hecho a mano puede ser más rápido que uno generado
+escáner porque la implementación puede optimizar una parte de la sobrecarga que no se puede evitar en un escáner generado. Porque los escáneres son
+simples y cambian con poca frecuencia, muchos escritores de compiladores consideran que la ganancia de rendimiento de un escáner hecho a mano supera la conveniencia
+de generación automática de escáneres. Exploraremos ambas alternativas. </p>
+      <br>-->
+      <p>Un <strong>token</strong> es una secuencia de caracteres que puede tratarse como una unidad en el gramática de un lenguaje de programación. Un lenguaje de programación clasifica a los
+tokens como clases léxicas que es un conjunto finito de tipos de tokens. Por ejemplo, algunos de los tipos de tokens de un lenguaje de programación típico, son: ID, NUM, REAL, IF, COMMA, NOTEQ, LPAREN, RPAREN.</p>
+      <br>
+     <p><strong>Programa fuente (entrada). </strong> Dado una parte de programa. Se identifican los tokens.</p>
+     <br>
+     <pre>
+     /* encuentra un cero */
+     float acopla0(char *s) {
+       if (!strncmp(s, "0.0", 3))
+       return 0.;
+     }
+     </pre>
+     <br>
+    <p align="center">
+<img src="ProcedimientoAL1a.svg" align=center alt="seleccione aquí para visitar la página oficial de Instraw" width=100% border=0></p>
+     <br>
+     <p><strong>Salida del analizador léxico (Clases léxicas). </strong> Los tokens que se identifican, son los siguientes:</p>
+     <br>
+     <p>FLOAT ID(acopla0) LPAREN CHAR STAR ID(s)
+RPAREN LBRACE IF LPAREN BANG ID(strncmp) LPAREN
+ID(s) COMMA STRING(0.0)  COMMA NUM(3) RPAREN RPAREN 
+RETURN REAL(0.0) SEMI RBRACE EOF </p>
+      <br>
+      <p>donde se informa el tipo de token de cada token reportado; algunos de los tokens, como identificadores y literales, tienen valores semánticos adjuntos, dando información adicional de auxilio además del tipo de token.
+¿Cómo se deben describir las reglas léxicas de un lenguaje de programación? ¿En qué idioma se debe escribir un analizador léxico?
+Podemos describir los tokens léxicos de un idioma en inglés.</p>
+     <br>
+     <p class="cita"><cite>Modern compiler implementation in C, Andrew W. Appel, Pág. 17-18</cite></p>
+      <br>
+      <p><strong>Clases léxicas.</strong> Podemos decir que los tokens, son: identificadores, palabras clave o palabras reservadas, delimitadores, números, operadores.</p>
+      <br>
+     <p><a href="ALex.pdf">Función del analizador léxico. En pdf.</a></p>
+     <br>     
+      <hr>
+       <h1>Expresiones Regulares</h1>
+       <hr>
+       <br>
+       <p><strong>Uso de las expresiones regulares.</strong> Digamos que un idioma es un conjunto de cadenas; una cadena es una secuencia finita de símbolos. Los símbolos mismos se toman de un alfabeto finito. El lenguaje Pascal es el conjunto de todas las cadenas que constituyen Pascal. Un programa; el lenguaje de los números primos es el conjunto de todas las cadenas de dígitos decimales que
+representar números primos; y el lenguaje de las palabras reservadas en C es el conjunto de
+todas las cadenas alfabéticas que no se pueden utilizar como identificadores en la programación C. Los dos primeros de estos lenguajes son conjuntos infinitos; el último es un finito conjunto. En todos estos casos, el alfabeto es el conjunto de caracteres ASCII.
+Cuando hablamos de idiomas de esta manera, no le asignaremos ningún significado a las cadenas; solo intentaremos clasificar cada cadena como en el idioma o no.
+Para especificar algunos de estos lenguajes (posiblemente infinitos) con descripciones finitas, usaremos la notación de expresiones regulares. Cada expresión regular representa un conjunto de cadenas.</p>
+      <br>
+      <p><strong>Representación símbolica de las expresiones regulares.</strong> Un sólo símbolo representa una expresión regular:</p>
+      <font color=red size=7><h3 align="center">a</h3></font>
+      <br>
+      <p><strong>Representación símbolica de la cadena vacia.</strong> Se representa por la letra griega <strong>lambda</strong> o por la letra griega <strong>epsilón</strong>:</p>
+      <br>
+      <font color=red size=7><h3 align="center">&lambda; , &epsilon;</h3></font>
+      <br>
+      <p><strong>Representación símbolica de la concatenación.</strong> Se representa por las letras <strong>a</strong> y la letra <strong>b</strong>:</p>
+      <br>
+      <font color=red size=7><h3 align="center">a b</h3></font>
+      <br>
+     <p><strong>Representación símbolica de la alternativa.</strong> Se representa por las letras <strong>a</strong> y la letra <strong>b</strong> y el símbolo barra, de la siguiente manera:</p>
+      <br>
+      <font color=red size=7><h3 align="center">a | b</h3></font>
+      <br>
+     <p><strong>Representación símbolica de la repetición (Cerradura de kleene).</strong> Se representa por las letras <strong>a</strong> y el símbolo *:</p>
+      <br>
+      <font color=red size=7><h3 align="center">{&epsilon;, a, aa, aaa, ... } = a<SUP>*</h3></font>
+      <br>
+       <p><strong>Representación símbolica de la repetición (Cerradura de positiva).</strong> Se representa por las letras <strong>b</strong> y el símbolo +:</p>
+      <br>
+      <font color=red size=7><h3 align="center">{b, bb, bbb, ... } = b<SUP>+</h3></font>
+      <br>
+      <p><strong>Representación por medio de expresiones regulares de las clases léxicas.</strong> Un ejemplo es el identificador. la expresión regular que representa al identificador es la siguiente:</p>
+      <br>
+      <font color=red size=7><h3 align="center">l (d | l)<SUP>*</h3></font>
+      <br>
+      <p><strong>Representación por medio de expresiones regulares de las palabras clave.</strong> Un ejemplo es la palabra clave <strong>new</strong>, que es la concatenasión de las letras n e w:</p>
+      <br>
+      <font color=red size=7><h3 align="center">n e w</h3></font>
+       <br>
+       <p><strong>Expresiones regulares.</strong> Son: el símbolo, alternativa, concatenación, epsilón, repetición (cerradura).</p>
+      <br>
+      <p><strong>Representación por medio de expresiones regulares de los números enteros.</strong> Un ejemplo son los números enteros <strong>263</strong>, que es la concatenasión de los dígitos 2 6 3:</p>
+      <br>
+      <font color=red size=7><h3 align="center">2 6 3 = {d, dd, ddd, dddd, ... } = d<SUP>+</h3></font>
+       <br>
+     <p class="cita"><cite>Modern compiler implementation in C, Andrew W. Appel, Pág. 19</cite></p>
+    <br>
+    <p>La manera de representar a los tokens se hace por medio de expresiones regulares o por medio de autómatas.</p>
+    <br>
+    <p><strong>Código fuente.</strong> Se tiene el siguiente parte de un programa: </p>
+    <br>
+    <pre> </pre>
+    <br>
+   <p><strong>Representación por medio de expresiones regulares de los delimitadores.</strong> Un ejemplo son los símbolos que representamos entre llaves. La expresión regular de los delimitadores es como las <strong>palabras clave</strong>, el mismo delimitador:</p>
+   <font color=red size=7><h3 align="center">{(, ), [, ], ;, ,, {, }, ", $, ... } = d<SUP>+</h3></font>
+    <br>
+    <p><strong>Representación por medio de expresiones regulares de los operadores.</strong> Un ejemplo son los símbolos que representamos entre llaves. La expresión regular de los operadores es también como las <strong>palabras clave</strong>, el mismo operador:</p>
+   <font color=red size=7><h3 align="center">{+, *, /, -, ^, %, =, ==}</h3></font>
+     <br>
+     <p><strong>Concatenación de un símbolo con la cadena vacia.</strong> Es la demostración de que un símbolo es una expresión regular. Ya que es la concatenación de dos símbolos:</p>
+   <font color=red size=7><h3 align="center">a &epsilon; = a</h3></font>
+     <br>
+     <p><strong>Definición de vocabulario.</strong> Este se representa por medio de la letra griega &Sigma;. Entre llaves se enumeran los símbolos que forman a los tokens:</p>
+   <font color=red size=7><h3 align="center">&Sigma; = {a, b, l, d}</h3></font>
+
+     </article>
+    </section>
+      <aside>
+        <h1>Ejercicios</h1>
+        <hr>
+        <br>
+     <p><strong>Ejercicio.</strong> Encontrar la expresión regular de un número flotante.</p>
+     <br>
+     
+     <hr>
+     <h1>Preguntas</h1>
+     <hr>
+     <br>
+     <p><strong>Pregunta.</strong> ¿Cuáles son las operaciones básicas de las expresiones regulares?</p>
+     <br>
+      
+     <hr>
+     <h1>Expresiones Regulares (ER)</h1>
+     <hr>
+     <br>
+     <p>El texto "expresión regular", se escribe de manera abreviada como <strong>ER</strong>. Las ER se usan para representar a los tokens. Los tokens se clasifican en clases léxicas. </p>
+     <br>
+    
+        </aside>
+      <footer><p>Construcción de analizadores léxicos: Tema extra 2.1.1</p><p class="derecha">Prof. José Sánchez Juárez.</p> </footer>
+   </section>
+</body>
+</html>

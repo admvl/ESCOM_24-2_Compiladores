@@ -1,0 +1,663 @@
+<html>
+<style>
+
+header {
+background-color: #8ba987;
+display: block;
+color:#FFFFFF;
+text-align: center;
+height: auto;
+width:80%;
+margin-left:10%;
+border: solid;
+border-color:#FFFF00;
+padding: 20px;
+}
+
+nav {
+text-align: center;
+height: auto;
+width:80%;
+margin-left:10%;
+border: solid;
+border-color:#FFFF00;
+}
+
+section {
+margin-left:15%;
+margin-top:5%;
+margin-bottom:5%;
+}
+
+h2 {  font-size: 30px;
+      margin: 0px;
+}
+
+p.par1  {
+ width: 200px;
+ margin-top: 0px;
+ padding: 5px;
+ border: solid 6px #f60;
+ font: normal 18px arial, helvetica, sans-serif;
+ }
+
+article {
+background-color: #8ba987;
+display: block;
+margin-left: 25%;
+margin-top: 0.5%;
+padding: 1px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 2px 2px 20px #888;
+-webkit-transform: rotate(-0deg);
+-moz-box-shadow: 2px 2px 20px #888;
+-moz-transform: rotate(-0deg);
+width:50%;	
+height: auto;	
+}
+
+article header {
+background-color: #009F80;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#800000;
+padding: 2px;
+height: auto;
+width:44%;
+text-align: center;
+font-size: 20px;
+margin-left:26%;
+margin-bottom: 5%;
+margin-top: 5%;
+}
+
+article h1 {
+font-size: 20px;
+
+}
+
+article div{
+<!--background-color: #8ba987;-->
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border-color:#0000FF;
+padding: 5px;
+width: auto;
+text-align: center;
+margin-left:0%;
+margin-top:20%;
+}
+
+	.modalDialog {
+		position: fixed;
+		font-family: Arial, Helvetica, sans-serif;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0,0,0,0.2);
+		z-index: 99999;
+		opacity:0;
+		-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+		pointer-events: none;
+	}
+	.modalDialog:target {
+		opacity:1;
+		pointer-events: auto;
+	}
+	.modalDialog > div {
+		width: 30%;
+		position: relative;
+		margin: 10% auto;
+		padding: 5px 20px 13px 20px;
+		border-radius: 10px;
+		background: #fff;
+		background: -moz-linear-gradient(#fff, #999);
+		background: -webkit-linear-gradient(#fff, #999);
+		background: -o-linear-gradient(#fff, #999);
+	  	-webkit-transition: opacity 400ms ease-in;
+		-moz-transition: opacity 400ms ease-in;
+		transition: opacity 400ms ease-in;
+	}
+	.close {
+		background: #606061;
+		color: #FFFFFF;
+		line-height: 25px;
+		position: absolute;
+		right: -12px;
+		text-align: center;
+		top: -10px;
+		width: 24px;
+		text-decoration: none;
+		font-weight: bold;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+		-moz-box-shadow: 1px 1px 3px #000;
+		-webkit-box-shadow: 1px 1px 3px #000;
+		box-shadow: 1px 1px 3px #000;
+	}
+	.close:hover { background: #00d9ff; }
+
+table {
+  margin-left: 0%;
+  margin-top: 0%;
+  padding: 0px;
+  
+}
+
+
+</style>
+
+<head>
+<title>Resumen de Programación orientada a objetos2</title>
+</head>
+
+<body bgcolor=gray text=white link=yellow vlink=lime>
+
+<!--
+<a>
+<img src="LibCompiladores.svg" align=left alt="seleccione aquí para visitar la página oficial de Instraw" width=24% border=0>
+</a>
+
+<a>
+<img src=ApuntesInt.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=24.5% height=45% border=0>
+</a>
+-->
+
+<header>
+<img src=Estudiante.svg align=left alt="seleccione aquí para visitar la página oficial del material" width=16% height=auto border=0>
+
+<img src=ApuntesInt.svg align=right alt="seleccione aquí para visitar la página oficial del material" width=16% height=float border=0>
+
+<h1 align=center>
+<font color=maroon size=8>
+RESUMEN
+</font>
+</h1>
+
+<h2 align=center>
+<font color=white size=6>
+Bases de la programación orientada a objetos
+</font>
+</h2>
+</header>
+
+
+<hr>
+
+
+<nav>
+<h3 align=center><font size=6>Índice</font></h3>
+
+<p align=center><font size=5>
+Características más importantes del paradigma orientado a objetos.</font></p>
+
+
+<a href=#bas>
+Las bases.
+</a>
+&nbsp; &nbsp; &nbsp; &nbsp;
+
+<a href=#imp>
+Implementando clases.
+</a>
+&nbsp; &nbsp; &nbsp; &nbsp;
+<a href=#con>
+Constructores.
+</a>
+</nav>
+
+
+<hr>
+
+
+<!--<article>-->
+
+<header id=1;>
+<h2 align="center" id=bas>El paradigma resuelve.</h2>
+</header>
+
+<section>
+<table CELLSPACING="10">
+<tr>
+<td>
+<!--<div>-->
+<font color=yellow><h3 align="center">El paradigma resuelve</h3></font>
+<!--<div>
+<article>-->
+<p class="par1"><table CELLSPACING="18">
+
+<tr><td>1</td><td>Comportamiento que fue difı́cil de caracterizar como un proceso.</td></tr>
+
+<tr><td>2</td><td>Requisitos de confiabilidad, rendimiento y costo que los desarrolladores
+originales no enfrentaron.</td></tr>
+</table></p>
+</td>
+
+
+<td>
+<font color=yellow><h3 align="center">El paradigma resuelve</h3></font>
+<p class="par1">
+Todas estas aplicaciones informáticas se basan en programas informáticos de
+software que crean herramientas virtuales además de las abstracciones de bajo
+nivel proporcionadas por el hardware subyacente. Casi todo este software se
+ traduce por una herramienta llamada compilador. Un compilador es simplemente
+un programa de computadora que traslada otros programas de computadora
+para prepararlos para su ejecución, gráficamente mostrado en la  [5] .</p>
+</td>
+
+<td>
+<font color=yellow><h3 align="center">El rol central de los objetos</h3></font>
+<p class="par1">
+La orientación a objetos, como su nombre lo indica, convierte a los objetos en la pieza central del diseño de software. El diseño de los sistemas anteriores se centró en los procesos, que eran susceptibles de cambio, y cuando se produjo este cambio, muy poco del viejo sistema era reutilizable”. La noción de un objeto se centra en una pieza de datos y las operaciones (o métodos) podrı́an usarse para modificarlo. Esto hace posible la creación de una abstracción que es muy estable ya que no depende de los requisitos cambiantes de la aplicación. La ejecución de cada proceso depende en gran medida de los objetos para almacenar los datos y proporcionar operaciones necesarias; con algo de trabajo adicional, todo el sistema se ensambla a partir de objetos.
+</p>
+</td>
+
+<td>
+<font color=yellow><h3 align="center">La noción de clase</h3></font>
+<p class="par1">
+Las clases permiten que un diseñador de software vea los objetos como di- ferentes tipos de entidades. Visitar los objetos de esta manera nos permiten utilizar los mecanismos de clasificación para clasificar estos tipos, definir je- rarquı́as y comprometerse con las ideas de especialización y generalización de objetos.
+</p>
+</td>
+</tr>
+</table>
+<!--</article>
+</div>-->
+</section>
+
+<aside>
+<blockquote>Mensaje número uno</blockquote>
+<blockquote>Mensaje número dos</blockquote>
+</aside>
+
+<header>
+<h2 align="center" id=nativas>Características <b>nativas</b> de programación orientada a objetos.</h2>
+</header>
+
+<section>
+<table CELLSPACING="10">
+<tr>
+<td>
+<font color=yellow><h3 align="center">El paradigma resuelve</h3></font>
+<!--<div>-->
+<p class="par1"><table>
+
+<tr><td>1</td><td>Comportamiento que fue difı́cil de caracterizar como un proceso.</td></tr>
+<tr><td>2</td><td>Requisitos de confiabilidad, rendimiento y costo que los desarrolladores
+originales no enfrentaron.</td></tr>
+</table></p>
+</td>
+
+
+<td>
+<font color=yellow><h3 align="center">El paradigma resuelve</h3></font>
+<p class="par1">
+Todas estas aplicaciones informáticas se basan en programas informáticos de
+software que crean herramientas virtuales además de las abstracciones de bajo
+nivel proporcionadas por el hardware subyacente. Casi todo este software se
+ traduce por una herramienta llamada compilador. Un compilador es simplemente
+un programa de computadora que traslada otros programas de computadora
+para prepararlos para su ejecución, gráficamente mostrado en la  [5] .</p>
+</td>
+
+<td>
+<font color=yellow><h3 align="center">El rol central de los objetos</h3></font>
+<p class="par1">
+La orientación a objetos, como su nombre lo indica, convierte a los objetos en la pieza central del diseño de software. El diseño de los sistemas anteriores se centró en los procesos, que eran susceptibles de cambio, y cuando se produjo este cambio, muy poco del viejo sistema era reutilizable”. La noción de un objeto se centra en una pieza de datos y las operaciones (o métodos) podrı́an usarse para modificarlo. Esto hace posible la creación de una abstracción que es muy estable ya que no depende de los requisitos cambiantes de la aplicación. La ejecución de cada proceso depende en gran medida de los objetos para almacenar los datos y proporcionar operaciones necesarias; con algo de trabajo adicional, todo el sistema se ensambla a partir de objetos.
+</p>
+</td>
+
+<td>
+<font color=yellow><h3 align="center">La noción de clase</h3></font>
+<p class="par1">
+Las clases permiten que un diseñador de software vea los objetos como di- ferentes tipos de entidades. Visitar los objetos de esta manera nos permiten utilizar los mecanismos de clasificación para clasificar estos tipos, definir je- rarquı́as y comprometerse con las ideas de especialización y generalización de objetos.
+</p>
+</td>
+</tr>
+</table>
+<!--</div>-->
+</section>
+
+
+<header>
+<h2 align="center" id=cum>Características que <b>debemos hacer cumplir</b> de la programación orientada a objetos.</h2>
+</header>
+
+<section>
+<table CELLSPACING="10">
+<tr>
+<td>
+<font color=yellow><h3 align="center">El paradigma resuelve</h3></font>
+<!--<div>-->
+<p class="par1"><table>
+
+<tr><td>1</td><td>Comportamiento que fue difı́cil de caracterizar como un proceso.</td></tr>
+<tr><td>2</td><td>Requisitos de confiabilidad, rendimiento y costo que los desarrolladores
+originales no enfrentaron.</td></tr>
+</table></p>
+</td>
+
+
+<td>
+<font color=yellow><h3 align="center">El paradigma resuelve</h3></font>
+<p class="par1">
+Todas estas aplicaciones informáticas se basan en programas informáticos de
+software que crean herramientas virtuales además de las abstracciones de bajo
+nivel proporcionadas por el hardware subyacente. Casi todo este software se
+ traduce por una herramienta llamada compilador. Un compilador es simplemente
+un programa de computadora que traslada otros programas de computadora
+para prepararlos para su ejecución, gráficamente mostrado en la  [5] .</p>
+</td>
+
+<td>
+<font color=yellow><h3 align="center">El rol central de los objetos</h3></font>
+<p class="par1">
+La orientación a objetos, como su nombre lo indica, convierte a los objetos en la pieza central del diseño de software. El diseño de los sistemas anteriores se centró en los procesos, que eran susceptibles de cambio, y cuando se produjo este cambio, muy poco del viejo sistema era reutilizable”. La noción de un objeto se centra en una pieza de datos y las operaciones (o métodos) podrı́an usarse para modificarlo. Esto hace posible la creación de una abstracción que es muy estable ya que no depende de los requisitos cambiantes de la aplicación. La ejecución de cada proceso depende en gran medida de los objetos para almacenar los datos y proporcionar operaciones necesarias; con algo de trabajo adicional, todo el sistema se ensambla a partir de objetos.
+</p>
+</td>
+
+<td>
+<font color=yellow><h3 align="center">La noción de clase</h3></font>
+<p class="par1">
+Las clases permiten que un diseñador de software vea los objetos como di- ferentes tipos de entidades. Visitar los objetos de esta manera nos permiten utilizar los mecanismos de clasificación para clasificar estos tipos, definir je- rarquı́as y comprometerse con las ideas de especialización y generalización de objetos.
+</p>
+</td>
+</tr>
+</table>
+</section>
+
+<!--</div>
+
+</div>-->
+
+
+<header>
+<h2 align="center" id=cum>Características del C++ que sirven al paradigma orientado a objetos.</h2>
+</header>
+
+<p align="center">
+El lenguaje C++ es un lenguaje útil para manejar programas muy grandes. Es apropiado para programar cualquier tarea, como: desarrollo de editores, compiladores, bases de datos, sistemas de comunicación y cualquier sistema de aplicación de la vida real complicado.
+
+
+<table CELLSPACING="18">
+<tr><td>Nos permite crear objetos relacionados jerárquicamente, se pueden crear librerias orientadas a objetos.</td></tr>
+
+<tr><td>Es capaz de mapear las propiedades del problema del mundo real. Este lenguaje da la abilidad de acercarse a los detalles al nivel de máquina.</td></tr>
+
+<tr><td>Los programas son facilmente mantenibles y expandibles. Cuando una nueva característica se requiere, debe sre fácil de agregar a la estructura existente de un objeto.</td></tr>
+
+<tr><td>Se espera que C++ sea un lenguaje de proposito general.</td></tr>
+
+</table>
+</p>
+
+<font color=yellow><h3 align="center">Un programa C++</h3></font>
+
+Es un programa simple en C++:
+
+<pre>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	cout << "C++ es mejor que C";
+
+	return 0;
+}
+</pre>
+
+El programa anterior demuestra algunas características de C++.
+
+<!--Ventana 1-->
+
+
+
+<div id="openModal" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 2</font></h3>
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+	<font color=black>Características de las figuras</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la entrada y salida del Compilador.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig3.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 2-->
+
+
+
+<div id="openModal1" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 1</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la arquitectura del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig2.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+<!--Ventana 3-->
+
+
+
+<div id="openModal2" class="modalDialog">
+	<div>
+		
+		<h3><font color=black>FIGURA 3</font></h3>
+
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de definiciones</font>.<table width="350" cellspacing="1" 				cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Definición de intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+		<p><font color=black>Otro tipo de traductor, llamado intérprete, procesa en forma 			interna el programa fuente y los datos al mismo tiempo. Es decir, la interpretación 				del formulario de origen interno se produce en tiempo de ejecución y no se 				genera ningún programa objeto.</font></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 4-->
+
+
+
+<div id="openModal3" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 4</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama a bloques de la entrada y salida del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig1.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 5-->
+
+
+
+<div id="openModal4" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 4</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama del concepto del intérprete.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig4.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+<!--Ventana 6-->
+
+
+
+<div id="openModal5" class="modalDialog">
+	<div>
+		<h3><font color=black>FIGURA 5</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Características de las figuras</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Diagrama del intérprete para ejemplificar con el compilador.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+			<p><img src="INTfig5.svg" width="500" height="450"></p>
+    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+
+
+<!--Ventana Cuadro-->
+
+
+
+<div id="openModalC1" class="modalDialog">
+	<div>
+		<h3><font color=black>CUADRO 1</font></h3>
+		
+		<a href="#close" title="Close" class="close">X</a>
+		
+		
+			
+		<font color=black>Lista de cuadros</font>.<table width="350" 			cellspacing="1" cellpadding="3" border="0" bgcolor="#80A93E" align="center">
+
+			<tr>
+
+   			<td bgcolor="#B7F259" align="center"><font size=4 face="verdana, arial, 			helvetica" color=black><b>Sugerencia sobre la tabla de sı́mbolos.</b></font></td> 
+			</tr>
+
+			<tr>
+
+   			<td bgcolor="#F5ECB9"> 
+			
+                <table color=black CELLSPACING="20">
+                    <tr><td><font color=black>1</font></td><td><font color=black>Posición</font></td><td><font color=black>...</fony></td></tr>
+                    <tr><td><font color=black>2</font></td><td><font color=black>Inicial</font></td><td><font color=black>...</sont></td></tr>
+                    <tr><td><font color=black>3</font></td><td><font color=black>Velocidad</fony></td><td><font color=black>...</font></td></tr>
+                    <tr><td><font color=black>4</font>/td><td></td><td><font color=black>...</font></td></tr>
+                </table>
+			    			
+			</td></tr>
+			</table>
+ 			
+
+		
+	</div>
+</div>
+
+</body>
+</html>
